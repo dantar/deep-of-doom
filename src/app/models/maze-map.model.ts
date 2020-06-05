@@ -10,3 +10,14 @@ export class MazeTile {
   east?: string;
   west?: string;
 }
+
+export class MazeConnection {
+    a: MazeConnectionPoint; 
+    b: MazeConnectionPoint; 
+}
+
+export class MazeConnectionPoint {
+    x: number;
+    y: number;
+    d: 'north'|'south'|'east'|'west';
+}

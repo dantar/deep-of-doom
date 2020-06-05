@@ -1,0 +1,33 @@
+<svg class="fullsvg" viewBox="0 0 100 100">
+    <defs></defs>
+
+<g *ngFor="let row of rows">
+    <g *ngFor="let cell of row" class="tile north-{{cell.north}} south-{{cell.south}} east-{{cell.east}} west-{{cell.west}}" [style]="position(cell)">
+    <path
+       style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.90521175;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+       d="M 0,0 H 10 V 10 H 0 Z"
+       class="wall" />
+    <path
+       class="west"
+       d="M 0,4 H 6 V 6 H 0 Z"
+       style="opacity:1;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.31357455;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    <path
+       style="opacity:1;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.31357455;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+       d="M 6,0 V 6 H 4 V 0 Z"
+       class="north" />
+    <path
+       class="east"
+       d="M 10,6 H 4 V 4 h 6 z"
+       style="opacity:1;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.31357455;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    <path
+       class="south"
+       d="m 6.0000001,3.9999988 v 6 H 3.9999999 v -6 z"
+       style="opacity:1;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.31357455;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    <path
+       style="opacity:1;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.72416949;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+       d="M 9,9 H 1 V 1 h 8 z"
+       class="path832" />
+    </g>
+</g>
+
+</svg>

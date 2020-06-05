@@ -1,7 +1,7 @@
 <svg class="fullsvg" viewBox="0 0 100 100">
     <defs></defs>
 
-<g *ngFor="let row of rows">
+<g *ngFor="let row of shared.maze.rows">
     <g *ngFor="let cell of row" class="tile north-{{cell.north}} south-{{cell.south}} east-{{cell.east}} west-{{cell.west}}" [style]="position(cell)">
     <path
        style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.90521175;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"

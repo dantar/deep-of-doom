@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MazeMap, MazeTile } from 'src/app/models/maze-map.model';
+import { SharedDataService } from 'src/app/services/shared-data.service';
 
 @Component({
   selector: 'app-maze-map',
@@ -7,32 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MazeMapComponent implements OnInit {
 
-  rows: MazeTile[][];
-
-  walltypes: string[];
-
-  constructor() { }
+  constructor(
+    public shared: SharedDataService,
+  ) { }
 
   ngOnInit(): void {
-    this.walltypes = ['open', 'wall'];
-    this.rows = [];
-    for (let x = 0; x < 10; x++) {
-      let row: MazeTile[] = [];
-      this.rows.push(row);
-      for (let y = 0; y < 10; y++) {
-        row.push({
-          x:x,
-          y:y,
-          north: this.randomwall(),
-          south: this.randomwall(),
-          east: this.randomwall(),
-          west: this.randomwall(),
-        });
-      }
-    }
-  }
-  randomwall(): string {
-    return this.walltypes[Math.floor(Math.random() * this.walltypes.length)];
   }
 
   position(t: MazeTile): string {
@@ -41,12 +22,3 @@ export class MazeMapComponent implements OnInit {
 
 }
 
-class MazeTile {
-  x: number;
-  y: number;
-
-  north?: string;
-  south?: string;
-  east?: string;
-  west?: string;
-}

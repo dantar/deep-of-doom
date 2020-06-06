@@ -26,10 +26,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('deep-of-doom');
   });
 
-  it('should render title', () => {
+  it('should render background', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('deep-of-doom app is running!');
+    expect(compiled.querySelector('.bg')).toBeTruthy();
   });
 });

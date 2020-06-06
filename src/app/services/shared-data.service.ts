@@ -10,7 +10,7 @@ export class SharedDataService {
   maze: MazeMap;
 
   constructor(private generator: MazeGeneratorService) {
-    this.maze = this.generator.generate();
+    this.maze = this.generator.generate(10, 10);
   }
 
 }

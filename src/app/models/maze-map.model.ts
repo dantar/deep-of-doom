@@ -1,4 +1,6 @@
 export class MazeMap {
+    sizex: number;
+    sizey: number;
     rows: MazeTile[][];
 }
 

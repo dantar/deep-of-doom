@@ -73,6 +73,10 @@ export class MazeGeneratorService {
     return this.walltypes[Math.floor(Math.random() * this.walltypes.length)];
   }
 
+  coords(t: MazeTile): string {
+    return `${t.x}-${t.y}`;
+  }
+
 }
 
 export class MazeExplorer {
@@ -108,7 +112,6 @@ export class MazeExplorer {
       this._explore(tile.x-1, tile.y, steps+1);
     }
   }
-
 
   coords(t: MazeTile): string {
     return `${t.x}-${t.y}`;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MazeMap, MazeTile } from 'src/app/models/maze-map.model';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { MazeExplorer } from 'src/app/services/maze-generator.service';
+import { GamesCommonService } from 'src/app/services/games-common.service';
 
 @Component({
   selector: 'app-maze-map',
@@ -14,12 +15,15 @@ export class MazeMapComponent implements OnInit {
   drawn: MazeTile[];
   drawable: MazeTile[];
 
+  mobs: {[id: string]: string};
+
   explorer: MazeExplorer;
   entry: MazeTile;
   exit: MazeTile;
 
   constructor(
     public shared: SharedDataService,
+    public game: GamesCommonService,
   ) { }
 
   ngOnInit(): void {
@@ -47,6 +51,13 @@ export class MazeMapComponent implements OnInit {
       });
     });
     this.draw(this.entry);
+    // mobs
+    this.mobs = {};
+    let vaults = this.deadends.map(t => this.explorer.coords(t));
+    this.game.shuffle(vaults);
+    for (let index = 0; index < Math.min(10, vaults.length); index++) {
+      this.mobs[vaults.pop()] = 'skeleton';
+    }
   }
 
   draw(t: MazeTile) {

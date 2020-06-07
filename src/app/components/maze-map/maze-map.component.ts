@@ -11,6 +11,8 @@ import { MazeExplorer } from 'src/app/services/maze-generator.service';
 export class MazeMapComponent implements OnInit {
 
   deadends: MazeTile[];
+  drawn: MazeTile[];
+  drawable: MazeTile[];
 
   explorer: MazeExplorer;
   entry: MazeTile;
@@ -22,6 +24,8 @@ export class MazeMapComponent implements OnInit {
 
   ngOnInit(): void {
     this.deadends = [];
+    this.drawn = [];
+    this.drawable = [];
     this.shared.maze.rows.forEach(tiles => {
       tiles
       .filter(t => [t.east, t.north, t.south, t.west].filter(exit => exit === 'open').length === 1)
@@ -42,7 +46,23 @@ export class MazeMapComponent implements OnInit {
         }
       });
     });
+    this.draw(this.entry);
+  }
 
+  draw(t: MazeTile) {
+    this.drawn.push(t);
+    if (t.north === 'open') {
+      this.drawable.push(this.shared.maze.rows[t.x][t.y-1]);
+    }
+    if (t.south === 'open') {
+      this.drawable.push(this.shared.maze.rows[t.x][t.y+1]);
+    }
+    if (t.east === 'open') {
+      this.drawable.push(this.shared.maze.rows[t.x+1][t.y]);
+    }
+    if (t.west === 'open') {
+      this.drawable.push(this.shared.maze.rows[t.x-1][t.y]);
+    }
   }
 
   position(t: MazeTile): string {

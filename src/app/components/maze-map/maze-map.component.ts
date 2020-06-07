@@ -17,7 +17,7 @@ export class MazeMapComponent implements OnInit {
   }
 
   position(t: MazeTile): string {
-    return `transform: translate(${10 * t.x}px, ${10 * t.y}px)`
+    return `transform: translate(${100 * t.x}px, ${100 * t.y}px)`
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MazeMap, MazeTile } from 'src/app/models/maze-map.model';
+import { MazeMap, MazeTile, MazeInsight } from 'src/app/models/maze-map.model';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { MazeExplorer } from 'src/app/services/maze-generator.service';
 import { GamesCommonService } from 'src/app/services/games-common.service';
@@ -11,7 +11,6 @@ import { GamesCommonService } from 'src/app/services/games-common.service';
 })
 export class MazeMapComponent implements OnInit {
 
-  deadends: MazeTile[];
   drawn: MazeTile[];
   drawable: MazeTile[];
 
@@ -27,20 +26,15 @@ export class MazeMapComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.deadends = [];
+    let insight = new MazeInsight().study(this.shared.maze);
     this.drawn = [];
     this.drawable = [];
-    this.shared.maze.rows.forEach(tiles => {
-      tiles
-      .filter(t => [t.east, t.north, t.south, t.west].filter(exit => exit === 'open').length === 1)
-      .forEach(t => this.deadends.push(t));
-    });
     let farthest = 0;
-    this.deadends.forEach(d => {
+    insight.exit1.forEach(d => {
       let explorer = new MazeExplorer(this.shared.maze);
       explorer.explore(d.x, d.y);
-      this.deadends
-      .filter(o => o !==d)
+      insight.exit1
+      .filter(o => o !==d )
       .forEach(o => {
         if (explorer.reach[explorer.coords(o)] > farthest) {
           farthest = explorer.reach[explorer.coords(o)];
@@ -53,7 +47,7 @@ export class MazeMapComponent implements OnInit {
     this.draw(this.entry);
     // mobs
     this.mobs = {};
-    let vaults = this.deadends.map(t => this.explorer.coords(t));
+    let vaults = insight.exit1.map(t => this.explorer.coords(t));
     this.game.shuffle(vaults);
     for (let index = 0; index < Math.min(10, vaults.length); index++) {
       this.mobs[vaults.pop()] = 'skeleton';
@@ -82,10 +76,6 @@ export class MazeMapComponent implements OnInit {
 
   distance(t: MazeTile): number {
     return this.explorer.reach[this.explorer.coords(t)];
-  }
-
-  isDeadEnd(t: MazeTile): boolean {
-    return this.deadends.includes(t);
   }
 
 }

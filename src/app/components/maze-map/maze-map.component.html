@@ -42,7 +42,7 @@
                y="56.906666"
                x="50.061874"
                id="tspan56">{{distance(cell)}}</tspan></text>
-         <image *ngIf="mobs[explorer.coords(cell)]"
+         <image *ngIf="mobs[explorer.coords(cell)]" (click)="clickMonster(cell)"
             width="40.899921"
             height="67.834015"
             preserveAspectRatio="none"
@@ -53,5 +53,6 @@
       </g>
    </g>
 </g>
-
 </svg>
+
+<app-fight-mob *ngIf="encounter" [mob]="encounter" (done)="encounter = null"></app-fight-mob>

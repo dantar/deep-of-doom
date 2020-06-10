@@ -20,6 +20,8 @@ export class MazeMapComponent implements OnInit {
   entry: MazeTile;
   exit: MazeTile;
 
+  encounter: string;
+
   constructor(
     public shared: SharedDataService,
     public game: GamesCommonService,
@@ -71,6 +73,10 @@ export class MazeMapComponent implements OnInit {
 
   distance(t: MazeTile): number {
     return this.explorer.pathfor[this.explorer.coords(t)].length;
+  }
+
+  clickMonster(tile: MazeTile) {
+    this.encounter = this.mobs[this.explorer.coords(tile)];
   }
 
 }

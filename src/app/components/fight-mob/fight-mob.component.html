@@ -1,0 +1,32 @@
+<div class="fullpage">
+    {{hits}}
+</div>
+<svg class="fullsvg modal-svg" viewBox="0 0 100 100">
+    <image *ngIf="mob === 'skeleton'" (click)="nextClick()"
+       width="40.899921"
+       height="67.834015"
+       preserveAspectRatio="none"
+       xlink:href="assets/skeleton.png"
+       id="image128"
+       x="29.550039"
+       y="16.082993" />
+    <g id="hits">
+        <circle
+            style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.6692915;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+            id="path16"
+            cx="67.946426"
+            cy="57.589287"
+            r="6.1607141" />
+        <text
+            xml:space="preserve"
+            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.3057642px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.38646615"
+            x="68.087326"
+            y="61.428574"
+            id="text20"><tspan
+            id="tspan18"
+            x="68.087326"
+            y="61.428574"
+            style="stroke-width:0.38646615">{{hits}}</tspan></text>
+    </g>
+
+</svg>

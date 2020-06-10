@@ -1,5 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
+svg {
+    user-select: none;
+}
+
+.modal-svg {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 // svg maze
 .north-wall .north {
     display: none;

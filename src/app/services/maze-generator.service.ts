@@ -21,7 +21,7 @@ export class MazeGeneratorService {
       let prev = this.applyConnection(c, maze, 'wall');
       let explorer = new MazeExplorer(maze);
       explorer.explore(0,0);
-      if (Object.keys(explorer.reach).length < x*y) {
+      if (Object.keys(explorer.pathfor).length < x*y) {
         this.applyConnection(c, maze, prev);
       }
     });
@@ -82,39 +82,52 @@ export class MazeGeneratorService {
 export class MazeExplorer {
 
   maze: MazeMap;
-  reach: {[id: string]: number};
+  paths: MazeTile[][];
+  pathfor: {[id: string]: MazeTile[]};
 
   constructor(maze: MazeMap) {
     this.maze = maze;
   }
 
   explore(x: number, y: number) {
-    this.reach = {};
-    this._explore(x, y, 0);
+    this.paths = [];
+    this.pathfor = {};
+    this._explore(x, y, []);
   }
 
-  private _explore(x: number, y: number, steps: number) {
+  private _explore(x: number, y: number, steps: MazeTile[]) {
     let tile = this.maze.rows[x][y];
-    if (this.reach.hasOwnProperty(this.coords(tile)) && this.reach[this.coords(tile)] <= steps) {
+    steps.push(tile);
+    if (this.pathfor.hasOwnProperty(this.coords(tile)) && this.pathfor[this.coords(tile)].length <= steps.length) {
       return;
     }
-    this.reach[this.coords(tile)] = steps;
+    // if (this.reach.hasOwnProperty(this.coords(tile)) && this.reach[this.coords(tile)] <= steps) {
+    //   return;
+    // }
+    this.pathfor[this.coords(tile)] = steps.map(t => t);
+    // this.reach[this.coords(tile)] = steps;
     if (tile.north === 'open') {
-      this._explore(tile.x, tile.y-1, steps+1);
+      this._explore(tile.x, tile.y-1, steps.map(t => t));
     }
     if (tile.south === 'open') {
-      this._explore(tile.x, tile.y+1, steps+1);
+      this._explore(tile.x, tile.y+1, steps.map(t => t));
     }
     if (tile.east === 'open') {
-      this._explore(tile.x+1, tile.y, steps+1);
+      this._explore(tile.x+1, tile.y, steps.map(t => t));
     }
     if (tile.west === 'open') {
-      this._explore(tile.x-1, tile.y, steps+1);
+      this._explore(tile.x-1, tile.y, steps.map(t => t));
     }
+    this.paths = Object.keys(this.pathfor).map(k => this.pathfor[k]);
+    this.paths.sort((a, b) => b.length === a.length ? 0: (b.length - a.length) / Math.abs(b.length - a.length) );
   }
 
   coords(t: MazeTile): string {
     return `${t.x}-${t.y}`;
+  }
+
+  maxSteps(): number {
+    return this.paths[0].length;
   }
 
 }

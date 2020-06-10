@@ -33,21 +33,16 @@ export class MazeMapComponent implements OnInit {
     insight.exit1.forEach(d => {
       let explorer = new MazeExplorer(this.shared.maze);
       explorer.explore(d.x, d.y);
-      insight.exit1
-      .filter(o => o !==d )
-      .forEach(o => {
-        if (explorer.reach[explorer.coords(o)] > farthest) {
-          farthest = explorer.reach[explorer.coords(o)];
-          this.exit = o;
-          this.entry = d;
-          this.explorer = explorer;
-        }
-      });
+      if (!this.explorer || this.explorer.maxSteps() < explorer.maxSteps()) {
+        this.explorer = explorer;
+        this.entry = explorer.paths[0][0];
+        this.exit = explorer.paths[0][-1];
+      } 
     });
     this.draw(this.entry);
     // mobs
     this.mobs = {};
-    let vaults = insight.exit1.map(t => this.explorer.coords(t));
+    let vaults = insight.exit1.filter(t => ![this.entry, this.exit].includes(t)).map(t => this.explorer.coords(t));
     this.game.shuffle(vaults);
     for (let index = 0; index < Math.min(10, vaults.length); index++) {
       this.mobs[vaults.pop()] = 'skeleton';
@@ -75,7 +70,7 @@ export class MazeMapComponent implements OnInit {
   }
 
   distance(t: MazeTile): number {
-    return this.explorer.reach[this.explorer.coords(t)];
+    return this.explorer.pathfor[this.explorer.coords(t)].length;
   }
 
 }

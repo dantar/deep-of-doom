@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GamesCommonService {
-
   constructor() { }
 
   shuffle(a: any[]) {
@@ -18,6 +17,10 @@ export class GamesCommonService {
 
   randomInt(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  randomPop(a: any[]): any {
+    return a.splice(this.randomInt(0, a.length-1), 1)[0];
   }
 
 }

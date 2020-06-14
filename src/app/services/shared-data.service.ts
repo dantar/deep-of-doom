@@ -40,4 +40,8 @@ export class SharedDataService {
     this.hero.mana = Math.max(0, this.hero.mana + arg0);
   }
 
+  exp(arg0: number) {
+    this.hero.exp = Math.max(0, this.hero.exp + arg0);
+  }
+
 }

@@ -55,6 +55,4 @@
 </g>
 </svg>
 
-<app-fight-mob *ngIf="encounter" [mob]="encounter" (done)="encounter = null"></app-fight-mob>
-
-<app-fight-mob *ngIf="encounter" [mob]="encounter" (done)="encounter = null"></app-fight-mob>
+<app-fight-mob *ngIf="encounter" [mob]="encounter" (done)="doneMonster()"></app-fight-mob>

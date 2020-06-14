@@ -17,16 +17,16 @@ export class FightMobComponent implements OnInit {
 
   brains: {[id:string]: () => void} = {
     tough: () => {
-      this.life --;
-      if (this.life <= 0) {
-        this.done.emit();
-      }
+      this.adjustLife(-1);
     },
     hit: () => {
       this.shared.life(-1);
     },
     gold: () => {
       this.shared.gold(1);
+    },
+    staff: () => {
+      this.adjustLife(-1);
     },
   }
 
@@ -38,12 +38,36 @@ export class FightMobComponent implements OnInit {
   ngOnInit(): void {
     this.life = 2;
     this.actions = ['tough', 'tough', 'hit', 'hit', 'gold'];
-    this.game.shuffle(this.actions);
   }
 
+  adjustLife(arg0: number) {
+    this.life = Math.max(0, this.life + arg0);
+    if (this.life <= 0) {
+      this.shared.exp(1);
+    }
+  }
+
+  // clicks
+
   nextClick() {
-    this.action = this.actions.pop();
+    if (this.life === 0) {
+      this.done.emit();
+      return;
+    }
+    this.action = this.game.randomPop(this.actions);
     this.brains[this.action]();
+  }
+
+  leftHandClick() {
+    if (this.life === 0) {
+      this.done.emit();
+      return;
+    }
+    if (this.shared.hero.mana < 2) {
+      return;
+    }
+    this.shared.mana(-2);
+    this.actions.push('staff', 'staff');
   }
 
 }

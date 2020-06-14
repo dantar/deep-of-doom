@@ -3,6 +3,7 @@ import { MazeMap, MazeTile, MazeInsight } from 'src/app/models/maze-map.model';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { MazeExplorer } from 'src/app/services/maze-generator.service';
 import { GamesCommonService } from 'src/app/services/games-common.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-maze-map',
@@ -21,6 +22,7 @@ export class MazeMapComponent implements OnInit {
   exit: MazeTile;
 
   encounter: string;
+  encounterTile: string;
 
   constructor(
     public shared: SharedDataService,
@@ -76,7 +78,14 @@ export class MazeMapComponent implements OnInit {
   }
 
   clickMonster(tile: MazeTile) {
-    this.encounter = this.mobs[this.explorer.coords(tile)];
+    this.encounterTile = this.explorer.coords(tile);
+    this.encounter = this.mobs[this.encounterTile];
+  }
+
+  doneMonster() {
+    delete this.mobs[this.encounterTile];
+    this.encounter = null;
+    this.encounterTile = null;
   }
 
 }

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MazeMapComponent } from './components/maze-map/maze-map.component';
+import { GamePlayComponent } from './components/game-play/game-play.component';
 
 
 const routes: Routes = [
-  {path: '', component: MazeMapComponent}
+  {path: '', component: GamePlayComponent}
 ];
 
 @NgModule({

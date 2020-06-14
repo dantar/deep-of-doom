@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MazeMapComponent } from './components/maze-map/maze-map.component';
 import { FightMobComponent } from './components/fight-mob/fight-mob.component';
+import { HomeVillageComponent } from './components/home-village/home-village.component';
+import { GamePlayComponent } from './components/game-play/game-play.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MazeMapComponent,
-    FightMobComponent
+    FightMobComponent,
+    HomeVillageComponent,
+    GamePlayComponent
   ],
   imports: [
     BrowserModule,

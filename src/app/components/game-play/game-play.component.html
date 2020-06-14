@@ -1,0 +1,10 @@
+<app-home-village *ngIf="!shared.maze || shared.hero.life <= 0"></app-home-village>
+<app-maze-map *ngIf="shared.maze && shared.hero.life > 0"></app-maze-map>
+<div class="panel-menu-list top-left-menu">
+    <div class="stats">L:{{shared.hero.life}}</div>
+    <div class="stats">M:{{shared.hero.mana}}</div>
+</div>
+<div class="panel-menu-list top-right-menu">
+    <div class="stats">G:{{shared.hero.gold}}</div>
+    <div class="stats">X:{{shared.hero.exp}}</div>
+</div>

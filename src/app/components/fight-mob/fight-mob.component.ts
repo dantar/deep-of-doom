@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { GamesCommonService } from 'src/app/services/games-common.service';
+import { SharedDataService } from 'src/app/services/shared-data.service';
 
 @Component({
   selector: 'app-fight-mob',
@@ -11,31 +12,38 @@ export class FightMobComponent implements OnInit {
   @Input() mob: string;
   @Output() done = new EventEmitter();
   actions: string[];
-  hits: number;
+  action: string;
+  life: number;
 
   brains: {[id:string]: () => void} = {
-    hit: () => {
-      this.hits --;
-      if (this.hits <= 0) {
+    tough: () => {
+      this.life --;
+      if (this.life <= 0) {
         this.done.emit();
       }
     },
-    dodge: () => {
+    hit: () => {
+      this.shared.life(-1);
     },
     gold: () => {
+      this.shared.gold(1);
     },
   }
 
-  constructor(private game: GamesCommonService) { }
+  constructor(
+    private game: GamesCommonService,
+    private shared: SharedDataService,
+    ) { }
 
   ngOnInit(): void {
-    this.hits = 2;
-    this.actions = ['dodge', 'dodge', 'hit', 'hit', 'gold'];
+    this.life = 2;
+    this.actions = ['tough', 'tough', 'hit', 'hit', 'gold'];
     this.game.shuffle(this.actions);
   }
 
   nextClick() {
-    this.brains[this.actions.pop()]();
+    this.action = this.actions.pop();
+    this.brains[this.action]();
   }
 
 }

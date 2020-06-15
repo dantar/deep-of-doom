@@ -43,18 +43,32 @@ export class MazeMapComponent implements OnInit {
         this.exit = explorer.paths[0][-1];
       } 
     });
-    this.draw(this.entry);
     // mobs
     this.mobs = {};
     let vaults = insight.exit1.filter(t => ![this.entry, this.exit].includes(t)).map(t => this.explorer.coords(t));
-    this.game.shuffle(vaults);
     for (let index = 0; index < Math.min(10, vaults.length); index++) {
-      this.mobs[vaults.pop()] = 'skeleton';
+      this.mobs[this.game.randomPop(vaults)] = 'chest';
     }
+    let corridors = insight.exit2.map(t => this.explorer.coords(t));
+    for (let index = 0; index < Math.min(10, corridors.length); index++) {
+      this.mobs[this.game.randomPop(corridors)] = 'skeleton';
+    }
+    let splits = insight.exit3.map(t => this.explorer.coords(t));
+    for (let index = 0; index < Math.min(5, splits.length); index++) {
+      this.mobs[this.game.randomPop(splits)] = 'skeleton';
+    }
+    // start
+    this.draw(this.entry);
   }
 
   draw(t: MazeTile) {
     this.drawn.push(t);
+    if (! this.mobs[this.explorer.coords(t)]) {
+      this.expandDrawable(t);
+    }
+  }
+
+  expandDrawable(t: MazeTile) {
     if (t.north === 'open') {
       this.drawable.push(this.shared.maze.rows[t.x][t.y-1]);
     }
@@ -84,6 +98,7 @@ export class MazeMapComponent implements OnInit {
 
   doneMonster() {
     delete this.mobs[this.encounterTile];
+    this.expandDrawable(this.explorer.tiles[this.encounterTile]);
     this.encounter = null;
     this.encounterTile = null;
   }

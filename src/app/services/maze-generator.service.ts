@@ -84,6 +84,7 @@ export class MazeExplorer {
   maze: MazeMap;
   paths: MazeTile[][];
   pathfor: {[id: string]: MazeTile[]};
+  tiles: {[id: string]: MazeTile};
 
   constructor(maze: MazeMap) {
     this.maze = maze;
@@ -92,11 +93,13 @@ export class MazeExplorer {
   explore(x: number, y: number) {
     this.paths = [];
     this.pathfor = {};
+    this.tiles = {};
     this._explore(x, y, []);
   }
 
   private _explore(x: number, y: number, steps: MazeTile[]) {
     let tile = this.maze.rows[x][y];
+    this.tiles[this.coords(tile)] = tile;
     steps.push(tile);
     if (this.pathfor.hasOwnProperty(this.coords(tile)) && this.pathfor[this.coords(tile)].length <= steps.length) {
       return;

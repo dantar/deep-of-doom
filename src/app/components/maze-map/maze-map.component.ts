@@ -33,30 +33,34 @@ export class MazeMapComponent implements OnInit {
     let insight = new MazeInsight().study(this.shared.maze);
     this.drawn = [];
     this.drawable = [];
-    let farthest = 0;
     insight.exit1.forEach(d => {
       let explorer = new MazeExplorer(this.shared.maze);
       explorer.explore(d.x, d.y);
       if (!this.explorer || this.explorer.maxSteps() < explorer.maxSteps()) {
         this.explorer = explorer;
         this.entry = explorer.paths[0][0];
-        this.exit = explorer.paths[0][-1];
+        this.exit = explorer.paths[0][explorer.paths[0].length -1];
       } 
     });
     // mobs
     this.mobs = {};
     let vaults = insight.exit1.filter(t => ![this.entry, this.exit].includes(t)).map(t => this.explorer.coords(t));
-    for (let index = 0; index < Math.min(10, vaults.length); index++) {
+    for (let index = 0; index < Math.ceil(vaults.length / 2); index++) {
       this.mobs[this.game.randomPop(vaults)] = 'chest';
     }
     let corridors = insight.exit2.map(t => this.explorer.coords(t));
-    for (let index = 0; index < Math.min(10, corridors.length); index++) {
+    for (let index = 0; index < Math.ceil(corridors.length / 5); index++) {
       this.mobs[this.game.randomPop(corridors)] = 'skeleton';
     }
     let splits = insight.exit3.map(t => this.explorer.coords(t));
-    for (let index = 0; index < Math.min(5, splits.length); index++) {
+    for (let index = 0; index < Math.ceil(splits.length / 3); index++) {
       this.mobs[this.game.randomPop(splits)] = 'skeleton';
     }
+    let crossway = insight.exit4.map(t => this.explorer.coords(t));
+    for (let index = 0; index < Math.ceil(crossway.length / 3); index++) {
+      this.mobs[this.game.randomPop(crossway)] = 'skeleton';
+    }
+    this.mobs[this.explorer.coords(this.exit)] = 'exit';
     // start
     this.draw(this.entry);
   }

@@ -1,4 +1,4 @@
-<svg class="fullsvg" viewBox="0 0 1000 1000">
+<svg class="fullsvg" [attr.viewBox]="viewBox()">
 <g *ngFor="let row of shared.maze.rows">
    <g *ngFor="let cell of row" [style]="position(cell)">
       <g *ngIf="drawable.includes(cell)" (click)="draw(cell)">
@@ -7,7 +7,7 @@
             d="M 0,0 H 100 V 100 H 0 Z"
             class="clickable" />
       </g>      
-      <g *ngIf="drawn.includes(cell) || true"
+      <g *ngIf="drawn.includes(cell)"
          class="tile north-{{cell.north}} south-{{cell.south}} east-{{cell.east}} west-{{cell.west}}">
          <path
             style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:9.05211735;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
@@ -43,7 +43,7 @@
                x="50.061874"
                id="tspan56">{{distance(cell)}}</tspan></text>
       </g>
-      <g id="mob" (click)="clickMonster(cell)">
+      <g id="mob" *ngIf="drawn.includes(cell)" (click)="clickMonster(cell)">
          <image *ngIf="mobs[explorer.coords(cell)] === 'skeleton'"
             width="40.899921"
             height="67.834015"

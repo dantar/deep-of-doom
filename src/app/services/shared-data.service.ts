@@ -10,6 +10,7 @@ export class SharedDataService {
 
   hero: WizardHero;
   maze: MazeMap;
+  level: number;
 
   constructor(private generator: MazeGeneratorService) {
     this.hero = {
@@ -21,10 +22,11 @@ export class SharedDataService {
       exp: 0,
       level: 1,
     };
+    this.level = 1;
   }
 
   newMaze() {
-    this.maze = this.generator.generate(8, 8);
+    this.maze = this.generator.generate(5 + this.level, 5 + this.level);
   }
 
   gold(arg0: number) {

@@ -110,5 +110,9 @@ export class MazeMapComponent implements OnInit {
     }
   }
 
+  viewBox() {
+    return `0 0 ${100 * this.shared.maze.sizex} ${100 * this.shared.maze.sizey}`;
+  }
+
 }
 

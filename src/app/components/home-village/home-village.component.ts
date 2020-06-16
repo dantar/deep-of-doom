@@ -9,7 +9,7 @@ import { SharedDataService } from 'src/app/services/shared-data.service';
 export class HomeVillageComponent implements OnInit {
 
   constructor(
-    private shared: SharedDataService,
+    public shared: SharedDataService,
   ) { }
 
   ngOnInit(): void {

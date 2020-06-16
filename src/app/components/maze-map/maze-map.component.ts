@@ -100,11 +100,14 @@ export class MazeMapComponent implements OnInit {
     this.encounter = this.mobs[this.encounterTile];
   }
 
-  doneMonster() {
+  doneMonster(event: string) {
     delete this.mobs[this.encounterTile];
     this.expandDrawable(this.explorer.tiles[this.encounterTile]);
     this.encounter = null;
     this.encounterTile = null;
+    if (event === 'exit') {
+      this.shared.maze = null;
+    }
   }
 
 }

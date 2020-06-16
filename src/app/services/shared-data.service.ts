@@ -24,7 +24,7 @@ export class SharedDataService {
   }
 
   newMaze() {
-    this.maze = this.generator.generate(10, 10);
+    this.maze = this.generator.generate(8, 8);
   }
 
   gold(arg0: number) {

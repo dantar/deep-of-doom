@@ -72,4 +72,4 @@
 </g>
 </svg>
 
-<app-fight-mob *ngIf="encounter" [mob]="encounter" (done)="doneMonster()"></app-fight-mob>
+<app-fight-mob *ngIf="encounter" [mob]="encounter" (done)="doneMonster($event)"></app-fight-mob>

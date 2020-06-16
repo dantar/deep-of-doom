@@ -10,10 +10,18 @@ import { SharedDataService } from 'src/app/services/shared-data.service';
 export class FightMobComponent implements OnInit {
 
   @Input() mob: string;
-  @Output() done = new EventEmitter();
+  @Output() done = new EventEmitter<string>();
   actions: string[];
   action: string;
   life: number;
+  exit: boolean;
+  disabled: boolean;
+
+  mobactions: {[id: string]: string[]} = {
+    skeleton: ['tough', 'tough', 'hit', 'hit', 'gold'],
+    chest: ['gold', 'gold', 'gold', 'tough', 'tough'],
+    exit: ['gold', 'gold', 'exit'],
+  };
 
   brains: {[id:string]: () => void} = {
     tough: () => {
@@ -21,12 +29,16 @@ export class FightMobComponent implements OnInit {
     },
     hit: () => {
       this.shared.life(-1);
+      this.disabled = (this.shared.hero.life === 0);
     },
     gold: () => {
       this.shared.gold(1);
     },
     staff: () => {
       this.adjustLife(-1);
+    },
+    exit: () => {
+      this.exit = true;
     },
   }
 
@@ -37,21 +49,23 @@ export class FightMobComponent implements OnInit {
 
   ngOnInit(): void {
     this.life = 2;
-    this.actions = ['tough', 'tough', 'hit', 'hit', 'gold'];
+    this.actions = this.mobactions[this.mob].filter(a => a);
+    this.exit = false;
+    this.disabled = false;
   }
 
   adjustLife(arg0: number) {
     this.life = Math.max(0, this.life + arg0);
     if (this.life <= 0) {
       this.shared.exp(1);
+      this.disabled = true;
     }
   }
 
   // clicks
 
   nextClick() {
-    if (this.life === 0) {
-      this.done.emit();
+    if (this.disabled) {
       return;
     }
     this.action = this.game.randomPop(this.actions);
@@ -59,8 +73,7 @@ export class FightMobComponent implements OnInit {
   }
 
   leftHandClick() {
-    if (this.life === 0) {
-      this.done.emit();
+    if (this.disabled) {
       return;
     }
     if (this.shared.hero.mana < 2) {

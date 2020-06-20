@@ -16,6 +16,22 @@ export class SharedDataService {
   exploration: MazeExploration;
 
   constructor(private generator: MazeGeneratorService) {
+    this.newHero();
+  }
+
+  newMaze() {
+    this.maze = this.generator.generate(4 + this.level, 4 + this.level);
+    this.exploration = this.generator.exploration(this.maze);
+    this.mobs = this.generator.mobs(this.maze, this.exploration);
+  }
+
+  exitMaze() {
+    this.maze = null;
+    this.exploration = null;
+    this.mobs = null;
+  }
+
+  newHero() {
     this.hero = {
       life: 10, 
       mana: 10, 
@@ -28,19 +44,13 @@ export class SharedDataService {
     this.level = 1;
   }
 
-  newMaze() {
-    this.maze = this.generator.generate(4 + this.level, 4 + this.level);
-    this.exploration = this.generator.exploration(this.maze);
-    this.mobs = this.generator.mobs(this.maze, this.exploration);
-  }
-
   gold(arg0: number) {
     this.hero.gold = Math.max(0, this.hero.gold + arg0);
   }
   life(arg0: number) {
     this.hero.life = Math.max(0, this.hero.life + arg0);
     if (this.hero.life == 0) {
-      this.maze = null;
+      this.exitMaze();
     }
   }
   mana(arg0: number) {

@@ -64,7 +64,7 @@ export class MazeMapComponent implements OnInit {
   doneMonster(event: string) {
     delete this.mobs[this.encounterTile];
     if (event === 'exit') {
-      this.shared.maze = null;
+      this.shared.exitMaze();
     } else {
       this.expandDrawable(MazeMap.tile(this.shared.maze, this.encounterTile));
       this.encounter = null;

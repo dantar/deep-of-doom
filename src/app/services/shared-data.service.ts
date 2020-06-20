@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MazeMap } from '../models/maze-map.model';
+import { MazeMap, MazeExploration, MazeMobs } from '../models/maze-map.model';
 import { MazeGeneratorService } from './maze-generator.service';
 import { WizardHero } from '../models/hero.model';
 
@@ -11,6 +11,9 @@ export class SharedDataService {
   hero: WizardHero;
   maze: MazeMap;
   level: number;
+
+  mobs: MazeMobs;
+  exploration: MazeExploration;
 
   constructor(private generator: MazeGeneratorService) {
     this.hero = {
@@ -26,7 +29,9 @@ export class SharedDataService {
   }
 
   newMaze() {
-    this.maze = this.generator.generate(5 + this.level, 5 + this.level);
+    this.maze = this.generator.generate(4 + this.level, 4 + this.level);
+    this.exploration = this.generator.exploration(this.maze);
+    this.mobs = this.generator.mobs(this.maze, this.exploration);
   }
 
   gold(arg0: number) {

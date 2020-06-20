@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MazeMap, MazeTile, MazeConnection } from '../models/maze-map.model';
+import { MazeMap, MazeTile, MazeConnection, MazeMobs, MazeExploration, MazeInsight } from '../models/maze-map.model';
 import { GamesCommonService } from './games-common.service';
 
 @Injectable({
@@ -28,8 +28,49 @@ export class MazeGeneratorService {
     return maze;
   }
 
-  fullyConnected(maze: MazeMap): boolean {
-    return false;
+  exploration(maze: MazeMap): MazeExploration {
+    let e: MazeExploration = {drawn: [], drawable: []};
+    let insight = new MazeInsight().study(maze);
+    e.drawn = [];
+    e.drawable = [];
+    let current: MazeExplorer;
+    insight.exit1.forEach(d => {
+      let explorer = new MazeExplorer(maze);
+      explorer.explore(d.x, d.y);
+      if (!current || current.maxSteps() < explorer.maxSteps()) {
+        current = explorer;
+        e.entry = MazeMap.coords(explorer.paths[0][0]);
+        e.exit = MazeMap.coords(explorer.paths[0][explorer.paths[0].length -1]);
+      } 
+    });
+    const t = MazeMap.tile(maze, e.entry);
+    MazeExploration.draw(e, t);
+    MazeExploration.open(e, MazeMap.connected(maze, t));
+    return e;
+  }
+
+  mobs(maze: MazeMap, e: MazeExploration): MazeMobs {
+    let insight = new MazeInsight().study(maze);
+    let m: MazeMobs = {mobs: {}, active: []};
+    m.mobs = {};
+    let vaults = insight.exit1.map(t => MazeMap.coords(t)).filter(t => ![e.entry, e.exit].includes(t));
+    for (let index = 0; index < Math.ceil(vaults.length / 2); index++) {
+      m.mobs[this.games.randomPop(vaults)] = 'chest';
+    }
+    let corridors = insight.exit2.map(t => MazeMap.coords(t));
+    for (let index = 0; index < Math.ceil(corridors.length / 5); index++) {
+      m.mobs[this.games.randomPop(corridors)] = 'skeleton';
+    }
+    let splits = insight.exit3.map(t => MazeMap.coords(t));
+    for (let index = 0; index < Math.ceil(splits.length / 3); index++) {
+      m.mobs[this.games.randomPop(splits)] = 'skeleton';
+    }
+    let crossway = insight.exit4.map(t => MazeMap.coords(t));
+    for (let index = 0; index < Math.ceil(crossway.length / 3); index++) {
+      m.mobs[this.games.randomPop(crossway)] = 'skeleton';
+    }
+    m.mobs[e.exit] = 'exit';
+    return m;
   }
 
   applyConnection(c: MazeConnection, m: MazeMap, t:string): string {
@@ -74,7 +115,7 @@ export class MazeGeneratorService {
   }
 
   coords(t: MazeTile): string {
-    return `${t.x}-${t.y}`;
+    return MazeMap.coords(t);
   }
 
 }

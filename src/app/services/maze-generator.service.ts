@@ -58,7 +58,7 @@ export class MazeGeneratorService {
       m.mobs[this.games.randomPop(vaults)] = 'chest';
     }
     let corridors = insight.exit2.map(t => MazeMap.coords(t));
-    for (let index = 0; index < Math.ceil(corridors.length / 5); index++) {
+    for (let index = 0; index < Math.ceil(corridors.length / 4); index++) {
       m.mobs[this.games.randomPop(corridors)] = 'skeleton';
     }
     let splits = insight.exit3.map(t => MazeMap.coords(t));
@@ -66,7 +66,7 @@ export class MazeGeneratorService {
       m.mobs[this.games.randomPop(splits)] = 'skeleton';
     }
     let crossway = insight.exit4.map(t => MazeMap.coords(t));
-    for (let index = 0; index < Math.ceil(crossway.length / 3); index++) {
+    for (let index = 0; index < Math.ceil(crossway.length / 2); index++) {
       m.mobs[this.games.randomPop(crossway)] = 'skeleton';
     }
     m.mobs[e.exit] = 'exit';

@@ -3,6 +3,7 @@ import { MazeMap, MazeTile, MazeInsight, MazeExploration } from 'src/app/models/
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { MazeExplorer } from 'src/app/services/maze-generator.service';
 import { GamesCommonService } from 'src/app/services/games-common.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-maze-map',
@@ -10,6 +11,8 @@ import { GamesCommonService } from 'src/app/services/games-common.service';
   styleUrls: ['./maze-map.component.scss']
 })
 export class MazeMapComponent implements OnInit {
+
+  showall: boolean;
 
   drawn: string[];
   drawable: string[];
@@ -29,6 +32,7 @@ export class MazeMapComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.showall = environment.showall;
     this.drawn = this.shared.exploration.drawn;
     this.drawable = this.shared.exploration.drawable;
     this.mobs = this.shared.mobs.mobs;

@@ -37,23 +37,19 @@ export class MazeMapComponent implements OnInit {
     this.explorer.explore(entry.x, entry.y);
   }
 
+  // actions
+
   draw(t: MazeTile) {
     MazeExploration.draw(this.shared.exploration, t);
     if (! this.mobs[MazeMap.coords(t)]) {
       this.expandDrawable(t);
     }
+    this.shared.save();
   }
 
   expandDrawable(t: MazeTile) {
     MazeExploration.open(this.shared.exploration, MazeMap.connected(this.shared.maze, t));
-  }
-
-  position(t: MazeTile): string {
-    return `transform: translate(${100 * t.x}px, ${100 * t.y}px)`
-  }
-
-  distance(t: MazeTile): number {
-    return this.explorer.pathfor[this.explorer.coords(t)].length;
+    this.shared.save();
   }
 
   clickMonster(tile: MazeTile) {
@@ -70,6 +66,17 @@ export class MazeMapComponent implements OnInit {
       this.encounter = null;
       this.encounterTile = null;      
     }
+    this.shared.save();
+  }
+
+  // html
+
+  position(t: MazeTile): string {
+    return `transform: translate(${100 * t.x}px, ${100 * t.y}px)`
+  }
+
+  distance(t: MazeTile): number {
+    return this.explorer.pathfor[this.explorer.coords(t)].length;
   }
 
   viewBox() {

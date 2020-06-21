@@ -40,7 +40,7 @@ export class FightMobComponent implements OnInit {
     exit: () => {
       this.exit = true;
       this.disabled = true;
-      this.shared.level ++;
+      this.shared.progressUp();
     },
   }
 

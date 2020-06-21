@@ -2,27 +2,53 @@ import { Injectable } from '@angular/core';
 import { MazeMap, MazeExploration, MazeMobs } from '../models/maze-map.model';
 import { MazeGeneratorService } from './maze-generator.service';
 import { WizardHero } from '../models/hero.model';
+import { SavedData } from '../models/saved-data.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedDataService {
-
+  
   hero: WizardHero;
   maze: MazeMap;
-  level: number;
 
   mobs: MazeMobs;
   exploration: MazeExploration;
 
   constructor(private generator: MazeGeneratorService) {
-    this.newHero();
+    const saved = localStorage.getItem('deep-of-doom-saved');
+    if (saved) {
+      const data: SavedData = JSON.parse(saved);
+      this.hero = data.hero;
+      this.maze = data.maze;
+      this.mobs = data.mobs;
+      this.exploration = data.exploration;
+    } else {
+      this.newHero();
+      this.save();
+    }
+  }
+
+  save() {
+    const data: SavedData = {
+      hero: this.hero,
+      maze: this.maze,
+      exploration: this.exploration,
+      mobs: this.mobs,
+    };
+    localStorage.setItem('deep-of-doom-saved', JSON.stringify(data));
+  }
+
+  progressUp() {
+    this.hero.progress ++;
+    this.save();
   }
 
   newMaze() {
-    this.maze = this.generator.generate(4 + this.level, 4 + this.level);
+    this.maze = this.generator.generate(5 + this.hero.progress, 5 + this.hero.progress);
     this.exploration = this.generator.exploration(this.maze);
     this.mobs = this.generator.mobs(this.maze, this.exploration);
+    this.save();
   }
 
   exitMaze() {
@@ -40,8 +66,8 @@ export class SharedDataService {
       maxmana: 10,
       exp: 0,
       level: 1,
+      progress: 0,
     };
-    this.level = 1;
   }
 
   gold(arg0: number) {

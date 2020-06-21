@@ -7,6 +7,7 @@ import { MazeMapComponent } from './components/maze-map/maze-map.component';
 import { FightMobComponent } from './components/fight-mob/fight-mob.component';
 import { HomeVillageComponent } from './components/home-village/home-village.component';
 import { GamePlayComponent } from './components/game-play/game-play.component';
+import { FullscreenToggleComponent } from './components/fullscreen-toggle/fullscreen-toggle.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { GamePlayComponent } from './components/game-play/game-play.component';
     MazeMapComponent,
     FightMobComponent,
     HomeVillageComponent,
-    GamePlayComponent
+    GamePlayComponent,
+    FullscreenToggleComponent
   ],
   imports: [
     BrowserModule,

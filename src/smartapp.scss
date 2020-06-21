@@ -71,13 +71,33 @@
     left: 15px;
 }
 
-@media screen and (orientation:portrait) {
-    .panel-menu-list.top-right-menu {
-       flex-direction: row-reverse;
+.bottom-right-menu {
+    bottom: 10px;
+    right: 15px;
+}
+
+.panel-menu-list {
+    svg {
+        height: 40px;
+        width: 40px;
     }
-    .panel-menu-item {
-       height: 40px;
-       padding-right: 10px;
+}
+
+@media screen and (orientation:portrait) {
+    .panel-menu-list.top-right-menu, .panel-menu-list.bottom-right-menu {
+        flex-direction: row-reverse;
+        .panel-menu-item {
+            padding-left: 10px;
+        }
+    }
+    .panel-menu-list.top-left-menu, .panel-menu-list.bottom-left-menu {
+        flex-direction: row;
+        .panel-menu-item {
+            padding-right: 10px;
+        }
+    }
+    .panel-menu-list {
+        height: 40px;
     }
     .fullpage {
         padding-top: 70px;
@@ -95,12 +115,20 @@
 }
 
 @media screen and (orientation:landscape) {
-    .panel-menu-list {
-       flex-direction: column;
+    .panel-menu-list.top-right-menu, .panel-menu-list.top-left-menu {
+        flex-direction: column;
+        .panel-menu-item {
+            padding-bottom: 10px;
+        }
     }
-    .panel-menu-item {
-       width: 40px;
-       padding-bottom: 10px;
+    .panel-menu-list.bottom-right-menu, .panel-menu-list.bottom-left-menu {
+        flex-direction: column-reverse;
+        .panel-menu-item {
+            padding-top: 10px;
+        }
+    }
+    .panel-menu-list {
+        width: 40px;
     }
     .fullpage {
         padding-top: 10px;

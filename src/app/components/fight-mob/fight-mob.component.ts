@@ -1,11 +1,18 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { GamesCommonService } from 'src/app/services/games-common.service';
 import { SharedDataService } from 'src/app/services/shared-data.service';
+import { trigger, transition, useAnimation } from '@angular/animations';
+import { fallInAppear } from '../animations';
 
 @Component({
   selector: 'app-fight-mob',
   templateUrl: './fight-mob.component.html',
-  styleUrls: ['./fight-mob.component.scss']
+  styleUrls: ['./fight-mob.component.scss'],
+  animations: [
+    trigger('stream', [
+      transition(':enter', [useAnimation(fallInAppear)]),
+    ]),
+  ]
 })
 export class FightMobComponent implements OnInit {
 

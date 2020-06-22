@@ -8,6 +8,7 @@ import { FightMobComponent } from './components/fight-mob/fight-mob.component';
 import { HomeVillageComponent } from './components/home-village/home-village.component';
 import { GamePlayComponent } from './components/game-play/game-play.component';
 import { FullscreenToggleComponent } from './components/fullscreen-toggle/fullscreen-toggle.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FullscreenToggleComponent } from './components/fullscreen-toggle/fullsc
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

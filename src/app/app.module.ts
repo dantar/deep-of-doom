@@ -9,6 +9,7 @@ import { HomeVillageComponent } from './components/home-village/home-village.com
 import { GamePlayComponent } from './components/game-play/game-play.component';
 import { FullscreenToggleComponent } from './components/fullscreen-toggle/fullscreen-toggle.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MobSkeletonComponent } from './components/mob-skeleton/mob-skeleton.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FightMobComponent,
     HomeVillageComponent,
     GamePlayComponent,
-    FullscreenToggleComponent
+    FullscreenToggleComponent,
+    MobSkeletonComponent
   ],
   imports: [
     BrowserModule,

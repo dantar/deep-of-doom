@@ -1,6 +1,9 @@
-<svg class="fullsvg modal-svg" viewBox="0 0 100 100" @stream>
+<svg class="fullsvg modal-svg" viewBox="0 0 200 200" @stream>
+    <defs>
+        
+    </defs>
     <g id="mob" (click)="nextClick()" class="fall-in-item">
-        <g *ngIf="mob === 'skeleton'" app-mob-skeleton></g>
+        <g *ngIf="mob === 'skeleton'" app-mob-skeleton class="fight-mob-monster"></g>
         <image *ngIf="mob === 'chest'"
            width="62.779438"
            height="37.412838"
@@ -12,7 +15,7 @@
         <g *ngIf="mob === 'exit'"
            id="exit">
           <path
-             style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:6.29921293;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+             style="opacity:1;vector-effect:none;fill:#161313;fill-opacity:1;stroke:none;stroke-width:6.29921293;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
              d="M 50 10 A 25 25 0 0 0 25 35 A 25 25 0 0 0 25.283203 38.582031 C 25.102972 39.115386 25 39.685535 25 40.28125 L 25 79.71875 C 25 82.644461 27.355539 85 30.28125 85 L 69.71875 85 C 72.644461 85 75 82.644461 75 79.71875 L 75 40.28125 C 75 39.680527 74.896036 39.10554 74.712891 38.568359 A 25 25 0 0 0 75 35 A 25 25 0 0 0 50 10 z "
              id="rect844" />
         </g>

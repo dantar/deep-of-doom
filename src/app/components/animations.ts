@@ -6,8 +6,8 @@ import {
 export const fallInAppear = animation([
     query('.fall-in-item', [
         style({opacity: 0, transform: 'translateY(-100px)'}),
-        stagger('100ms', [
-            animate('300ms', style({opacity: 1, transform: 'none'}))
+        stagger('50ms', [
+            animate('200ms', style({opacity: 1, transform: 'none'}))
         ])
     ]),
 ]);

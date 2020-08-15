@@ -26,6 +26,7 @@ export class FightMobComponent implements OnInit {
   exit: boolean;
   disabled: boolean;
 
+  maxrowsize = 10;
 
   mobactions: {[id: string]: string[]} = {
     skeleton: ['tough', 'tough', 'hit', 'hit', 'gold'],
@@ -102,7 +103,7 @@ export class FightMobComponent implements OnInit {
   }
 
   attrX(i: number, size: number) {
-    return i * 20;
+    return i * 20 + (200 - Math.min(200, size * 20)) / 2;
   }
 
   attrY(i: number, size: number) {
@@ -110,8 +111,7 @@ export class FightMobComponent implements OnInit {
   }
 
   slotsTransform(size: number) {
-    let maxrowsize = 10;
-    let scale = 1.0 * maxrowsize / Math.max(maxrowsize, size);
+    let scale = 1.0 * this.maxrowsize / Math.max(this.maxrowsize, size);
     return `scale(${scale})`
   }
 

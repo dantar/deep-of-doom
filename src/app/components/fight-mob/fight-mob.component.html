@@ -218,14 +218,15 @@
     </g>
 
 
-    <use *ngFor="let slot of actions; let i = index" 
-        [attr.x]="i * 25"
-        x="0"
-        y="0"
-        attr.xlink:href="#{{slot.action}}"
-        width="100%"
-        height="100%"
-        style="opacity:{{slot.available ? 0.5 : 1.0}}" />
+    <g id="slotactions" [attr.transform]="slotsTransform(actions.length)">
+        <use *ngFor="let slot of actions; let i = index" 
+            [attr.x]="attrX(i, actions.length)"
+            [attr.y]="attrY(i, actions.length)"
+            attr.xlink:href="#{{slot.action}}"
+            width="100%"
+            height="100%"
+            style="opacity:{{slot.available ? 0.5 : 1.0}}" />
+    </g>
 
 </svg>
 

@@ -101,6 +101,20 @@ export class FightMobComponent implements OnInit {
     this.drawables = this.actions.filter(a => a.available).map(a => a);
   }
 
+  attrX(i: number, size: number) {
+    return i * 20;
+  }
+
+  attrY(i: number, size: number) {
+    return 5;
+  }
+
+  slotsTransform(size: number) {
+    let maxrowsize = 10;
+    let scale = 1.0 * maxrowsize / Math.max(maxrowsize, size);
+    return `scale(${scale})`
+  }
+
 }
 
 

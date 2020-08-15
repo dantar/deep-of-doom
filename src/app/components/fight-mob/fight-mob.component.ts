@@ -18,11 +18,14 @@ export class FightMobComponent implements OnInit {
 
   @Input() mob: string;
   @Output() done = new EventEmitter<string>();
-  actions: string[];
-  action: string;
+  builder: ActionSlotBuilder;
+  actions: ActionSlot[];
+  action: ActionSlot;
+  drawables: ActionSlot[];
   life: number;
   exit: boolean;
   disabled: boolean;
+
 
   mobactions: {[id: string]: string[]} = {
     skeleton: ['tough', 'tough', 'hit', 'hit', 'gold'],
@@ -58,9 +61,11 @@ export class FightMobComponent implements OnInit {
 
   ngOnInit(): void {
     this.life = 2;
-    this.actions = this.mobactions[this.mob].filter(a => a);
     this.exit = false;
     this.disabled = false;
+    this.builder = new ActionSlotBuilder();
+    this.actions =  this.mobactions[this.mob].map(a => this.builder.newActionSlot(a));
+    this.drawables = this.actions.map(a => a);
   }
 
   adjustLife(arg0: number) {
@@ -77,8 +82,9 @@ export class FightMobComponent implements OnInit {
     if (this.disabled) {
       return;
     }
-    this.action = this.game.randomPop(this.actions);
-    this.brains[this.action]();
+    this.action = this.game.randomPop(this.drawables);
+    this.action.available = false;
+    this.brains[this.action.action]();
   }
 
   leftHandClick() {
@@ -89,7 +95,29 @@ export class FightMobComponent implements OnInit {
       return;
     }
     this.shared.mana(-2);
-    this.actions.push('staff', 'staff');
+    ['staff', 'staff'].forEach(a => {
+      this.actions.push(this.builder.newActionSlot(a));
+    });
+    this.drawables = this.actions.filter(a => a.available).map(a => a);
   }
+
+}
+
+
+class ActionSlotBuilder {
+
+  count = 0;
+
+  newActionSlot(a: string): ActionSlot {
+    return {action: a, index: this.count++, available: true};
+  }
+
+}
+
+class ActionSlot {
+
+  action: string;
+  index: number;
+  available: boolean;
 
 }

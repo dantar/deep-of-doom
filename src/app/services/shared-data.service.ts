@@ -45,7 +45,8 @@ export class SharedDataService {
   }
 
   newMaze() {
-    this.maze = this.generator.generate(5 + this.hero.progress, 5 + this.hero.progress);
+    let size = Math.min(7, 4 + this.hero.progress);
+    this.maze = this.generator.generate(size, size);
     this.exploration = this.generator.exploration(this.maze);
     this.mobs = this.generator.mobs(this.maze, this.exploration);
     this.save();

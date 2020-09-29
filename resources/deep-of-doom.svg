@@ -1,5 +1,59 @@
-<svg class="fullsvg modal-svg" viewBox="0 0 200 200" @stream>
-    <defs>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200"
+   height="200"
+   viewBox="0 0 200 200"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="deep-of-doom.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.959798"
+     inkscape:cx="21.399892"
+     inkscape:cy="28.398114"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1853"
+     inkscape:window-height="1025"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     units="px" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-270.54166)">
 
     <g
         id="staff">
@@ -103,18 +157,16 @@
 
     </defs>
 
-    <g id="mob" (click)="nextClick()" class="fall-in-item">
-        <g *ngIf="mob === 'skeleton'" app-mob-skeleton class="fight-mob-monster"></g>
-        <image *ngIf="mob === 'chest'"
-           width="62.779438"
+    <g id="mob" class="fall-in-item">
+        <g class="fight-mob-monster"></g>
+        <image width="62.779438"
            height="37.412838"
            preserveAspectRatio="none"
            xlink:href="assets/chest-closed.png"
            id="image1007"
            x="18.610281"
            y="46.650723" />
-        <g *ngIf="mob === 'exit'"
-           id="exit">
+        <g id="exit">
           <path
              style="opacity:1;vector-effect:none;fill:#161313;fill-opacity:1;stroke:none;stroke-width:6.29921293;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
              d="M 50 10 A 25 25 0 0 0 25 35 A 25 25 0 0 0 25.283203 38.582031 C 25.102972 39.115386 25 39.685535 25 40.28125 L 25 79.71875 C 25 82.644461 27.355539 85 30.28125 85 L 69.71875 85 C 72.644461 85 75 82.644461 75 79.71875 L 75 40.28125 C 75 39.680527 74.896036 39.10554 74.712891 38.568359 A 25 25 0 0 0 75 35 A 25 25 0 0 0 50 10 z "
@@ -122,33 +174,64 @@
         </g>
     </g>
     <g id="hits">
-        <circle *ngFor="let hit of rangeArray(life); let i = index"
-            class="fall-in-item"
-            [attr.cx]="10 + attrX(i, life)"
-            [attr.cy]="150 + attrY(i, life)"
+        <circle class="fall-in-item"
             style="opacity:1;vector-effect:none;fill:#880000;fill-opacity:1;stroke:none;stroke-width:5.6692915;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
             id="path16"
-            r="8" />
+            cx="67.946426"
+            cy="57.589287"
+            r="6.1607141" />
+        <text class="fall-in-item"
+            xml:space="preserve"
+            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.3057642px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.38646615"
+            x="68.087326"
+            y="61.428574"
+            id="text20"><tspan
+            id="tspan18"
+            x="68.087326"
+            y="61.428574"
+            style="stroke-width:0.38646615">{{life}}</tspan></text>
+    </g>
+    <g id="action">
+        <rect class="fall-in-item"
+            style="opacity:0.6;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.6692915;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+            id="rect68"
+            width="54.285713"
+            height="10.178572"
+            x="22.857143"
+            y="85.535713"
+            ry="4.7529593" />
+        <text class="fall-in-item"
+            xml:space="preserve"
+            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.3057642px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.38646615"
+            x="50.1409"
+            y="94.449402"
+            id="text26-3"><tspan
+            id="tspan24-6"
+            x="50.1409"
+            y="94.449402"
+            style="stroke-width:0.38646615">{{action.action}}</tspan></text>
     </g>
 
-    <g id="win" *ngIf="life === 0" (click)="done.emit('win')">
+    <g id="win" >
         <circle
             style="opacity:0.6;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.6692915;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
             id="path936"
-            cx="100"
-            cy="100"
-            r="50" />
+            cx="50"
+            cy="37.142857"
+            r="18.839285" />
         <text
             id="text26-3-7"
-            y="100"
-            x="100"
+            y="40.984875"
+            x="50.13335"
             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.3057642px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.38646615"
             xml:space="preserve"><tspan
             style="stroke-width:0.38646615"
+            y="40.984875"
+            x="50.13335"
             id="tspan24-6-5">WIN</tspan></text>
     </g>
 
-    <g id="exit" *ngIf="exit" (click)="done.emit('exit')">
+    <g id="exit">
         <circle
             style="opacity:0.6;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.6692915;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
             id="path936"
@@ -168,33 +251,5 @@
     </g>
 
 
-    <g id="slotactions" [attr.transform]="slotsTransform(actions.length)">
-        <use *ngFor="let slot of actions; let i = index" 
-            [attr.x]="attrX(i, actions.length)"
-            [attr.y]="attrY(i, actions.length)"
-            attr.xlink:href="#{{slot.action}}"
-            width="100%"
-            height="100%"
-            style="opacity:{{slot.available ? 0.5 : 1.0}}" />
-    </g>
-
+  </g>
 </svg>
-
-<div class="panel-menu-list bottom-left-menu">
-    <svg viewBox="0 0 20 20">
-        <g (click)="leftHandClick()" id="staff">
-            <use
-                height="100%"
-                width="100%"
-                transform="translate(29.420692,-0.07168)"
-                id="use1027"
-                xlink:href="#actionbg"
-                y="0"
-                x="0" />
-            <path
-                style="opacity:1;vector-effect:none;fill:#cc00ff;fill-opacity:1;stroke:#800000;stroke-width:0.8501454;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
-                id="path1029"
-                d="m 18.292169,14.787486 -3.570851,-0.06617 0.06617,3.570851 L 11.728122,16.449441 10,19.574972 8.2718775,16.449441 5.2125139,18.292169 5.2786817,14.721318 1.7078309,14.787486 3.5505593,11.728122 0.42502785,10 3.5505593,8.2718775 1.7078309,5.2125139 5.2786817,5.2786817 5.212514,1.7078309 8.2718776,3.5505593 10,0.42502785 11.728122,3.5505593 14.787486,1.7078309 14.721318,5.2786817 18.292169,5.212514 16.449441,8.2718776 19.574972,10 16.449441,11.728122 Z" />
-        </g>
-    </svg>
-</div>

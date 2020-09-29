@@ -110,6 +110,10 @@ export class FightMobComponent implements OnInit {
     return 5;
   }
 
+  rangeArray(len: number) {
+    return Array(len).fill(0).map((x,i)=>i);
+  }
+
   slotsTransform(size: number) {
     let scale = 1.0 * this.maxrowsize / Math.max(this.maxrowsize, size);
     return `scale(${scale})`

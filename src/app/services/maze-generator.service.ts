@@ -19,9 +19,7 @@ export class MazeGeneratorService {
     this.games.shuffle(cs);
     cs.forEach(c => {
       let prev = this.applyConnection(c, maze, 'wall');
-      let explorer = new MazeExplorer(maze);
-      explorer.explore(0,0);
-      if (Object.keys(explorer.pathfor).length < x*y) {
+      if (! new MazeChecker(maze).check(c.a.x, c.a.y, c.b.x, c.b.y)) {
         this.applyConnection(c, maze, prev);
       }
     });
@@ -145,11 +143,7 @@ export class MazeExplorer {
     if (this.pathfor.hasOwnProperty(this.coords(tile)) && this.pathfor[this.coords(tile)].length <= steps.length) {
       return;
     }
-    // if (this.reach.hasOwnProperty(this.coords(tile)) && this.reach[this.coords(tile)] <= steps) {
-    //   return;
-    // }
     this.pathfor[this.coords(tile)] = steps.map(t => t);
-    // this.reach[this.coords(tile)] = steps;
     if (tile.north === 'open') {
       this._explore(tile.x, tile.y-1, steps.map(t => t));
     }
@@ -172,6 +166,51 @@ export class MazeExplorer {
 
   maxSteps(): number {
     return this.paths[0].length;
+  }
+
+}
+
+export class MazeChecker {
+
+  maze: MazeMap;
+  tiles: {[id: string]: MazeTile};
+  tox: number;
+  toy: number;
+
+  constructor(maze: MazeMap) {
+    this.maze = maze;
+  }
+
+  check(x: number, y: number, tox: number, toy: number): boolean {
+    this.tox = tox;
+    this.toy = toy;
+    this.tiles = {};
+    return this._check(x, y);
+  }
+
+  private _check(x: number, y: number): boolean {
+    if (x === this.tox && y === this.toy) return true;
+    let tile = this.maze.rows[x][y];
+    let coords = this.coords(tile);
+    if (this.tiles.hasOwnProperty(coords)) return false;
+    this.tiles[coords] = tile;
+    if (tile.north === 'open') {
+      if (this._check(tile.x, tile.y-1)) return true;
+    }
+    if (tile.south === 'open') {
+      if (this._check(tile.x, tile.y+1)) return true;
+    }
+    if (tile.east === 'open') {
+      if (this._check(tile.x+1, tile.y)) return true;
+    }
+    if (tile.west === 'open') {
+      if (this._check(tile.x-1, tile.y)) return true;
+    }
+    return false;
+  }
+
+  coords(t: MazeTile): string {
+    return `${t.x}-${t.y}`;
   }
 
 }

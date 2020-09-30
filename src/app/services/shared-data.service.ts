@@ -16,6 +16,10 @@ export class SharedDataService {
   exploration: MazeExploration;
 
   constructor(private generator: MazeGeneratorService) {
+    this.tryLoad();
+  }
+
+  tryLoad() {
     const saved = localStorage.getItem('deep-of-doom-saved');
     if (saved) {
       const data: SavedData = JSON.parse(saved);
@@ -45,7 +49,7 @@ export class SharedDataService {
   }
 
   newMaze() {
-    let size = Math.min(7, 4 + this.hero.progress);
+    let size = Math.min(10, 4 + this.hero.progress);
     this.maze = this.generator.generate(size, size);
     this.exploration = this.generator.exploration(this.maze);
     this.mobs = this.generator.mobs(this.maze, this.exploration);

@@ -11,6 +11,7 @@ import { FullscreenToggleComponent } from './components/fullscreen-toggle/fullsc
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MobSkeletonComponent } from './components/mob-skeleton/mob-skeleton.component';
 import { MobChestComponent } from './components/mob-chest/mob-chest.component';
+import { MobExitComponent } from './components/mob-exit/mob-exit.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MobChestComponent } from './components/mob-chest/mob-chest.component';
     GamePlayComponent,
     FullscreenToggleComponent,
     MobSkeletonComponent,
-    MobChestComponent
+    MobChestComponent,
+    MobExitComponent
   ],
   imports: [
     BrowserModule,

@@ -45,14 +45,7 @@
       </g>
       <g id="mob" *ngIf="isDrawn(cell) || showall" (click)="clickMonster(cell)">
          <g app-mob-skeleton *ngIf="mobs[explorer.coords(cell)] === 'skeleton'"></g>
-         <image *ngIf="mobs[explorer.coords(cell)] === 'chest'"
-            width="62.779438"
-            height="37.412838"
-            preserveAspectRatio="none"
-            xlink:href="assets/chest-closed.png"
-            id="image1007"
-            x="18.610281"
-            y="46.650723" />
+         <g app-mob-chest *ngIf="mobs[explorer.coords(cell)] === 'chest'"></g>
          <g *ngIf="mobs[explorer.coords(cell)] === 'exit'"
             id="exit">
             <path

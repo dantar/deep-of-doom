@@ -10,6 +10,7 @@ import { GamePlayComponent } from './components/game-play/game-play.component';
 import { FullscreenToggleComponent } from './components/fullscreen-toggle/fullscreen-toggle.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MobSkeletonComponent } from './components/mob-skeleton/mob-skeleton.component';
+import { MobChestComponent } from './components/mob-chest/mob-chest.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MobSkeletonComponent } from './components/mob-skeleton/mob-skeleton.com
     HomeVillageComponent,
     GamePlayComponent,
     FullscreenToggleComponent,
-    MobSkeletonComponent
+    MobSkeletonComponent,
+    MobChestComponent
   ],
   imports: [
     BrowserModule,

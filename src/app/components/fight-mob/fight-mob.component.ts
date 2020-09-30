@@ -30,8 +30,8 @@ export class FightMobComponent implements OnInit {
 
   mobactions: {[id: string]: string[]} = {
     skeleton: ['tough', 'tough', 'hit', 'hit', 'gold'],
-    chest: ['gold', 'gold', 'gold', 'tough', 'tough'],
-    exit: ['gold', 'gold', 'exit'],
+    chest: ['gold', 'gold', 'tough', 'tough'],
+    exit: ['gold', 'exit'],
   };
 
   brains: {[id:string]: () => void} = {

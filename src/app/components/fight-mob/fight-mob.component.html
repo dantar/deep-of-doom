@@ -105,14 +105,7 @@
 
     <g id="mob" (click)="nextClick()" class="fall-in-item">
         <g *ngIf="mob === 'skeleton'" app-mob-skeleton class="fight-mob-monster"></g>
-        <image *ngIf="mob === 'chest'"
-           width="62.779438"
-           height="37.412838"
-           preserveAspectRatio="none"
-           xlink:href="assets/chest-closed.png"
-           id="image1007"
-           x="18.610281"
-           y="46.650723" />
+        <g *ngIf="mob === 'chest'" app-mob-chest class="fight-mob-monster"></g>
         <g *ngIf="mob === 'exit'"
            id="exit">
           <path

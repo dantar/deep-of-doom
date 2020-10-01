@@ -53,19 +53,19 @@ export class MazeGeneratorService {
     m.mobs = {};
     let vaults = insight.exit1.map(t => MazeMap.coords(t)).filter(t => ![e.entry, e.exit].includes(t));
     for (let index = 0; index < Math.ceil(vaults.length / 2); index++) {
-      m.mobs[this.games.randomPop(vaults)] = 'chest';
+      m.mobs[this.games.randomPop(vaults)] = this.games.randomInt(0,2) == 0 ? 'spider' : 'chest';
     }
     let corridors = insight.exit2.map(t => MazeMap.coords(t));
     for (let index = 0; index < Math.ceil(corridors.length / 4); index++) {
-      m.mobs[this.games.randomPop(corridors)] = 'skeleton';
+      m.mobs[this.games.randomPop(corridors)] = this.games.randomInt(0,3) == 0 ? 'spider' : 'skeleton';
     }
     let splits = insight.exit3.map(t => MazeMap.coords(t));
     for (let index = 0; index < Math.ceil(splits.length / 3); index++) {
-      m.mobs[this.games.randomPop(splits)] = 'skeleton';
+      m.mobs[this.games.randomPop(splits)] = this.games.randomInt(0,2) == 0 ? 'spider' : 'skeleton';
     }
     let crossway = insight.exit4.map(t => MazeMap.coords(t));
     for (let index = 0; index < Math.ceil(crossway.length / 2); index++) {
-      m.mobs[this.games.randomPop(crossway)] = 'skeleton';
+      m.mobs[this.games.randomPop(crossway)] = this.games.randomInt(0,1) == 0 ? 'spider' : 'skeleton';
     }
     m.mobs[e.exit] = 'exit';
     return m;

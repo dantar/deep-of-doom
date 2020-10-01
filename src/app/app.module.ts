@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MobSkeletonComponent } from './components/mob-skeleton/mob-skeleton.component';
 import { MobChestComponent } from './components/mob-chest/mob-chest.component';
 import { MobExitComponent } from './components/mob-exit/mob-exit.component';
+import { MobSpiderComponent } from './components/mob-spider/mob-spider.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MobExitComponent } from './components/mob-exit/mob-exit.component';
     FullscreenToggleComponent,
     MobSkeletonComponent,
     MobChestComponent,
-    MobExitComponent
+    MobExitComponent,
+    MobSpiderComponent
   ],
   imports: [
     BrowserModule,

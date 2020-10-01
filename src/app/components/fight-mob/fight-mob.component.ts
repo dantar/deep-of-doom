@@ -132,6 +132,12 @@ FightMobComponent.mobs['skeleton'] = {
   life: 2,
 }
 
+FightMobComponent.mobs['spider'] = {
+  name: 'spider',
+  actions: ['tough', 'tough', 'trap', 'trap', 'gold', 'gold'],
+  life: 2,
+}
+
 FightMobComponent.mobs['chest'] = {
   name: 'chest',
   actions: ['gold', 'gold', 'tough', 'trap'],

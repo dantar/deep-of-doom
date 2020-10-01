@@ -3,6 +3,7 @@
 <div class="panel-menu-list top-left-menu">
     <div class="stats">L:{{shared.hero.life}}</div>
     <div class="stats">M:{{shared.hero.mana}}</div>
+    <div class="stats" *ngIf="shared.hero.poison > 0">P:{{shared.hero.poison}}</div>
 </div>
 <div class="panel-menu-list top-right-menu">
     <div class="stats">G:{{shared.hero.gold}}</div>

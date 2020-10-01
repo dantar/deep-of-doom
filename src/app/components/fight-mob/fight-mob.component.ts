@@ -28,11 +28,7 @@ export class FightMobComponent implements OnInit {
 
   maxrowsize = 10;
 
-  mobactions: {[id: string]: string[]} = {
-    skeleton: ['tough', 'tough', 'hit', 'hit', 'gold'],
-    chest: ['gold', 'gold', 'tough', 'tough'],
-    exit: ['gold', 'exit'],
-  };
+  static mobs: {[id: string]: MobStats} = {};
 
   brains: {[id:string]: () => void} = {
     tough: () => {
@@ -40,10 +36,13 @@ export class FightMobComponent implements OnInit {
     },
     hit: () => {
       this.shared.life(-1);
-      this.disabled = (this.shared.hero.life === 0);
+      this.disabled = (this.shared.hero.life <= 0);
     },
     gold: () => {
       this.shared.gold(1);
+    },
+    trap: () => {
+      this.shared.poison(1);
     },
     staff: () => {
       this.adjustLife(-1);
@@ -61,11 +60,11 @@ export class FightMobComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.life = 2;
+    this.life = FightMobComponent.mobs[this.mob].life;
     this.exit = false;
     this.disabled = false;
     this.builder = new ActionSlotBuilder();
-    this.actions =  this.mobactions[this.mob].map(a => this.builder.newActionSlot(a));
+    this.actions = FightMobComponent.mobs[this.mob].actions.map(a => this.builder.newActionSlot(a));
     this.drawables = this.actions.map(a => a);
   }
 
@@ -121,6 +120,33 @@ export class FightMobComponent implements OnInit {
 
 }
 
+class MobStats {
+  name: string;
+  actions: string[];
+  life: number;
+}
+
+FightMobComponent.mobs['skeleton'] = {
+  name: 'skeleton',
+  actions: ['tough', 'tough', 'hit', 'hit', 'gold'],
+  life: 2,
+}
+
+FightMobComponent.mobs['chest'] = {
+  name: 'chest',
+  actions: ['gold', 'gold', 'tough', 'trap'],
+  life: 1,
+}
+
+FightMobComponent.mobs['exit'] = {
+  name: 'exit',
+  actions: ['gold', 'exit'],
+  life: 1,
+}
+
+// skeleton: ['tough', 'tough', 'hit', 'hit', 'gold'],
+// chest: ['gold', 'gold', 'tough', 'trap'],
+// exit: ['gold', 'exit'],
 
 class ActionSlotBuilder {
 

@@ -24,6 +24,7 @@ export class SharedDataService {
     if (saved) {
       const data: SavedData = JSON.parse(saved);
       this.hero = data.hero;
+      this.hero.poison = this.hero.poison ? this.hero.poison : 0;
       this.maze = data.maze;
       this.mobs = data.mobs;
       this.exploration = data.exploration;
@@ -66,6 +67,7 @@ export class SharedDataService {
     this.hero = {
       life: 10, 
       mana: 10, 
+      poison: 0,
       gold: 0,
       maxlife: 10,
       maxmana: 10,
@@ -86,6 +88,13 @@ export class SharedDataService {
   }
   mana(arg0: number) {
     this.hero.mana = Math.max(0, this.hero.mana + arg0);
+  }
+  poison(arg0: number) {
+    this.hero.life = Math.max(0, this.hero.life - this.hero.poison);
+    if (this.hero.life <= 0) {
+      this.exitMaze();
+    }
+    this.hero.poison += arg0;
   }
 
   exp(arg0: number) {

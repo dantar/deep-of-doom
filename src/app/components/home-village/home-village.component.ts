@@ -17,6 +17,7 @@ export class HomeVillageComponent implements OnInit {
 
   healWounds() {
     this.shared.gold(-3);
+    this.shared.hero.poison = 0;
     this.shared.hero.life = this.shared.hero.maxlife;
     this.shared.hero.mana = this.shared.hero.maxmana;
   }

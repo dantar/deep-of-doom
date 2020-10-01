@@ -1,8 +1,9 @@
 <svg class="fullsvg modal-svg" viewBox="0 0 200 200" @stream>
     <defs>
 
+        
     <g
-        id="staff">
+        id="trap">
         <use
             height="100%"
             width="100%"
@@ -12,7 +13,7 @@
             y="0"
             x="0" />
         <path
-            style="opacity:1;vector-effect:none;fill:#cc00ff;fill-opacity:1;stroke:#800000;stroke-width:0.8501454;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+            style="opacity:1;vector-effect:none;fill:#88ff55;fill-opacity:1;stroke:#800000;stroke-width:0.8501454;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
             id="path1029"
             d="m 18.292169,14.787486 -3.570851,-0.06617 0.06617,3.570851 L 11.728122,16.449441 10,19.574972 8.2718775,16.449441 5.2125139,18.292169 5.2786817,14.721318 1.7078309,14.787486 3.5505593,11.728122 0.42502785,10 3.5505593,8.2718775 1.7078309,5.2125139 5.2786817,5.2786817 5.212514,1.7078309 8.2718776,3.5505593 10,0.42502785 11.728122,3.5505593 14.787486,1.7078309 14.721318,5.2786817 18.292169,5.212514 16.449441,8.2718776 19.574972,10 16.449441,11.728122 Z" />
     </g>
@@ -146,7 +147,7 @@
             r="8" />
     </g>
 
-    <g id="win" *ngIf="life === 0" (click)="done.emit('win')">
+    <g id="done-win" *ngIf="life === 0" (click)="done.emit('win')">
         <circle
             style="opacity:0.6;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.6692915;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
             id="path936"
@@ -163,22 +164,20 @@
             id="tspan24-6-5">WIN</tspan></text>
     </g>
 
-    <g id="exit" *ngIf="exit" (click)="done.emit('exit')">
+    <g id="done-exit" *ngIf="exit" (click)="done.emit('exit')">
         <circle
             style="opacity:0.6;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.6692915;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
             id="path936"
-            cx="50"
-            cy="37.142857"
-            r="18.839285" />
+            cx="100"
+            cy="100"
+            r="50" />
         <text
             id="text26-3-7"
-            y="40.984875"
-            x="50.13335"
+            y="100"
+            x="100"
             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.3057642px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.38646615"
             xml:space="preserve"><tspan
             style="stroke-width:0.38646615"
-            y="40.984875"
-            x="50.13335"
             id="tspan24-6-5">EXIT!</tspan></text>
     </g>
 

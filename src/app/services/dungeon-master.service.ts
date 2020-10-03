@@ -24,35 +24,3 @@ export class MobStats {
   life: number;
 }
 
-DungeonMasterService.registerMob(
-  {
-    name: 'skeleton',
-    actions: ['tough', 'tough', 'hit', 'hit', 'gold'],
-    life: 2,
-  }
-);
-
-DungeonMasterService.registerMob(
-  {
-    name: 'spider',
-    actions: ['tough', 'tough', 'trap', 'trap', 'gold', 'gold'],
-    life: 2,
-  }
-);
-
-DungeonMasterService.registerMob(
-  {
-    name: 'chest',
-    actions: ['gold', 'gold', 'tough', 'trap'],
-    life: 1,
-  }
-);
-
-DungeonMasterService.registerMob(
-  {
-    name: 'exit',
-    actions: ['gold', 'exit'],
-    life: 1,
-  }
-);
-

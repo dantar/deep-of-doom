@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 
 @Component({
   selector: 'app-mob-exit,[app-mob-exit]',
@@ -13,3 +14,12 @@ export class MobExitComponent implements OnInit {
   }
 
 }
+
+DungeonMasterService.registerMob(
+  {
+    name: 'exit',
+    actions: ['gold', 'exit'],
+    life: 1,
+  }
+);
+

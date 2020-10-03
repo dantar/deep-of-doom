@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 
 @Component({
   selector: 'app-mob-spider,[app-mob-spider]',
@@ -13,3 +14,12 @@ export class MobSpiderComponent implements OnInit {
   }
 
 }
+
+DungeonMasterService.registerMob(
+  {
+    name: 'spider',
+    actions: ['tough', 'tough', 'trap', 'trap', 'gold', 'gold'],
+    life: 2,
+  }
+);
+

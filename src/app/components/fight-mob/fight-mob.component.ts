@@ -118,6 +118,10 @@ export class FightMobComponent implements OnInit {
     return `scale(${scale})`
   }
 
+  clickSlot(slot: ActionSlot) {
+    console.log(slot);
+  }
+
 }
 
 class ActionSlotBuilder {

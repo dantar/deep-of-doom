@@ -3,6 +3,7 @@ import { GamesCommonService } from 'src/app/services/games-common.service';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { fallInAppear } from '../animations';
+import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 
 @Component({
   selector: 'app-fight-mob',
@@ -27,8 +28,6 @@ export class FightMobComponent implements OnInit {
   disabled: boolean;
 
   maxrowsize = 10;
-
-  static mobs: {[id: string]: MobStats} = {};
 
   brains: {[id:string]: () => void} = {
     tough: () => {
@@ -57,14 +56,15 @@ export class FightMobComponent implements OnInit {
   constructor(
     private game: GamesCommonService,
     private shared: SharedDataService,
+    private master: DungeonMasterService,
     ) { }
 
   ngOnInit(): void {
-    this.life = FightMobComponent.mobs[this.mob].life;
+    this.life = this.master.mobs[this.mob].life;
     this.exit = false;
     this.disabled = false;
     this.builder = new ActionSlotBuilder();
-    this.actions = FightMobComponent.mobs[this.mob].actions.map(a => this.builder.newActionSlot(a));
+    this.actions = this.master.mobs[this.mob].actions.map(a => this.builder.newActionSlot(a));
     this.drawables = this.actions.map(a => a);
   }
 
@@ -119,40 +119,6 @@ export class FightMobComponent implements OnInit {
   }
 
 }
-
-class MobStats {
-  name: string;
-  actions: string[];
-  life: number;
-}
-
-FightMobComponent.mobs['skeleton'] = {
-  name: 'skeleton',
-  actions: ['tough', 'tough', 'hit', 'hit', 'gold'],
-  life: 2,
-}
-
-FightMobComponent.mobs['spider'] = {
-  name: 'spider',
-  actions: ['tough', 'tough', 'trap', 'trap', 'gold', 'gold'],
-  life: 2,
-}
-
-FightMobComponent.mobs['chest'] = {
-  name: 'chest',
-  actions: ['gold', 'gold', 'tough', 'trap'],
-  life: 1,
-}
-
-FightMobComponent.mobs['exit'] = {
-  name: 'exit',
-  actions: ['gold', 'exit'],
-  life: 1,
-}
-
-// skeleton: ['tough', 'tough', 'hit', 'hit', 'gold'],
-// chest: ['gold', 'gold', 'tough', 'trap'],
-// exit: ['gold', 'exit'],
 
 class ActionSlotBuilder {
 

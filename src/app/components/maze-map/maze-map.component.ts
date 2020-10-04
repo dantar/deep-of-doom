@@ -4,6 +4,7 @@ import { SharedDataService } from 'src/app/services/shared-data.service';
 import { MazeExplorer } from 'src/app/services/maze-generator.service';
 import { GamesCommonService } from 'src/app/services/games-common.service';
 import { environment } from 'src/environments/environment';
+import { AudioPlayService } from 'src/app/services/audio-play.service';
 
 @Component({
   selector: 'app-maze-map',
@@ -29,6 +30,7 @@ export class MazeMapComponent implements OnInit {
   constructor(
     public shared: SharedDataService,
     public game: GamesCommonService,
+    public audio: AudioPlayService,
   ) { }
 
   ngOnInit(): void {
@@ -39,11 +41,13 @@ export class MazeMapComponent implements OnInit {
     this.explorer = new MazeExplorer(this.shared.maze);
     const entry = MazeMap.tile(this.shared.maze, this.shared.exploration.entry);
     this.explorer.explore(entry.x, entry.y);
+    this.audio.theme('dungeon-theme-01');
   }
 
   // actions
 
   draw(t: MazeTile) {
+    this.audio.play('action');
     MazeExploration.draw(this.shared.exploration, t);
     if (! this.mobs[MazeMap.coords(t)]) {
       this.expandDrawable(t);
@@ -57,6 +61,7 @@ export class MazeMapComponent implements OnInit {
   }
 
   clickMonster(tile: MazeTile) {
+    this.audio.play('action');
     this.encounterTile = this.explorer.coords(tile);
     this.encounter = this.mobs[this.encounterTile];
   }

@@ -43,11 +43,8 @@
                x="50.061874"
                id="tspan56">{{distance(cell)}}</tspan></text>
       </g>
-      <g id="mob" *ngIf="isDrawn(cell) || showall" (click)="clickMonster(cell)">
-         <g app-mob-skeleton *ngIf="mobs[explorer.coords(cell)] === 'skeleton'"></g>
-         <g app-mob-chest *ngIf="mobs[explorer.coords(cell)] === 'chest'"></g>
-         <g app-mob-spider *ngIf="mobs[explorer.coords(cell)] === 'spider'"></g>
-         <g app-mob-exit *ngIf="mobs[explorer.coords(cell)] === 'exit'"></g>
+      <g id="mobplaceholder" *ngIf="showall || (isDrawn(cell) && mobs[explorer.coords(cell)])" (click)="clickMonster(cell)">
+        <g app-mob-placeholder [mob]="mobs[explorer.coords(cell)]"></g> 
       </g>
       <g *ngIf="!isDrawn(cell) && showall" (click)="draw(cell)">
          <path

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 
 @Component({
-  selector: 'app-mob-spider,[app-mob-spider]',
+  selector: 'svg[app-mob-spider]',
   templateUrl: './mob-spider.component.html',
   styleUrls: ['./mob-spider.component.scss']
 })
@@ -20,6 +20,7 @@ DungeonMasterService.registerMob(
     name: 'spider',
     actions: ['tough', 'tough', 'trap', 'trap', 'gold', 'gold'],
     life: 2,
+    component: MobSpiderComponent,
   }
 );
 

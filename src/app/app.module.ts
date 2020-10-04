@@ -13,6 +13,8 @@ import { MobSkeletonComponent } from './components/mob-skeleton/mob-skeleton.com
 import { MobChestComponent } from './components/mob-chest/mob-chest.component';
 import { MobExitComponent } from './components/mob-exit/mob-exit.component';
 import { MobSpiderComponent } from './components/mob-spider/mob-spider.component';
+import { MobPlaceholderComponent } from './components/mob-placeholder/mob-placeholder.component';
+import { MobContainerDirective } from './directives/mob-container.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { MobSpiderComponent } from './components/mob-spider/mob-spider.component
     MobSkeletonComponent,
     MobChestComponent,
     MobExitComponent,
-    MobSpiderComponent
+    MobSpiderComponent,
+    MobPlaceholderComponent,
+    MobContainerDirective
   ],
   imports: [
     BrowserModule,

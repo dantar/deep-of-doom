@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 
 @Component({
-  selector: 'app-mob-exit,[app-mob-exit]',
+  selector: 'svg[app-mob-exit]',
   templateUrl: './mob-exit.component.html',
   styleUrls: ['./mob-exit.component.scss']
 })
@@ -20,6 +20,7 @@ DungeonMasterService.registerMob(
     name: 'exit',
     actions: ['gold', 'exit'],
     life: 1,
+    component: MobExitComponent,
   }
 );
 

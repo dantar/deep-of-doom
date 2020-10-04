@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 
 @Component({
-  selector: 'app-mob-chest,[app-mob-chest]',
+  selector: 'svg[app-mob-chest]',
   templateUrl: './mob-chest.component.html',
   styleUrls: ['./mob-chest.component.scss']
 })
@@ -20,6 +20,7 @@ DungeonMasterService.registerMob(
     name: 'chest',
     actions: ['gold', 'gold', 'tough', 'trap'],
     life: 1,
+    component: MobChestComponent,
   }
 );
 

@@ -11,6 +11,7 @@ export class DungeonMasterService {
   }
 
   mobs: {[id: string]: MobStats};
+
   constructor() {
     this.mobs = {};
     DungeonMasterService._mobs.forEach(m => this.mobs[m.name] = m);
@@ -22,5 +23,6 @@ export class MobStats {
   name: string;
   actions: string[];
   life: number;
+  component: any;
 }
 

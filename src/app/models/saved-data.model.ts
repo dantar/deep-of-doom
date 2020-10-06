@@ -1,5 +1,5 @@
 import { WizardHero } from './hero.model';
-import { MazeMap, MazeMobs, MazeExploration } from './maze-map.model';
+import { MazeMap, MazeMobs, MazeExploration, MazeRooms } from './maze-map.model';
 
 export class SavedData {
 
@@ -7,6 +7,7 @@ export class SavedData {
     
     maze?: MazeMap;
     mobs?: MazeMobs;
+    rooms?: MazeRooms;
     exploration?: MazeExploration;
   
 }

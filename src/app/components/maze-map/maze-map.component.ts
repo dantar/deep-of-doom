@@ -18,7 +18,8 @@ export class MazeMapComponent implements OnInit, OnDestroy {
   drawn: string[];
   drawable: string[];
 
-  mobs: {[id: string]: string};
+  mobs: { [id: string]: string };
+  rooms: { [id: string]: string };
 
   explorer: MazeExplorer;
   entry: MazeTile;
@@ -38,6 +39,7 @@ export class MazeMapComponent implements OnInit, OnDestroy {
     this.drawn = this.shared.exploration.drawn;
     this.drawable = this.shared.exploration.drawable;
     this.mobs = this.shared.mobs.mobs;
+    this.rooms = this.shared.rooms.rooms;
     this.explorer = new MazeExplorer(this.shared.maze);
     const entry = MazeMap.tile(this.shared.maze, this.shared.exploration.entry);
     this.explorer.explore(entry.x, entry.y);

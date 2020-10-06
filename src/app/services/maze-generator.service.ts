@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MazeMap, MazeTile, MazeConnection, MazeMobs, MazeExploration, MazeInsight } from '../models/maze-map.model';
+import { MazeMap, MazeTile, MazeConnection, MazeMobs, MazeExploration, MazeInsight, MazeRooms } from '../models/maze-map.model';
 import { GamesCommonService } from './games-common.service';
 
 @Injectable({
@@ -69,6 +69,14 @@ export class MazeGeneratorService {
     }
     m.mobs[e.exit] = 'exit';
     return m;
+  }
+
+  rooms(maze: MazeMap, e: MazeExploration, mobs: MazeMobs): MazeRooms {
+    let insight = new MazeInsight().study(maze);
+    let r: MazeRooms = {rooms: {}};
+    insight.exit1.forEach(t => r.rooms[MazeMap.coords(t)] = 'plain');
+    Object.keys(mobs.mobs).forEach(t => r.rooms[t] = 'plain');
+    return r;
   }
 
   applyConnection(c: MazeConnection, m: MazeMap, t:string): string {

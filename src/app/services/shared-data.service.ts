@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MazeMap, MazeExploration, MazeMobs } from '../models/maze-map.model';
+import { MazeMap, MazeExploration, MazeMobs, MazeRooms } from '../models/maze-map.model';
 import { MazeGeneratorService } from './maze-generator.service';
 import { WizardHero } from '../models/hero.model';
 import { SavedData } from '../models/saved-data.model';
@@ -13,6 +13,7 @@ export class SharedDataService {
   maze: MazeMap;
 
   mobs: MazeMobs;
+  rooms: MazeRooms;
   exploration: MazeExploration;
   saved: string;
 
@@ -34,6 +35,7 @@ export class SharedDataService {
       this.hero.poison = this.hero.poison ? this.hero.poison : 0;
       this.maze = data.maze;
       this.mobs = data.mobs;
+      this.rooms = data.rooms;
       this.exploration = data.exploration;
     } else {
       this.newHero();
@@ -62,6 +64,7 @@ export class SharedDataService {
     this.maze = this.generator.generate(size, size);
     this.exploration = this.generator.exploration(this.maze);
     this.mobs = this.generator.mobs(this.maze, this.exploration);
+    this.rooms = this.generator.rooms(this.maze, this.exploration, this.mobs);
     this.save();
   }
 

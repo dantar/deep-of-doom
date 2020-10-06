@@ -9,39 +9,51 @@
       </svg:g>      
       <svg:g *ngIf="isDrawn(cell) || showall"
          class="tile north-{{cell.north}} south-{{cell.south}} east-{{cell.east}} west-{{cell.west}}">
-         <svg:path
-            style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:9.05211735;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
-            d="M 0,0 H 100 V 100 H 0 Z"
-            class="wall" />
-         <svg:path
-            class="west"
-            d="M 0,40 H 60 V 60 H 0 Z"
-            style="opacity:1;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:3.13574553;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
-         <svg:path
-            style="opacity:1;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:3.13574553;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
-            d="M 60,0 V 60 H 40 V 0 Z"
-            class="north" />
-         <svg:path
-            class="east"
-            d="M 100,60 H 40 V 40 h 60 z"
-            style="opacity:1;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:3.13574553;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
-         <svg:path
-            class="south"
-            d="m 60,40 v 60 H 40 V 40 Z"
-            style="opacity:1;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:3.13574553;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
-         <svg:path
-            style="opacity:1;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:7.24169493;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
-            d="M 90,90 H 10 V 10 h 80 z"
-            class="room" />
-         <svg:text 
-            id="text58"
-            y="56.906666"
-            x="50.061874"
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.66666603px;line-height:1.25;font-family:Garuda;-inkscape-font-specification:'Garuda, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
-            xml:space="preserve"><svg:tspan
-               y="56.906666"
-               x="50.061874"
-               id="tspan56">{{distance(cell)}}</svg:tspan></svg:text>
+
+         <svg:path *ngIf="rooms[explorer.coords(cell)]"
+            id="room-wall"
+            d="M 5,5 H 95 V 95 H 5 Z"
+            style="fill:#280b0b;fill-opacity:1;stroke:none;stroke-width:1.28571427px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+
+         <svg:path class="west"
+            id="west-wall"
+            d="M 0,25 H 75 V 75 H 0 Z"
+            style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.62366807;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+         <svg:path class="north"
+            id="north-wall"
+            d="M 75,0 V 75 H 25 V 0 Z"
+            style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.62366807;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+         <svg:path class="east"
+            id="east-wall"
+            d="M 100,75 H 25 V 25 h 75 z"
+            style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.62366807;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+         <svg:path class="south"
+            id="south-wall"
+            d="M 25,100 V 25 h 50 v 75 z"
+            style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.62366807;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+
+         <svg:path class="west"
+            id="west-light"
+            d="M 0,35 H 65 V 65 H 0 Z"
+            style="opacity:1;vector-effect:none;fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1.17084372;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+         <svg:path class="north"
+            id="north-light"
+            d="M 65,0 V 65 H 35 V 0 Z"
+            style="opacity:1;vector-effect:none;fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1.17084372;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+         <svg:path class="east"
+            id="east-light"
+            d="M 100,65 H 35 V 35 h 65 z"
+            style="opacity:1;vector-effect:none;fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1.17084372;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+         <svg:path class="south"
+            id="south-light"
+            d="M 35,100 V 35 h 30 v 65 z"
+            style="opacity:1;vector-effect:none;fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1.17084372;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+
+         <svg:path *ngIf="rooms[explorer.coords(cell)]"
+            style="fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+            d="M 15,15 H 85 V 85 H 15 Z"
+            id="room-light" />
+
       </svg:g>
       <svg:g id="mobplaceholder" *ngIf="showall || (isDrawn(cell) && mobs[explorer.coords(cell)])" (click)="clickMonster(cell)">
         <svg:g app-mob-placeholder [mob]="mobs[explorer.coords(cell)]"></svg:g> 

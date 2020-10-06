@@ -26,13 +26,13 @@
     </rdf:RDF>
   </metadata>
   <rect
-     ry="0.36740202"
-     y="0"
-     x="0"
-     height="100"
+     style="opacity:1;vector-effect:none;fill:#e3dedb;fill-opacity:1;stroke:none;stroke-width:2.9377892;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+     id="rect911"
      width="100"
-     id="rect1054"
-     style="opacity:1;vector-effect:none;fill:#e3dedb;fill-opacity:1;stroke:none;stroke-width:2.9377892;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+     height="100"
+     x="0"
+     y="0"
+     ry="0.36740202" />
   <rect
      style="opacity:1;vector-effect:none;fill:#e3dedb;fill-opacity:1;stroke:none;stroke-width:2.9377892;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
      id="rect1052"
@@ -271,6 +271,70 @@
          d="m 43.373295,58.816771 c -0.900002,1.558852 0.520444,3.961799 2.079296,4.861801 1.558843,0.900002 2.665795,-0.04379 3.565789,-1.602597 z"
          id="path1035" />
     </g>
+    <path
+       id="path905"
+       d="M 7.1428571,-13.214286 1.4285714,-27.142857 3.5714286,-36.428571 -2.1428571,-55 l 7.5,-19.642857"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+  </g>
+  <g
+     style="display:inline"
+     id="layer2">
+    <g
+       id="west"
+       style="display:inline">
+      <path
+         id="west-wall"
+         d="M 0,25 H 75 V 75 H 0 Z"
+         style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.62366807;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+      <path
+         id="west-light"
+         d="M 0,35 H 65 V 65 H 0 Z"
+         style="opacity:1;vector-effect:none;fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1.17084372;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    </g>
+    <g
+       id="north"
+       style="display:inline">
+      <path
+         id="north-wall"
+         d="M 75,0 V 75 H 25 V 0 Z"
+         style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.62366807;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+      <path
+         id="north-light"
+         d="M 65,0 V 65 H 35 V 0 Z"
+         style="opacity:1;vector-effect:none;fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1.17084372;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    </g>
+    <g
+       id="east"
+       style="display:inline">
+      <path
+         id="east-wall"
+         d="M 100,75 H 25 V 25 h 75 z"
+         style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.62366807;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+      <path
+         id="east-light"
+         d="M 100,65 H 35 V 35 h 65 z"
+         style="opacity:1;vector-effect:none;fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1.17084372;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    </g>
+    <g
+       id="south"
+       style="display:inline">
+      <path
+         id="south-wall"
+         d="M 25,100 V 25 h 50 v 75 z"
+         style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.62366807;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+      <path
+         id="south-light"
+         d="M 35,100 V 35 h 30 v 65 z"
+         style="opacity:1;vector-effect:none;fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1.17084372;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    </g>
+    <path
+       id="room-wall"
+       d="M 5,5 H 95 V 95 H 5 Z"
+       style="fill:#280b0b;fill-opacity:1;stroke:none;stroke-width:1.28571427px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       style="fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 15,15 H 85 V 85 H 15 Z"
+       id="room-light" />
   </g>
   <g
      transform="translate(66.670067,64.649762)"
@@ -278,12 +342,12 @@
      id="g843" />
   <image
      xlink:href="../src/assets/chest-closed.png"
-     y="63.318237"
-     x="137.30321"
-     id="image1007"
-     preserveAspectRatio="none"
+     width="62.779438"
      height="37.412838"
-     width="62.779438" />
+     preserveAspectRatio="none"
+     id="image1007"
+     x="137.30321"
+     y="63.318237" />
   <g
      transform="translate(-11.951067,98.825241)"
      id="exit">
@@ -366,6 +430,7 @@
    cx="50"
    id="circle861"
    style="opacity:0.6;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.6692915;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+
 
 
 

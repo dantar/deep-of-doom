@@ -33,6 +33,10 @@ export class MazeMobs {
     active: string[];
 }
 
+export class MazeRooms {
+    rooms: {[id: string]: string};
+}
+
 export class MazeExploration {
     drawn: string[];
     drawable: string[];

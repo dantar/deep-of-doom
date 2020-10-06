@@ -1,59 +1,59 @@
-<svg class="fullsvg" [attr.viewBox]="viewBox()">
-<g *ngFor="let row of shared.maze.rows">
-   <g *ngFor="let cell of row" [style]="position(cell)">
-      <g *ngIf="isDrawable(cell)" (click)="draw(cell)">
-         <path
+<svg:svg class="fullsvg" [attr.viewBox]="viewBox()">
+<svg:g *ngFor="let row of shared.maze.rows">
+   <svg:g *ngFor="let cell of row" [style]="position(cell)">
+      <svg:g *ngIf="isDrawable(cell)" (click)="draw(cell)">
+         <svg:path
             style="opacity:0.7;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:9.05211735;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
             d="M 0,0 H 100 V 100 H 0 Z"
             class="clickable" />
-      </g>      
-      <g *ngIf="isDrawn(cell) || showall"
+      </svg:g>      
+      <svg:g *ngIf="isDrawn(cell) || showall"
          class="tile north-{{cell.north}} south-{{cell.south}} east-{{cell.east}} west-{{cell.west}}">
-         <path
+         <svg:path
             style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:9.05211735;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
             d="M 0,0 H 100 V 100 H 0 Z"
             class="wall" />
-         <path
+         <svg:path
             class="west"
             d="M 0,40 H 60 V 60 H 0 Z"
             style="opacity:1;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:3.13574553;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
-         <path
+         <svg:path
             style="opacity:1;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:3.13574553;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
             d="M 60,0 V 60 H 40 V 0 Z"
             class="north" />
-         <path
+         <svg:path
             class="east"
             d="M 100,60 H 40 V 40 h 60 z"
             style="opacity:1;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:3.13574553;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
-         <path
+         <svg:path
             class="south"
             d="m 60,40 v 60 H 40 V 40 Z"
             style="opacity:1;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:3.13574553;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
-         <path
+         <svg:path
             style="opacity:1;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:7.24169493;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
             d="M 90,90 H 10 V 10 h 80 z"
             class="room" />
-         <text 
+         <svg:text 
             id="text58"
             y="56.906666"
             x="50.061874"
             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.66666603px;line-height:1.25;font-family:Garuda;-inkscape-font-specification:'Garuda, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
-            xml:space="preserve"><tspan
+            xml:space="preserve"><svg:tspan
                y="56.906666"
                x="50.061874"
-               id="tspan56">{{distance(cell)}}</tspan></text>
-      </g>
-      <g id="mobplaceholder" *ngIf="showall || (isDrawn(cell) && mobs[explorer.coords(cell)])" (click)="clickMonster(cell)">
-        <g app-mob-placeholder [mob]="mobs[explorer.coords(cell)]"></g> 
-      </g>
-      <g *ngIf="!isDrawn(cell) && showall" (click)="draw(cell)">
-         <path
+               id="tspan56">{{distance(cell)}}</svg:tspan></svg:text>
+      </svg:g>
+      <svg:g id="mobplaceholder" *ngIf="showall || (isDrawn(cell) && mobs[explorer.coords(cell)])" (click)="clickMonster(cell)">
+        <svg:g app-mob-placeholder [mob]="mobs[explorer.coords(cell)]"></svg:g> 
+      </svg:g>
+      <svg:g *ngIf="!isDrawn(cell) && showall" (click)="draw(cell)">
+         <svg:path
             style="opacity:0.7;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:9.05211735;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
             d="M 0,0 H 100 V 100 H 0 Z"
             class="clickable" />
-      </g>      
-   </g>
-</g>
-</svg>
+      </svg:g>      
+   </svg:g>
+</svg:g>
+</svg:svg>
 
 <app-fight-mob *ngIf="encounter" [mob]="encounter" (done)="doneMonster($event)"></app-fight-mob>

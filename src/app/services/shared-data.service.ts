@@ -17,7 +17,7 @@ export class SharedDataService {
 
   constructor(private generator: MazeGeneratorService) {
     this.tryLoad();
-    //
+    // this.newHero();
   }
 
   tryLoad() {

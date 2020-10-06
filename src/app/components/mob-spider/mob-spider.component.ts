@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 
 @Component({
-  selector: 'svg[app-mob-spider]',
+  selector: 'svg:g[app-mob-spider]',
   templateUrl: './mob-spider.component.html',
   styleUrls: ['./mob-spider.component.scss']
 })

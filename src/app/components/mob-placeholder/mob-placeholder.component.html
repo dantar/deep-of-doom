@@ -1,1 +1,5 @@
-<svg:g #mobDirective appMobContainer></svg:g>
+<!-- <svg:g #mobDirective appMobContainer></svg:g> -->
+<svg:g app-mob-skeleton *ngIf="mob === 'skeleton'"></svg:g>
+<svg:g app-mob-chest *ngIf="mob === 'chest'"></svg:g>
+<svg:g app-mob-spider *ngIf="mob === 'spider'"></svg:g>
+<svg:g app-mob-exit *ngIf="mob === 'exit'"></svg:g>

@@ -19,17 +19,14 @@ export class MobPlaceholderComponent implements OnInit, AfterViewInit {
     ) { }
 
   ngAfterViewInit(): void {
-    this.loadComponent();
+    //this.loadComponent();
   }
 
   ngOnInit(): void {
   }
 
   loadComponent() {
-
-    // const componentFactory = this.componentFactoryResolver.resolveComponentFactory(MobSkeletonComponent);
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.master.mobs[this.mob].component);
-
     const viewContainerRef = this.mobDirective.viewContainerRef;
     console.log(viewContainerRef);
     viewContainerRef.clear();

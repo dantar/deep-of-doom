@@ -48,7 +48,8 @@ export class SharedDataService {
       exploration: this.exploration,
       mobs: this.mobs,
     };
-    localStorage.setItem('deep-of-doom-saved', JSON.stringify(data));
+    this.saved = JSON.stringify(data);
+    localStorage.setItem('deep-of-doom-saved', this.saved);
   }
 
   progressUp() {
@@ -68,6 +69,7 @@ export class SharedDataService {
     this.maze = null;
     this.exploration = null;
     this.mobs = null;
+    this.save();
   }
 
   newHero() {
@@ -82,6 +84,10 @@ export class SharedDataService {
       level: 1,
       progress: 0,
     };
+    this.maze = null;
+    this.mobs = null;
+    this.exploration = null;
+    this.save();
   }
 
   gold(arg0: number) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MazeMap, MazeTile, MazeInsight, MazeExploration } from 'src/app/models/maze-map.model';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { MazeExplorer } from 'src/app/services/maze-generator.service';
@@ -11,7 +11,7 @@ import { AudioPlayService } from 'src/app/services/audio-play.service';
   templateUrl: './maze-map.component.html',
   styleUrls: ['./maze-map.component.scss']
 })
-export class MazeMapComponent implements OnInit {
+export class MazeMapComponent implements OnInit, OnDestroy {
 
   showall: boolean;
 
@@ -32,7 +32,7 @@ export class MazeMapComponent implements OnInit {
     public game: GamesCommonService,
     public audio: AudioPlayService,
   ) { }
-
+  
   ngOnInit(): void {
     this.showall = environment.showall;
     this.drawn = this.shared.exploration.drawn;
@@ -42,6 +42,10 @@ export class MazeMapComponent implements OnInit {
     const entry = MazeMap.tile(this.shared.maze, this.shared.exploration.entry);
     this.explorer.explore(entry.x, entry.y);
     this.audio.theme('dungeon-theme-01');
+  }
+  
+  ngOnDestroy(): void {
+    this.audio.theme(null);
   }
 
   // actions

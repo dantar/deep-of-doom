@@ -33,9 +33,11 @@ export class AudioPlayService {
       this.currentTheme.pause();
       this.currentTheme.currentTime = 0;
     }
-    this.currentTheme = this.audios[name];
-    this.currentTheme.play();
-    this.currentTheme.loop = true;
+    if (name && this.audios[name]) {
+      this.currentTheme = this.audios[name];
+      this.currentTheme.play();
+      this.currentTheme.loop = true;
+    }
   }
 
 }

@@ -1,0 +1,5 @@
+<app-game-play *ngIf="shared.hero"></app-game-play>
+<div class="fullpage" *ngIf="!shared.hero">
+    <div class="button" (click)="shared.newHero()">Nuova partita!</div>
+    <div *ngIf="shared.saved" class="button" (click)="shared.tryLoad()">Carica partita salvata!</div>
+</div>

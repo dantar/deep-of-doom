@@ -15,6 +15,7 @@ import { MobExitComponent } from './components/mob-exit/mob-exit.component';
 import { MobSpiderComponent } from './components/mob-spider/mob-spider.component';
 import { MobPlaceholderComponent } from './components/mob-placeholder/mob-placeholder.component';
 import { MobContainerDirective } from './directives/mob-container.directive';
+import { MainMenuComponent } from './components/main-menu/main-menu.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MobContainerDirective } from './directives/mob-container.directive';
     MobExitComponent,
     MobSpiderComponent,
     MobPlaceholderComponent,
-    MobContainerDirective
+    MobContainerDirective,
+    MainMenuComponent
   ],
   imports: [
     BrowserModule,

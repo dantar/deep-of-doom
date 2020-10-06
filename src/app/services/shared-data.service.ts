@@ -14,16 +14,22 @@ export class SharedDataService {
 
   mobs: MazeMobs;
   exploration: MazeExploration;
+  saved: string;
 
   constructor(private generator: MazeGeneratorService) {
-    this.tryLoad();
-    // this.newHero();
+    this.saved = localStorage.getItem('deep-of-doom-saved');
+  }
+
+  quitGame() {
+    this.hero = null;
+    this.maze = null;
+    this.mobs = null;
+    this.exploration = null;
   }
 
   tryLoad() {
-    const saved = localStorage.getItem('deep-of-doom-saved');
-    if (saved) {
-      const data: SavedData = JSON.parse(saved);
+    if (this.saved) {
+      const data: SavedData = JSON.parse(this.saved);
       this.hero = data.hero;
       this.hero.poison = this.hero.poison ? this.hero.poison : 0;
       this.maze = data.maze;

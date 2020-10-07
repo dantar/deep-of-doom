@@ -17,6 +17,8 @@ export class SharedDataService {
   exploration: MazeExploration;
   saved: string;
 
+  BASIC_SIZE = 4;
+
   constructor(private generator: MazeGeneratorService) {
     this.saved = localStorage.getItem('deep-of-doom-saved');
   }
@@ -25,6 +27,7 @@ export class SharedDataService {
     this.hero = null;
     this.maze = null;
     this.mobs = null;
+    this.rooms = null;
     this.exploration = null;
   }
 
@@ -49,18 +52,21 @@ export class SharedDataService {
       maze: this.maze,
       exploration: this.exploration,
       mobs: this.mobs,
+      rooms: this.rooms,
     };
     this.saved = JSON.stringify(data);
     localStorage.setItem('deep-of-doom-saved', this.saved);
   }
 
   progressUp() {
-    this.hero.progress ++;
-    this.save();
+    if (this.maze.sizex >= this.hero.progress + this.BASIC_SIZE) {
+      this.hero.progress ++;
+      this.save();
+    }
   }
 
-  newMaze() {
-    let size = Math.min(10, 4 + this.hero.progress);
+  newMaze(level: number) {
+    let size = Math.min(10, this.BASIC_SIZE + level);
     this.maze = this.generator.generate(size, size);
     this.exploration = this.generator.exploration(this.maze);
     this.mobs = this.generator.mobs(this.maze, this.exploration);
@@ -77,14 +83,13 @@ export class SharedDataService {
 
   newHero() {
     this.hero = {
-      life: 10, 
-      mana: 10, 
+      life: 5, 
+      mana: 5, 
       poison: 0,
       gold: 0,
-      maxlife: 10,
-      maxmana: 10,
+      maxlife: 5,
+      maxmana: 5,
       exp: 0,
-      level: 1,
       progress: 0,
     };
     this.maze = null;
@@ -98,7 +103,7 @@ export class SharedDataService {
   }
   life(arg0: number) {
     this.hero.life = Math.max(0, this.hero.life + arg0);
-    if (this.hero.life == 0) {
+    if (this.hero.life === 0) {
       this.exitMaze();
     }
   }
@@ -112,9 +117,21 @@ export class SharedDataService {
     }
     this.hero.poison += arg0;
   }
-
   exp(arg0: number) {
     this.hero.exp = Math.max(0, this.hero.exp + arg0);
+  }
+
+  levelUpLife() {
+    this.exp(-this.hero.maxlife);
+    this.hero.maxlife += 1;
+    this.hero.life += 1;
+    this.save();
+  }
+  levelUpMana() {
+    this.exp(-this.hero.maxmana);
+    this.hero.maxmana += 1;
+    this.hero.mana += 1;
+    this.save();
   }
 
 }

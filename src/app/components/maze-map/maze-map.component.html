@@ -1,11 +1,27 @@
 <svg:svg class="fullsvg" [attr.viewBox]="viewBox()">
 <svg:g *ngFor="let row of shared.maze.rows">
    <svg:g *ngFor="let cell of row" [style]="position(cell)">
-      <svg:g *ngIf="isDrawable(cell)" (click)="draw(cell)">
-         <svg:path
-            style="opacity:0.7;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:9.05211735;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
-            d="M 0,0 H 100 V 100 H 0 Z"
-            class="clickable" />
+      <svg:g *ngIf="isDrawable(cell) && !isDrawn(cell)" (click)="draw(cell)">
+         <svg:rect
+            style="opacity:0.7;vector-effect:none;fill:#ffe680;fill-opacity:0.7;stroke:none;stroke-width:1.54330707;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+            id="rect1047"
+            width="70"
+            height="70"
+            x="26.237244"
+            y="0.35533905"
+            ry="15.984251"
+            transform="rotate(15)" />
+         <svg:text
+            id="text26-3-7-3"
+            y="56.690643"
+            x="61.195133"
+            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:57.49302292px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.15598845"
+            xml:space="preserve"
+            transform="rotate(15)"><svg:tspan
+            style="stroke-width:2.15598845"
+            y="56.690643"
+            x="61.195133"
+            id="tspan24-6-5-6">?</svg:tspan></svg:text>
       </svg:g>      
       <svg:g *ngIf="isDrawn(cell) || showall"
          class="tile north-{{cell.north}} south-{{cell.south}} east-{{cell.east}} west-{{cell.west}}">
@@ -13,24 +29,24 @@
          <svg:path *ngIf="rooms[explorer.coords(cell)]"
             id="room-wall"
             d="M 5,5 H 95 V 95 H 5 Z"
-            style="fill:#280b0b;fill-opacity:1;stroke:none;stroke-width:1.28571427px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+            style="fill:#888888;fill-opacity:1;stroke:none;stroke-width:1.28571427px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
 
          <svg:path class="west"
             id="west-wall"
             d="M 0,25 H 75 V 75 H 0 Z"
-            style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.62366807;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+            style="opacity:1;vector-effect:none;fill:#888888;fill-opacity:1;stroke:none;stroke-width:1.62366807;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
          <svg:path class="north"
             id="north-wall"
             d="M 75,0 V 75 H 25 V 0 Z"
-            style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.62366807;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+            style="opacity:1;vector-effect:none;fill:#888888;fill-opacity:1;stroke:none;stroke-width:1.62366807;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
          <svg:path class="east"
             id="east-wall"
             d="M 100,75 H 25 V 25 h 75 z"
-            style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.62366807;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+            style="opacity:1;vector-effect:none;fill:#888888;fill-opacity:1;stroke:none;stroke-width:1.62366807;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
          <svg:path class="south"
             id="south-wall"
             d="M 25,100 V 25 h 50 v 75 z"
-            style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.62366807;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+            style="opacity:1;vector-effect:none;fill:#888888;fill-opacity:1;stroke:none;stroke-width:1.62366807;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
 
          <svg:path class="west"
             id="west-light"
@@ -58,12 +74,6 @@
       <svg:g id="mobplaceholder" *ngIf="showall || (isDrawn(cell) && mobs[explorer.coords(cell)])" (click)="clickMonster(cell)">
         <svg:g app-mob-placeholder [mob]="mobs[explorer.coords(cell)]"></svg:g> 
       </svg:g>
-      <svg:g *ngIf="!isDrawn(cell) && showall" (click)="draw(cell)">
-         <svg:path
-            style="opacity:0.7;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:9.05211735;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
-            d="M 0,0 H 100 V 100 H 0 Z"
-            class="clickable" />
-      </svg:g>      
    </svg:g>
 </svg:g>
 </svg:svg>

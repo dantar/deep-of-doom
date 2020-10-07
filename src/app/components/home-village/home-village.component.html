@@ -1,4 +1,6 @@
 <div class="fullpage">
-    <div class="button" (click)="enterMaze()">Enter maze level {{shared.hero.progress +1}}!</div>
-    <div class="button" (click)="healWounds()">Heal your wounds!</div>
+    <div *ngIf="shared.hero.life < shared.hero.maxlife || shared.hero.mana < shared.hero.maxmana || shared.hero.poison > 0"class="button" (click)="healWounds()">Riposa e cura le ferite</div>
+    <div *ngIf="shared.hero.exp >= shared.hero.maxmana" class="button" (click)="shared.levelUpMana()">Aumenta il mana</div>
+    <div *ngIf="shared.hero.exp >= shared.hero.maxlife" class="button" (click)="shared.levelUpLife()">Aumenta la vita</div>
+    <div *ngFor="let maze of mazes" class="button" (click)="enterMaze(maze)">Labirinto livello {{maze.size}}!</div>
 </div>

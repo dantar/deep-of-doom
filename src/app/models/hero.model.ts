@@ -9,7 +9,6 @@ export class WizardHero {
     gold: number;
 
     exp: number;
-    level: number;
     progress: number;
 
     righthand?: string;

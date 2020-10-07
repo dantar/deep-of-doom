@@ -335,6 +335,29 @@
        style="fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 15,15 H 85 V 85 H 15 Z"
        id="room-light" />
+    <g
+       id="explore">
+      <rect
+         style="opacity:1;vector-effect:none;fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1.54330707;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+         id="rect1047"
+         width="70"
+         height="70"
+         x="26.237244"
+         y="0.35533905"
+         ry="15.984251"
+         transform="rotate(15)" />
+      <text
+         id="text26-3-7-3"
+         y="56.690643"
+         x="61.195133"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:57.49302292px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.15598845"
+         xml:space="preserve"
+         transform="rotate(15)"><tspan
+           style="stroke-width:2.15598845"
+           y="56.690643"
+           x="61.195133"
+           id="tspan24-6-5-6">?</tspan></text>
+    </g>
   </g>
   <g
      transform="translate(66.670067,64.649762)"
@@ -342,12 +365,12 @@
      id="g843" />
   <image
      xlink:href="../src/assets/chest-closed.png"
-     width="62.779438"
-     height="37.412838"
-     preserveAspectRatio="none"
-     id="image1007"
+     y="63.318237"
      x="137.30321"
-     y="63.318237" />
+     id="image1007"
+     preserveAspectRatio="none"
+     height="37.412838"
+     width="62.779438" />
   <g
      transform="translate(-11.951067,98.825241)"
      id="exit">
@@ -430,6 +453,7 @@
    cx="50"
    id="circle861"
    style="opacity:0.6;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.6692915;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+
 
 
 

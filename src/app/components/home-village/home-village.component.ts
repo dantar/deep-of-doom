@@ -12,7 +12,14 @@ export class HomeVillageComponent implements OnInit {
     public shared: SharedDataService,
   ) { }
 
+  mazes: AvailableMaze[];
+
   ngOnInit(): void {
+    this.mazes = [];
+    for (let index = 0; index <= this.shared.hero.progress; index++) {
+      this.mazes.push(new AvailableMaze(index));
+      
+    }
   }
 
   healWounds() {
@@ -22,10 +29,20 @@ export class HomeVillageComponent implements OnInit {
     this.shared.hero.mana = this.shared.hero.maxmana;
   }
 
-  enterMaze() {
+  enterMaze(maze: AvailableMaze) {
     if (this.shared.hero.life > 0) {
-      this.shared.newMaze();
+      this.shared.newMaze(maze.size);
     }
+  }
+
+}
+
+class AvailableMaze {
+
+  size: number;
+ 
+  constructor(level: number) {
+    this.size = level;
   }
 
 }

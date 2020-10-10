@@ -16,6 +16,8 @@ import { MobSpiderComponent } from './components/mob-spider/mob-spider.component
 import { MobPlaceholderComponent } from './components/mob-placeholder/mob-placeholder.component';
 import { MobContainerDirective } from './directives/mob-container.directive';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]

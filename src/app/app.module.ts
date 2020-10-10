@@ -18,6 +18,7 @@ import { MobContainerDirective } from './directives/mob-container.directive';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { WildernessMapComponent } from './components/wilderness-map/wilderness-map.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { environment } from '../environments/environment';
     MobSpiderComponent,
     MobPlaceholderComponent,
     MobContainerDirective,
-    MainMenuComponent
+    MainMenuComponent,
+    WildernessMapComponent
   ],
   imports: [
     BrowserModule,

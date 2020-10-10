@@ -74,7 +74,7 @@ export class SharedDataService {
     this.save();
   }
 
-  exitMaze() {
+  _exitMaze() {
     this.maze = null;
     this.exploration = null;
     this.mobs = null;
@@ -83,6 +83,7 @@ export class SharedDataService {
 
   newHero() {
     this.hero = {
+      location: 'village',
       life: 5, 
       mana: 5, 
       poison: 0,
@@ -105,7 +106,7 @@ export class SharedDataService {
   life(arg0: number) {
     this.hero.life = Math.max(0, this.hero.life + arg0);
     if (this.hero.life === 0) {
-      this.exitMaze();
+      this.moveToVillage();
     }
   }
   mana(arg0: number) {
@@ -114,12 +115,28 @@ export class SharedDataService {
   poison(arg0: number) {
     this.hero.life = Math.max(0, this.hero.life - this.hero.poison);
     if (this.hero.life <= 0) {
-      this.exitMaze();
+      this.moveToVillage();
     }
     this.hero.poison += arg0;
   }
   exp(arg0: number) {
     this.hero.exp = Math.max(0, this.hero.exp + arg0);
+  }
+  moveToVillage() {
+    this.hero.location = 'village';
+    this.save();
+  }
+  moveToWilderness() {
+    if (this.hero.life > 0) {
+      this.hero.location = 'wilderness';
+    }
+    this.save();
+  }
+  moveToMaze() {
+    if (this.hero.life > 0 && this.maze != null) {
+      this.hero.location = 'maze';
+    }
+    this.save();
   }
 
   levelUpLife() {

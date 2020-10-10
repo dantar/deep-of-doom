@@ -1,0 +1,4 @@
+<div class="bg wilderness fullpage">
+    <div class="button" (click)="shared.moveToVillage()">Torna al villaggio!</div>
+    <div *ngFor="let maze of mazes" class="button" (click)="enterMaze(maze)">Labirinto livello {{maze.size}}!</div>
+</div>

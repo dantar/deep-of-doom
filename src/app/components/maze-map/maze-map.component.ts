@@ -75,7 +75,7 @@ export class MazeMapComponent implements OnInit, OnDestroy {
   doneMonster(event: string) {
     delete this.mobs[this.encounterTile];
     if (event === 'exit') {
-      this.shared.exitMaze();
+      this.shared.moveToWilderness();
     } else {
       this.expandDrawable(MazeMap.tile(this.shared.maze, this.encounterTile));
       this.encounter = null;

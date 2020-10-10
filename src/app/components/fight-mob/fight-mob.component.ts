@@ -30,7 +30,6 @@ export class FightMobComponent implements OnInit {
 
   maxrowsize = 10;
 
-
   brains: {[id:string]: () => void} = {
     tough: () => {
       this.adjustLife(-1);

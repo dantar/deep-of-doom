@@ -1,7 +1,9 @@
-<app-home-village *ngIf="!shared.maze || shared.hero.life <= 0"></app-home-village>
-<app-maze-map *ngIf="shared.maze && shared.hero.life > 0"></app-maze-map>
+<app-home-village *ngIf="shared.hero.location === 'village'"></app-home-village>
+<app-wilderness-map *ngIf="shared.hero.location === 'wilderness'"></app-wilderness-map>
+<app-maze-map *ngIf="shared.hero.location === 'maze'"></app-maze-map>
+
 <div class="panel-menu-list top-left-menu">
-    <div class="stats" (click)="shared.quitGame()">Q</div>
+    <div class="stats" (click)="shared.quitGame()">Quit</div>
 </div>
 <div class="panel-menu-list top-right-menu">
     <svg viewBox="0 0 100 100">

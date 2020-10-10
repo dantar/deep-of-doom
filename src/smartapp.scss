@@ -24,6 +24,12 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.bg.village {
+    background-image: url("assets/village.jpg");
+}
+.bg.wilderness {
+    background-image: url("assets/wilderness.jpg");
+}
 
 .fullpage {
     position:fixed;

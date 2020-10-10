@@ -1,5 +1,7 @@
 export class WizardHero {
 
+    location: string;
+
     maxlife: number;
     maxmana: number;
 

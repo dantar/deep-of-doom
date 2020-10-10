@@ -86,6 +86,7 @@ export class SharedDataService {
       life: 5, 
       mana: 5, 
       poison: 0,
+      shadow: 0,
       gold: 0,
       maxlife: 5,
       maxmana: 5,

@@ -6,6 +6,7 @@ export class WizardHero {
     life: number;
     poison: number;
     mana: number;
+    shadow: number;
     gold: number;
 
     exp: number;

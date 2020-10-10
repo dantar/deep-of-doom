@@ -118,10 +118,11 @@ export class FightMobComponent implements OnInit {
     return Array(len).fill(0).map((x,i)=>i);
   }
 
-  slotsTransform(size: number) {
-    let scale = 1.0 * this.maxrowsize / Math.max(this.maxrowsize, size);
-    return `scale(${scale})`
-  }
+  slotTransform(slot: ActionSlot): string {
+    let maxheight = 40;
+    let maxwidth = Math.min(180, slot.indexof * maxheight);
+    return `translate(${100 - maxwidth / 2},10) scale(${maxwidth / 100 / slot.indexof}) translate(${100 * slot.index},0)`;
+  };
 
   clickSlot(slot: ActionSlot) {
     console.log(this.audio);
@@ -132,10 +133,17 @@ export class FightMobComponent implements OnInit {
 
 class ActionSlotBuilder {
 
-  count = 0;
+  sofar: ActionSlot[];
+
+  constructor() {
+    this.sofar = [];
+  }
 
   newActionSlot(a: string): ActionSlot {
-    return {action: a, index: this.count++, available: true};
+    let slot: ActionSlot = {action: a, index: this.sofar.length, available: true, indexof: null};
+    this.sofar.push(slot);
+    this.sofar.forEach(s => s.indexof = this.sofar.length);
+    return slot;
   }
 
 }
@@ -144,6 +152,7 @@ class ActionSlot {
 
   action: string;
   index: number;
+  indexof: number;
   available: boolean;
 
 }

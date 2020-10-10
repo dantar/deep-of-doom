@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="30.907752"
-     inkscape:cy="40.327652"
+     inkscape:zoom="1.979899"
+     inkscape:cx="-43.533366"
+     inkscape:cy="5.6733425"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -70,7 +70,8 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       id="sword">
+       id="sword"
+       transform="translate(-113.13708,101.01525)">
       <path
          inkscape:connector-curvature="0"
          style="display:inline;opacity:1;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:7.47131729;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
@@ -149,6 +150,78 @@
            inkscape:connector-curvature="0" />
       </g>
     </g>
+    <g
+       inkscape:label="#g948"
+       id="manacounter">
+      <path
+         style="display:inline;opacity:1;vector-effect:none;fill:#9955ff;fill-opacity:1;stroke:none;stroke-width:5.14259481;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+         d="M 48.136562,-8.9054631e-5 A 50,50 45 0 0 1.4041964,37.019616 50,50 45 0 0 18.08056,88.633541 20.785423,20.785423 0 0 1 18.642969,85.561132 20.785423,20.785423 0 0 1 44.099482,70.863807 20.785423,20.785423 0 0 1 58.796807,96.32032 20.785423,20.785423 0 0 1 57.746047,99.2457 50,50 45 0 0 97.996779,62.901521 50,50 45 0 0 76.015438,7.4963196 14.471971,14.471971 0 0 1 58.569589,16.86063 14.471971,14.471971 0 0 1 48.136562,-8.9054631e-5 Z"
+         id="path1410"
+         inkscape:connector-curvature="0" />
+      <text
+         transform="rotate(15)"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:'AR JULIAN';-inkscape-font-specification:'AR JULIAN, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+         x="59.691658"
+         y="49.673241"
+         id="text1289"><tspan
+           sodipodi:role="line"
+           id="tspan1287"
+           x="59.691658"
+           y="49.673241">99</tspan></text>
+      <text
+         id="text1293"
+         y="96.46447"
+         x="98.920479"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.66666794px;line-height:1.25;font-family:'AR JULIAN';-inkscape-font-specification:'AR JULIAN, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+         xml:space="preserve"><tspan
+           y="96.46447"
+           x="98.920479"
+           id="tspan1291"
+           sodipodi:role="line">99</tspan></text>
+    </g>
+    <g
+       id="lifecounter"
+       inkscape:label="#g948"
+       transform="translate(-116.16754,217.1828)">
+      <path
+         inkscape:connector-curvature="0"
+         style="display:inline;opacity:1;vector-effect:none;fill:#d40000;fill-opacity:1;stroke:none;stroke-width:3.60484076;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+         d="M 15.457361,4.4301531 A 29.28933,29.28933 0 0 0 4.7367206,44.440118 L 34.026072,95.170734 84.756631,65.881393 A 29.28933,29.28933 0 0 0 95.477271,25.871428 29.28933,29.28933 0 0 0 55.467352,15.150809 29.28933,29.28933 0 0 0 15.457361,4.4301531 Z"
+         id="path902-3" />
+      <text
+         id="text937"
+         y="50.26086"
+         x="57.498627"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:'AR JULIAN';-inkscape-font-specification:'AR JULIAN, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+         xml:space="preserve"
+         transform="rotate(15)"><tspan
+           y="50.26086"
+           x="57.498627"
+           id="tspan935"
+           sodipodi:role="line">99</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.66666794px;line-height:1.25;font-family:'AR JULIAN';-inkscape-font-specification:'AR JULIAN, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+         x="98.920479"
+         y="96.46447"
+         id="text941"><tspan
+           sodipodi:role="line"
+           id="tspan939"
+           x="98.920479"
+           y="96.46447">99</tspan></text>
+    </g>
+    <text
+       id="text937-6"
+       y="-49.669975"
+       x="23.140388"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:'AR JULIAN';-inkscape-font-specification:'AR JULIAN, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+       xml:space="preserve"
+       transform="rotate(15)"><tspan
+         y="-49.669975"
+         x="23.140388"
+         id="tspan935-4"
+         sodipodi:role="line">99</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"

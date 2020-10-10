@@ -41,6 +41,7 @@
          style="opacity:1;vector-effect:none;fill:#cc00ff;fill-opacity:1;stroke:#800000;stroke-width:0.8501454;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
     </g>
     <g
+       transform="translate(-113.13708,101.01525)"
        id="sword">
       <path
          id="use821"
@@ -110,6 +111,69 @@
            d="m 115.88324,49.158811 q 0,0.508384 0.5447,0.68995 0.2905,0.09078 0.49023,0.217879 0.21788,0.127096 0.21788,0.272348 0,0.490228 -0.45392,0.490228 h -4.39389 q -0.30866,0 -0.36313,-0.108939 -0.0545,-0.127096 -0.0545,-0.381289 0,-0.145252 0.23603,-0.272348 0.23604,-0.127096 0.52654,-0.217879 0.56286,-0.181566 0.56286,-0.68995 v -8.424652 q -0.34498,0.127096 -0.59917,0.181566 -0.25419,0.03631 -0.59917,0.127096 -0.21787,0.05447 -0.39944,-0.09078 -0.16341,-0.163409 -0.21788,-0.381288 -0.0545,-0.217879 0.0363,-0.435758 0.0908,-0.236035 0.41761,-0.326818 0.58101,-0.163409 1.03492,-0.308662 0.45391,-0.145253 0.81705,-0.272349 0.38128,-0.145252 0.7081,-0.254192 0.32682,-0.127096 0.6718,-0.217879 0.0726,-0.01816 0.21787,-0.01816 0.14526,-0.01816 0.27235,0.03631 0.1271,0.03631 0.21788,0.181566 0.10894,0.127096 0.10894,0.399444 z" />
       </g>
     </g>
+    <g
+       id="manacounter">
+      <path
+         id="path1410"
+         d="M 48.136562,-8.9054631e-5 A 50,50 45 0 0 1.4041964,37.019616 50,50 45 0 0 18.08056,88.633541 20.785423,20.785423 0 0 1 18.642969,85.561132 20.785423,20.785423 0 0 1 44.099482,70.863807 20.785423,20.785423 0 0 1 58.796807,96.32032 20.785423,20.785423 0 0 1 57.746047,99.2457 50,50 45 0 0 97.996779,62.901521 50,50 45 0 0 76.015438,7.4963196 14.471971,14.471971 0 0 1 58.569589,16.86063 14.471971,14.471971 0 0 1 48.136562,-8.9054631e-5 Z"
+         style="display:inline;opacity:1;vector-effect:none;fill:#9955ff;fill-opacity:1;stroke:none;stroke-width:5.14259481;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+      <text
+         id="text1289"
+         y="49.673241"
+         x="59.691658"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:'AR JULIAN';-inkscape-font-specification:'AR JULIAN, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+         xml:space="preserve"
+         transform="rotate(15)"><tspan
+           y="49.673241"
+           x="59.691658"
+           id="tspan1287">99</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.66666794px;line-height:1.25;font-family:'AR JULIAN';-inkscape-font-specification:'AR JULIAN, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+         x="98.920479"
+         y="96.46447"
+         id="text1293"><tspan
+           id="tspan1291"
+           x="98.920479"
+           y="96.46447">99</tspan></text>
+    </g>
+    <g
+       transform="translate(-116.16754,217.1828)"
+       id="lifecounter">
+      <path
+         id="path902-3"
+         d="M 15.457361,4.4301531 A 29.28933,29.28933 0 0 0 4.7367206,44.440118 L 34.026072,95.170734 84.756631,65.881393 A 29.28933,29.28933 0 0 0 95.477271,25.871428 29.28933,29.28933 0 0 0 55.467352,15.150809 29.28933,29.28933 0 0 0 15.457361,4.4301531 Z"
+         style="display:inline;opacity:1;vector-effect:none;fill:#d40000;fill-opacity:1;stroke:none;stroke-width:3.60484076;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+      <text
+         transform="rotate(15)"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:'AR JULIAN';-inkscape-font-specification:'AR JULIAN, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+         x="57.498627"
+         y="50.26086"
+         id="text937"><tspan
+           id="tspan935"
+           x="57.498627"
+           y="50.26086">99</tspan></text>
+      <text
+         id="text941"
+         y="96.46447"
+         x="98.920479"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.66666794px;line-height:1.25;font-family:'AR JULIAN';-inkscape-font-specification:'AR JULIAN, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+         xml:space="preserve"><tspan
+           y="96.46447"
+           x="98.920479"
+           id="tspan939">99</tspan></text>
+    </g>
+    <text
+       transform="rotate(15)"
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:'AR JULIAN';-inkscape-font-specification:'AR JULIAN, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+       x="23.140388"
+       y="-49.669975"
+       id="text937-6"><tspan
+         id="tspan935-4"
+         x="23.140388"
+         y="-49.669975">99</tspan></text>
   </g>
   <g
      style="display:none"

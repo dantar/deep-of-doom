@@ -11,18 +11,20 @@ export class WildernessMapComponent implements OnInit {
   constructor(public shared: SharedDataService) { }
 
   mazes: AvailableMaze[];
+  _mazes: {[id: string]: AvailableMaze};
 
   ngOnInit(): void {
     this.mazes = [];
+    this._mazes = {};
     for (let index = 0; index <= this.shared.hero.progress; index++) {
-      this.mazes.push(new AvailableMaze(index));
-      
+      this._mazes[`maze-${index}`] = new AvailableMaze(index);
+      this.mazes.push();
     }
   }
 
-  enterMaze(maze: AvailableMaze) {
-    if (this.shared.hero.life > 0) {
-      this.shared.newMaze(maze.size);
+  enterMaze(name: string) {
+    if (this.shared.hero.life > 0 && this._mazes[name]) {
+      this.shared.newMaze(this._mazes[name].size);
       this.shared.moveToMaze();
     }
   }

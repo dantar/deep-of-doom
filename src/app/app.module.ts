@@ -19,6 +19,12 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { WildernessMapComponent } from './components/wilderness-map/wilderness-map.component';
+import { NpcHealerComponent } from './components/npc/npc-healer/npc-healer.component';
+import { NpcPlaceholderComponent } from './components/npc/npc-placeholder/npc-placeholder.component';
+import { MapMazeCaveComponent } from './components/map/map-maze-cave/map-maze-cave.component';
+import { MapVillageComponent } from './components/map/map-village/map-village.component';
+import { MapBridgeComponent } from './components/map/map-bridge/map-bridge.component';
+import { MapLockedComponent } from './components/map/map-locked/map-locked.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,13 @@ import { WildernessMapComponent } from './components/wilderness-map/wilderness-m
     MobPlaceholderComponent,
     MobContainerDirective,
     MainMenuComponent,
-    WildernessMapComponent
+    WildernessMapComponent,
+    NpcHealerComponent,
+    NpcPlaceholderComponent,
+    MapMazeCaveComponent,
+    MapVillageComponent,
+    MapBridgeComponent,
+    MapLockedComponent
   ],
   imports: [
     BrowserModule,

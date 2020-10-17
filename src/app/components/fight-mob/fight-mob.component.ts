@@ -50,7 +50,6 @@ export class FightMobComponent implements OnInit {
     exit: () => {
       this.exit = true;
       this.disabled = true;
-      this.shared.progressUp();
     },
   }
 
@@ -73,7 +72,6 @@ export class FightMobComponent implements OnInit {
   adjustLife(arg0: number) {
     this.life = Math.max(0, this.life + arg0);
     if (this.life <= 0) {
-      this.shared.exp(1);
       this.disabled = true;
     }
   }

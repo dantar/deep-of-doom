@@ -58,13 +58,6 @@ export class SharedDataService {
     localStorage.setItem('deep-of-doom-saved', this.saved);
   }
 
-  progressUp() {
-    if (this.maze.sizex >= this.hero.progress + this.BASIC_SIZE) {
-      this.hero.progress ++;
-      this.save();
-    }
-  }
-
   newMaze(level: number) {
     let size = Math.min(10, this.BASIC_SIZE + level);
     this.maze = this.generator.generate(size, size);
@@ -120,7 +113,7 @@ export class SharedDataService {
     this.hero.poison += arg0;
   }
   exp(arg0: number) {
-    this.hero.exp = Math.max(0, this.hero.exp + arg0);
+    this.hero.exp = Math.max(0, this.hero.exp + (this.mazeIsChallenge() ? 2*arg0 : arg0));
   }
   moveToVillage() {
     this.hero.location = 'village';
@@ -137,6 +130,16 @@ export class SharedDataService {
       this.hero.location = 'maze';
     }
     this.save();
+  }
+
+  progressUp() {
+    if (this.mazeIsChallenge()) {
+      this.hero.progress ++;
+    }
+  }
+
+  mazeIsChallenge(): boolean {
+    return this.maze.sizex >= this.hero.progress + this.BASIC_SIZE
   }
 
   levelUpLife() {

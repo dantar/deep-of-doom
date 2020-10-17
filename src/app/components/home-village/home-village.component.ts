@@ -8,13 +8,24 @@ import { SharedDataService } from 'src/app/services/shared-data.service';
 })
 export class HomeVillageComponent implements OnInit {
 
+  zoommedto: string;
+
   constructor(
     public shared: SharedDataService,
   ) { }
 
   ngOnInit(): void {
+    this.zoommedto = null;
   }
-  
+
+  zoomTo(where: string) {
+    this.zoommedto = where;
+  }
+
+  popZoom() {
+    this.zoommedto = null;
+  }
+
   healWounds() {
     this.shared.gold(-3);
     this.shared.hero.poison = 0;

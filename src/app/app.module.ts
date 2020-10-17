@@ -25,6 +25,8 @@ import { MapMazeCaveComponent } from './components/map/map-maze-cave/map-maze-ca
 import { MapVillageComponent } from './components/map/map-village/map-village.component';
 import { MapBridgeComponent } from './components/map/map-bridge/map-bridge.component';
 import { MapLockedComponent } from './components/map/map-locked/map-locked.component';
+import { CastSpellComponent } from './components/spell/cast-spell/cast-spell.component';
+import { SpellDartComponent } from './components/spell/spell-dart/spell-dart.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { MapLockedComponent } from './components/map/map-locked/map-locked.compo
     MapMazeCaveComponent,
     MapVillageComponent,
     MapBridgeComponent,
-    MapLockedComponent
+    MapLockedComponent,
+    CastSpellComponent,
+    SpellDartComponent
   ],
   imports: [
     BrowserModule,

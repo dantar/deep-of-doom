@@ -19,18 +19,22 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-.bg.village {
-    background-image: url("assets/village.jpg");
-}
-.bg.wilderness {
-    background-image: url("assets/wilderness.jpg");
-}
 
 .fullpage {
     position:fixed;
     left: 0; right:0; top:0;
     height:100%;
     overflow: auto;
+}
+
+.splitview {
+    display: flex;
+    background: rgb(0,0,0,0.5);
+    flex-direction: row;
+    .splithalf {
+        width: 50%;
+        overflow: auto;
+    }
 }
 
 .fullsvg {

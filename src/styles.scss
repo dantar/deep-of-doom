@@ -9,6 +9,31 @@ svg {
     user-select: none;
 }
 
+.bg.village {
+    background-image: url("assets/village.jpg");
+}
+.bg.wilderness {
+    background-image: url("assets/wilderness.jpg");
+}
+
+.enabled-false {
+    opacity: 0.5;
+}
+
+.dialog-button {
+    font-family: 'AR JULIAN';
+    color: white;
+    padding: 3px;
+    border: 2px solid gray;
+    margin: 2px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);;
+}
+.dialog-message {
+    font-family: 'AR JULIAN';
+    color: white;
+}
+
 .modal-svg {
     background-color: rgba(0, 0, 0, 0.5);
 }

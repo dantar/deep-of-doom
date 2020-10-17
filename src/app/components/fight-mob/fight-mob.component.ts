@@ -28,6 +28,8 @@ export class FightMobComponent implements OnInit {
   exit: boolean;
   disabled: boolean;
 
+  spellbookVisible: boolean;
+
   maxrowsize = 10;
 
   brains: {[id:string]: () => void} = {
@@ -61,6 +63,7 @@ export class FightMobComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.spellbookVisible = false;
     this.life = this.master.mobs[this.mob].life;
     this.exit = false;
     this.disabled = false;
@@ -90,16 +93,41 @@ export class FightMobComponent implements OnInit {
 
   leftHandClick() {
     if (this.disabled) {
+      this.spellbookVisible = false;
       return;
     }
-    if (this.shared.hero.mana < 2) {
+    this.spellbookVisible = ! this.spellbookVisible;
+  }
+
+  dardo1IsCast: boolean;
+  dardo2IsCast: boolean;
+
+  dardo1() {
+    if (this.dardo1IsCast || this.shared.hero.mana < 1) {
       return;
     }
+    this.dardo1IsCast = true;
     this.audio.play('action');
-    this.shared.mana(-2);
-    ['staff', 'staff'].forEach(a => {
+    this.shared.mana(-1);
+    ['staff'].forEach(a => {
       this.actions.push(this.builder.newActionSlot(a));
     });
+    this.refreshDrawables();
+  }
+  dardo2() {
+    if (this.dardo2IsCast || this.shared.hero.mana < 2) {
+      return;
+    }
+    this.dardo2IsCast = true;
+    this.audio.play('action');
+    this.shared.mana(-2);
+    ['staff'].forEach(a => {
+      this.actions.push(this.builder.newActionSlot(a));
+    });
+    this.refreshDrawables();
+  }
+
+  refreshDrawables() {
     this.drawables = this.actions.filter(a => a.available).map(a => a);
   }
 

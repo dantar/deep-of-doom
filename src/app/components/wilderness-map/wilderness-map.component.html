@@ -147,15 +147,40 @@
         transform="translate(3.1319835,3.6319581)"
         width="100%"
         height="100%" />
-    <use (click)="enterMaze('maze-0')"
-        height="100%"
-        width="100%"
-        transform="translate(35.709403,5.1471866)"
-        id="cave-1"
-        xlink:href="#icon-cave"
-        y="0"
-        x="0" />
-    <use (click)="enterMaze('maze-1')"
+    <g (click)="clickMaze('wilderness-a')" transform="translate(35.709403,5.1471866) scale(0.2)">
+        <use x="0" y="0" xlink:href="#wildernessbg" />
+        <g app-dungeon-wilderness-a></g>
+    </g>
+    <g transform="translate(61.215753,29.643385)">
+        <g transform="scale(0.2)" (click)="clickMaze('wilderness-a')" *ngIf="shared.hero.progress > 0" >
+            <use x="0" y="0" xlink:href="#wildernessbg" />
+            <g app-dungeon-wilderness-a></g>
+        </g>
+        <use *ngIf="!(shared.hero.progress > 0)" x="0" y="0" xlink:href="#icon-locked" />
+    </g>
+    <g transform="translate(31.92133,36.461916)">
+        <g transform="scale(0.2)" (click)="clickMaze('wilderness-a')" *ngIf="shared.hero.progress > 1" >
+            <use x="0" y="0" xlink:href="#wildernessbg" />
+            <g app-dungeon-wilderness-a></g>
+        </g>
+        <use *ngIf="!(shared.hero.progress > 1)" x="0" y="0" xlink:href="#icon-locked" />
+    </g>
+    <g transform="translate(27.123106,65.756338)">
+        <g transform="scale(0.2)" (click)="clickMaze('wilderness-a')" *ngIf="shared.hero.progress > 2" >
+            <use x="0" y="0" xlink:href="#wildernessbg" />
+            <g app-dungeon-wilderness-a></g>
+        </g>
+        <use *ngIf="!(shared.hero.progress > 2)" x="0" y="0" xlink:href="#icon-locked" />
+    </g>
+    <g transform="translate(76.368043,58.937809)">
+        <g transform="scale(0.2)" (click)="clickMaze('wilderness-a')" *ngIf="shared.hero.progress > 3" >
+            <use x="0" y="0" xlink:href="#wildernessbg" />
+            <g app-dungeon-wilderness-a></g>
+        </g>
+        <use *ngIf="!(shared.hero.progress > 3)" x="0" y="0" xlink:href="#icon-locked" />
+    </g>
+
+    <!-- <use (click)="clickMaze('maze-1')"
         height="100%"
         width="100%"
         transform="translate(61.215753,29.643385)"
@@ -164,7 +189,7 @@
         y="0"
         x="0"
         style="display:inline" />
-    <use (click)="enterMaze('maze-2')"
+    <use (click)="clickMaze('maze-2')"
         style="display:inline"
         x="0"
         y="0"
@@ -173,16 +198,7 @@
         transform="translate(31.92133,36.461916)"
         width="100%"
         height="100%" />
-    <use (click)="enterMaze('maze-4')"
-        height="100%"
-        width="100%"
-        transform="translate(76.368043,58.937809)"
-        id="cave-5"
-        attr.xlink:href="#{{shared.hero.progress > 3 ? 'icon-cave': 'icon-locked'}}"
-        y="0"
-        x="0"
-        style="display:inline" />
-    <use (click)="enterMaze('maze-3')"
+    <use (click)="clickMaze('maze-3')"
         style="display:inline"
         x="0"
         y="0"
@@ -191,6 +207,15 @@
         transform="translate(27.123106,65.756338)"
         width="100%"
         height="100%" />
+    <use (click)="clickMaze('maze-4')"
+        height="100%"
+        width="100%"
+        transform="translate(76.368043,58.937809)"
+        id="cave-5"
+        attr.xlink:href="#{{shared.hero.progress > 3 ? 'icon-cave': 'icon-locked'}}"
+        y="0"
+        x="0"
+        style="display:inline" /> -->
     <use
         style="display:inline"
         x="0"

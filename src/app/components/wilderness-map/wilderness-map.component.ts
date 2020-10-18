@@ -22,10 +22,9 @@ export class WildernessMapComponent implements OnInit {
     }
   }
 
-  enterMaze(name: string) {
-    if (this.shared.hero.life > 0 && this._mazes[name]) {
-      this.shared.newMaze(this._mazes[name].size);
-      this.shared.moveToMaze();
+  clickMaze(name: string) {
+    if (this.shared.hero.life > 0) {
+      this.shared.enterMaze(name);
     }
   }
 

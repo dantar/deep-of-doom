@@ -31,6 +31,7 @@ import { ManaCounterComponent } from './components/counter/mana-counter/mana-cou
 import { LifeCounterComponent } from './components/counter/life-counter/life-counter.component';
 import { GoldCounterComponent } from './components/counter/gold-counter/gold-counter.component';
 import { ExpCounterComponent } from './components/counter/exp-counter/exp-counter.component';
+import { DungeonWildernessAComponent } from './components/dungeon/dungeon-wilderness-a/dungeon-wilderness-a.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { ExpCounterComponent } from './components/counter/exp-counter/exp-counte
     ManaCounterComponent,
     LifeCounterComponent,
     GoldCounterComponent,
-    ExpCounterComponent
+    ExpCounterComponent,
+    DungeonWildernessAComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,8 @@
+import { mapToMapExpression } from '@angular/compiler/src/render3/util';
 import { Injectable } from '@angular/core';
+import { MazeData } from '../models/maze-map.model';
+import { MazeGeneratorService } from './maze-generator.service';
+import { SharedDataService } from './shared-data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +14,32 @@ export class DungeonMasterService {
     this._mobs.push(mob);
   }
 
-  mobs: {[id: string]: MobStats};
+  static _dungeons: DungeonStats[] = [];
+  static registerDungeon(dungeon: DungeonStats) {
+    this._dungeons.push(dungeon);
+  }
 
-  constructor() {
+  mobs: {[id: string]: MobStats};
+  dungeons: {[id: string]: DungeonStats};
+
+  constructor(private generator: MazeGeneratorService) {
     this.mobs = {};
     DungeonMasterService._mobs.forEach(m => this.mobs[m.name] = m);
+    this.dungeons = {};
+    DungeonMasterService._dungeons.forEach(d => this.dungeons[d.name] = d);
+  }
+
+  buildMaze(name: string): MazeData {
+    let map = this.generator.generate(this.dungeons[name].size, this.dungeons[name].size); // genera il labirinto
+    let exploration = this.generator.exploration(map); // stabilisce ingresso e uscita
+    let mobs = this.generator.mobs(map, exploration);
+    let rooms = this.generator.rooms(map, exploration, mobs);
+    return {
+      map: map,
+      exploration: exploration,
+      mobs: mobs,
+      rooms: rooms,
+    }
   }
 
 }
@@ -26,3 +51,7 @@ export class MobStats {
   component: any;
 }
 
+export class DungeonStats {
+  name: string;
+  size: number;
+}

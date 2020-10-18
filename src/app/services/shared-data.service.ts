@@ -3,6 +3,7 @@ import { MazeMap, MazeExploration, MazeMobs, MazeRooms } from '../models/maze-ma
 import { MazeGeneratorService } from './maze-generator.service';
 import { WizardHero } from '../models/hero.model';
 import { SavedData } from '../models/saved-data.model';
+import { DungeonMasterService } from './dungeon-master.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,16 +11,17 @@ import { SavedData } from '../models/saved-data.model';
 export class SharedDataService {
   
   hero: WizardHero;
-  maze: MazeMap;
 
+  maze: MazeMap;
   mobs: MazeMobs;
   rooms: MazeRooms;
   exploration: MazeExploration;
+
   saved: string;
 
   BASIC_SIZE = 4;
 
-  constructor(private generator: MazeGeneratorService) {
+  constructor(private generator: MazeGeneratorService, private master: DungeonMasterService) {
     this.saved = localStorage.getItem('deep-of-doom-saved');
   }
 
@@ -65,6 +67,15 @@ export class SharedDataService {
     this.mobs = this.generator.mobs(this.maze, this.exploration);
     this.rooms = this.generator.rooms(this.maze, this.exploration, this.mobs);
     this.save();
+  }
+
+  enterMaze(name: string) {
+    let maze = this.master.buildMaze(name);
+    this.maze = maze.map;
+    this.exploration = maze.exploration;
+    this.mobs = maze.mobs;
+    this.rooms = maze.rooms;
+    this.moveToMaze();
   }
 
   _exitMaze() {

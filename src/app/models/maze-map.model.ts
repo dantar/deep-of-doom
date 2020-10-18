@@ -1,3 +1,10 @@
+export class MazeData {
+    map: MazeMap;
+    exploration: MazeExploration;
+    mobs: MazeMobs;
+    rooms: MazeRooms;
+}
+
 export class MazeMap {
     sizex: number;
     sizey: number;

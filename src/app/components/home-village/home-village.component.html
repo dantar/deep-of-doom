@@ -29,17 +29,7 @@
             d="m 38.994601,47.60061 -0.606143,-4.394536 -2.727643,0.454608 4.546071,-5.909893 4.849144,5.303751 -3.485322,-0.303072 -0.303071,5.152214 z"
             style="fill:#0044aa;fill-opacity:1;stroke:none;stroke-width:1.20010173px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     </g>
-    <g id="leveluplife" *ngIf="shared.hero.exp >= shared.hero.maxlife" (click)="shared.levelUpLife()">
-        <path
-            id="path902-3-1"
-            d="m 31.695582,50.322755 a 4.4562957,4.4562957 0 0 0 -1.631117,6.087412 l 4.456299,7.718532 7.718522,-4.456297 a 4.4562957,4.4562957 0 0 0 1.631119,-6.087413 4.4562957,4.4562957 0 0 0 -6.087406,-1.631114 4.4562957,4.4562957 0 0 0 -6.087417,-1.63112 z"
-            style="display:inline;opacity:1;vector-effect:none;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.54846722;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
-        <path
-            id="path2657-4"
-            d="m 35.512459,61.618467 -0.606142,-4.394537 -2.727644,0.454608 4.546072,-5.909892 4.849143,5.303751 -3.485322,-0.303071 -0.30307,5.152214 z"
-            style="display:inline;fill:#800000;fill-opacity:1;stroke:none;stroke-width:1.20010173px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-    </g>
-    <g id="villagehealer" *ngIf="shared.hero.life < shared.hero.maxlife || shared.hero.mana < shared.hero.maxmana || shared.hero.poison > 0" (click)="zoomTo('healer')">
+    <g id="villagehealer" (click)="zoomTo('healer')">
         <path
            style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.99736637;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
            d="m 21.749721,31.825056 c -6.62151,0 -11.9999999,5.37849 -11.9999999,12 0,6.621511 5.3784899,12 11.9999999,12 6.621511,0 12,-5.378489 12,-12 0,-6.62151 -5.378489,-12 -12,-12 z m 0,0.998047 c 6.082494,0 11.001953,4.91946 11.001953,11.001953 0,6.082494 -4.919459,11.003907 -11.001953,11.003907 -6.082493,0 -11.003906,-4.921413 -11.003906,-11.003907 0,-6.082493 4.921413,-11.001953 11.003906,-11.001953 z"
@@ -62,8 +52,28 @@
    </div>
    <div class="splithalf">
        <div class="dialog-message">"Come posso esserti utile?"</div>
-       <div class="dialog-button enabled-{{shared.hero.life < shared.hero.maxlife || shared.hero.mana < shared.hero.maxmana || shared.hero.poison > 0}}" (click)="healWounds()">
-           Cura le ferite
+       <div class="dialog-button enabled-{{enabledHealWounds}}" (click)="healWounds()">
+         <svg viewBox="0 0 100 100">
+            <g transform="scale(0.6)">
+               <g app-life-counter [value]="'*'"></g>
+            </g>
+            <g transform="translate(40,40) scale(0.6)">
+               <g app-mana-counter [value]="'*'"></g>
+            </g>
+         </svg>
+         Cura le ferite
+       </div>
+       <div class="dialog-button enabled-{{shared.hero.exp >= shared.hero.maxlife}}" (click)="levelUpLife()">
+         <svg viewBox="0 0 100 100">
+            <g app-life-counter [value]="'+1'"></g>
+         </svg>
+         Aumenta la Vita massima
+       </div>
+       <div class="dialog-button enabled-{{shared.hero.exp >= shared.hero.maxmana}}" (click)="levelUpMana()">
+         <svg viewBox="0 0 100 100">
+            <g app-mana-counter [value]="'+1'"></g>
+         </svg>
+         Aumenta il Mana massimo
        </div>
    </div>
 </div>

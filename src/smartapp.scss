@@ -34,8 +34,17 @@
     .splithalf {
         width: 50%;
         overflow: auto;
+        @media screen and (orientation:portrait) {
+            margin-bottom: 70px;
+            padding-bottom: 70px;
+        }
+        @media screen and (orientation:landscape) {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
     }
 }
+
 
 .fullsvg {
     position:fixed; 
@@ -113,6 +122,8 @@
         padding-top: 70px;
         padding-right: 10px;
         padding-left: 10px;
+        padding-bottom: 70px;
+        margin-bottom: 70px;
     }
     .splash-title {
         div {

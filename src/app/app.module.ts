@@ -27,6 +27,8 @@ import { MapBridgeComponent } from './components/map/map-bridge/map-bridge.compo
 import { MapLockedComponent } from './components/map/map-locked/map-locked.component';
 import { CastSpellComponent } from './components/spell/cast-spell/cast-spell.component';
 import { SpellDartComponent } from './components/spell/spell-dart/spell-dart.component';
+import { ManaCounterComponent } from './components/counter/mana-counter/mana-counter.component';
+import { LifeCounterComponent } from './components/counter/life-counter/life-counter.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { SpellDartComponent } from './components/spell/spell-dart/spell-dart.com
     MapBridgeComponent,
     MapLockedComponent,
     CastSpellComponent,
-    SpellDartComponent
+    SpellDartComponent,
+    ManaCounterComponent,
+    LifeCounterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,10 @@
 <app-game-play *ngIf="shared.hero"></app-game-play>
-<div class="fullpage" *ngIf="!shared.hero">
-    <div class="button" (click)="shared.newHero()">Crea nuova partita!</div>
-    <div *ngIf="shared.saved" class="button" (click)="shared.tryLoad()">Carica partita salvata!</div>
+<div class="fullpage splitview" *ngIf="!shared.hero">
+    <div class="splithalf">
+        <svg viewBox="0 0 100 100"><g app-cast-spell></g></svg>
+    </div>
+    <div class="splithalf">
+        <div class="dialog-button" (click)="shared.newHero()">Crea nuova partita</div>
+        <div *ngIf="shared.saved" class="dialog-button" (click)="shared.tryLoad()">Carica partita salvata</div>
+    </div>
 </div>

@@ -3,7 +3,26 @@
 <app-maze-map *ngIf="shared.hero.location === 'maze'"></app-maze-map>
 
 <div class="panel-menu-list top-left-menu">
-    <div class="stats" (click)="shared.quitGame()">Quit</div>
+    <div (click)="shared.quitGame()">
+        <svg viewBox="0 0 100 100">
+            <g id="backbutton">
+            <circle
+                style="opacity:0.75;vector-effect:none;fill:#554400;fill-opacity:0.66666669;stroke:#ffd42a;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+                id="path316"
+                cx="50"
+                cy="50"
+                r="48.5" />
+            <path
+                style="opacity:1;vector-effect:none;fill:#d4aa00;fill-opacity:1;stroke:none;stroke-width:2.32332253;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+                d="M 50.000278,9.075431 A 40.92424,40.92424 0 0 0 10.207227,40.631443 L 61.819572,10.832237 A 40.92424,40.92424 0 0 0 50.000278,9.075431 Z M 78.119899,20.334863 V 79.701608 A 40.92424,40.92424 0 0 0 90.923777,50.001075 40.92424,40.92424 0 0 0 78.119899,20.334863 Z M 10.213662,59.372852 A 40.92424,40.92424 0 0 0 50.000278,90.924574 40.92424,40.92424 0 0 0 61.79383,89.152751 Z"
+                id="circle318" />
+            <path
+                id="path1134"
+                d="M 70.334571,85.367575 9.0762255,50.000044 70.334575,14.632521 Z"
+                style="opacity:1;vector-effect:none;fill:#ffdd55;fill-opacity:1;stroke:none;stroke-width:8.14637756;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+            </g>
+        </svg>
+    </div>
 </div>
 <div class="panel-menu-list top-right-menu">
     <svg viewBox="0 0 100 100">

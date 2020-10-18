@@ -60,8 +60,8 @@ export class SharedDataService {
 
   newMaze(level: number) {
     let size = Math.min(10, this.BASIC_SIZE + level);
-    this.maze = this.generator.generate(size, size);
-    this.exploration = this.generator.exploration(this.maze);
+    this.maze = this.generator.generate(size, size); // genera il labirinto
+    this.exploration = this.generator.exploration(this.maze); // stabilisce ingresso e uscita
     this.mobs = this.generator.mobs(this.maze, this.exploration);
     this.rooms = this.generator.rooms(this.maze, this.exploration, this.mobs);
     this.save();

@@ -29,8 +29,13 @@ export class MazeMap {
 }
 
 export class MazeMobs {
-    mobs: {[id: string]: string};
+    mobs: {[id: string]: MazeMob};
     active: string[];
+}
+
+export class MazeMob {
+    name: string;
+    tags: string[];
 }
 
 export class MazeRooms {

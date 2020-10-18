@@ -1,7 +1,7 @@
 <svg:svg class="fullsvg" [attr.viewBox]="viewBox()">
 <svg:g *ngFor="let row of shared.maze.rows">
    <svg:g *ngFor="let cell of row" [style]="position(cell)">
-      <svg:g *ngIf="isDrawable(cell) && !isDrawn(cell)" (click)="draw(cell)">
+      <svg:g *ngIf="isDrawable(cell) && !isDrawn(cell)" (click)="clickTile(cell)">
          <svg:rect
             style="opacity:0.7;vector-effect:none;fill:#ffe680;fill-opacity:0.7;stroke:none;stroke-width:1.54330707;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
             id="rect1047"
@@ -71,8 +71,8 @@
             id="room-light" />
 
       </svg:g>
-      <svg:g id="mobplaceholder" *ngIf="showall || (isDrawn(cell) && mobs[explorer.coords(cell)])" (click)="clickMonster(cell)">
-        <svg:g app-mob-placeholder [mob]="mobs[explorer.coords(cell)]"></svg:g> 
+      <svg:g id="mobplaceholder" *ngIf="showMob(cell)" (click)="clickMonster(cell)">
+        <svg:g app-mob-placeholder [mob]="shared.mobs.mobs[explorer.coords(cell)]"></svg:g> 
       </svg:g>
    </svg:g>
 </svg:g>

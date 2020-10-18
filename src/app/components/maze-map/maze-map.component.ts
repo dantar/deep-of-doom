@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { MazeMap, MazeTile, MazeInsight, MazeExploration } from 'src/app/models/maze-map.model';
+import { MazeMap, MazeTile, MazeInsight, MazeExploration, MazeMob } from 'src/app/models/maze-map.model';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { MazeExplorer } from 'src/app/services/maze-generator.service';
 import { GamesCommonService } from 'src/app/services/games-common.service';
@@ -18,14 +18,13 @@ export class MazeMapComponent implements OnInit, OnDestroy {
   drawn: string[];
   drawable: string[];
 
-  mobs: { [id: string]: string };
   rooms: { [id: string]: string };
 
   explorer: MazeExplorer;
   entry: MazeTile;
   exit: MazeTile;
 
-  encounter: string;
+  encounter: MazeMob;
   encounterTile: string;
 
   constructor(
@@ -38,7 +37,6 @@ export class MazeMapComponent implements OnInit, OnDestroy {
     this.showall = environment.showall;
     this.drawn = this.shared.exploration.drawn;
     this.drawable = this.shared.exploration.drawable;
-    this.mobs = this.shared.mobs.mobs;
     this.rooms = this.shared.rooms.rooms;
     this.explorer = new MazeExplorer(this.shared.maze);
     const entry = MazeMap.tile(this.shared.maze, this.shared.exploration.entry);
@@ -52,10 +50,10 @@ export class MazeMapComponent implements OnInit, OnDestroy {
 
   // actions
 
-  draw(t: MazeTile) {
+  clickTile(t: MazeTile) {
     this.audio.play('action');
     MazeExploration.draw(this.shared.exploration, t);
-    if (! this.mobs[MazeMap.coords(t)]) {
+    if (! this.shared.mobs.mobs[MazeMap.coords(t)]) {
       this.expandDrawable(t);
     }
     this.shared.save();
@@ -69,12 +67,12 @@ export class MazeMapComponent implements OnInit, OnDestroy {
   clickMonster(tile: MazeTile) {
     this.audio.play('action');
     this.encounterTile = this.explorer.coords(tile);
-    this.encounter = this.mobs[this.encounterTile];
+    this.encounter = this.shared.mobs.mobs[this.encounterTile];
   }
 
   doneMonster(event: string) {
     this.shared.exp(1);
-    delete this.mobs[this.encounterTile];
+    delete this.shared.mobs.mobs[this.encounterTile];
     if (event === 'exit') {
       this.shared.exp(1);
       this.shared.moveToWilderness();
@@ -107,6 +105,10 @@ export class MazeMapComponent implements OnInit, OnDestroy {
 
   isDrawn(t: MazeTile): boolean {
     return this.drawn.includes(MazeMap.coords(t));
+  }
+
+  showMob(cell: MazeTile) {
+    return this.showall || (this.isDrawn(cell) && this.shared.mobs.mobs[this.explorer.coords(cell)])
   }
 
 }

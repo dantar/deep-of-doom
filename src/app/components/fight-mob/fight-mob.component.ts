@@ -5,6 +5,7 @@ import { trigger, transition, useAnimation } from '@angular/animations';
 import { fallInAppear } from '../animations';
 import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
+import { MazeMob } from 'src/app/models/maze-map.model';
 
 @Component({
   selector: 'app-fight-mob',
@@ -18,7 +19,7 @@ import { AudioPlayService } from 'src/app/services/audio-play.service';
 })
 export class FightMobComponent implements OnInit {
 
-  @Input() mob: string;
+  @Input() mob: MazeMob;
   @Output() done = new EventEmitter<string>();
   builder: ActionSlotBuilder;
   actions: ActionSlot[];
@@ -64,11 +65,11 @@ export class FightMobComponent implements OnInit {
 
   ngOnInit(): void {
     this.spellbookVisible = false;
-    this.life = this.master.mobs[this.mob].life;
+    this.life = this.master.mobs[this.mob.name].life;
     this.exit = false;
     this.disabled = false;
     this.builder = new ActionSlotBuilder();
-    this.actions = this.master.mobs[this.mob].actions.map(a => this.builder.newActionSlot(a));
+    this.actions = this.master.mobs[this.mob.name].actions.map(a => this.builder.newActionSlot(a));
     this.drawables = this.actions.map(a => a);
   }
 

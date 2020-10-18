@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MazeMap, MazeTile, MazeConnection, MazeMobs, MazeExploration, MazeInsight, MazeRooms } from '../models/maze-map.model';
+import { MazeMap, MazeTile, MazeConnection, MazeMobs, MazeExploration, MazeInsight, MazeRooms, MazeMob } from '../models/maze-map.model';
 import { GamesCommonService } from './games-common.service';
 
 @Injectable({
@@ -50,25 +50,34 @@ export class MazeGeneratorService {
   mobs(maze: MazeMap, e: MazeExploration): MazeMobs {
     let insight = new MazeInsight().study(maze);
     let m: MazeMobs = {mobs: {}, active: []};
-    m.mobs = {};
     let vaults = insight.exit1.map(t => MazeMap.coords(t)).filter(t => ![e.entry, e.exit].includes(t));
-    for (let index = 0; index < Math.ceil(vaults.length / 2); index++) {
-      m.mobs[this.games.randomPop(vaults)] = this.games.randomInt(0,2) == 0 ? 'spider' : 'chest';
+    vaults.pop();
+    this.games.shuffle(vaults);
+    let others = []
+    .concat(insight.exit2)
+    .concat(insight.exit3)
+    .concat(insight.exit4)
+    .map(t => MazeMap.coords(t));
+    this.games.shuffle(others);
+    let deck = []
+    .concat(others)
+    .concat(vaults);
+    // mobs
+    let allmobs: string[] = [];
+    let mobmatrix = ['skeleton', 'skeleton', 'spider', 'chest'];
+    for (let index = 0; index < maze.sizex * maze.sizey; index = index + mobmatrix.length) {
+      allmobs = allmobs.concat(mobmatrix);
     }
-    let corridors = insight.exit2.map(t => MazeMap.coords(t));
-    for (let index = 0; index < Math.ceil(corridors.length / 4); index++) {
-      m.mobs[this.games.randomPop(corridors)] = this.games.randomInt(0,3) == 0 ? 'spider' : 'skeleton';
+    this.games.shuffle(allmobs);
+    for (let index = 0; index < Math.ceil(maze.sizex * maze.sizey / 2.5); index++) {
+      m.mobs[deck.pop()] = this.createMob(allmobs.pop());
     }
-    let splits = insight.exit3.map(t => MazeMap.coords(t));
-    for (let index = 0; index < Math.ceil(splits.length / 3); index++) {
-      m.mobs[this.games.randomPop(splits)] = this.games.randomInt(0,2) == 0 ? 'spider' : 'skeleton';
-    }
-    let crossway = insight.exit4.map(t => MazeMap.coords(t));
-    for (let index = 0; index < Math.ceil(crossway.length / 2); index++) {
-      m.mobs[this.games.randomPop(crossway)] = this.games.randomInt(0,1) == 0 ? 'spider' : 'skeleton';
-    }
-    m.mobs[e.exit] = 'exit';
+    m.mobs[e.exit] = this.createMob('exit');
     return m;
+  }
+
+  createMob(name: string): MazeMob {
+    return {name: name, tags: []};
   }
 
   rooms(maze: MazeMap, e: MazeExploration, mobs: MazeMobs): MazeRooms {

@@ -29,6 +29,8 @@ import { CastSpellComponent } from './components/spell/cast-spell/cast-spell.com
 import { SpellDartComponent } from './components/spell/spell-dart/spell-dart.component';
 import { ManaCounterComponent } from './components/counter/mana-counter/mana-counter.component';
 import { LifeCounterComponent } from './components/counter/life-counter/life-counter.component';
+import { GoldCounterComponent } from './components/counter/gold-counter/gold-counter.component';
+import { ExpCounterComponent } from './components/counter/exp-counter/exp-counter.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { LifeCounterComponent } from './components/counter/life-counter/life-cou
     CastSpellComponent,
     SpellDartComponent,
     ManaCounterComponent,
-    LifeCounterComponent
+    LifeCounterComponent,
+    GoldCounterComponent,
+    ExpCounterComponent
   ],
   imports: [
     BrowserModule,

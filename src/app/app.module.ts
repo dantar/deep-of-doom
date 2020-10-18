@@ -9,11 +9,11 @@ import { HomeVillageComponent } from './components/home-village/home-village.com
 import { GamePlayComponent } from './components/game-play/game-play.component';
 import { FullscreenToggleComponent } from './components/fullscreen-toggle/fullscreen-toggle.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MobSkeletonComponent } from './components/mob-skeleton/mob-skeleton.component';
-import { MobChestComponent } from './components/mob-chest/mob-chest.component';
-import { MobExitComponent } from './components/mob-exit/mob-exit.component';
-import { MobSpiderComponent } from './components/mob-spider/mob-spider.component';
-import { MobPlaceholderComponent } from './components/mob-placeholder/mob-placeholder.component';
+import { MobSkeletonComponent } from './components/mob/mob-skeleton/mob-skeleton.component';
+import { MobChestComponent } from './components/mob/mob-chest/mob-chest.component';
+import { MobExitComponent } from './components/mob/mob-exit/mob-exit.component';
+import { MobSpiderComponent } from './components/mob/mob-spider/mob-spider.component';
+import { MobPlaceholderComponent } from './components/mob/mob-placeholder/mob-placeholder.component';
 import { MobContainerDirective } from './directives/mob-container.directive';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { ServiceWorkerModule } from '@angular/service-worker';

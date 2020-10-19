@@ -32,6 +32,10 @@ import { LifeCounterComponent } from './components/counter/life-counter/life-cou
 import { GoldCounterComponent } from './components/counter/gold-counter/gold-counter.component';
 import { ExpCounterComponent } from './components/counter/exp-counter/exp-counter.component';
 import { DungeonWildernessAComponent } from './components/dungeon/dungeon-wilderness-a/dungeon-wilderness-a.component';
+import { DungeonWildernessBComponent } from './components/dungeon/dungeon-wilderness-b/dungeon-wilderness-b.component';
+import { DungeonWildernessCComponent } from './components/dungeon/dungeon-wilderness-c/dungeon-wilderness-c.component';
+import { DungeonWildernessDComponent } from './components/dungeon/dungeon-wilderness-d/dungeon-wilderness-d.component';
+import { DungeonWildernessEComponent } from './components/dungeon/dungeon-wilderness-e/dungeon-wilderness-e.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +65,11 @@ import { DungeonWildernessAComponent } from './components/dungeon/dungeon-wilder
     LifeCounterComponent,
     GoldCounterComponent,
     ExpCounterComponent,
-    DungeonWildernessAComponent
+    DungeonWildernessAComponent,
+    DungeonWildernessBComponent,
+    DungeonWildernessCComponent,
+    DungeonWildernessDComponent,
+    DungeonWildernessEComponent
   ],
   imports: [
     BrowserModule,

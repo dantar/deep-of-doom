@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MazeMap, MazeTile, MazeConnection, MazeMobs, MazeExploration, MazeInsight, MazeRooms, MazeMob } from '../models/maze-map.model';
+import { DungeonStats } from './dungeon-master.service';
 import { GamesCommonService } from './games-common.service';
 
 @Injectable({
@@ -47,7 +48,7 @@ export class MazeGeneratorService {
     return e;
   }
 
-  mobs(maze: MazeMap, e: MazeExploration): MazeMobs {
+  mobs(maze: MazeMap, e: MazeExploration, d: DungeonStats): MazeMobs {
     let insight = new MazeInsight().study(maze);
     let m: MazeMobs = {mobs: {}, active: []};
     let vaults = insight.exit1.map(t => MazeMap.coords(t)).filter(t => ![e.entry, e.exit].includes(t));
@@ -63,14 +64,13 @@ export class MazeGeneratorService {
     .concat(others)
     .concat(vaults);
     // mobs
-    let allmobs: string[] = [];
-    let mobmatrix = ['skeleton', 'skeleton', 'spider', 'chest'];
-    for (let index = 0; index < maze.sizex * maze.sizey; index = index + mobmatrix.length) {
-      allmobs = allmobs.concat(mobmatrix);
+    let allmobs: MazeMob[] = [];
+    for (let index = 0; index < maze.sizex * maze.sizey; index = index + d.mobs.length) {
+      allmobs = allmobs.concat(d.mobs);
     }
     this.games.shuffle(allmobs);
     for (let index = 0; index < Math.ceil(maze.sizex * maze.sizey / 2.5); index++) {
-      m.mobs[deck.pop()] = this.createMob(allmobs.pop());
+      m.mobs[deck.pop()] = allmobs.pop();
     }
     m.mobs[e.exit] = this.createMob('exit');
     return m;

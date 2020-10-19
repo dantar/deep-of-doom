@@ -19,5 +19,14 @@ DungeonMasterService.registerDungeon(
   {
     name: 'wilderness-e',
     size: 8,
+    mobs: [
+      {name: 'spider', tags: []},
+      {name: 'spider', tags: []},
+      {name: 'spider', tags: []},
+      {name: 'spider', tags: []},
+      {name: 'spider', tags: []},
+      {name: 'skeleton', tags: []},
+      {name: 'chest', tags: []},
+    ],
   }
 );

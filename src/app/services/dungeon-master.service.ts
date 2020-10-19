@@ -1,6 +1,6 @@
 import { mapToMapExpression } from '@angular/compiler/src/render3/util';
 import { Injectable } from '@angular/core';
-import { MazeData } from '../models/maze-map.model';
+import { MazeData, MazeMob } from '../models/maze-map.model';
 import { MazeGeneratorService } from './maze-generator.service';
 import { SharedDataService } from './shared-data.service';
 
@@ -32,7 +32,7 @@ export class DungeonMasterService {
   buildMaze(name: string): MazeData {
     let map = this.generator.generate(this.dungeons[name].size, this.dungeons[name].size); // genera il labirinto
     let exploration = this.generator.exploration(map); // stabilisce ingresso e uscita
-    let mobs = this.generator.mobs(map, exploration);
+    let mobs = this.generator.mobs(map, exploration, this.dungeons[name]);
     let rooms = this.generator.rooms(map, exploration, mobs);
     return {
       map: map,
@@ -54,4 +54,5 @@ export class MobStats {
 export class DungeonStats {
   name: string;
   size: number;
+  mobs: MazeMob[];
 }

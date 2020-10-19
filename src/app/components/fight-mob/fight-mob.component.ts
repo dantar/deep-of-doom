@@ -26,6 +26,7 @@ export class FightMobComponent implements OnInit {
   action: ActionSlot;
   drawables: ActionSlot[];
   life: number;
+  maxlife: number;
   exit: boolean;
   disabled: boolean;
 
@@ -65,7 +66,8 @@ export class FightMobComponent implements OnInit {
 
   ngOnInit(): void {
     this.spellbookVisible = false;
-    this.life = this.master.mobs[this.mob.name].life;
+    this.maxlife = this.master.mobs[this.mob.name].life;
+    this.life = this.maxlife;
     this.exit = false;
     this.disabled = false;
     this.builder = new ActionSlotBuilder();
@@ -132,6 +134,19 @@ export class FightMobComponent implements OnInit {
     this.drawables = this.actions.filter(a => a.available).map(a => a);
   }
 
+  mobToughSlots(): ToughSlot[] {
+    let result: ToughSlot[] = [];
+    for (let index = 0; index < this.maxlife; index++) {
+      result.push({
+        index: index,
+        full: index < this.life,
+        x: 40 + index * 120 / this.maxlife,
+        width: 120 / this.maxlife,
+      });      
+    }
+    return result;
+  }
+
   attrX(i: number, size: number) {
     return i * 20 + (200 - Math.min(200, size * 20)) / 2;
   }
@@ -155,6 +170,13 @@ export class FightMobComponent implements OnInit {
     this.audio.play('action');
   }
 
+}
+
+class ToughSlot {
+  index: number;
+  full: boolean;
+  width: number;
+  x: number;
 }
 
 class ActionSlotBuilder {

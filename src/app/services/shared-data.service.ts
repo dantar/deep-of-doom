@@ -60,15 +60,6 @@ export class SharedDataService {
     localStorage.setItem('deep-of-doom-saved', this.saved);
   }
 
-  newMaze(level: number) {
-    let size = Math.min(10, this.BASIC_SIZE + level);
-    this.maze = this.generator.generate(size, size); // genera il labirinto
-    this.exploration = this.generator.exploration(this.maze); // stabilisce ingresso e uscita
-    this.mobs = this.generator.mobs(this.maze, this.exploration);
-    this.rooms = this.generator.rooms(this.maze, this.exploration, this.mobs);
-    this.save();
-  }
-
   enterMaze(name: string) {
     let maze = this.master.buildMaze(name);
     this.maze = maze.map;

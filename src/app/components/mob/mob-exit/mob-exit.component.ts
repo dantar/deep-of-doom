@@ -20,7 +20,9 @@ DungeonMasterService.registerMob(
     name: 'exit',
     actions: ['gold', 'exit'],
     life: 1,
+    exp: 1,
     component: MobExitComponent,
+    tags: {},
   }
 );
 

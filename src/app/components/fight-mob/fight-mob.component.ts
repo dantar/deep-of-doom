@@ -3,7 +3,7 @@ import { GamesCommonService } from 'src/app/services/games-common.service';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { fallInAppear } from '../animations';
-import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
+import { DungeonMasterService, FightBuilder } from 'src/app/services/dungeon-master.service';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { MazeMob } from 'src/app/models/maze-map.model';
 
@@ -21,6 +21,9 @@ export class FightMobComponent implements OnInit {
 
   @Input() mob: MazeMob;
   @Output() done = new EventEmitter<string>();
+
+  fight: FightBuilder;
+
   builder: ActionSlotBuilder;
   actions: ActionSlot[];
   action: ActionSlot;
@@ -66,12 +69,16 @@ export class FightMobComponent implements OnInit {
 
   ngOnInit(): void {
     this.spellbookVisible = false;
-    this.maxlife = this.master.mobs[this.mob.name].life;
+    let mobStats = this.master.mobs[this.mob.name];
+    this.fight = new FightBuilder(mobStats);
+    this.mob.tags.forEach(t => mobStats.tags[t](this.fight));
+    //
+    this.maxlife = this.fight.mobMaxLife;
     this.life = this.maxlife;
     this.exit = false;
     this.disabled = false;
     this.builder = new ActionSlotBuilder();
-    this.actions = this.master.mobs[this.mob.name].actions.map(a => this.builder.newActionSlot(a));
+    this.actions = this.fight.fightActions.map(a => this.builder.newActionSlot(a));
     this.drawables = this.actions.map(a => a);
   }
 

@@ -5,6 +5,7 @@ import { MazeExplorer } from 'src/app/services/maze-generator.service';
 import { GamesCommonService } from 'src/app/services/games-common.service';
 import { environment } from 'src/environments/environment';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
+import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 
 @Component({
   selector: 'app-maze-map',
@@ -31,6 +32,7 @@ export class MazeMapComponent implements OnInit, OnDestroy {
     public shared: SharedDataService,
     public game: GamesCommonService,
     public audio: AudioPlayService,
+    public master: DungeonMasterService,
   ) { }
   
   ngOnInit(): void {

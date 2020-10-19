@@ -20,7 +20,9 @@ DungeonMasterService.registerMob(
     name: 'chest',
     actions: ['gold', 'gold', 'tough', 'trap'],
     life: 1,
+    exp: 1,
     component: MobChestComponent,
+    tags: {},
   }
 );
 

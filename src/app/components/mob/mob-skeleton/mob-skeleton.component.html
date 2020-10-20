@@ -45,6 +45,10 @@
 </svg:g>
 <svg:g class="fall-in-item"
     id="spear">
+    <svg:path *ngIf="mob.tags.includes('weapon')"
+        id="spike"
+        d="m 20.314001,21.237426 7.675717,-0.429795 -7.349213,2.413116 z"
+        style="display:inline;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <svg:path
         transform="rotate(-15)"
         style="opacity:1;vector-effect:none;fill:#aa4400;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
@@ -59,6 +63,11 @@
         style="opacity:1;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
         d="m 14.699188,16.993934 0.01784,-8.8412828 c 9.58e-4,-0.4730826 0.929137,-0.7217889 1.166505,-0.3125641 l 4.436088,7.6478569 c 0.237368,0.409224 0.549106,0.756802 0.312564,1.166505 l -1.630251,2.823676 c -0.236541,0.409702 -0.756802,0.549105 -1.166505,0.312564 l -2.823675,-1.63025 c -0.409702,-0.236541 -0.313518,-0.693422 -0.312563,-1.166505 z"
         id="rect926" />
+    <svg:path *ngIf="mob.tags.includes('weapon')"
+        id="blade"
+        d="M 17.67767,21.586909 C 14.731392,21.246784 11.785113,19.064933 8.8388347,15.020918 6.9419928,22.6616 7.8738869,28.887913 11.364216,33.835009 c 1.721971,-3.543135 2.75557,-7.381287 6.692261,-9.975257 z"
+        style="fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        
 </svg:g>
 <svg:g class="fall-in-item"
     id="left-arm">
@@ -85,6 +94,9 @@
         id="circle891"
         d="M 69.103516 47.154297 A 11.620436 11.620436 0 0 0 57.482422 58.775391 A 11.620436 11.620436 0 0 0 69.103516 70.394531 A 11.620436 11.620436 0 0 0 80.724609 58.775391 A 11.620436 11.620436 0 0 0 69.103516 47.154297 z M 69.103516 50.066406 A 8.7079306 8.7079306 0 0 1 77.810547 58.775391 A 8.7079306 8.7079306 0 0 1 69.103516 67.482422 A 8.7079306 8.7079306 0 0 1 60.396484 58.775391 A 8.7079306 8.7079306 0 0 1 69.103516 50.066406 z "
         style="opacity:1;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:1.25968206;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    <path id="shieldstud" *ngIf="mob.tags.includes('weapon')"
+        d="m 70.903189,58.292716 a 1.8631433,1.8631433 0 0 1 -1.317441,2.281875 1.8631433,1.8631433 0 0 1 -2.281875,-1.317441 1.8631433,1.8631433 0 0 1 1.317441,-2.281875 1.8631433,1.8631433 0 0 1 2.281875,1.317441 z"
+        style="display:inline;opacity:1;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
 </svg:g>
 <svg:g class="fall-in-item"
     id="head">

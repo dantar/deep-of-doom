@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { MazeMob } from 'src/app/models/maze-map.model';
 import { DungeonMasterService, FightBuilder } from 'src/app/services/dungeon-master.service';
 
 @Component({
@@ -9,6 +10,8 @@ import { DungeonMasterService, FightBuilder } from 'src/app/services/dungeon-mas
 export class MobSkeletonComponent implements OnInit {
 
   constructor() { }
+
+  @Input() mob: MazeMob;
 
   ngOnInit(): void {
   }

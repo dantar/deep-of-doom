@@ -36,6 +36,7 @@ import { DungeonWildernessBComponent } from './components/dungeon/dungeon-wilder
 import { DungeonWildernessCComponent } from './components/dungeon/dungeon-wilderness-c/dungeon-wilderness-c.component';
 import { DungeonWildernessDComponent } from './components/dungeon/dungeon-wilderness-d/dungeon-wilderness-d.component';
 import { DungeonWildernessEComponent } from './components/dungeon/dungeon-wilderness-e/dungeon-wilderness-e.component';
+import { MobTrollComponent } from './components/mob/mob-troll/mob-troll.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { DungeonWildernessEComponent } from './components/dungeon/dungeon-wilder
     DungeonWildernessBComponent,
     DungeonWildernessCComponent,
     DungeonWildernessDComponent,
-    DungeonWildernessEComponent
+    DungeonWildernessEComponent,
+    MobTrollComponent
   ],
   imports: [
     BrowserModule,

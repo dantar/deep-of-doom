@@ -41,8 +41,15 @@ export class FightMobComponent implements OnInit {
     tough: () => {
       this.adjustLife(-1);
     },
+    weak: () => {
+      this.adjustLife(-1);
+    },
     hit: () => {
       this.shared.life(-1);
+      this.disabled = (this.shared.hero.life <= 0);
+    },
+    hit2: () => {
+      this.shared.life(-2);
       this.disabled = (this.shared.hero.life <= 0);
     },
     gold: () => {
@@ -77,8 +84,9 @@ export class FightMobComponent implements OnInit {
     this.life = this.maxlife;
     this.exit = false;
     this.disabled = false;
-    this.builder = new ActionSlotBuilder();
-    this.actions = this.fight.fightActions.map(a => this.builder.newActionSlot(a));
+    this.builder = new ActionSlotBuilder(this.fight.mobMaxLife);
+    this.fight.fightActions.forEach(a => this.builder.newActionSlot(a));
+    this.actions = this.builder.sofar;
     this.drawables = this.actions.map(a => a);
   }
 
@@ -190,8 +198,11 @@ class ActionSlotBuilder {
 
   sofar: ActionSlot[];
 
-  constructor() {
+  constructor(life: number) {
     this.sofar = [];
+    for (let index = 0; index < life; index++) {
+      this.newActionSlot('tough');
+    }
   }
 
   newActionSlot(a: string): ActionSlot {

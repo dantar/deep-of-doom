@@ -21,7 +21,7 @@ export class MobSkeletonComponent implements OnInit {
 DungeonMasterService.registerMob(
   {
     name: 'skeleton',
-    actions: ['tough', 'tough', 'tough', 'hit', 'hit'],
+    actions: ['tough', 'hit', 'hit'],
     life: 2,
     exp: 2,
     component: MobSkeletonComponent,

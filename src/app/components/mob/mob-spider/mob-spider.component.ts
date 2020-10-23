@@ -18,7 +18,7 @@ export class MobSpiderComponent implements OnInit {
 DungeonMasterService.registerMob(
   {
     name: 'spider',
-    actions: ['tough', 'tough', 'trap', 'trap', 'gold', 'gold'],
+    actions: ['trap', 'trap', 'gold', 'gold'],
     life: 2,
     exp: 3,
     component: MobSpiderComponent,

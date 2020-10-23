@@ -21,8 +21,8 @@ DungeonMasterService.registerDungeon(
     size: 6,
     mobs: [
       {name: 'spider', tags: []},
-      {name: 'spider', tags: []},
-      {name: 'spider', tags: []},
+      {name: 'troll', tags: []},
+      {name: 'troll', tags: []},
       {name: 'skeleton', tags: []},
       {name: 'chest', tags: []},
     ],

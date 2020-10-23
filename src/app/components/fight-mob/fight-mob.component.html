@@ -7,6 +7,12 @@
         id="path823"
         style="opacity:1;vector-effect:none;fill:#d1d1ad;fill-opacity:1;stroke:#800000;stroke-width:4.25072718;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
     </g>
+    <g id="weak">
+        <path
+        d="M 91.460839,73.93743 73.606584,73.60658 73.937434,91.460835 58.640604,82.247205 49.999994,97.87486 41.359381,82.247205 26.062563,91.460845 26.393402,73.60659 8.5391483,73.93743 17.75279,58.64061 2.1251331,50 17.75279,41.359388 8.5391483,26.06257 26.393402,26.393408 26.062564,8.5391545 41.359382,17.752797 49.999994,2.1251393 58.640604,17.752797 73.937424,8.5391545 73.606584,26.393408 91.460839,26.06257 82.247199,41.359388 97.874854,50 82.247199,58.64061 Z"
+        id="path823"
+        style="opacity:1;vector-effect:none;fill:#d1d1ad;fill-opacity:1;stroke:#800000;stroke-width:4.25072718;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    </g>
     <g id="trap">
         <path
         d="M 91.460839,73.93743 73.606584,73.60658 73.937434,91.460835 58.640604,82.247205 49.999994,97.87486 41.359381,82.247205 26.062563,91.460845 26.393402,73.60659 8.5391483,73.93743 17.75279,58.64061 2.1251331,50 17.75279,41.359388 8.5391483,26.06257 26.393402,26.393408 26.062564,8.5391545 41.359382,17.752797 49.999994,2.1251393 58.640604,17.752797 73.937424,8.5391545 73.606584,26.393408 91.460839,26.06257 82.247199,41.359388 97.874854,50 82.247199,58.64061 Z"
@@ -17,7 +23,13 @@
         <path
         d="M 91.460839,73.93743 73.606584,73.60658 73.937434,91.460835 58.640604,82.247205 49.999994,97.87486 41.359381,82.247205 26.062563,91.460845 26.393402,73.60659 8.5391483,73.93743 17.75279,58.64061 2.1251331,50 17.75279,41.359388 8.5391483,26.06257 26.393402,26.393408 26.062564,8.5391545 41.359382,17.752797 49.999994,2.1251393 58.640604,17.752797 73.937424,8.5391545 73.606584,26.393408 91.460839,26.06257 82.247199,41.359388 97.874854,50 82.247199,58.64061 Z"
         id="path823"
-        style="opacity:1;vector-effect:none;fill:#ff0000;fill-opacity:1;stroke:#800000;stroke-width:4.25072718;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+        style="opacity:1;vector-effect:none;fill:#ff4444;fill-opacity:1;stroke:#ff0000;stroke-width:4.25072718;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    </g>
+    <g id="hit2">
+        <path
+        d="M 91.460839,73.93743 73.606584,73.60658 73.937434,91.460835 58.640604,82.247205 49.999994,97.87486 41.359381,82.247205 26.062563,91.460845 26.393402,73.60659 8.5391483,73.93743 17.75279,58.64061 2.1251331,50 17.75279,41.359388 8.5391483,26.06257 26.393402,26.393408 26.062564,8.5391545 41.359382,17.752797 49.999994,2.1251393 58.640604,17.752797 73.937424,8.5391545 73.606584,26.393408 91.460839,26.06257 82.247199,41.359388 97.874854,50 82.247199,58.64061 Z"
+        id="path823"
+        style="opacity:1;vector-effect:none;fill:#ff0000;fill-opacity:1;stroke:#880000;stroke-width:4.25072718;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
     </g>
     <g id="gold">
         <path
@@ -94,7 +106,7 @@
             (click)="clickSlot(slot)">
                 <use x="0" y="0" width="100%" height="100%" attr.xlink:href="#{{slot.action}}"/>
                 <use x="0" y="0" width="100%" height="100%" xlink:href="#currentmob"
-                    *ngIf="slot.action === 'hit' || slot.action === 'poison' || slot.action === 'trap'" />
+                    *ngIf="['hit', 'hit2', 'poison', 'trap'].includes(slot.action)" />
         </g>
     </g>
 

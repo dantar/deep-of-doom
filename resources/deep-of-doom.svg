@@ -96,7 +96,7 @@
      inkscape:cx="86.330856"
      inkscape:cy="55.431357"
      inkscape:document-units="px"
-     inkscape:current-layer="layer32"
+     inkscape:current-layer="layer16"
      showgrid="false"
      units="px"
      inkscape:window-width="1853"
@@ -113,7 +113,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1392,7 +1392,7 @@
        inkscape:groupmode="layer"
        id="layer13"
        inkscape:label="village map"
-       style="display:none">
+       style="display:inline">
       <g
          style="display:inline"
          id="healer"
@@ -1537,7 +1537,8 @@
     <g
        inkscape:groupmode="layer"
        id="layer32"
-       inkscape:label="tower library">
+       inkscape:label="tower library"
+       style="display:inline">
       <g
          id="bookshelf"
          clip-path="url(#clipPath1387)"
@@ -1775,18 +1776,22 @@
        inkscape:groupmode="layer"
        id="layer16"
        inkscape:label="npc bg 2"
-       style="display:none">
-      <circle
-         r="50"
-         cy="50"
-         cx="50"
-         id="circle2023"
-         style="display:inline;opacity:1;vector-effect:none;fill:#ffeeaa;fill-opacity:1;stroke:none;stroke-width:11.4285717;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
-      <path
-         style="fill:#d4aa00;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="M 50,0 A 50,50 0 0 0 0,50 50,50 0 0 0 5.8925781,73.46875 L 96.263672,68.892578 A 50,50 0 0 0 100,50 50,50 0 0 0 50,0 Z"
-         id="path2026"
-         inkscape:connector-curvature="0" />
+       style="display:inline">
+      <g
+         id="npc-bg-02"
+         inkscape:label="#g1242">
+        <circle
+           style="display:inline;opacity:1;vector-effect:none;fill:#ffeeaa;fill-opacity:1;stroke:none;stroke-width:11.4285717;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+           id="circle2023"
+           cx="50"
+           cy="50"
+           r="50" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path2026"
+           d="M 50,0 A 50,50 0 0 0 0,50 50,50 0 0 0 5.8925781,73.46875 L 96.263672,68.892578 A 50,50 0 0 0 100,50 50,50 0 0 0 50,0 Z"
+           style="fill:#d4aa00;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      </g>
     </g>
     <g
        inkscape:groupmode="layer"

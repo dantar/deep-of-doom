@@ -1,0 +1,36 @@
+<div class="fullpage splitview">
+<div class="splithalf">
+    <svg viewBox="0 0 100 100">
+        <g app-npc-placeholder npc="healer"></g>
+    </svg>
+    <div class="dialog-button enabled-true" (click)="clickClose()">
+        Esci
+    </div>
+</div>
+<div class="splithalf">
+    <div class="dialog-message">"Come posso esserti utile?"</div>
+    <div class="dialog-button enabled-{{enabledHealWounds}}" (click)="healWounds()">
+        <svg viewBox="0 0 100 100">
+            <g transform="scale(0.6)">
+            <g app-life-counter [value]="'*'"></g>
+            </g>
+            <g transform="translate(40,40) scale(0.6)">
+            <g app-mana-counter [value]="'*'"></g>
+            </g>
+        </svg>
+        Cura le ferite
+    </div>
+    <div class="dialog-button enabled-{{shared.hero.exp >= shared.hero.maxlife}}" (click)="levelUpLife()">
+        <svg viewBox="0 0 100 100">
+            <g app-life-counter [value]="'+1'"></g>
+        </svg>
+        Aumenta la Vita massima
+    </div>
+    <div class="dialog-button enabled-{{shared.hero.exp >= shared.hero.maxmana}}" (click)="levelUpMana()">
+        <svg viewBox="0 0 100 100">
+            <g app-mana-counter [value]="'+1'"></g>
+        </svg>
+        Aumenta il Mana massimo
+    </div>
+</div>
+</div>

@@ -40,6 +40,7 @@ import { MobTrollComponent } from './components/mob/mob-troll/mob-troll.componen
 import { MapBookshelfComponent } from './components/map/map-bookshelf/map-bookshelf.component';
 import { SpellPlaceholderComponent } from './components/spell/spell-placeholder/spell-placeholder.component';
 import { MenuBookshelfComponent } from './components/menu/menu-bookshelf/menu-bookshelf.component';
+import { MenuHealerComponent } from './components/menu/menu-healer/menu-healer.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { MenuBookshelfComponent } from './components/menu/menu-bookshelf/menu-bo
     MobTrollComponent,
     MapBookshelfComponent,
     SpellPlaceholderComponent,
-    MenuBookshelfComponent
+    MenuBookshelfComponent,
+    MenuHealerComponent
   ],
   imports: [
     BrowserModule,

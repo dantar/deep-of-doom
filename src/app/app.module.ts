@@ -37,6 +37,9 @@ import { DungeonWildernessCComponent } from './components/dungeon/dungeon-wilder
 import { DungeonWildernessDComponent } from './components/dungeon/dungeon-wilderness-d/dungeon-wilderness-d.component';
 import { DungeonWildernessEComponent } from './components/dungeon/dungeon-wilderness-e/dungeon-wilderness-e.component';
 import { MobTrollComponent } from './components/mob/mob-troll/mob-troll.component';
+import { MapBookshelfComponent } from './components/map/map-bookshelf/map-bookshelf.component';
+import { SpellPlaceholderComponent } from './components/spell/spell-placeholder/spell-placeholder.component';
+import { MenuBookshelfComponent } from './components/menu/menu-bookshelf/menu-bookshelf.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +74,10 @@ import { MobTrollComponent } from './components/mob/mob-troll/mob-troll.componen
     DungeonWildernessCComponent,
     DungeonWildernessDComponent,
     DungeonWildernessEComponent,
-    MobTrollComponent
+    MobTrollComponent,
+    MapBookshelfComponent,
+    SpellPlaceholderComponent,
+    MenuBookshelfComponent
   ],
   imports: [
     BrowserModule,

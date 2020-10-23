@@ -30,15 +30,25 @@
             <g app-npc-placeholder [npc]="'healer'"></g>
          </g>
       </g>
-   
+      <g id="bookshelf" >
+         <circle
+            r="11.501317"
+            cy="10"
+            cx="10"
+            style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#008000;stroke-width:0.99736637;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+         <g transform="scale(0.2)">
+            <g app-map-bookshelf></g>
+         </g>
+      </g>
    </defs>
 
    <use x="70" y="12" xlink:href="#thebridge" (click)="shared.moveToWilderness()" />
    <use x="12" y="34" xlink:href="#villagehealer" (click)="zoomTo('healer')" />
+   <use x="60" y="60" xlink:href="#bookshelf" (click)="zoomTo('bookshelf')" />
 
 </svg>
 
-<div *ngIf="zoommedto != null" class="fullpage splitview">
+<div *ngIf="zoommedto == 'healer'" class="fullpage splitview">
    <div class="splithalf">
        <svg viewBox="0 0 100 100">
          <g app-npc-placeholder [npc]="zoommedto"></g>
@@ -74,3 +84,5 @@
        </div>
    </div>
 </div>
+
+<div *ngIf="zoommedto == 'bookshelf'" app-menu-bookshelf (closeDialog)="popZoom()"></div>

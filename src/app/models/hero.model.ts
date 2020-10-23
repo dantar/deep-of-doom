@@ -18,3 +18,8 @@ export class WizardHero {
     lefthand?: string;
 
 }
+
+export class MageSpell {
+    name: string;
+    title: string;
+}

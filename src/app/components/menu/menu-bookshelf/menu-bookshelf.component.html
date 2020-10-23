@@ -1,0 +1,20 @@
+<div class="fullpage splitview">
+    <div class="splithalf">
+        <svg viewBox="0 0 100 100">
+          <g app-map-bookshelf></g>
+        </svg>
+        <div class="dialog-button enabled-true" (click)="clickClose()">
+            Esci
+        </div>
+    </div>
+    <div class="splithalf">
+        <div class="dialog-message">Quale incantesimo vuoi studiare?</div>
+        <div *ngFor="let book of bookshelf" class="dialog-button enabled-{{book.enabled}}" (click)="clickBook(book)">
+          <svg viewBox="0 0 100 100">
+             <g app-spell-placeholder [spell]="book.spell"></g>
+          </svg>
+          {{book.spell.title}}
+        </div>
+    </div>
+ </div>
+ 

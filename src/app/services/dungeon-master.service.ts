@@ -19,6 +19,11 @@ export class DungeonMasterService {
     this._dungeons.push(dungeon);
   }
 
+  static _rooms: MobStats[] = [];
+  static registerRoom(room: MobStats) {
+    this._rooms.push(room);
+  }
+
   mobs: {[id: string]: MobStats};
   dungeons: {[id: string]: DungeonStats};
 

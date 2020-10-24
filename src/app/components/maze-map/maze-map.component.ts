@@ -70,6 +70,11 @@ export class MazeMapComponent implements OnInit, OnDestroy {
     this.audio.play('action');
     this.encounterTile = this.explorer.coords(tile);
     this.encounter = this.shared.mobs.mobs[this.encounterTile];
+    if (this.encounter.name === 'exit') {
+      this.shared.exp(1);
+      this.shared.moveToWilderness();
+      this.shared.progressUp();
+    }
   }
 
   doneMonster(event: string) {

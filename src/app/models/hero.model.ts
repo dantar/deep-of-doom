@@ -18,12 +18,16 @@ export class WizardHero {
     lefthand?: string;
 
     spells: string[];
+    bookshelf?: string[];
 
 }
 
 export class MageSpell {
+    exp: number;
     name: string;
     title: string;
     mana: number;
     effects: string[];
+    unlocks?: string[];
+    slot: string;
 }

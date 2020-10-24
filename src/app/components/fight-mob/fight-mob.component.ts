@@ -6,6 +6,7 @@ import { fallInAppear } from '../animations';
 import { DungeonMasterService, FightBuilder } from 'src/app/services/dungeon-master.service';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { MazeMob } from 'src/app/models/maze-map.model';
+import { SpellSession } from 'src/app/services/spell-master.service';
 
 @Component({
   selector: 'app-fight-mob',
@@ -23,6 +24,7 @@ export class FightMobComponent implements OnInit {
   @Output() done = new EventEmitter<string>();
 
   fight: FightBuilder;
+  spellsession: SpellSession;
 
   builder: ActionSlotBuilder;
   actions: ActionSlot[];
@@ -76,6 +78,16 @@ export class FightMobComponent implements OnInit {
 
   ngOnInit(): void {
     this.spellbookVisible = false;
+    this.spellsession = {
+      acceptedEffects: ['strikeMob', 'preventPoison', 'preventHit', 'preventDrain'], 
+      exaustedSpells: [],
+      spellEffects: {
+        'strikeMob': () => {
+          this.builder.newActionSlot('tough');
+          this.refreshDrawables();
+        }
+      }
+    };
     let mobStats = this.master.mobs[this.mob.name];
     this.fight = new FightBuilder(mobStats);
     this.mob.tags.forEach(t => mobStats.tags[t](this.fight));
@@ -115,34 +127,6 @@ export class FightMobComponent implements OnInit {
       return;
     }
     this.spellbookVisible = ! this.spellbookVisible;
-  }
-
-  dardo1IsCast: boolean;
-  dardo2IsCast: boolean;
-
-  dardo1() {
-    if (this.dardo1IsCast || this.shared.hero.mana < 1) {
-      return;
-    }
-    this.dardo1IsCast = true;
-    this.audio.play('action');
-    this.shared.mana(-1);
-    ['staff'].forEach(a => {
-      this.actions.push(this.builder.newActionSlot(a));
-    });
-    this.refreshDrawables();
-  }
-  dardo2() {
-    if (this.dardo2IsCast || this.shared.hero.mana < 2) {
-      return;
-    }
-    this.dardo2IsCast = true;
-    this.audio.play('action');
-    this.shared.mana(-2);
-    ['staff'].forEach(a => {
-      this.actions.push(this.builder.newActionSlot(a));
-    });
-    this.refreshDrawables();
   }
 
   refreshDrawables() {

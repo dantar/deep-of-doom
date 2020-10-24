@@ -41,6 +41,7 @@ import { MapBookshelfComponent } from './components/map/map-bookshelf/map-booksh
 import { SpellPlaceholderComponent } from './components/spell/spell-placeholder/spell-placeholder.component';
 import { MenuBookshelfComponent } from './components/menu/menu-bookshelf/menu-bookshelf.component';
 import { MenuHealerComponent } from './components/menu/menu-healer/menu-healer.component';
+import { MenuSpellbookComponent } from './components/menu/menu-spellbook/menu-spellbook.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { MenuHealerComponent } from './components/menu/menu-healer/menu-healer.c
     MapBookshelfComponent,
     SpellPlaceholderComponent,
     MenuBookshelfComponent,
-    MenuHealerComponent
+    MenuHealerComponent,
+    MenuSpellbookComponent
   ],
   imports: [
     BrowserModule,

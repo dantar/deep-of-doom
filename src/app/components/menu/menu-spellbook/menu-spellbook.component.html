@@ -1,0 +1,13 @@
+<div class="fullpage splitview">
+    <div class="splithalf">
+        <svg viewBox="0 0 100 100"><g app-cast-spell></g></svg>
+        <div class="dialog-button" (click)="clickClose()">Esci</div>
+    </div>
+    <div class="splithalf">
+        <div class="dialog-message">Scegli un incantesimo da lanciare:</div>
+        <div *ngFor="let castable of castables" class="dialog-button enabled-{{castable.enabled}}" (click)="clickCastable(castable)">
+            <svg viewBox="0 0 100 100"><g app-spell-placeholder [spell]="castable.spell"></g></svg>
+            {{castable.spell.title}}
+        </div>
+    </div>
+</div>

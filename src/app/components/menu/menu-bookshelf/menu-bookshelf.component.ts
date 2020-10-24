@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MageSpell } from 'src/app/models/hero.model';
+import { SpellMasterService } from 'src/app/services/spell-master.service';
 
 @Component({
   selector: '[app-menu-bookshelf]',
@@ -10,13 +11,13 @@ export class MenuBookshelfComponent implements OnInit {
 
   @Output() closeDialog = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private spells: SpellMasterService) { }
 
   bookshelf: SpellBook[]
 
   ngOnInit(): void {
     this.bookshelf = [
-      {name: 'dart', spell: {name: 'dart', title: 'dardo incantato'}, enabled: true, exp: 5}
+      {name: 'dart2', spell: this.spells.spells['dartIIm2d1'], enabled: true, exp: 5}
     ];
   }
 

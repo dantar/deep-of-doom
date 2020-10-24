@@ -112,23 +112,7 @@
 
 </svg>
 
-<div *ngIf="spellbookVisible" class="fullpage splitview">
-    <div class="splithalf">
-        <svg viewBox="0 0 100 100"><g app-cast-spell></g></svg>
-        <div class="dialog-button" (click)="leftHandClick()">Esci</div>
-    </div>
-    <div class="splithalf">
-        <div class="dialog-message">Scegli un incantesimo da lanciare:</div>
-        <div class="dialog-button enabled-{{!dardo1IsCast}}" (click)="dardo1()">
-            <svg viewBox="0 0 100 100"><g app-spell-dart></g></svg>
-            Dardo incantato
-        </div>
-        <div class="dialog-button enabled-{{!dardo2IsCast}}" (click)="dardo2()">
-            <svg viewBox="0 0 100 100"><g app-spell-dart></g></svg>
-            Dardo incantato 2
-        </div>
-    </div>
-</div>
+<div *ngIf="spellbookVisible" app-menu-spellbook [session]="spellsession" (closeDialog)="spellbookVisible = false"></div>
 
 <div class="panel-menu-list bottom-left-menu">
     <svg viewBox="0 0 100 100">

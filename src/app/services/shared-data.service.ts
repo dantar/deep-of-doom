@@ -37,7 +37,7 @@ export class SharedDataService {
     if (this.saved) {
       const data: SavedData = JSON.parse(this.saved);
       this.hero = data.hero;
-      this.hero.poison = this.hero.poison ? this.hero.poison : 0;
+      this.hero.spells = this.hero.spells ? this.hero.spells : ['dartIm1d1'];
       this.maze = data.maze;
       this.mobs = data.mobs;
       this.rooms = data.rooms;
@@ -88,6 +88,7 @@ export class SharedDataService {
       maxmana: 5,
       exp: 0,
       progress: 0,
+      spells: ['dartIm1d1'],
     };
     this.maze = null;
     this.mobs = null;

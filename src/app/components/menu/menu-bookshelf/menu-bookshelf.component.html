@@ -11,7 +11,10 @@
         <div class="dialog-message">Quale incantesimo vuoi studiare?</div>
         <div *ngFor="let book of bookshelf" class="dialog-button enabled-{{book.enabled}}" (click)="clickBook(book)">
           <svg viewBox="0 0 100 100">
-             <g app-spell-placeholder [spell]="book.spell"></g>
+            <g transform="translate(0,25) scale(0.75)">
+              <g app-spell-placeholder [spell]="book.spell"></g>
+            </g>
+            <g app-exp-cost [cost]="book.spell.exp"></g>
           </svg>
           {{book.spell.title}}
         </div>

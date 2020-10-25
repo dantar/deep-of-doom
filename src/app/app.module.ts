@@ -42,6 +42,8 @@ import { SpellPlaceholderComponent } from './components/spell/spell-placeholder/
 import { MenuBookshelfComponent } from './components/menu/menu-bookshelf/menu-bookshelf.component';
 import { MenuHealerComponent } from './components/menu/menu-healer/menu-healer.component';
 import { MenuSpellbookComponent } from './components/menu/menu-spellbook/menu-spellbook.component';
+import { ManaCostComponent } from './components/counter/mana-cost/mana-cost.component';
+import { ExpCostComponent } from './components/counter/exp-cost/exp-cost.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +83,9 @@ import { MenuSpellbookComponent } from './components/menu/menu-spellbook/menu-sp
     SpellPlaceholderComponent,
     MenuBookshelfComponent,
     MenuHealerComponent,
-    MenuSpellbookComponent
+    MenuSpellbookComponent,
+    ManaCostComponent,
+    ExpCostComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { MageSpell } from 'src/app/models/hero.model';
 import { SpellMasterService } from 'src/app/services/spell-master.service';
 
 @Component({
@@ -7,6 +8,8 @@ import { SpellMasterService } from 'src/app/services/spell-master.service';
   styleUrls: ['./spell-dart.component.scss']
 })
 export class SpellDartComponent implements OnInit {
+
+  @Input() spell: MageSpell;
 
   constructor() { }
 
@@ -24,6 +27,7 @@ SpellMasterService.registerSpell(
     unlocks: ['dartIm1d2', 'dartIIm2d1'],
     exp: 0,
     slot: 'dartI',
+    traits: [],
   }
 );
 SpellMasterService.registerSpell(
@@ -34,6 +38,7 @@ SpellMasterService.registerSpell(
     effects: ['strikeMob2'],
     exp: 12,
     slot: 'dartI',
+    traits: ['addAura'],
   }
 );
 
@@ -46,6 +51,7 @@ SpellMasterService.registerSpell(
     unlocks: ['dartIIm1d1', 'dartIIIm3d1'],
     exp: 4,
     slot: 'dartII',
+    traits: ['addDartTwo'],
   }
 );
 SpellMasterService.registerSpell(
@@ -57,6 +63,7 @@ SpellMasterService.registerSpell(
     unlocks: ['dartIIm1d2'],
     exp: 8,
     slot: 'dartII',
+    traits: ['addDartTwo'],
   }
 );
 SpellMasterService.registerSpell(
@@ -67,6 +74,7 @@ SpellMasterService.registerSpell(
     effects: ['strikeMob2'],
     exp: 15,
     slot: 'dartII',
+    traits: ['addDartTwo', 'addAura'],
   }
 );
 
@@ -79,6 +87,7 @@ SpellMasterService.registerSpell(
     unlocks: ['dartIIIm2d1', 'dartIIIm3d2'],
     exp: 4,
     slot: 'dartIII',
+    traits: ['addDartTwo', 'addDartThree'],
   }
 );
 SpellMasterService.registerSpell(
@@ -90,6 +99,7 @@ SpellMasterService.registerSpell(
     unlocks: ['dartIIIm1d1', 'dartIIIm2d2'],
     exp: 8,
     slot: 'dartIII',
+    traits: ['addDartTwo', 'addDartThree'],
   }
 );
 SpellMasterService.registerSpell(
@@ -101,6 +111,7 @@ SpellMasterService.registerSpell(
     unlocks: ['dartIIIm1d2'],
     exp: 8,
     slot: 'dartIII',
+    traits: ['addDartTwo', 'addDartThree'],
   }
 );
 SpellMasterService.registerSpell(
@@ -112,6 +123,7 @@ SpellMasterService.registerSpell(
     unlocks: ['dartIIIm2d2'],
     exp: 15,
     slot: 'dartIII',
+    traits: ['addDartTwo', 'addDartThree', 'addAura'],
   }
 );
 SpellMasterService.registerSpell(
@@ -123,6 +135,7 @@ SpellMasterService.registerSpell(
     unlocks: ['dartIIIm1d2'],
     exp: 15,
     slot: 'dartIII',
+    traits: ['addDartTwo', 'addDartThree', 'addAura'],
   }
 );
 SpellMasterService.registerSpell(
@@ -133,5 +146,6 @@ SpellMasterService.registerSpell(
     effects: ['strikeMob2'],
     exp: 15,
     slot: 'dartIII',
+    traits: ['addDartTwo', 'addDartThree', 'addAura'],
   }
 );

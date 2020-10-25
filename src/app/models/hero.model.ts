@@ -30,4 +30,5 @@ export class MageSpell {
     effects: string[];
     unlocks?: string[];
     slot: string;
+    traits: string[];
 }

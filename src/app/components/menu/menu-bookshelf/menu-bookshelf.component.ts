@@ -44,6 +44,7 @@ export class MenuBookshelfComponent implements OnInit {
     this.audio.play('action');
     this.shared.hero.spells.push(book.spell.name);
     this.shared.exp(- book.spell.exp);
+    this.shared.save();
     this.ngOnInit();
   }
 

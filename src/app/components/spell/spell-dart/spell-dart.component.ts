@@ -18,7 +18,7 @@ export class SpellDartComponent implements OnInit {
 SpellMasterService.registerSpell(
   {
     name: 'dartIm1d1',
-    title: 'Dardo incantato',
+    title: 'Dardo incantato I',
     mana: 1,
     effects: ['strikeMob'],
     unlocks: ['dartIm1d2', 'dartIIm2d1'],
@@ -29,7 +29,7 @@ SpellMasterService.registerSpell(
 SpellMasterService.registerSpell(
   {
     name: 'dartIm1d2',
-    title: 'Dardo incantato',
+    title: 'Dardo incantato I, forza 2',
     mana: 1,
     effects: ['strikeMob2'],
     exp: 12,
@@ -40,7 +40,7 @@ SpellMasterService.registerSpell(
 SpellMasterService.registerSpell(
   {
     name: 'dartIIm2d1',
-    title: 'Dardo incantato',
+    title: 'Dardo incantato II',
     mana: 2,
     effects: ['strikeMob'],
     unlocks: ['dartIIm1d1', 'dartIIIm3d1'],
@@ -51,7 +51,7 @@ SpellMasterService.registerSpell(
 SpellMasterService.registerSpell(
   {
     name: 'dartIIm1d1',
-    title: 'Dardo incantato',
+    title: 'Dardo incantato II',
     mana: 1,
     effects: ['strikeMob'],
     unlocks: ['dartIIm1d2'],
@@ -62,7 +62,7 @@ SpellMasterService.registerSpell(
 SpellMasterService.registerSpell(
   {
     name: 'dartIIm1d2',
-    title: 'Dardo incantato',
+    title: 'Dardo incantato II, forza 2',
     mana: 1,
     effects: ['strikeMob2'],
     exp: 15,
@@ -73,7 +73,7 @@ SpellMasterService.registerSpell(
 SpellMasterService.registerSpell(
   {
     name: 'dartIIIm3d1',
-    title: 'Dardo incantato',
+    title: 'Dardo incantato III',
     mana: 3,
     effects: ['strikeMob'],
     unlocks: ['dartIIIm2d1', 'dartIIIm3d2'],
@@ -84,7 +84,7 @@ SpellMasterService.registerSpell(
 SpellMasterService.registerSpell(
   {
     name: 'dartIIIm2d1',
-    title: 'Dardo incantato',
+    title: 'Dardo incantato III',
     mana: 2,
     effects: ['strikeMob'],
     unlocks: ['dartIIIm1d1', 'dartIIIm2d2'],
@@ -95,7 +95,7 @@ SpellMasterService.registerSpell(
 SpellMasterService.registerSpell(
   {
     name: 'dartIIIm1d1',
-    title: 'Dardo incantato',
+    title: 'Dardo incantato III',
     mana: 1,
     effects: ['strikeMob'],
     unlocks: ['dartIIIm1d2'],
@@ -106,7 +106,7 @@ SpellMasterService.registerSpell(
 SpellMasterService.registerSpell(
   {
     name: 'dartIIIm3d2',
-    title: 'Dardo incantato',
+    title: 'Dardo incantato III, forza 2',
     mana: 3,
     effects: ['strikeMob2'],
     unlocks: ['dartIIIm2d2'],
@@ -117,7 +117,7 @@ SpellMasterService.registerSpell(
 SpellMasterService.registerSpell(
   {
     name: 'dartIIIm2d2',
-    title: 'Dardo incantato',
+    title: 'Dardo incantato III, forza 2',
     mana: 2,
     effects: ['strikeMob2'],
     unlocks: ['dartIIIm1d2'],
@@ -128,7 +128,7 @@ SpellMasterService.registerSpell(
 SpellMasterService.registerSpell(
   {
     name: 'dartIIIm1d2',
-    title: 'Dardo incantato',
+    title: 'Dardo incantato III, forza 2',
     mana: 1,
     effects: ['strikeMob2'],
     exp: 15,

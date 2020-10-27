@@ -101,18 +101,12 @@ export class SharedDataService {
   }
   life(arg0: number) {
     this.hero.life = Math.max(0, this.hero.life + arg0);
-    if (this.hero.life === 0) {
-      this.moveToVillage();
-    }
   }
   mana(arg0: number) {
     this.hero.mana = Math.max(0, this.hero.mana + arg0);
   }
   poison(arg0: number) {
     this.hero.life = Math.max(0, this.hero.life - this.hero.poison);
-    if (this.hero.life <= 0) {
-      this.moveToVillage();
-    }
     this.hero.poison += arg0;
   }
   exp(arg0: number) {

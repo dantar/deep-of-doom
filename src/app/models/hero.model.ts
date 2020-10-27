@@ -32,3 +32,10 @@ export class MageSpell {
     slot: string;
     traits: string[];
 }
+
+export class SpellSession {
+    acceptedEffects: string[];
+    exaustedSpells: string[];
+    spellEffects: {[id:string]: ()=>void}
+  }
+  

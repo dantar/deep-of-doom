@@ -6,7 +6,7 @@ import { fallInAppear } from '../animations';
 import { DungeonMasterService, FightBuilder } from 'src/app/services/dungeon-master.service';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { MazeMob } from 'src/app/models/maze-map.model';
-import { SpellSession } from 'src/app/services/spell-master.service';
+import { SpellSession } from 'src/app/models/hero.model';
 
 @Component({
   selector: 'app-fight-mob',
@@ -25,6 +25,7 @@ export class FightMobComponent implements OnInit {
 
   fight: FightBuilder;
   spellsession: SpellSession;
+  isFleeing: boolean;
 
   builder: ActionSlotBuilder;
   actions: ActionSlot[];
@@ -33,9 +34,11 @@ export class FightMobComponent implements OnInit {
   life: number;
   maxlife: number;
   exit: boolean;
-  disabled: boolean;
 
   spellbookVisible: boolean;
+  inventoryVisible: boolean;
+
+  outcome: string;
 
   maxrowsize = 10;
 
@@ -48,24 +51,28 @@ export class FightMobComponent implements OnInit {
     },
     hit: () => {
       this.shared.life(-1);
-      this.disabled = (this.shared.hero.life <= 0);
+      this.outcome = (this.shared.hero.life <= 0) ? 'died': this.outcome;
     },
     hit2: () => {
       this.shared.life(-2);
-      this.disabled = (this.shared.hero.life <= 0);
+      this.outcome = (this.shared.hero.life <= 0) ? 'died': this.outcome;
     },
     gold: () => {
       this.shared.gold(1);
     },
     trap: () => {
       this.shared.poison(1);
+      this.outcome = (this.shared.hero.life <= 0) ? 'died': this.outcome;
     },
     staff: () => {
       this.adjustLife(-1);
     },
     exit: () => {
       this.exit = true;
-      this.disabled = true;
+      this.outcome = 'exit';
+    },
+    flee: () => {
+      this.outcome = 'fled';
     },
   }
 
@@ -78,6 +85,9 @@ export class FightMobComponent implements OnInit {
 
   ngOnInit(): void {
     this.spellbookVisible = false;
+    this.inventoryVisible = false;
+    this.isFleeing = false;
+    this.outcome = null;
     this.spellsession = {
       acceptedEffects: ['strikeMob', 'preventPoison', 'preventHit', 'preventDrain'], 
       exaustedSpells: [],
@@ -95,7 +105,6 @@ export class FightMobComponent implements OnInit {
     this.maxlife = this.fight.mobMaxLife;
     this.life = this.maxlife;
     this.exit = false;
-    this.disabled = false;
     this.builder = new ActionSlotBuilder(this.fight.mobMaxLife);
     this.fight.fightActions.forEach(a => this.builder.newActionSlot(a));
     this.actions = this.builder.sofar;
@@ -105,14 +114,14 @@ export class FightMobComponent implements OnInit {
   adjustLife(arg0: number) {
     this.life = Math.max(0, this.life + arg0);
     if (this.life <= 0) {
-      this.disabled = true;
+      this.outcome = 'win';
     }
   }
 
   // clicks
 
   nextClick() {
-    if (this.disabled) {
+    if (this.outcome) {
       return;
     }
     this.audio.play('action');
@@ -122,7 +131,7 @@ export class FightMobComponent implements OnInit {
   }
 
   leftHandClick() {
-    if (this.disabled) {
+    if (this.outcome) {
       this.spellbookVisible = false;
       return;
     }
@@ -165,8 +174,26 @@ export class FightMobComponent implements OnInit {
   };
 
   clickSlot(slot: ActionSlot) {
-    console.log(this.audio);
+    console.log(slot);
     this.audio.play('action');
+  }
+
+  clickOpenInventory() {
+    if (this.outcome) {
+      this.inventoryVisible = false;
+      return;
+    }
+    this.inventoryVisible = ! this.inventoryVisible;
+  }
+
+  clickFlee() {
+    this.audio.play('action');
+    if (!this.isFleeing) {
+      this.builder.newActionSlot('flee');
+      this.builder.newActionSlot('flee');
+      this.refreshDrawables();
+    }
+    this.isFleeing = true;
   }
 
 }
@@ -206,3 +233,4 @@ class ActionSlot {
   available: boolean;
 
 }
+

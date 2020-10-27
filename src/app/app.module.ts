@@ -44,6 +44,8 @@ import { MenuHealerComponent } from './components/menu/menu-healer/menu-healer.c
 import { MenuSpellbookComponent } from './components/menu/menu-spellbook/menu-spellbook.component';
 import { ManaCostComponent } from './components/counter/mana-cost/mana-cost.component';
 import { ExpCostComponent } from './components/counter/exp-cost/exp-cost.component';
+import { MenuInventoryComponent } from './components/menu/menu-inventory/menu-inventory.component';
+import { OpenInventoryComponent } from './components/inventory/open-inventory/open-inventory.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +87,9 @@ import { ExpCostComponent } from './components/counter/exp-cost/exp-cost.compone
     MenuHealerComponent,
     MenuSpellbookComponent,
     ManaCostComponent,
-    ExpCostComponent
+    ExpCostComponent,
+    MenuInventoryComponent,
+    OpenInventoryComponent
   ],
   imports: [
     BrowserModule,

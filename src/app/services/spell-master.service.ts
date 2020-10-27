@@ -19,9 +19,3 @@ export class SpellMasterService {
   }
 
 }
-
-export class SpellSession {
-  acceptedEffects: string[];
-  exaustedSpells: string[];
-  spellEffects: {[id:string]: ()=>void}
-}

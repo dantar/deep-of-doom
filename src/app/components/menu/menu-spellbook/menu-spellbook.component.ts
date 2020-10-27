@@ -1,9 +1,9 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MageSpell } from 'src/app/models/hero.model';
+import { SpellSession, MageSpell } from 'src/app/models/hero.model';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { SharedDataService } from 'src/app/services/shared-data.service';
-import { SpellMasterService, SpellSession } from 'src/app/services/spell-master.service';
+import { SpellMasterService } from 'src/app/services/spell-master.service';
 
 @Component({
   selector: '[app-menu-spellbook]',

@@ -89,13 +89,17 @@ export class FightMobComponent implements OnInit {
     this.isFleeing = false;
     this.outcome = null;
     this.spellsession = {
-      acceptedEffects: ['strikeMob', 'preventPoison', 'preventHit', 'preventDrain'], 
+      acceptedEffects: ['strikeMob', 'strikeMob2', 'preventPoison', 'preventHit', 'preventDrain'], 
       exaustedSpells: [],
       spellEffects: {
         'strikeMob': () => {
           this.builder.newActionSlot('tough');
           this.refreshDrawables();
-        }
+        },
+        'strikeMob2': () => {
+          this.builder.newActionSlot('tough2');
+          this.refreshDrawables();
+        },
       }
     };
     let mobStats = this.master.mobs[this.mob.name];

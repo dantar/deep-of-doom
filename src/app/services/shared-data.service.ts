@@ -89,6 +89,7 @@ export class SharedDataService {
       exp: 0,
       progress: 0,
       spells: ['dartIm1d1'],
+      bookshelf: [],
     };
     this.maze = null;
     this.mobs = null;
@@ -110,7 +111,7 @@ export class SharedDataService {
     this.hero.poison += arg0;
   }
   exp(arg0: number) {
-    this.hero.exp = Math.max(0, this.hero.exp + (this.mazeIsChallenge() ? 2*arg0 : arg0));
+    this.hero.exp = Math.max(0, this.hero.exp + arg0);
   }
   moveToVillage() {
     this.hero.location = 'village';

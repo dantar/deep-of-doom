@@ -42,6 +42,8 @@ export class MenuBookshelfComponent implements OnInit {
 
   clickBook(book: SpellBook) {
     this.audio.play('action');
+    this.shared.hero.spells = this.shared.hero.spells
+    .filter(s => this.spells.spells[s].slot != book.spell.slot);
     this.shared.hero.spells.push(book.spell.name);
     this.shared.exp(- book.spell.exp);
     this.shared.save();

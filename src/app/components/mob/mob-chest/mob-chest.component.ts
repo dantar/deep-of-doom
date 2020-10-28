@@ -21,6 +21,7 @@ DungeonMasterService.registerMob(
     actions: ['gold', 'gold', 'trap'],
     life: 1,
     exp: 1,
+    blocks: false,
     component: MobChestComponent,
     tags: {},
   }

@@ -21,6 +21,7 @@ DungeonMasterService.registerMob(
     actions: ['hit2', 'hit2', 'gold', 'gold', 'gold'],
     life: 3,
     exp: 4,
+    blocks: true,
     component: MobTrollComponent,
     tags: {},
   }

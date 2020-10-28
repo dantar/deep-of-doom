@@ -7,6 +7,7 @@ import { DungeonMasterService, FightBuilder } from 'src/app/services/dungeon-mas
 import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { MazeMob } from 'src/app/models/maze-map.model';
 import { SpellSession } from 'src/app/models/hero.model';
+import { GuiCommonsService } from 'src/app/services/gui-commons.service';
 
 @Component({
   selector: 'app-fight-mob',
@@ -25,7 +26,7 @@ export class FightMobComponent implements OnInit {
 
   fight: FightBuilder;
   spellsession: SpellSession;
-  isFleeing: boolean;
+  fleeEnabled: boolean;
 
   builder: ActionSlotBuilder;
   actions: ActionSlot[];
@@ -35,8 +36,7 @@ export class FightMobComponent implements OnInit {
   maxlife: number;
   exit: boolean;
 
-  spellbookVisible: boolean;
-  inventoryVisible: boolean;
+  activeMenu: string;
 
   outcome: string;
 
@@ -77,6 +77,7 @@ export class FightMobComponent implements OnInit {
   }
 
   constructor(
+    public gui: GuiCommonsService,
     private game: GamesCommonService,
     private shared: SharedDataService,
     private master: DungeonMasterService,
@@ -84,9 +85,8 @@ export class FightMobComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.spellbookVisible = false;
-    this.inventoryVisible = false;
-    this.isFleeing = false;
+    this.activeMenu = null;
+    this.fleeEnabled = true;
     this.outcome = null;
     this.spellsession = {
       acceptedEffects: ['strikeMob', 'strikeMob2', 'preventPoison', 'preventHit', 'preventDrain'], 
@@ -134,13 +134,19 @@ export class FightMobComponent implements OnInit {
     this.brains[this.action.action]();
   }
 
-  leftHandClick() {
-    if (this.outcome) {
-      this.spellbookVisible = false;
-      return;
-    }
-    this.spellbookVisible = ! this.spellbookVisible;
+  clickSpellbook() {
+    this.audio.play('action');
+    this.toggleMenu('spellbook');
   }
+
+  clickInventory() {
+    this.audio.play('action');
+    this.toggleMenu('inventory');
+  }
+
+  private toggleMenu(menu: string) {
+    this.activeMenu = this.activeMenu === menu ? null: menu;
+  }  
 
   refreshDrawables() {
     this.drawables = this.actions.filter(a => a.available).map(a => a);
@@ -182,22 +188,12 @@ export class FightMobComponent implements OnInit {
     this.audio.play('action');
   }
 
-  clickOpenInventory() {
-    if (this.outcome) {
-      this.inventoryVisible = false;
-      return;
-    }
-    this.inventoryVisible = ! this.inventoryVisible;
-  }
-
   clickFlee() {
     this.audio.play('action');
-    if (!this.isFleeing) {
-      this.builder.newActionSlot('flee');
-      this.builder.newActionSlot('flee');
-      this.refreshDrawables();
-    }
-    this.isFleeing = true;
+    this.builder.newActionSlot('flee');
+    this.builder.newActionSlot('flee');
+    this.refreshDrawables();
+    this.fleeEnabled = false;
   }
 
 }

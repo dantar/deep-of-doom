@@ -8,7 +8,8 @@
         </div>
     </div>
     <div class="splithalf">
-        <div class="dialog-message">Quale incantesimo vuoi studiare?</div>
+        <div *ngIf="bookshelf.length === 0" class="dialog-message">Non hai incantesimi da studiare.</div>
+        <div *ngIf="bookshelf.length > 0" class="dialog-message">Quale incantesimo vuoi studiare?</div>
         <div *ngFor="let book of bookshelf" class="dialog-button enabled-{{book.enabled}}" 
           (click)="book.enabled ? clickBook(book): gui.clickDisabled()">
           <svg viewBox="0 0 100 100">

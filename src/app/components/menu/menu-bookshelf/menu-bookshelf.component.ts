@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MageSpell } from 'src/app/models/hero.model';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
+import { GuiCommonsService } from 'src/app/services/gui-commons.service';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { SpellMasterService } from 'src/app/services/spell-master.service';
 
@@ -13,7 +14,9 @@ export class MenuBookshelfComponent implements OnInit {
 
   @Output() closeDialog = new EventEmitter<string>();
 
-  constructor(private shared: SharedDataService,
+  constructor(
+    public gui: GuiCommonsService,
+    private shared: SharedDataService,
     private spells: SpellMasterService,
     private audio: AudioPlayService) { }
 

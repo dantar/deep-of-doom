@@ -9,7 +9,8 @@
     </div>
     <div class="splithalf">
         <div class="dialog-message">Quale incantesimo vuoi studiare?</div>
-        <div *ngFor="let book of bookshelf" class="dialog-button enabled-{{book.enabled}}" (click)="clickBook(book)">
+        <div *ngFor="let book of bookshelf" class="dialog-button enabled-{{book.enabled}}" 
+          (click)="book.enabled ? clickBook(book): gui.clickDisabled()">
           <svg viewBox="0 0 100 100">
             <g transform="translate(0,25) scale(0.75)">
               <g app-spell-placeholder [spell]="book.spell"></g>

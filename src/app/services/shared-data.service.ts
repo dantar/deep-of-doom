@@ -144,13 +144,11 @@ export class SharedDataService {
     this.exp(-this.hero.maxlife);
     this.hero.maxlife += 1;
     this.hero.life += 1;
-    this.save();
   }
   levelUpMana() {
     this.exp(-this.hero.maxmana);
     this.hero.maxmana += 1;
     this.hero.mana += 1;
-    this.save();
   }
 
 }

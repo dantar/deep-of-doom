@@ -73,6 +73,19 @@ SpellMasterService.registerSpell(
 );
 SpellMasterService.registerSpell(
   {
+    name: 'dartIIm2d2',
+    title: 'Dardo incantato II, forza 2',
+    mana: 2,
+    effects: ['strikeMob2'],
+    exp: 10,
+    slot: 'dartII',
+    traits: ['addDartTwo', 'addAura'],
+    upgrades: [],
+    unlocks: ['dartIIIm3d1'],
+  }
+);
+SpellMasterService.registerSpell(
+  {
     name: 'dartIIm1d2',
     title: 'Dardo incantato II, forza 2',
     mana: 1,

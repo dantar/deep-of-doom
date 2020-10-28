@@ -11,8 +11,6 @@ export class MenuHealerComponent implements OnInit {
 
   @Output() closeDialog = new EventEmitter<string>();
 
-  enabledHealWounds: boolean;
-
   items: NpcShopItem[];
 
   constructor(
@@ -21,11 +19,16 @@ export class MenuHealerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.enabledHealWounds = this.shared.hero.life < this.shared.hero.maxlife || this.shared.hero.mana < this.shared.hero.maxmana || this.shared.hero.poison > 0;
     this.items = [];
     this.items.push({
       name: 'heal',
-      effect: this.healWounds,
+      effect: () => {
+        this.shared.gold(-3);
+        this.shared.hero.poison = 0;
+        this.shared.hero.life = this.shared.hero.maxlife;
+        this.shared.hero.mana = this.shared.hero.maxmana;
+        this.shared.save();
+      },
       title: 'Cura le ferite',
       currency: 'gold',
       cost: 3,
@@ -34,7 +37,10 @@ export class MenuHealerComponent implements OnInit {
     });
     this.items.push({
       name: 'levelUpLife',
-      effect: this.levelUpLife,
+      effect: ()=> {
+        this.shared.levelUpLife();
+        this.shared.save();
+      },
       title: 'Aumenta la vita massima',
       currency: 'exp',
       cost: this.shared.hero.maxlife,
@@ -43,7 +49,10 @@ export class MenuHealerComponent implements OnInit {
     });
     this.items.push({
       name: 'levelUpMana',
-      effect: this.levelUpMana,
+      effect: ()=> {
+        this.shared.levelUpMana();
+        this.shared.save();
+      },
       title: 'Aumenta il mana massimo',
       currency: 'exp',
       cost: this.shared.hero.maxmana,
@@ -59,28 +68,7 @@ export class MenuHealerComponent implements OnInit {
   clickBuyItem(item: NpcShopItem) {
     this.audio.play('action');
     item.effect();
-  }
-
-  healWounds() {
-    if (this.enabledHealWounds) {
-      this.shared.gold(-3);
-      this.shared.hero.poison = 0;
-      this.shared.hero.life = this.shared.hero.maxlife;
-      this.shared.hero.mana = this.shared.hero.maxmana;
-      this.enabledHealWounds = false;
-    }
-  }
-
-  levelUpLife() {
-    if (this.shared.hero.exp >= this.shared.hero.maxlife) {
-      this.shared.levelUpLife();
-    }
-  }
-
-  levelUpMana() {
-    if (this.shared.hero.exp >= this.shared.hero.maxmana) {
-      this.shared.levelUpMana();
-    }
+    this.ngOnInit();
   }
 
   clickClose() {

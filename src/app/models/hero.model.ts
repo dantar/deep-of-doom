@@ -28,7 +28,8 @@ export class MageSpell {
     title: string;
     mana: number;
     effects: string[];
-    unlocks?: string[];
+    unlocks: string[];
+    upgrades: string[];
     slot: string;
     traits: string[];
 }

@@ -24,10 +24,11 @@ SpellMasterService.registerSpell(
     title: 'Dardo incantato I',
     mana: 1,
     effects: ['strikeMob'],
-    unlocks: ['dartIm1d2', 'dartIIm2d1'],
     exp: 0,
     slot: 'dartI',
     traits: [],
+    upgrades: ['dartIm1d2'],
+    unlocks: ['dartIIm2d1'],
   }
 );
 SpellMasterService.registerSpell(
@@ -36,10 +37,11 @@ SpellMasterService.registerSpell(
     title: 'Dardo incantato I, forza 2',
     mana: 1,
     effects: ['strikeMob2'],
-    unlocks: ['dartIIm2d1'],
     exp: 12,
     slot: 'dartI',
     traits: ['addAura'],
+    upgrades: [],
+    unlocks: ['dartIIm2d1'],
   }
 );
 
@@ -49,10 +51,11 @@ SpellMasterService.registerSpell(
     title: 'Dardo incantato II',
     mana: 2,
     effects: ['strikeMob'],
-    unlocks: ['dartIIm1d1', 'dartIIIm3d1'],
     exp: 4,
     slot: 'dartII',
     traits: ['addDartTwo'],
+    upgrades: ['dartIIm1d1', 'dartIIm2d2'],
+    unlocks: ['dartIIIm3d1'],
   }
 );
 SpellMasterService.registerSpell(
@@ -61,10 +64,11 @@ SpellMasterService.registerSpell(
     title: 'Dardo incantato II',
     mana: 1,
     effects: ['strikeMob'],
-    unlocks: ['dartIIm1d2', 'dartIIIm3d1'],
     exp: 8,
     slot: 'dartII',
     traits: ['addDartTwo'],
+    upgrades: ['dartIIm1d2'],
+    unlocks: ['dartIIIm3d1'],
   }
 );
 SpellMasterService.registerSpell(
@@ -73,10 +77,11 @@ SpellMasterService.registerSpell(
     title: 'Dardo incantato II, forza 2',
     mana: 1,
     effects: ['strikeMob2'],
-    unlocks: ['dartIIIm3d1'],
     exp: 15,
     slot: 'dartII',
     traits: ['addDartTwo', 'addAura'],
+    upgrades: [],
+    unlocks: ['dartIIIm3d1'],
   }
 );
 
@@ -86,10 +91,11 @@ SpellMasterService.registerSpell(
     title: 'Dardo incantato III',
     mana: 3,
     effects: ['strikeMob'],
-    unlocks: ['dartIIIm2d1', 'dartIIIm3d2'],
     exp: 4,
     slot: 'dartIII',
     traits: ['addDartTwo', 'addDartThree'],
+    upgrades: ['dartIIIm2d1', 'dartIIIm3d2'],
+    unlocks: [],
   }
 );
 SpellMasterService.registerSpell(
@@ -98,10 +104,11 @@ SpellMasterService.registerSpell(
     title: 'Dardo incantato III',
     mana: 2,
     effects: ['strikeMob'],
-    unlocks: ['dartIIIm1d1', 'dartIIIm2d2'],
     exp: 8,
     slot: 'dartIII',
     traits: ['addDartTwo', 'addDartThree'],
+    upgrades: ['dartIIIm1d1', 'dartIIIm2d2'],
+    unlocks: [],
   }
 );
 SpellMasterService.registerSpell(
@@ -110,10 +117,11 @@ SpellMasterService.registerSpell(
     title: 'Dardo incantato III',
     mana: 1,
     effects: ['strikeMob'],
-    unlocks: ['dartIIIm1d2'],
     exp: 8,
     slot: 'dartIII',
     traits: ['addDartTwo', 'addDartThree'],
+    upgrades: ['dartIIIm1d2'],
+    unlocks: [],
   }
 );
 SpellMasterService.registerSpell(
@@ -122,10 +130,11 @@ SpellMasterService.registerSpell(
     title: 'Dardo incantato III, forza 2',
     mana: 3,
     effects: ['strikeMob2'],
-    unlocks: ['dartIIIm2d2'],
     exp: 15,
     slot: 'dartIII',
     traits: ['addDartTwo', 'addDartThree', 'addAura'],
+    upgrades: ['dartIIIm2d2'],
+    unlocks: [],
   }
 );
 SpellMasterService.registerSpell(
@@ -134,10 +143,11 @@ SpellMasterService.registerSpell(
     title: 'Dardo incantato III, forza 2',
     mana: 2,
     effects: ['strikeMob2'],
-    unlocks: ['dartIIIm1d2'],
     exp: 15,
     slot: 'dartIII',
     traits: ['addDartTwo', 'addDartThree', 'addAura'],
+    upgrades: ['dartIIIm1d2'],
+    unlocks: [],
   }
 );
 SpellMasterService.registerSpell(
@@ -149,5 +159,7 @@ SpellMasterService.registerSpell(
     exp: 15,
     slot: 'dartIII',
     traits: ['addDartTwo', 'addDartThree', 'addAura'],
+    upgrades: [],
+    unlocks: [],
   }
 );

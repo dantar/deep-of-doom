@@ -32,13 +32,15 @@ export class MenuBookshelfComponent implements OnInit {
 
   heroSpellsUnlockList(): SpellBook[] {
     let result: SpellBook[] = [];
-    this.shared.hero.spells.forEach(s => {
-      if (this.spells.spells[s].unlocks) {
-        result.push(...this.spells.spells[s].unlocks
-          .filter(s => !this.shared.hero.spells.includes(s))
-          .map(s => new SpellBook(this.spells.spells[s], this.shared.hero.exp))
-        );
-      }
+    let herospells = this.shared.hero.spells.map(s => this.spells.spells[s]);
+    herospells.forEach(spell => {
+      result.push(...spell.upgrades
+        .map(s => new SpellBook(this.spells.spells[s], this.shared.hero.exp))
+      );
+      result.push(...spell.unlocks
+        .filter(s => !herospells.map(s => s.slot).includes(this.spells.spells[s].slot))
+        .map(s => new SpellBook(this.spells.spells[s], this.shared.hero.exp))
+      );
     });
     return result;
   }

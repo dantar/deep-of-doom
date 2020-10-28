@@ -46,6 +46,7 @@ import { ManaCostComponent } from './components/counter/mana-cost/mana-cost.comp
 import { ExpCostComponent } from './components/counter/exp-cost/exp-cost.component';
 import { MenuInventoryComponent } from './components/menu/menu-inventory/menu-inventory.component';
 import { OpenInventoryComponent } from './components/inventory/open-inventory/open-inventory.component';
+import { GoldCostComponent } from './components/counter/gold-cost/gold-cost.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { OpenInventoryComponent } from './components/inventory/open-inventory/op
     ManaCostComponent,
     ExpCostComponent,
     MenuInventoryComponent,
-    OpenInventoryComponent
+    OpenInventoryComponent,
+    GoldCostComponent
   ],
   imports: [
     BrowserModule,

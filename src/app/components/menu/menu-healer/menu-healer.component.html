@@ -9,28 +9,22 @@
 </div>
 <div class="splithalf">
     <div class="dialog-message">"Come posso esserti utile?"</div>
-    <div class="dialog-button enabled-{{enabledHealWounds}}" (click)="healWounds()">
+    <div *ngFor="let item of items" class="dialog-button enabled-{{item.enabled}}" (click)="clickBuyItem(item)">
         <svg viewBox="0 0 100 100">
-            <g transform="scale(0.6)">
-            <g app-life-counter [value]="'*'"></g>
+            <g *ngIf="item.name === 'heal'" transform="translate(0,25) scale(0.75)">
+              <g transform="scale(0.6)"><g app-life-counter [value]="'*'"></g></g>
+              <g transform="translate(40,40) scale(0.6)"><g app-mana-counter [value]="'*'"></g></g>
             </g>
-            <g transform="translate(40,40) scale(0.6)">
-            <g app-mana-counter [value]="'*'"></g>
+            <g *ngIf="item.name === 'levelUpLife'" transform="translate(0,25) scale(0.75)">
+                <g app-life-counter [value]="'+1'"></g>
             </g>
+            <g *ngIf="item.name === 'levelUpMana'" transform="translate(0,25) scale(0.75)">
+                <g app-mana-counter [value]="'+1'"></g>
+            </g>
+            <g *ngIf="item.currency === 'gold'" app-gold-cost [cost]="item.cost - item.discount"></g>
+            <g *ngIf="item.currency == 'exp'" app-exp-cost [cost]="item.cost - item.discount"></g>
         </svg>
-        Cura le ferite
-    </div>
-    <div class="dialog-button enabled-{{shared.hero.exp >= shared.hero.maxlife}}" (click)="levelUpLife()">
-        <svg viewBox="0 0 100 100">
-            <g app-life-counter [value]="'+1'"></g>
-        </svg>
-        Aumenta la Vita massima
-    </div>
-    <div class="dialog-button enabled-{{shared.hero.exp >= shared.hero.maxmana}}" (click)="levelUpMana()">
-        <svg viewBox="0 0 100 100">
-            <g app-mana-counter [value]="'+1'"></g>
-        </svg>
-        Aumenta il Mana massimo
+        {{item.title}}
     </div>
 </div>
 </div>

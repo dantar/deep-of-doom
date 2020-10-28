@@ -55,7 +55,8 @@ export class MazeMapComponent implements OnInit, OnDestroy {
   clickTile(t: MazeTile) {
     this.audio.play('action');
     MazeExploration.draw(this.shared.exploration, t);
-    if (! this.shared.mobs.mobs[MazeMap.coords(t)]) {
+    let mob = this.shared.mobs.mobs[MazeMap.coords(t)];
+    if (!mob || !this.master.mobs[mob.name].blocks) {
       this.expandDrawable(t);
     }
     this.shared.save();

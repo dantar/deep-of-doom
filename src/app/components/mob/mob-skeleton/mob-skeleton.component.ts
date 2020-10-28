@@ -24,6 +24,7 @@ DungeonMasterService.registerMob(
     actions: ['tough', 'hit', 'hit'],
     life: 2,
     exp: 2,
+    blocks: true,
     component: MobSkeletonComponent,
     tags: {
       'weapon': (fb: FightBuilder) => {

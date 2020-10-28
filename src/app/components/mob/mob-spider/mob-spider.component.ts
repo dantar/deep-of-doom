@@ -21,6 +21,7 @@ DungeonMasterService.registerMob(
     actions: ['trap', 'trap', 'gold', 'gold'],
     life: 2,
     exp: 3,
+    blocks: true,
     component: MobSpiderComponent,
     tags: {},
   }

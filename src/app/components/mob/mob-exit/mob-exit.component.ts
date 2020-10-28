@@ -15,12 +15,13 @@ export class MobExitComponent implements OnInit {
 
 }
 
-DungeonMasterService.registerRoom(
+DungeonMasterService.registerMob(
   {
     name: 'exit',
     actions: [],
     life: 1,
     exp: 1,
+    blocks: false,
     component: MobExitComponent,
     tags: {},
   }

@@ -90,6 +90,7 @@ export class SharedDataService {
       progress: 0,
       spells: ['dartIm1d1'],
       bookshelf: [],
+      inventory: [],
     };
     this.maze = null;
     this.mobs = null;

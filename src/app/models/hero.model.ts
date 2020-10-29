@@ -18,7 +18,8 @@ export class WizardHero {
     lefthand?: string;
 
     spells: string[];
-    bookshelf?: string[];
+    bookshelf: string[];
+    inventory: string[];
 
 }
 
@@ -31,6 +32,13 @@ export class MageSpell {
     unlocks: string[];
     upgrades: string[];
     slot: string;
+    traits: string[];
+}
+
+export class HeroItem {
+    name: string;
+    title: string;
+    effects: string[];
     traits: string[];
 }
 

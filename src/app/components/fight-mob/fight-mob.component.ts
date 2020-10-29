@@ -74,6 +74,9 @@ export class FightMobComponent implements OnInit {
     flee: () => {
       this.outcome = 'fled';
     },
+    stuff: () => {
+      this.shared.hero.inventory.push('healingStone');
+    }
   }
 
   constructor(

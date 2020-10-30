@@ -6,7 +6,7 @@ import { fallInAppear } from '../animations';
 import { DungeonMasterService, FightBuilder } from 'src/app/services/dungeon-master.service';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { MazeMob } from 'src/app/models/maze-map.model';
-import { SpellSession } from 'src/app/models/hero.model';
+import { MageSpell, SpellSession } from 'src/app/models/hero.model';
 import { GuiCommonsService } from 'src/app/services/gui-commons.service';
 
 @Component({
@@ -45,6 +45,9 @@ export class FightMobComponent implements OnInit {
   brains: {[id:string]: () => void} = {
     tough: () => {
       this.adjustLife(-1);
+    },
+    tough2: () => {
+      this.adjustLife(-2);
     },
     weak: () => {
       this.adjustLife(-1);
@@ -92,7 +95,7 @@ export class FightMobComponent implements OnInit {
     this.fleeEnabled = true;
     this.outcome = null;
     this.spellsession = {
-      acceptedEffects: ['strikeMob', 'strikeMob2', 'preventPoison', 'preventHit', 'preventDrain'], 
+      //acceptedEffects: ['strikeMob', 'strikeMob2', 'preventPoison', 'preventHit', 'preventDrain'], 
       exaustedSpells: [],
       spellEffects: {
         'strikeMob': () => {
@@ -103,7 +106,18 @@ export class FightMobComponent implements OnInit {
           this.builder.newActionSlot('tough2');
           this.refreshDrawables();
         },
-      }
+        'healLife1': () => {
+          this.builder.newActionSlot('life1');
+          this.refreshDrawables();
+        }
+      },
+      cast: (spell: MageSpell) => {
+        this.spellsession.exaustedSpells.push(spell.name);
+        spell.effects.forEach(e => this.spellsession.spellEffects[e]());
+      },
+      enabled: (spell: MageSpell) => {
+        return !this.spellsession.exaustedSpells.includes(spell.name) && spell.effects.filter(e => !Object.keys(this.spellsession.spellEffects).includes(e)).length === 0 ;
+      },
     };
     let mobStats = this.master.mobs[this.mob.name];
     this.fight = new FightBuilder(mobStats);

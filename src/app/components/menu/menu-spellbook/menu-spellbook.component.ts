@@ -28,10 +28,7 @@ export class MenuSpellbookComponent implements OnInit {
     .map(s => new CastableSpell(s, this.shared.hero.mana >= s.mana))
     ;
     this.castables
-    .filter(c => c.spell.effects.filter(e => this.session.acceptedEffects.includes(e)).length == 0)
-    .forEach(c => c.enabled = false);
-    this.castables
-    .filter(c => this.session.exaustedSpells.includes(c.spell.name))
+    .filter(c => !this.session.enabled(c.spell))
     .forEach(c => c.enabled = false);
   }
 
@@ -46,10 +43,7 @@ export class MenuSpellbookComponent implements OnInit {
 
   triggerCastable(castable: CastableSpell) {
     this.shared.mana(- castable.spell.mana);
-    castable.spell.effects
-    .filter(e => this.session.acceptedEffects.includes(e))
-    .forEach(e => this.session.spellEffects[e]());
-    this.session.exaustedSpells.push(castable.spell.name);
+    this.session.cast(castable.spell);
     castable.enabled = false;
     this.closeDialog.emit('close');
   }

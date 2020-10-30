@@ -43,8 +43,9 @@ export class HeroItem {
 }
 
 export class SpellSession {
-    acceptedEffects: string[];
     exaustedSpells: string[];
-    spellEffects: {[id:string]: ()=>void}
-  }
+    spellEffects: {[id:string]: ()=>void};
+    cast: (spell: MageSpell) => void;
+    enabled: (spell: MageSpell) => boolean;
+}
   

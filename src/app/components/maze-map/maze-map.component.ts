@@ -6,6 +6,7 @@ import { GamesCommonService } from 'src/app/services/games-common.service';
 import { environment } from 'src/environments/environment';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
+import { SpellSession } from 'src/app/models/hero.model';
 
 @Component({
   selector: 'app-maze-map',
@@ -20,6 +21,8 @@ export class MazeMapComponent implements OnInit, OnDestroy {
   drawable: string[];
 
   rooms: { [id: string]: string };
+  effects: {[id: string]: ()=>void};
+  session: SpellSession;
 
   explorer: MazeExplorer;
   entry: MazeTile;
@@ -36,6 +39,12 @@ export class MazeMapComponent implements OnInit, OnDestroy {
   ) { }
   
   ngOnInit(): void {
+    this.effects = {
+      healLife1: () => {
+        this.shared.life(1);
+      }
+    };
+    //this.session = 
     this.showall = environment.showall;
     this.drawn = this.shared.exploration.drawn;
     this.drawable = this.shared.exploration.drawable;

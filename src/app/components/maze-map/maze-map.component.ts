@@ -6,7 +6,7 @@ import { GamesCommonService } from 'src/app/services/games-common.service';
 import { environment } from 'src/environments/environment';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
-import { SpellSession } from 'src/app/models/hero.model';
+import { ItemSession, SpellSession } from 'src/app/models/hero.model';
 import { GuiCommonsService } from 'src/app/services/gui-commons.service';
 
 @Component({
@@ -24,6 +24,7 @@ export class MazeMapComponent implements OnInit, OnDestroy {
   rooms: { [id: string]: string };
   effects: {[id: string]: ()=>void};
   spellsession: SpellSession;
+  itemsession: ItemSession;
 
   explorer: MazeExplorer;
   entry: MazeTile;
@@ -53,10 +54,18 @@ export class MazeMapComponent implements OnInit, OnDestroy {
       spellEffects: this.effects,
       exaustedSpells: [],
       cast: (spell) => {
-        spell.effects.forEach(e => this.effects[e]())
+        spell.effects.forEach(e => this.spellsession.spellEffects[e]());
       },
       enabled: (spell) => spell.effects.filter(e => !Object.keys(this.spellsession.spellEffects).includes(e)).length === 0,
-    }
+    };
+    this.itemsession = {
+      itemEffects: this.effects,
+      use: (item) => {
+        item.effects.forEach(e => this.itemsession.itemEffects[e]());
+        this.shared.hero.inventory.splice(this.shared.hero.inventory.indexOf(item.name), 1);
+      },
+      enabled: (item) => item.effects.filter(e => !Object.keys(this.spellsession.spellEffects).includes(e)).length === 0,
+    };
     this.showall = environment.showall;
     this.drawn = this.shared.exploration.drawn;
     this.drawable = this.shared.exploration.drawable;

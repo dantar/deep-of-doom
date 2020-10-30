@@ -48,4 +48,10 @@ export class SpellSession {
     cast: (spell: MageSpell) => void;
     enabled: (spell: MageSpell) => boolean;
 }
+
+export class ItemSession {
+    itemEffects: {[id:string]: ()=>void};
+    use: (item: HeroItem) => void;
+    enabled: (item: HeroItem) => boolean;
+}
   

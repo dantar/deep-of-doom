@@ -9,11 +9,11 @@
 </div>
 <div class="splithalf">
     <div class="dialog-message">Inventario del tuo equipaggiamento</div>
-    <div class="dialog-button" class="enabled-{{inv.enabled}}" *ngFor="let inv of inventory" click="clickItem(inv)">
+    <div class="dialog-button" class="enabled-{{inv.enabled}}" *ngFor="let inv of inventory" (click)="clickItem(inv)">
         <svg viewBox="0 0 100 100">
             <g app-item-placeholder [item]="inv.item"></g>
         </svg>
-        {{inv.item.name}}
+        {{inv.item.title}}
     </div>
 </div>
 </div>

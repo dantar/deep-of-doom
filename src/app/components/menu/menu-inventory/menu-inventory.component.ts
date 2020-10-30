@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { HeroItem } from 'src/app/models/hero.model';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { HeroItem, ItemSession } from 'src/app/models/hero.model';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { GuiCommonsService } from 'src/app/services/gui-commons.service';
 import { ItemsLoreService } from 'src/app/services/items-lore.service';
@@ -12,8 +12,8 @@ import { SharedDataService } from 'src/app/services/shared-data.service';
 })
 export class MenuInventoryComponent implements OnInit {
 
+  @Input() session: ItemSession;
   @Output() closeDialog = new EventEmitter<string>();
-  @Output() activateItem = new EventEmitter<string>();
 
   constructor(
     public gui: GuiCommonsService,
@@ -27,7 +27,7 @@ export class MenuInventoryComponent implements OnInit {
   ngOnInit(): void {
     this.inventory = this.shared.hero.inventory
     .map(i => this.items.items[i])
-    .map(item => new InventoryItem(item, true))
+    .map(item => new InventoryItem(item, this.session.enabled(item)))
     ;
   }
 
@@ -36,18 +36,13 @@ export class MenuInventoryComponent implements OnInit {
     this.closeDialog.emit('close');
   }
 
-  clickFlee() {
-    this.audio.play('action');
-    this.activateItem.emit('flee');
-  }
-
   clickItem(item: InventoryItem) {
     this.audio.play('action');
-    this.activateItem.emit(item.item.name);
+    this.session.use(item.item);
+    this.ngOnInit();
   }
 
 }
-
 
 class InventoryItem {
 

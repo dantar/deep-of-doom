@@ -13,7 +13,6 @@ import { SpellMasterService } from 'src/app/services/spell-master.service';
 export class MenuSpellbookComponent implements OnInit {
 
   @Output() closeDialog = new EventEmitter<string>();
-  @Output() spellEffects = new EventEmitter<string[]>();
   @Input() session: SpellSession;
 
   castables: CastableSpell[];

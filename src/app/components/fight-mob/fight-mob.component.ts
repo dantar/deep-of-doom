@@ -6,7 +6,7 @@ import { fallInAppear } from '../animations';
 import { DungeonMasterService, FightBuilder } from 'src/app/services/dungeon-master.service';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { MazeMob } from 'src/app/models/maze-map.model';
-import { MageSpell, SpellSession } from 'src/app/models/hero.model';
+import { ItemSession, MageSpell, SpellSession } from 'src/app/models/hero.model';
 import { GuiCommonsService } from 'src/app/services/gui-commons.service';
 
 @Component({
@@ -26,6 +26,9 @@ export class FightMobComponent implements OnInit {
 
   fight: FightBuilder;
   spellsession: SpellSession;
+  itemsession: ItemSession;
+  effects: {[id:string]: ()=>void};
+
   fleeEnabled: boolean;
 
   builder: ActionSlotBuilder;
@@ -91,32 +94,42 @@ export class FightMobComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.effects = {
+      'strikeMob': () => {
+        this.builder.newActionSlot('tough');
+        this.refreshDrawables();
+      },
+      'strikeMob2': () => {
+        this.builder.newActionSlot('tough2');
+        this.refreshDrawables();
+      },
+      'healLife1': () => {
+        this.builder.newActionSlot('life1');
+        this.refreshDrawables();
+      },
+    }
     this.activeMenu = null;
     this.fleeEnabled = true;
     this.outcome = null;
     this.spellsession = {
-      //acceptedEffects: ['strikeMob', 'strikeMob2', 'preventPoison', 'preventHit', 'preventDrain'], 
       exaustedSpells: [],
-      spellEffects: {
-        'strikeMob': () => {
-          this.builder.newActionSlot('tough');
-          this.refreshDrawables();
-        },
-        'strikeMob2': () => {
-          this.builder.newActionSlot('tough2');
-          this.refreshDrawables();
-        },
-        'healLife1': () => {
-          this.builder.newActionSlot('life1');
-          this.refreshDrawables();
-        }
-      },
+      spellEffects: this.effects,
       cast: (spell: MageSpell) => {
         this.spellsession.exaustedSpells.push(spell.name);
         spell.effects.forEach(e => this.spellsession.spellEffects[e]());
       },
       enabled: (spell: MageSpell) => {
         return !this.spellsession.exaustedSpells.includes(spell.name) && spell.effects.filter(e => !Object.keys(this.spellsession.spellEffects).includes(e)).length === 0 ;
+      },
+    };
+    this.itemsession = {
+      itemEffects: this.effects,
+      use: (item) => {
+        item.effects.forEach(e => this.itemsession.itemEffects[e]());
+        this.shared.hero.inventory.splice(this.shared.hero.inventory.indexOf(item.name), 1);
+      },
+      enabled: (item) => {
+        return item.effects.filter(e => !Object.keys(this.itemsession.itemEffects).includes(e)).length === 0 ;
       },
     };
     let mobStats = this.master.mobs[this.mob.name];

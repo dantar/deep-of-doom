@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 import { SpellSession } from 'src/app/models/hero.model';
+import { GuiCommonsService } from 'src/app/services/gui-commons.service';
 
 @Component({
   selector: 'app-maze-map',
@@ -22,7 +23,7 @@ export class MazeMapComponent implements OnInit, OnDestroy {
 
   rooms: { [id: string]: string };
   effects: {[id: string]: ()=>void};
-  session: SpellSession;
+  spellsession: SpellSession;
 
   explorer: MazeExplorer;
   entry: MazeTile;
@@ -31,20 +32,31 @@ export class MazeMapComponent implements OnInit, OnDestroy {
   encounter: MazeMob;
   encounterTile: string;
 
+  activeMenu: string;
+
   constructor(
     public shared: SharedDataService,
     public game: GamesCommonService,
     public audio: AudioPlayService,
     public master: DungeonMasterService,
+    public gui: GuiCommonsService,
   ) { }
   
   ngOnInit(): void {
+    this.activeMenu = null;
     this.effects = {
-      healLife1: () => {
+      'healLife1': () => {
         this.shared.life(1);
-      }
+      },
     };
-    //this.session = 
+    this.spellsession = {
+      spellEffects: this.effects,
+      exaustedSpells: [],
+      cast: (spell) => {
+        spell.effects.forEach(e => this.effects[e]())
+      },
+      enabled: (spell) => spell.effects.filter(e => !Object.keys(this.spellsession.spellEffects).includes(e)).length === 0,
+    }
     this.showall = environment.showall;
     this.drawn = this.shared.exploration.drawn;
     this.drawable = this.shared.exploration.drawable;
@@ -144,5 +156,21 @@ export class MazeMapComponent implements OnInit, OnDestroy {
     return this.showall || (this.isDrawn(cell) && this.shared.mobs.mobs[this.explorer.coords(cell)])
   }
 
+  // menu
+
+  clickSpellbook() {
+    this.audio.play('action');
+    this.toggleMenu('spellbook');
+  }
+
+  clickInventory() {
+    this.audio.play('action');
+    this.toggleMenu('inventory');
+  }
+
+  private toggleMenu(menu: string) {
+    this.activeMenu = this.activeMenu === menu ? null: menu;
+  }  
+  
 }
 

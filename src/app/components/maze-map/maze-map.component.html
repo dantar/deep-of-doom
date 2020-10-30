@@ -78,4 +78,22 @@
 </svg:g>
 </svg:svg>
 
+<div *ngIf="activeMenu === 'spellbook'" app-menu-spellbook [session]="spellsession" (closeDialog)="activeMenu = null"></div>
+<div *ngIf="activeMenu === 'inventory'" app-menu-inventory (closeDialog)="activeMenu = null"></div>
+
+<div class="panel-menu-list bottom-left-menu">
+    <svg viewBox="0 0 100 100">
+        <g (click)="clickSpellbook()">
+            <circle cx="50" cy="50" r="48" style="fill: none; stroke: #aaaaff; stroke-width: 4;"/>
+            <g app-cast-spell></g>
+        </g>
+    </svg>
+    <svg viewBox="0 0 100 100">
+         <g (click)="clickInventory()">
+            <circle cx="50" cy="50" r="50" style="opacity: 0;"/>
+            <g app-open-inventory></g>
+        </g>
+    </svg>
+</div>
+
 <app-fight-mob *ngIf="encounter" [mob]="encounter" (done)="doneMonster($event)"></app-fight-mob>

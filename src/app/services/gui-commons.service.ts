@@ -12,4 +12,9 @@ export class GuiCommonsService {
     this.audio.play('action');
   } 
 
+  act(action: ()=>void) {
+    this.audio.play('action');
+    action();
+  }
+  
 }

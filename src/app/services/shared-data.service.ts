@@ -102,10 +102,10 @@ export class SharedDataService {
     this.hero.gold = Math.max(0, this.hero.gold + arg0);
   }
   life(arg0: number) {
-    this.hero.life = Math.max(0, this.hero.life + arg0);
+    this.hero.life = Math.min(this.hero.maxlife, Math.max(0, this.hero.life + arg0));
   }
   mana(arg0: number) {
-    this.hero.mana = Math.max(0, this.hero.mana + arg0);
+    this.hero.mana = Math.min(this.hero.maxmana, Math.max(0, this.hero.mana + arg0));
   }
   poison(arg0: number) {
     this.hero.life = Math.max(0, this.hero.life - this.hero.poison);

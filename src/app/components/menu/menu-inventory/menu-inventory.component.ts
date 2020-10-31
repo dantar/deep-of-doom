@@ -23,12 +23,19 @@ export class MenuInventoryComponent implements OnInit {
     ) { }
 
   inventory: InventoryItem[];
+  itemsByName: {[id:string]: InventoryItem};
 
   ngOnInit(): void {
-    this.inventory = this.shared.hero.inventory
+    this.inventory = [];
+    this.itemsByName = {};
+    this.shared.hero.inventory
     .map(i => this.items.items[i])
-    .map(item => new InventoryItem(item, this.session.enabled(item)))
-    ;
+    .forEach(item => {if (this.itemsByName[item.name]) {
+      this.itemsByName[item.name].count += 1;
+    } else {
+      this.itemsByName[item.name] = new InventoryItem(item, this.session.enabled(item));
+      this.inventory.push(this.itemsByName[item.name]);
+    }}) ;
   }
 
   clickClose() {
@@ -48,9 +55,11 @@ class InventoryItem {
 
   item: HeroItem;
   enabled: boolean;
+  count: number;
 
   constructor(item: HeroItem, enabled: boolean) {
     this.item = item;
     this.enabled = enabled;
+    this.count = 1;
   }
 }

@@ -49,6 +49,8 @@ import { OpenInventoryComponent } from './components/inventory/open-inventory/op
 import { GoldCostComponent } from './components/counter/gold-cost/gold-cost.component';
 import { ItemHealingStoneComponent } from './components/inventory/item-healing-stone/item-healing-stone.component';
 import { ItemPlaceholderComponent } from './components/inventory/item-placeholder/item-placeholder.component';
+import { ItemCounterComponent } from './components/counter/item-counter/item-counter.component';
+import { ItemStackComponent } from './components/counter/item-stack/item-stack.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +97,9 @@ import { ItemPlaceholderComponent } from './components/inventory/item-placeholde
     OpenInventoryComponent,
     GoldCostComponent,
     ItemHealingStoneComponent,
-    ItemPlaceholderComponent
+    ItemPlaceholderComponent,
+    ItemCounterComponent,
+    ItemStackComponent
   ],
   imports: [
     BrowserModule,

@@ -86,6 +86,12 @@ export class FightMobComponent implements OnInit {
     },
     stuff: () => {
       this.shared.hero.inventory.push('healingStone');
+    },
+    drainmana: () => {
+      this.shared.mana(-1);
+    },
+    replace: () => {
+      this.outcome = this.action.action;
     }
   }
 
@@ -164,8 +170,8 @@ export class FightMobComponent implements OnInit {
     }
     this.audio.play('action');
     this.action = this.game.randomPop(this.drawables);
+    this.brains[this.action.action.split(':', 1)[0]]();
     this.action.available = false;
-    this.brains[this.action.action]();
   }
 
   clickSpellbook() {
@@ -253,7 +259,7 @@ class ActionSlotBuilder {
   }
 
   newActionSlot(a: string): ActionSlot {
-    let slot: ActionSlot = {action: a, index: this.sofar.length, available: true, indexof: null};
+    let slot: ActionSlot = {action: a, index: this.sofar.length, available: true, indexof: null, icon: a.split(':', 1)[0]};
     this.sofar.push(slot);
     this.sofar.forEach(s => s.indexof = this.sofar.length);
     return slot;
@@ -267,6 +273,7 @@ class ActionSlot {
   index: number;
   indexof: number;
   available: boolean;
+  icon: string;
 
 }
 

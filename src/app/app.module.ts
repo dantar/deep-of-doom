@@ -51,6 +51,8 @@ import { ItemHealingStoneComponent } from './components/inventory/item-healing-s
 import { ItemPlaceholderComponent } from './components/inventory/item-placeholder/item-placeholder.component';
 import { ItemCounterComponent } from './components/counter/item-counter/item-counter.component';
 import { ItemStackComponent } from './components/counter/item-stack/item-stack.component';
+import { MobScrapsComponent } from './components/mob/mob-scraps/mob-scraps.component';
+import { MobShadowComponent } from './components/mob/mob-shadow/mob-shadow.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +101,9 @@ import { ItemStackComponent } from './components/counter/item-stack/item-stack.c
     ItemHealingStoneComponent,
     ItemPlaceholderComponent,
     ItemCounterComponent,
-    ItemStackComponent
+    ItemStackComponent,
+    MobScrapsComponent,
+    MobShadowComponent
   ],
   imports: [
     BrowserModule,

@@ -3,11 +3,12 @@ import { GamesCommonService } from 'src/app/services/games-common.service';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { fallInAppear } from '../animations';
-import { DungeonMasterService, FightBuilder } from 'src/app/services/dungeon-master.service';
+import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { MazeMob } from 'src/app/models/maze-map.model';
 import { ItemSession, MageSpell, SpellSession } from 'src/app/models/hero.model';
 import { GuiCommonsService } from 'src/app/services/gui-commons.service';
+import { FightBuilder, MobStats } from 'src/app/models/fight.model';
 
 @Component({
   selector: 'app-fight-mob',
@@ -24,10 +25,17 @@ export class FightMobComponent implements OnInit {
   @Input() mob: MazeMob;
   @Output() done = new EventEmitter<string>();
 
+  mobStats: MobStats;
+
   fight: FightBuilder;
   spellsession: SpellSession;
   itemsession: ItemSession;
   effects: {[id:string]: ()=>void};
+
+  lifebar = {
+    'fight': {fill: '#aa2222', stroke: '#880000'},
+    'search': {fill: '#aa22aa', stroke: '#880088'},
+  }
 
   fleeEnabled: boolean;
 
@@ -46,10 +54,10 @@ export class FightMobComponent implements OnInit {
   maxrowsize = 10;
 
   brains: {[id:string]: () => void} = {
-    tough: () => {
+    fight: () => {
       this.adjustLife(-1);
     },
-    tough2: () => {
+    fight2: () => {
       this.adjustLife(-2);
     },
     weak: () => {
@@ -70,12 +78,8 @@ export class FightMobComponent implements OnInit {
       this.shared.poison(1);
       this.outcome = (this.shared.hero.life <= 0) ? 'died': this.outcome;
     },
-    staff: () => {
+    search: () => {
       this.adjustLife(-1);
-    },
-    exit: () => {
-      this.exit = true;
-      this.outcome = 'exit';
     },
     flee: () => {
       this.outcome = 'fled';
@@ -96,11 +100,11 @@ export class FightMobComponent implements OnInit {
   ngOnInit(): void {
     this.effects = {
       'strikeMob': () => {
-        this.builder.newActionSlot('tough');
+        this.builder.newActionSlot('fight');
         this.refreshDrawables();
       },
       'strikeMob2': () => {
-        this.builder.newActionSlot('tough2');
+        this.builder.newActionSlot('fight2');
         this.refreshDrawables();
       },
       'healLife1': () => {
@@ -132,14 +136,14 @@ export class FightMobComponent implements OnInit {
         return item.effects.filter(e => !Object.keys(this.itemsession.itemEffects).includes(e)).length === 0 ;
       },
     };
-    let mobStats = this.master.mobs[this.mob.name];
-    this.fight = new FightBuilder(mobStats);
-    this.mob.tags.forEach(t => mobStats.tags[t](this.fight));
+    this.mobStats = this.master.mobs[this.mob.name];
+    this.fight = new FightBuilder(this.mobStats);
+    this.mob.tags.forEach(t => this.mobStats.tags[t](this.fight));
     //
     this.maxlife = this.fight.mobMaxLife;
     this.life = this.maxlife;
     this.exit = false;
-    this.builder = new ActionSlotBuilder(this.fight.mobMaxLife);
+    this.builder = new ActionSlotBuilder(this.fight.mobMaxLife, this.mobStats.challenge);
     this.fight.fightActions.forEach(a => this.builder.newActionSlot(a));
     this.actions = this.builder.sofar;
     this.drawables = this.actions.map(a => a);
@@ -148,7 +152,7 @@ export class FightMobComponent implements OnInit {
   adjustLife(arg0: number) {
     this.life = Math.max(0, this.life + arg0);
     if (this.life <= 0) {
-      this.outcome = 'win';
+      this.outcome = this.master.mobs[this.mob.name].done;
     }
   }
 
@@ -190,6 +194,7 @@ export class FightMobComponent implements OnInit {
         full: index < this.life,
         x: 40 + index * 120 / this.maxlife,
         width: 120 / this.maxlife,
+        challenge: this.mobStats.challenge,
       });      
     }
     return result;
@@ -233,16 +238,17 @@ class ToughSlot {
   full: boolean;
   width: number;
   x: number;
+  challenge: string;
 }
 
 class ActionSlotBuilder {
 
   sofar: ActionSlot[];
 
-  constructor(life: number) {
+  constructor(life: number, challenge: string) {
     this.sofar = [];
     for (let index = 0; index < life; index++) {
-      this.newActionSlot('tough');
+      this.newActionSlot(challenge);
     }
   }
 

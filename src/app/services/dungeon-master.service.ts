@@ -1,8 +1,7 @@
-import { mapToMapExpression } from '@angular/compiler/src/render3/util';
 import { Injectable } from '@angular/core';
+import { MobStats } from '../models/fight.model';
 import { MazeData, MazeMob } from '../models/maze-map.model';
 import { MazeGeneratorService } from './maze-generator.service';
-import { SharedDataService } from './shared-data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -40,38 +39,6 @@ export class DungeonMasterService {
       mobs: mobs,
       rooms: rooms,
     }
-  }
-
-}
-
-export class MobStats {
-  name: string;
-  actions: string[];
-  life: number;
-  exp: number;
-  blocks: boolean;
-  component: any;
-  tags: {[id: string]: (fb: FightBuilder) => void  }
-}
-
-export class FightBuilder {
-  mobLife: number;
-  mobMaxLife: number;
-  fightActions: string[];
-
-  constructor(stats: MobStats) {
-    this.mobLife = stats.life;
-    this.mobMaxLife = stats.life;
-    this.fightActions = stats.actions.map(a => a);
-  }
-
-  lifeUp() {
-    this.mobMaxLife++;
-    this.mobLife++;
-  }
-
-  push(action: string) {
-    this.fightActions.push(action);
   }
 
 }

@@ -20,9 +20,11 @@ DungeonMasterService.registerMob(
     name: 'troll',
     actions: ['hit2', 'hit2', 'gold', 'gold', 'gold'],
     life: 3,
+    challenge: 'fight',
     exp: 4,
     blocks: true,
     component: MobTrollComponent,
     tags: {},
+    done: 'win',
   }
 );

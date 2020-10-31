@@ -19,11 +19,13 @@ DungeonMasterService.registerMob(
   {
     name: 'exit',
     actions: [],
-    life: 1,
+    life: 2,
+    challenge: 'search',
     exp: 1,
     blocks: false,
     component: MobExitComponent,
     tags: {},
+    done: 'exit',
   }
 );
 

@@ -20,10 +20,12 @@ DungeonMasterService.registerMob(
     name: 'spider',
     actions: ['trap', 'trap', 'gold', 'gold'],
     life: 2,
+    challenge: 'fight',
     exp: 3,
     blocks: true,
     component: MobSpiderComponent,
     tags: {},
-  }
+    done: 'win',
+  },
 );
 

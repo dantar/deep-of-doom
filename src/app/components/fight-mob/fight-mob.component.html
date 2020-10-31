@@ -1,13 +1,19 @@
 <svg class="fullsvg modal-svg" viewBox="0 0 200 200">
     <defs>
 
-    <g id="tough">
+    <g id="search">
+        <path
+        d="M 91.460839,73.93743 73.606584,73.60658 73.937434,91.460835 58.640604,82.247205 49.999994,97.87486 41.359381,82.247205 26.062563,91.460845 26.393402,73.60659 8.5391483,73.93743 17.75279,58.64061 2.1251331,50 17.75279,41.359388 8.5391483,26.06257 26.393402,26.393408 26.062564,8.5391545 41.359382,17.752797 49.999994,2.1251393 58.640604,17.752797 73.937424,8.5391545 73.606584,26.393408 91.460839,26.06257 82.247199,41.359388 97.874854,50 82.247199,58.64061 Z"
+        id="path823"
+        style="opacity:1;vector-effect:none;fill:#d1d1ad;fill-opacity:1;stroke:#70a831;stroke-width:4.25072718;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    </g>
+    <g id="fight">
         <path
         d="M 91.460839,73.93743 73.606584,73.60658 73.937434,91.460835 58.640604,82.247205 49.999994,97.87486 41.359381,82.247205 26.062563,91.460845 26.393402,73.60659 8.5391483,73.93743 17.75279,58.64061 2.1251331,50 17.75279,41.359388 8.5391483,26.06257 26.393402,26.393408 26.062564,8.5391545 41.359382,17.752797 49.999994,2.1251393 58.640604,17.752797 73.937424,8.5391545 73.606584,26.393408 91.460839,26.06257 82.247199,41.359388 97.874854,50 82.247199,58.64061 Z"
         id="path823"
         style="opacity:1;vector-effect:none;fill:#d1d1ad;fill-opacity:1;stroke:#800000;stroke-width:4.25072718;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
     </g>
-    <g id="tough2">
+    <g id="fight2">
         <path
         d="M 91.460839,73.93743 73.606584,73.60658 73.937434,91.460835 58.640604,82.247205 49.999994,97.87486 41.359381,82.247205 26.062563,91.460845 26.393402,73.60659 8.5391483,73.93743 17.75279,58.64061 2.1251331,50 17.75279,41.359388 8.5391483,26.06257 26.393402,26.393408 26.062564,8.5391545 41.359382,17.752797 49.999994,2.1251393 58.640604,17.752797 73.937424,8.5391545 73.606584,26.393408 91.460839,26.06257 82.247199,41.359388 97.874854,50 82.247199,58.64061 Z"
         id="path823"
@@ -70,7 +76,7 @@
         id="path823"
         style="opacity:1;vector-effect:none;fill:#029ce4;fill-opacity:1;stroke:#800000;stroke-width:4.25072718;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
     </g>
-    <g id="staff">
+    <g id="drainmana">
         <path
         d="M 91.460839,73.93743 73.606584,73.60658 73.937434,91.460835 58.640604,82.247205 49.999994,97.87486 41.359381,82.247205 26.062563,91.460845 26.393402,73.60659 8.5391483,73.93743 17.75279,58.64061 2.1251331,50 17.75279,41.359388 8.5391483,26.06257 26.393402,26.393408 26.062564,8.5391545 41.359382,17.752797 49.999994,2.1251393 58.640604,17.752797 73.937424,8.5391545 73.606584,26.393408 91.460839,26.06257 82.247199,41.359388 97.874854,50 82.247199,58.64061 Z"
         id="path823"
@@ -88,7 +94,7 @@
     </g>
     <g id="hits">
         <rect *ngFor="let tough of mobToughSlots()" class="fall-in-item"
-            ry="4" y="160" [attr.x]="tough.x" height="10" [attr.width]="tough.width" style="stroke-width: 4; stroke: #880000; fill: #aa2222; fill-opacity: {{tough.full? 1 : 0.3}};" />
+            ry="4" y="160" [attr.x]="tough.x" height="10" [attr.width]="tough.width" style="stroke-width: 4; stroke: {{lifebar[tough.challenge].stroke}}; fill: {{lifebar[tough.challenge].fill}}; fill-opacity: {{tough.full? 1 : 0.3}};" />
     </g>
 
     <g id="done-win" *ngIf="life === 0" (click)="done.emit('win')">

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FightBuilder } from 'src/app/models/fight.model';
 import { MazeMob } from 'src/app/models/maze-map.model';
-import { DungeonMasterService, FightBuilder } from 'src/app/services/dungeon-master.service';
+import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 
 @Component({
   selector: 'svg:g[app-mob-skeleton]',
@@ -21,8 +22,9 @@ export class MobSkeletonComponent implements OnInit {
 DungeonMasterService.registerMob(
   {
     name: 'skeleton',
-    actions: ['tough', 'hit', 'hit'],
+    actions: ['fight', 'hit', 'hit'],
     life: 2,
+    challenge: 'fight',
     exp: 2,
     blocks: true,
     component: MobSkeletonComponent,
@@ -32,15 +34,16 @@ DungeonMasterService.registerMob(
       },
       'armor': (fb: FightBuilder) => {
         fb.lifeUp();
-        fb.push('tough');
+        fb.push('fight');
       },
       'rich': (fb: FightBuilder) => {
         fb.push('gold');
       },
       'weak': (fb: FightBuilder) => {
-        fb.push('tough');
+        fb.push('fight');
       },
-    }
+    },
+    done: 'win',
   }
 );
 

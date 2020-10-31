@@ -108,11 +108,15 @@ export class MazeMapComponent implements OnInit, OnDestroy {
     }
   }
 
-  doneMonster(event: string) {
-    this.shared.exp(1);
+  doneMonster(done: string) {
+    let mobStats = this.shared.mobs.mobs[this.encounterTile];
+    let mob = this.master.mobs[mobStats.name];
+    let parts = done.split(':', 2);
+    let event = parts[0];
+    let detail = parts.length > 0 ? parts[1] : null;
     switch (event) {
       case 'exit':
-        this.shared.exp(1);
+        this.shared.exp(mob.exp);
         this.shared.moveToWilderness();
         this.shared.progressUp();
         break;
@@ -121,8 +125,18 @@ export class MazeMapComponent implements OnInit, OnDestroy {
         this.encounterTile = null;      
         break;
       case 'win':
+        this.shared.exp(mob.exp);
         this.deleteMob();
         this.expandDrawable(MazeMap.tile(this.shared.maze, this.encounterTile));
+        this.encounter = null;
+        this.encounterTile = null;      
+        break;
+      case 'replace':
+        this.shared.exp(mob.exp);
+        this.replaceMob(detail);
+        if (!this.master.mobs[detail].blocks) {
+          this.expandDrawable(MazeMap.tile(this.shared.maze, this.encounterTile));
+        }
         this.encounter = null;
         this.encounterTile = null;      
         break;
@@ -137,6 +151,10 @@ export class MazeMapComponent implements OnInit, OnDestroy {
 
   deleteMob() {
     delete this.shared.mobs.mobs[this.encounterTile];
+  }
+
+  replaceMob(mob: string) {
+    this.shared.mobs.mobs[this.encounterTile] = {name: mob, tags: []};
   }
 
   // html

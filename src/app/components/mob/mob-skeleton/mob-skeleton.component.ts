@@ -43,7 +43,7 @@ DungeonMasterService.registerMob(
         fb.push('fight');
       },
     },
-    done: 'win',
+    done: 'replace:spider',
   }
 );
 

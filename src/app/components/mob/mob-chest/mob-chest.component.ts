@@ -26,6 +26,7 @@ DungeonMasterService.registerMob(
     component: MobChestComponent,
     tags: {},
     done: 'win',
+    keywords: ['treasure', 'trap'],
   }
 );
 

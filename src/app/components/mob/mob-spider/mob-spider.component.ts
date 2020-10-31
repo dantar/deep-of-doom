@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MobStats } from 'src/app/models/fight.model';
 import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 
 @Component({
@@ -26,6 +27,14 @@ DungeonMasterService.registerMob(
     component: MobSpiderComponent,
     tags: {},
     done: 'win',
+    keywords: ['monster', 'spider'],
+    supports: (mob: MobStats): string[] => {
+      let support: string[] = [];
+      if (mob.keywords.includes('exit')) {
+        support.push('mobPoison');
+      }
+      return support;
+    }
   },
 );
 

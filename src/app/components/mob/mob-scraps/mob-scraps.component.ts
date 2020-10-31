@@ -18,6 +18,7 @@ export class MobScrapsComponent implements OnInit {
 DungeonMasterService.registerMob(
   {
     name: 'scraps',
+    keywords: ['treasure', 'low'],
     actions: ['search', 'gold', 'gold', 'replace:shadow'],
     life: 1,
     challenge: 'search',

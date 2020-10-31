@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FightBuilder } from 'src/app/models/fight.model';
+import { FightBuilder, MobStats } from 'src/app/models/fight.model';
 import { MazeMob } from 'src/app/models/maze-map.model';
 import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 
@@ -44,6 +44,14 @@ DungeonMasterService.registerMob(
       },
     },
     done: 'replace:scraps',
+    keywords: ['monster', 'undead'],
+    supports: (mob: MobStats): string[] => {
+      let support: string[] = [];
+      if (mob.keywords.includes('exit')) {
+        support.push('mobHit');
+      }
+      return support;
+    }
   }
 );
 

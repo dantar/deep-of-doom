@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MobStats } from 'src/app/models/fight.model';
 import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 
 @Component({
@@ -19,13 +20,21 @@ DungeonMasterService.registerMob(
   {
     name: 'exit',
     actions: [],
-    life: 2,
+    life: 1,
     challenge: 'search',
-    exp: 1,
+    exp: 0,
     blocks: false,
     component: MobExitComponent,
     tags: {},
     done: 'exit',
+    keywords: ['exit'],
+    supported: (mob: MobStats) => {
+      let support: string[] = [];
+      if (mob.keywords.includes('monster')) {
+        support.push('strongerMob');
+      }
+      return support;
+    },
   }
 );
 

@@ -23,6 +23,7 @@ import { FightBuilder, MobStats } from 'src/app/models/fight.model';
 export class FightMobComponent implements OnInit {
 
   @Input() mob: MazeMob;
+  @Input() support: MazeMob[];
   @Output() done = new EventEmitter<string>();
 
   mobStats: MobStats;
@@ -45,7 +46,6 @@ export class FightMobComponent implements OnInit {
   drawables: ActionSlot[];
   life: number;
   maxlife: number;
-  exit: boolean;
 
   activeMenu: string;
 
@@ -75,6 +75,10 @@ export class FightMobComponent implements OnInit {
       this.shared.gold(1);
     },
     trap: () => {
+      this.shared.poison(1);
+      this.outcome = (this.shared.hero.life <= 0) ? 'died': this.outcome;
+    },
+    poison: () => {
       this.shared.poison(1);
       this.outcome = (this.shared.hero.life <= 0) ? 'died': this.outcome;
     },
@@ -117,6 +121,23 @@ export class FightMobComponent implements OnInit {
         this.builder.newActionSlot('life1');
         this.refreshDrawables();
       },
+      'strongerMob': () => {
+        this.fight.lifeUp()
+        this.builder.newActionSlot(this.mobStats.challenge);
+        this.refreshDrawables();
+      },
+      'mobPoison': () => {
+        this.builder.newActionSlot('poison');
+        this.refreshDrawables();
+      },
+      'mobHit': () => {
+        this.builder.newActionSlot('hit');
+        this.refreshDrawables();
+      },
+      'mobHit2': () => {
+        this.builder.newActionSlot('hit2');
+        this.refreshDrawables();
+      },
     }
     this.activeMenu = null;
     this.fleeEnabled = true;
@@ -144,13 +165,24 @@ export class FightMobComponent implements OnInit {
     };
     this.mobStats = this.master.mobs[this.mob.name];
     this.fight = new FightBuilder(this.mobStats);
-    this.mob.tags.forEach(t => this.mobStats.tags[t](this.fight));
-    //
-    this.maxlife = this.fight.mobMaxLife;
-    this.life = this.maxlife;
-    this.exit = false;
+    // fight setup
     this.builder = new ActionSlotBuilder(this.fight.mobMaxLife, this.mobStats.challenge);
     this.fight.fightActions.forEach(a => this.builder.newActionSlot(a));
+    // mob tags
+    this.mob.tags.forEach(t => this.mobStats.tags[t](this.fight));
+    // supports
+    this.support.forEach(m => {
+      let supporter = this.master.mobs[m.name];
+      if (supporter.supports) {
+        supporter.supports(this.mobStats).forEach(e => this.effects[e]());
+      }
+      if (this.mobStats.supported) {
+        this.mobStats.supported(supporter).forEach(e => this.effects[e]());
+      }
+    });
+    // setup life
+    this.maxlife = this.fight.mobMaxLife;
+    this.life = this.maxlife;
     this.actions = this.builder.sofar;
     this.drawables = this.actions.map(a => a);
   }
@@ -172,6 +204,9 @@ export class FightMobComponent implements OnInit {
     this.action = this.game.randomPop(this.drawables);
     this.brains[this.action.action.split(':', 1)[0]]();
     this.action.available = false;
+    if (!this.outcome && this.drawables.length == 0) {
+      this.outcome = 'fled';
+    }
   }
 
   clickSpellbook() {
@@ -189,6 +224,7 @@ export class FightMobComponent implements OnInit {
   }  
 
   refreshDrawables() {
+    this.actions = this.builder.sofar;
     this.drawables = this.actions.filter(a => a.available).map(a => a);
   }
 

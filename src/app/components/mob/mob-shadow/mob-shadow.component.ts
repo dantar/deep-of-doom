@@ -26,5 +26,6 @@ DungeonMasterService.registerMob(
     component: MobShadowComponent,
     tags: {},
     done: 'win',
+    keywords: ['monster', 'undead'],
   },
 );

@@ -8,6 +8,9 @@ export class MobStats {
   component: any;
   tags: {[id: string]: (fb: FightBuilder) => void  };
   done: string;
+  keywords: string[];
+  supports?: (mob: MobStats) => string[];
+  supported?: (mob: MobStats) => string[];
 }
 
 export class FightBuilder {

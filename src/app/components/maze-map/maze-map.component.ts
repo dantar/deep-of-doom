@@ -31,6 +31,7 @@ export class MazeMapComponent implements OnInit, OnDestroy {
   exit: MazeTile;
 
   encounter: MazeMob;
+  support: MazeMob[];
   encounterTile: string;
 
   activeMenu: string;
@@ -101,11 +102,10 @@ export class MazeMapComponent implements OnInit, OnDestroy {
     this.audio.play('action');
     this.encounterTile = this.explorer.coords(tile);
     this.encounter = this.shared.mobs.mobs[this.encounterTile];
-    if (this.encounter.name === 'exit') {
-      this.shared.exp(1);
-      this.shared.moveToWilderness();
-      this.shared.progressUp();
-    }
+    this.support = this.drawn
+    .filter(d => d != this.encounterTile)
+    .map(d => this.shared.mobs.mobs[d])
+    .filter(m => m);
   }
 
   doneMonster(done: string) {

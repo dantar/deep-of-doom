@@ -29,19 +29,9 @@ DungeonMasterService.registerMob(
     blocks: true,
     component: MobSkeletonComponent,
     tags: {
-      'weapon': (fb: FightBuilder) => {
-        fb.push('hit');
-      },
-      'armor': (fb: FightBuilder) => {
-        fb.lifeUp();
-        fb.push('fight');
-      },
-      'rich': (fb: FightBuilder) => {
-        fb.push('gold');
-      },
-      'weak': (fb: FightBuilder) => {
-        fb.push('fight');
-      },
+      'weapon': ['mobHit'],
+      'armor': ['strongerMob'],
+      'weak': ['weakerMob'],
     },
     done: 'replace:scraps',
     keywords: ['monster', 'undead'],

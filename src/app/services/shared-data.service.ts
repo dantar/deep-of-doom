@@ -107,6 +107,17 @@ export class SharedDataService {
   mana(arg0: number) {
     this.hero.mana = Math.min(this.hero.maxmana, Math.max(0, this.hero.mana + arg0));
   }
+  manaOrLife(arg0: number) {
+    this.hero.mana = this.hero.mana + arg0;
+    if (this.hero.mana > this.hero.maxmana) {
+      this.life(this.hero.mana - this.hero.maxmana);
+      this.hero.mana = this.hero.maxmana;
+    }
+    if (this.hero.mana < 0) {
+      this.life(this.hero.mana);
+      this.hero.mana = 0;
+    }
+  }
   poison(arg0: number) {
     this.hero.life = Math.max(0, this.hero.life - this.hero.poison);
     this.hero.poison += arg0;

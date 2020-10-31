@@ -92,7 +92,8 @@ export class FightMobComponent implements OnInit {
       this.shared.hero.inventory.push('healingStone');
     },
     drainmana: () => {
-      this.shared.mana(-1);
+      this.shared.manaOrLife(-1);
+      this.outcome = (this.shared.hero.life <= 0) ? 'died': this.outcome;
     },
     replace: () => {
       this.outcome = this.action.action;
@@ -126,6 +127,10 @@ export class FightMobComponent implements OnInit {
         this.builder.newActionSlot(this.mobStats.challenge);
         this.refreshDrawables();
       },
+      'weakerMob': () => {
+        this.builder.newActionSlot(this.mobStats.challenge);
+        this.refreshDrawables();
+      },
       'mobPoison': () => {
         this.builder.newActionSlot('poison');
         this.refreshDrawables();
@@ -138,6 +143,10 @@ export class FightMobComponent implements OnInit {
         this.builder.newActionSlot('hit2');
         this.refreshDrawables();
       },
+      'loot1': () => {
+        this.builder.newActionSlot('gold');
+        this.refreshDrawables();
+      }
     }
     this.activeMenu = null;
     this.fleeEnabled = true;
@@ -167,9 +176,9 @@ export class FightMobComponent implements OnInit {
     this.fight = new FightBuilder(this.mobStats);
     // fight setup
     this.builder = new ActionSlotBuilder(this.fight.mobMaxLife, this.mobStats.challenge);
-    this.fight.fightActions.forEach(a => this.builder.newActionSlot(a));
+    this.mobStats.actions.forEach(a => this.builder.newActionSlot(a));
     // mob tags
-    this.mob.tags.forEach(t => this.mobStats.tags[t](this.fight));
+    this.mob.tags.forEach(t => this.mobStats.tags[t].forEach(e => this.effects[e]()));
     // supports
     this.support.forEach(m => {
       let supporter = this.master.mobs[m.name];

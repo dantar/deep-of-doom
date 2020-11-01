@@ -1,0 +1,12 @@
+<div class="fullpage splitview">
+    <div class="splithalf">
+        <svg viewBox="0 0 100 100"><g app-npc-village-chief></g></svg>
+        <div class="dialog-button" (click)="clickClose()">Esci</div>
+    </div>
+    <div class="splithalf">
+        <div *ngIf="quests.length > 0" class="dialog-message">Abbiamo bisogno del tuo aiuto</div>
+        <div *ngFor="let quest of quests" class="dialog-button" (click)="clickQuest(quest)">
+            {{quest.title}}
+        </div>
+    </div>
+</div>

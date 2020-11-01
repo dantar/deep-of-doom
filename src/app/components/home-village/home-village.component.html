@@ -30,6 +30,21 @@
             <g app-npc-placeholder [npc]="'healer'"></g>
          </g>
       </g>
+      <g id="villagechief">
+         <circle
+            style="opacity:1;vector-effect:none;fill:#88aa00;fill-opacity:1;stroke:none;stroke-width:5.25;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+            cx="10"
+            cy="10"
+            r="10" />
+         <circle
+            r="11.501317"
+            cy="10"
+            cx="10"
+            style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#008000;stroke-width:0.99736637;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+         <g transform="scale(0.2)">
+            <g app-npc-placeholder [npc]="'chief'"></g>
+         </g>
+      </g>
       <g id="bookshelf" >
          <circle
             r="11.501317"
@@ -43,10 +58,12 @@
    </defs>
 
    <use x="70" y="12" xlink:href="#thebridge" (click)="shared.moveToWilderness()" />
-   <use x="12" y="34" xlink:href="#villagehealer" (click)="zoomTo('healer')" />
-   <use x="60" y="60" xlink:href="#bookshelf" (click)="zoomTo('bookshelf')" />
+   <use x="12" y="34" xlink:href="#villagehealer" (click)="clickZoomTo('healer')" />
+   <use x="70" y="70" xlink:href="#villagechief" (click)="clickZoomTo('chief')" />
+   <use x="50" y="50" xlink:href="#bookshelf" (click)="clickZoomTo('bookshelf')" />
 
 </svg>
 
 <div *ngIf="zoommedto == 'healer'" app-menu-healer (closeDialog)="popZoom()"></div>
 <div *ngIf="zoommedto == 'bookshelf'" app-menu-bookshelf (closeDialog)="popZoom()"></div>
+<div *ngIf="zoommedto == 'chief'" app-menu-village-chief (closeDialog)="popZoom()"></div>

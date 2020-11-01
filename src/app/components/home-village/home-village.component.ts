@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 
 @Component({
@@ -12,13 +13,15 @@ export class HomeVillageComponent implements OnInit {
 
   constructor(
     public shared: SharedDataService,
+    public audio: AudioPlayService,
   ) { }
 
   ngOnInit(): void {
     this.zoommedto = null;
   }
 
-  zoomTo(where: string) {
+  clickZoomTo(where: string) {
+    this.audio.play('action');
     this.zoommedto = where;
   }
 

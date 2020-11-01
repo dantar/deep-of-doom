@@ -23,16 +23,17 @@ export class MazeMapComponent implements OnInit, OnDestroy {
 
   rooms: { [id: string]: string };
   effects: {[id: string]: ()=>void};
-  spellsession: SpellSession;
-  itemsession: ItemSession;
 
   explorer: MazeExplorer;
   entry: MazeTile;
   exit: MazeTile;
 
+  spellsession: SpellSession;
+  itemsession: ItemSession;
+
+  encounterTile: string;
   encounter: MazeMob;
   support: MazeMob[];
-  encounterTile: string;
 
   activeMenu: string;
 

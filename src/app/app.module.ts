@@ -53,6 +53,8 @@ import { ItemCounterComponent } from './components/counter/item-counter/item-cou
 import { ItemStackComponent } from './components/counter/item-stack/item-stack.component';
 import { MobScrapsComponent } from './components/mob/mob-scraps/mob-scraps.component';
 import { MobShadowComponent } from './components/mob/mob-shadow/mob-shadow.component';
+import { NpcVillageChiefComponent } from './components/npc/npc-village-chief/npc-village-chief.component';
+import { MenuVillageChiefComponent } from './components/menu/menu-village-chief/menu-village-chief.component';
 
 @NgModule({
   declarations: [
@@ -103,7 +105,9 @@ import { MobShadowComponent } from './components/mob/mob-shadow/mob-shadow.compo
     ItemCounterComponent,
     ItemStackComponent,
     MobScrapsComponent,
-    MobShadowComponent
+    MobShadowComponent,
+    NpcVillageChiefComponent,
+    MenuVillageChiefComponent
   ],
   imports: [
     BrowserModule,

@@ -71,12 +71,17 @@ export class MazeExploration {
 }
 
 export class MazeTile {
-  x: number;
-  y: number;
-  north?: string;
-  south?: string;
-  east?: string;
-  west?: string;
+    x: number;
+    y: number;
+    north?: string;
+    south?: string;
+    east?: string;
+    west?: string;
+
+    static coords(t: MazeTile): string {
+        return `${t.x}-${t.y}`;
+    }
+
 }
 
 export class MazeConnection {

@@ -155,12 +155,12 @@ export class MazeExplorer {
 
   private _explore(x: number, y: number, steps: MazeTile[]) {
     let tile = this.maze.rows[x][y];
-    this.tiles[this.coords(tile)] = tile;
+    this.tiles[MazeTile.coords(tile)] = tile;
     steps.push(tile);
-    if (this.pathfor.hasOwnProperty(this.coords(tile)) && this.pathfor[this.coords(tile)].length <= steps.length) {
+    if (this.pathfor.hasOwnProperty(MazeTile.coords(tile)) && this.pathfor[MazeTile.coords(tile)].length <= steps.length) {
       return;
     }
-    this.pathfor[this.coords(tile)] = steps.map(t => t);
+    this.pathfor[MazeTile.coords(tile)] = steps.map(t => t);
     if (tile.north === 'open') {
       this._explore(tile.x, tile.y-1, steps.map(t => t));
     }
@@ -208,7 +208,7 @@ export class MazeChecker {
   private _check(x: number, y: number): boolean {
     if (x === this.tox && y === this.toy) return true;
     let tile = this.maze.rows[x][y];
-    let coords = this.coords(tile);
+    let coords = MazeTile.coords(tile);
     if (this.tiles.hasOwnProperty(coords)) return false;
     this.tiles[coords] = tile;
     if (tile.north === 'open') {
@@ -224,10 +224,6 @@ export class MazeChecker {
       if (this._check(tile.x-1, tile.y)) return true;
     }
     return false;
-  }
-
-  coords(t: MazeTile): string {
-    return `${t.x}-${t.y}`;
   }
 
 }

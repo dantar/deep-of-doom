@@ -18,15 +18,7 @@ export class MazeMapComponent implements OnInit, OnDestroy {
 
   showall: boolean;
 
-  drawn: string[];
-  drawable: string[];
-
-  rooms: { [id: string]: string };
   effects: {[id: string]: ()=>void};
-
-  explorer: MazeExplorer;
-  entry: MazeTile;
-  exit: MazeTile;
 
   spellsession: SpellSession;
   itemsession: ItemSession;
@@ -69,12 +61,6 @@ export class MazeMapComponent implements OnInit, OnDestroy {
       enabled: (item) => item.effects.filter(e => !Object.keys(this.spellsession.spellEffects).includes(e)).length === 0,
     };
     this.showall = environment.showall;
-    this.drawn = this.shared.exploration.drawn;
-    this.drawable = this.shared.exploration.drawable;
-    this.rooms = this.shared.rooms.rooms;
-    this.explorer = new MazeExplorer(this.shared.maze);
-    const entry = MazeMap.tile(this.shared.maze, this.shared.exploration.entry);
-    this.explorer.explore(entry.x, entry.y);
     this.audio.theme('dungeon-theme-01');
   }
   
@@ -101,9 +87,9 @@ export class MazeMapComponent implements OnInit, OnDestroy {
 
   clickMonster(tile: MazeTile) {
     this.audio.play('action');
-    this.encounterTile = this.explorer.coords(tile);
+    this.encounterTile = MazeTile.coords(tile);
     this.encounter = this.shared.mobs.mobs[this.encounterTile];
-    this.support = this.drawn
+    this.support = this.shared.exploration.drawn
     .filter(d => d != this.encounterTile)
     .map(d => this.shared.mobs.mobs[d])
     .filter(m => m);
@@ -160,12 +146,12 @@ export class MazeMapComponent implements OnInit, OnDestroy {
 
   // html
 
-  position(t: MazeTile): string {
-    return `transform: translate(${100 * t.x}px, ${100 * t.y}px)`
+  coords(t: MazeTile) {
+    return MazeTile.coords(t);
   }
 
-  distance(t: MazeTile): number {
-    return this.explorer.pathfor[this.explorer.coords(t)].length;
+  position(t: MazeTile): string {
+    return `transform: translate(${100 * t.x}px, ${100 * t.y}px)`
   }
 
   viewBox() {
@@ -173,15 +159,15 @@ export class MazeMapComponent implements OnInit, OnDestroy {
   }
 
   isDrawable(t: MazeTile): boolean {
-    return this.drawable.includes(MazeMap.coords(t));
+    return this.shared.exploration.drawable.includes(MazeMap.coords(t));
   }
 
   isDrawn(t: MazeTile): boolean {
-    return this.drawn.includes(MazeMap.coords(t));
+    return this.shared.exploration.drawn.includes(MazeMap.coords(t));
   }
 
   showMob(cell: MazeTile) {
-    return this.showall || (this.isDrawn(cell) && this.shared.mobs.mobs[this.explorer.coords(cell)])
+    return this.showall || (this.isDrawn(cell) && this.shared.mobs.mobs[MazeTile.coords(cell)])
   }
 
   // menu

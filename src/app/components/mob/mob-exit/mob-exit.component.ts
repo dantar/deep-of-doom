@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MobStats } from 'src/app/models/fight.model';
+import { MazeInsight } from 'src/app/models/maze-map.model';
 import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
+import { QuestBookService } from 'src/app/services/quest-book.service';
+import { SharedDataService } from 'src/app/services/shared-data.service';
 
 @Component({
   selector: 'svg:g[app-mob-exit]',
@@ -38,3 +41,26 @@ DungeonMasterService.registerMob(
   }
 );
 
+QuestBookService.registerQuest(
+  {
+    name: 'exit-wilderness-a',
+    title: 'Scheletri sulle colline',
+    hook: 'village-chief',
+
+    request: [
+      'Le colline fuori del villaggio sono infestate dagli scheletri che provengono dalle caverne sotto le colline. Riesci a trovare una strada che le attraversi?',
+    ],
+    location: 'wilderness-a',
+    trigger: (shared: SharedDataService)=>{
+      return shared.hero.maxlife > 0;
+    },
+    prepare: (shared: SharedDataService)=>{
+      shared.maze.mobs.mobs[shared.maze.exploration.exit] = {name: 'exit', tags: ['quest']};
+    },
+    check: (shared: SharedDataService)=>{
+      return true;
+    },
+    thanks: ['Sei riuscito a trovare la strada attraverso le colline! Grazie!'],
+    rewards: ['exp5'],
+  }
+);

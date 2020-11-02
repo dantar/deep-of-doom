@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { MazeMap, MazeExploration, MazeMobs, MazeRooms } from '../models/maze-map.model';
+import { MazeMap, MazeExploration, MazeMobs, MazeRooms, MazeData } from '../models/maze-map.model';
 import { MazeGeneratorService } from './maze-generator.service';
 import { WizardHero } from '../models/hero.model';
 import { SavedData } from '../models/saved-data.model';
 import { DungeonMasterService } from './dungeon-master.service';
+import { QuestData } from '../models/quest.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,8 @@ import { DungeonMasterService } from './dungeon-master.service';
 export class SharedDataService {
   
   hero: WizardHero;
-
-  maze: MazeMap;
-  mobs: MazeMobs;
-  rooms: MazeRooms;
-  exploration: MazeExploration;
+  maze: MazeData;
+  quests: QuestData;
 
   saved: string;
 
@@ -28,20 +26,14 @@ export class SharedDataService {
   quitGame() {
     this.hero = null;
     this.maze = null;
-    this.mobs = null;
-    this.rooms = null;
-    this.exploration = null;
   }
 
   tryLoad() {
     if (this.saved) {
       const data: SavedData = JSON.parse(this.saved);
       this.hero = data.hero;
-      this.hero.spells = this.hero.spells ? this.hero.spells : ['dartIm1d1'];
       this.maze = data.maze;
-      this.mobs = data.mobs;
-      this.rooms = data.rooms;
-      this.exploration = data.exploration;
+      this.quests = data.quests;
     } else {
       this.newHero();
       this.save();
@@ -52,27 +44,19 @@ export class SharedDataService {
     const data: SavedData = {
       hero: this.hero,
       maze: this.maze,
-      exploration: this.exploration,
-      mobs: this.mobs,
-      rooms: this.rooms,
+      quests: this.quests,
     };
     this.saved = JSON.stringify(data);
     localStorage.setItem('deep-of-doom-saved', this.saved);
   }
 
   enterMaze(name: string) {
-    let maze = this.master.buildMaze(name);
-    this.maze = maze.map;
-    this.exploration = maze.exploration;
-    this.mobs = maze.mobs;
-    this.rooms = maze.rooms;
+    this.maze = this.master.buildMaze(name);
     this.moveToMaze();
   }
 
   _exitMaze() {
     this.maze = null;
-    this.exploration = null;
-    this.mobs = null;
     this.save();
   }
 
@@ -93,8 +77,6 @@ export class SharedDataService {
       inventory: [],
     };
     this.maze = null;
-    this.mobs = null;
-    this.exploration = null;
     this.save();
   }
 
@@ -149,7 +131,7 @@ export class SharedDataService {
   }
 
   mazeIsChallenge(): boolean {
-    return this.maze.sizex >= this.hero.progress + this.BASIC_SIZE
+    return this.maze.map.sizex >= this.hero.progress + this.BASIC_SIZE
   }
 
   levelUpLife() {

@@ -34,10 +34,12 @@ export class DungeonMasterService {
     let mobs = this.generator.mobs(map, exploration, this.dungeons[name]);
     let rooms = this.generator.rooms(map, exploration, mobs);
     return {
+      name: name,
       map: map,
       exploration: exploration,
       mobs: mobs,
       rooms: rooms,
+      quests: [],
     }
   }
 

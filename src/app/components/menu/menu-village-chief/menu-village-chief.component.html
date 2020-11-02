@@ -4,9 +4,20 @@
         <div class="dialog-button" (click)="clickClose()">Esci</div>
     </div>
     <div class="splithalf">
-        <div *ngIf="quests.length > 0" class="dialog-message">Abbiamo bisogno del tuo aiuto</div>
-        <div *ngFor="let quest of quests" class="dialog-button" (click)="clickQuest(quest)">
-            {{quest.title}}
-        </div>
+        <div *ngIf="quests.length > 0" class="dialog-message">Abbiamo bisogno del tuo aiuto!</div>
+        <ng-container *ngFor="let quest of quests" >
+            <div class="dialog-button" (click)="clickQuest(quest)">
+                <svg viewBox="0 0 100 100">
+                    <g app-quest-placeholder [quest]="quest.quest"></g>
+                </svg>
+                {{quest.quest.title}}
+            </div>
+            <ng-container *ngIf="(details === quest.quest.name) && quest.active">
+                <div *ngFor="let text of quest.quest.request" class="dialog-message">{{text}}</div>
+            </ng-container>
+            <ng-container *ngIf="(details === quest.quest.name) && quest.done">
+                <div *ngFor="let text of quest.quest.thanks" class="dialog-message">{{text}}</div>
+            </ng-container>
+        </ng-container>
     </div>
 </div>

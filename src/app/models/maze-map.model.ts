@@ -1,8 +1,10 @@
 export class MazeData {
+    name: string;
     map: MazeMap;
     exploration: MazeExploration;
     mobs: MazeMobs;
     rooms: MazeRooms;
+    quests: string[];
 }
 
 export class MazeMap {

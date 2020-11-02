@@ -177,10 +177,6 @@ export class MazeExplorer {
     this.paths.sort((a, b) => b.length === a.length ? 0: (b.length - a.length) / Math.abs(b.length - a.length) );
   }
 
-  coords(t: MazeTile): string {
-    return `${t.x}-${t.y}`;
-  }
-
   maxSteps(): number {
     return this.paths[0].length;
   }

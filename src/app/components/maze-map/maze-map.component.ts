@@ -8,6 +8,7 @@ import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 import { ItemSession, SpellSession } from 'src/app/models/hero.model';
 import { GuiCommonsService } from 'src/app/services/gui-commons.service';
+import { QuestBookService } from 'src/app/services/quest-book.service';
 
 @Component({
   selector: 'app-maze-map',
@@ -35,6 +36,7 @@ export class MazeMapComponent implements OnInit, OnDestroy {
     public audio: AudioPlayService,
     public master: DungeonMasterService,
     public gui: GuiCommonsService,
+    private quests: QuestBookService,
   ) { }
   
   ngOnInit(): void {
@@ -72,8 +74,8 @@ export class MazeMapComponent implements OnInit, OnDestroy {
 
   clickTile(t: MazeTile) {
     this.audio.play('action');
-    MazeExploration.draw(this.shared.exploration, t);
-    let mob = this.shared.mobs.mobs[MazeMap.coords(t)];
+    MazeExploration.draw(this.shared.maze.exploration, t);
+    let mob = this.shared.maze.mobs.mobs[MazeMap.coords(t)];
     if (!mob || !this.master.mobs[mob.name].blocks) {
       this.expandDrawable(t);
     }
@@ -81,22 +83,22 @@ export class MazeMapComponent implements OnInit, OnDestroy {
   }
 
   expandDrawable(t: MazeTile) {
-    MazeExploration.open(this.shared.exploration, MazeMap.connected(this.shared.maze, t));
+    MazeExploration.open(this.shared.maze.exploration, MazeMap.connected(this.shared.maze.map, t));
     this.shared.save();
   }
 
   clickMonster(tile: MazeTile) {
     this.audio.play('action');
     this.encounterTile = MazeTile.coords(tile);
-    this.encounter = this.shared.mobs.mobs[this.encounterTile];
-    this.support = this.shared.exploration.drawn
+    this.encounter = this.shared.maze.mobs.mobs[this.encounterTile];
+    this.support = this.shared.maze.exploration.drawn
     .filter(d => d != this.encounterTile)
-    .map(d => this.shared.mobs.mobs[d])
+    .map(d => this.shared.maze.mobs.mobs[d])
     .filter(m => m);
   }
 
   doneMonster(done: string) {
-    let mobStats = this.shared.mobs.mobs[this.encounterTile];
+    let mobStats = this.shared.maze.mobs.mobs[this.encounterTile];
     let mob = this.master.mobs[mobStats.name];
     let parts = done.split(':', 2);
     let event = parts[0];
@@ -104,6 +106,7 @@ export class MazeMapComponent implements OnInit, OnDestroy {
     switch (event) {
       case 'exit':
         this.shared.exp(mob.exp);
+        this.checkQuests();
         this.shared.moveToWilderness();
         this.shared.progressUp();
         break;
@@ -114,7 +117,7 @@ export class MazeMapComponent implements OnInit, OnDestroy {
       case 'win':
         this.shared.exp(mob.exp);
         this.deleteMob();
-        this.expandDrawable(MazeMap.tile(this.shared.maze, this.encounterTile));
+        this.expandDrawable(MazeMap.tile(this.shared.maze.map, this.encounterTile));
         this.encounter = null;
         this.encounterTile = null;      
         break;
@@ -122,7 +125,7 @@ export class MazeMapComponent implements OnInit, OnDestroy {
         this.shared.exp(mob.exp);
         this.replaceMob(detail);
         if (!this.master.mobs[detail].blocks) {
-          this.expandDrawable(MazeMap.tile(this.shared.maze, this.encounterTile));
+          this.expandDrawable(MazeMap.tile(this.shared.maze.map, this.encounterTile));
         }
         this.encounter = null;
         this.encounterTile = null;      
@@ -136,12 +139,16 @@ export class MazeMapComponent implements OnInit, OnDestroy {
     this.shared.save();
   }
 
+  checkQuests() {
+    this.quests.checkQuests();
+  }
+
   deleteMob() {
-    delete this.shared.mobs.mobs[this.encounterTile];
+    delete this.shared.maze.mobs.mobs[this.encounterTile];
   }
 
   replaceMob(mob: string) {
-    this.shared.mobs.mobs[this.encounterTile] = {name: mob, tags: []};
+    this.shared.maze.mobs.mobs[this.encounterTile] = {name: mob, tags: []};
   }
 
   // html
@@ -155,19 +162,19 @@ export class MazeMapComponent implements OnInit, OnDestroy {
   }
 
   viewBox() {
-    return `0 0 ${100 * this.shared.maze.sizex} ${100 * this.shared.maze.sizey}`;
+    return `0 0 ${100 * this.shared.maze.map.sizex} ${100 * this.shared.maze.map.sizey}`;
   }
 
   isDrawable(t: MazeTile): boolean {
-    return this.shared.exploration.drawable.includes(MazeMap.coords(t));
+    return this.shared.maze.exploration.drawable.includes(MazeMap.coords(t));
   }
 
   isDrawn(t: MazeTile): boolean {
-    return this.shared.exploration.drawn.includes(MazeMap.coords(t));
+    return this.shared.maze.exploration.drawn.includes(MazeMap.coords(t));
   }
 
   showMob(cell: MazeTile) {
-    return this.showall || (this.isDrawn(cell) && this.shared.mobs.mobs[MazeTile.coords(cell)])
+    return this.showall || (this.isDrawn(cell) && this.shared.maze.mobs.mobs[MazeTile.coords(cell)])
   }
 
   // menu

@@ -1,3 +1,5 @@
+import { SharedDataService } from '../services/shared-data.service';
+
 export class QuestItem {
 
     name: string;
@@ -5,12 +7,21 @@ export class QuestItem {
 
     hook: string;
 
+    trigger: (shared: SharedDataService)=>boolean;
     request: string[];
     location: string;
-    prepare: ()=>void;
-    check: ()=>void;
+    prepare: (shared: SharedDataService)=>void;
+    check: (shared: SharedDataService)=>boolean;
 
+    thanks: string[];
     rewards: string[];
-    next: string;
+
+}
+
+export class QuestData {
+
+    active: string[];
+    done: string[];
+    rewarded: string[];
 
 }

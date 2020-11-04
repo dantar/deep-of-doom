@@ -18,9 +18,9 @@ export class MenuVillageChiefComponent implements OnInit {
   effects: {[id:string]: () => void};
 
   constructor(
+    public shared: SharedDataService,
     private audio: AudioPlayService,
     private questbook: QuestBookService,
-    private shared: SharedDataService,
   ) { }
 
   ngOnInit(): void {

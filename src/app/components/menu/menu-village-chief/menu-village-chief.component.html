@@ -8,15 +8,17 @@
         <ng-container *ngFor="let quest of quests" >
             <div class="dialog-button" (click)="clickQuest(quest)">
                 <svg viewBox="0 0 100 100">
-                    <g app-quest-placeholder [quest]="quest.quest"></g>
+                    <g app-quest-placeholder [quest]="quest"></g>
                 </svg>
-                {{quest.quest.title}}
+                {{quest.title}}
+                {{shared.quests.done.includes(quest.name) ? 'Fatta!' : ''}}
+                {{shared.quests.active.includes(quest.name) ? 'in corso...' : ''}}
             </div>
-            <ng-container *ngIf="(details === quest.quest.name) && quest.active">
-                <div *ngFor="let text of quest.quest.request" class="dialog-message">{{text}}</div>
+            <ng-container *ngIf="(details === quest.name) && shared.quests.active.includes(quest.name)">
+                <div *ngFor="let text of quest.request" class="dialog-message">{{text}}</div>
             </ng-container>
-            <ng-container *ngIf="(details === quest.quest.name) && quest.done">
-                <div *ngFor="let text of quest.quest.thanks" class="dialog-message">{{text}}</div>
+            <ng-container *ngIf="(details === quest.name) && shared.quests.done.includes(quest.name)">
+                <div *ngFor="let text of quest.thanks" class="dialog-message">{{text}}</div>
             </ng-container>
         </ng-container>
     </div>

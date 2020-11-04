@@ -13,7 +13,7 @@ export class MenuVillageChiefComponent implements OnInit {
 
   @Output() closeDialog = new EventEmitter<string>();
 
-  quests: AboutQuest[];
+  quests: QuestItem[];
   details: string;
   effects: {[id:string]: () => void};
 
@@ -25,16 +25,12 @@ export class MenuVillageChiefComponent implements OnInit {
 
   ngOnInit(): void {
     this.details = null;
-    this.quests = this.questbook.all
-    .filter(q => q.hook === 'village-chief')
-    .map(q => new AboutQuest(q, this.shared.quests.active.includes(q.name), this.shared.quests.done.includes(q.name)))
-    .filter(a => a.active || a.done || a.quest.trigger(this.shared));
-    this.quests
-    .filter(a => !a.active && !a.done)
-    .forEach(a => {
-      this.shared.quests.active.push(a.quest.name);
-      this.shared.save();
-    });
+    this.questbook.trigger('village-chief');
+    this.quests = this.shared.quests.active
+    .concat(this.shared.quests.done)
+    .map(q => this.questbook.quests[q])
+    .filter(q => q.hook = 'village-chief')
+    ;
     this.effects = {
       'exp5': () => {
         this.shared.exp(5);

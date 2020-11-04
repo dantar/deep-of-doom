@@ -24,6 +24,16 @@ export class QuestBookService {
   prepareQuests() {
   }
 
+  trigger(hook: string) {
+    this.all
+    .filter(q => q.hook === hook)
+    .filter(q => !this.shared.quests.active.includes(q.name) && !this.shared.quests.done.includes(q.name) && q.trigger(this.shared))
+    .forEach(q => {
+      this.shared.quests.active.push(q.name);
+      this.shared.save();
+    });
+  }
+
   checkQuests() {
     this.shared.quests.active.forEach(q => this.quests[q].check(this.shared));
   }

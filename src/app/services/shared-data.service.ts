@@ -77,6 +77,7 @@ export class SharedDataService {
       inventory: [],
     };
     this.maze = null;
+    this.quests = {active: [], done: [], rewarded: []}
     this.save();
   }
 

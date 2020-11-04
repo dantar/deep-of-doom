@@ -52,7 +52,7 @@ QuestBookService.registerQuest(
     ],
     location: 'wilderness-a',
     trigger: (shared: SharedDataService)=>{
-      return shared.hero.maxlife > 0;
+      return !shared.quests.rewarded.includes('exit-wilderness-a');
     },
     prepare: (shared: SharedDataService)=>{
       shared.maze.mobs.mobs[shared.maze.exploration.exit] = {name: 'exit', tags: ['quest']};

@@ -56,6 +56,7 @@ import { MobShadowComponent } from './components/mob/mob-shadow/mob-shadow.compo
 import { NpcVillageChiefComponent } from './components/npc/npc-village-chief/npc-village-chief.component';
 import { MenuVillageChiefComponent } from './components/menu/menu-village-chief/menu-village-chief.component';
 import { QuestPlaceholderComponent } from './components/quests/quest-placeholder/quest-placeholder.component';
+import { ShineComponent } from './components/inventory/shine/shine.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +110,8 @@ import { QuestPlaceholderComponent } from './components/quests/quest-placeholder
     MobShadowComponent,
     NpcVillageChiefComponent,
     MenuVillageChiefComponent,
-    QuestPlaceholderComponent
+    QuestPlaceholderComponent,
+    ShineComponent
   ],
   imports: [
     BrowserModule,

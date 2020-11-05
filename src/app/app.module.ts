@@ -57,6 +57,7 @@ import { NpcVillageChiefComponent } from './components/npc/npc-village-chief/npc
 import { MenuVillageChiefComponent } from './components/menu/menu-village-chief/menu-village-chief.component';
 import { QuestPlaceholderComponent } from './components/quests/quest-placeholder/quest-placeholder.component';
 import { ShineComponent } from './components/inventory/shine/shine.component';
+import { ZoomInComponent } from './components/gui/zoom-in/zoom-in.component';
 
 @NgModule({
   declarations: [
@@ -111,7 +112,8 @@ import { ShineComponent } from './components/inventory/shine/shine.component';
     NpcVillageChiefComponent,
     MenuVillageChiefComponent,
     QuestPlaceholderComponent,
-    ShineComponent
+    ShineComponent,
+    ZoomInComponent
   ],
   imports: [
     BrowserModule,

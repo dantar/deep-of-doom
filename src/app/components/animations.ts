@@ -15,17 +15,17 @@ export const fallInAppear = animation([
 export const shineForward = animation([
     query('.shine-forward', [
         style({transform: 'scale(0.7) rotate(0deg)'}),
-        animate('10s', style({transform: 'scale(1) rotate(120deg)'})),
-        animate('10s', style({transform: 'scale(0.7) rotate(240deg)'})),
-        animate('10s', style({transform: 'scale(1) rotate(360deg)'})),
+        animate('12s', style({transform: 'scale(1) rotate(120deg)'})),
+        animate('12s', style({transform: 'scale(0.7) rotate(240deg)'})),
+        animate('12s', style({transform: 'scale(0) rotate(360deg)'})),
     ]),
 ]);
 
 export const shineBackward = animation([
     query('.shine-backward', [
         style({transform: 'scale(1) rotate(0deg)'}),
-        animate('10s', style({transform: 'scale(0.7) rotate(-120deg)'})),
-        animate('10s', style({transform: 'scale(1) rotate(-240deg)'})),
-        animate('10s', style({transform: 'scale(0.7) rotate(-360deg)'})),
+        animate('12s', style({transform: 'scale(0.7) rotate(-120deg)'})),
+        animate('12s', style({transform: 'scale(1) rotate(-240deg)'})),
+        animate('12s', style({transform: 'scale(0) rotate(-360deg)'})),
     ]),
 ]);

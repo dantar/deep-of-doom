@@ -6,9 +6,10 @@ import { fallInAppear } from '../animations';
 import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { MazeMob } from 'src/app/models/maze-map.model';
-import { ItemSession, MageSpell, SpellSession } from 'src/app/models/hero.model';
+import { HeroItem, ItemSession, MageSpell, SpellSession } from 'src/app/models/hero.model';
 import { GuiCommonsService } from 'src/app/services/gui-commons.service';
 import { FightBuilder, MobStats } from 'src/app/models/fight.model';
+import { ItemsLoreService } from 'src/app/services/items-lore.service';
 
 @Component({
   selector: 'app-fight-mob',
@@ -90,6 +91,7 @@ export class FightMobComponent implements OnInit {
     },
     stuff: () => {
       this.shared.hero.inventory.push('healingStone');
+      this.shared.reward = this.items.items['healingStone'];
     },
     drainmana: () => {
       this.shared.manaOrLife(-1);
@@ -106,6 +108,7 @@ export class FightMobComponent implements OnInit {
     private shared: SharedDataService,
     private master: DungeonMasterService,
     private audio: AudioPlayService,
+    private items: ItemsLoreService,
     ) { }
 
   ngOnInit(): void {
@@ -144,7 +147,7 @@ export class FightMobComponent implements OnInit {
         this.refreshDrawables();
       },
       'loot1': () => {
-        this.builder.newActionSlot('gold');
+        this.builder.newActionSlot('stuff');
         this.refreshDrawables();
       }
     }

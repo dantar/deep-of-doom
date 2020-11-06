@@ -2,13 +2,11 @@
 <app-wilderness-map *ngIf="shared.hero.location === 'wilderness'"></app-wilderness-map>
 <app-maze-map *ngIf="shared.hero.location === 'maze'"></app-maze-map>
 
-<svg *ngIf="shared.reward" class="fullsvg modal-svg" viewBox="0 0 100 100" (click)="shared.reward = null">
-    <g app-shine></g>
-    <g app-zoom-in>
-        <g transform="translate(20,20) scale(0.6)">
-            <g app-item-placeholder [item]="shared.reward"></g>
-        </g>
-    </g>
+<svg *ngIf="shared.rewards.length > 0 && shared.rewards.length % 2 == 0" class="fullsvg modal-svg" viewBox="0 0 100 100" (click)="clickReward(shared.rewards[0])">
+    <g app-popup-reward [reward]="shared.rewards[0]"></g>
+</svg>
+<svg *ngIf="shared.rewards.length > 0 && shared.rewards.length % 2 == 1" class="fullsvg modal-svg" viewBox="0 0 100 100" (click)="clickReward(shared.rewards[0])">
+    <g app-popup-reward [reward]="shared.rewards[0]"></g>
 </svg>
 
 <div class="panel-menu-list top-left-menu">

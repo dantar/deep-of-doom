@@ -1,3 +1,5 @@
+import { SharedDataService } from '../services/shared-data.service';
+
 export class WizardHero {
 
     location: string;
@@ -54,4 +56,30 @@ export class ItemSession {
     use: (item: HeroItem) => void;
     enabled: (item: HeroItem) => boolean;
 }
-  
+
+export class HeroReward {
+    code: string;
+    ok: (shared: SharedDataService) => void;
+}
+
+export class HeroRewardItem {
+    code = 'item';
+    item: HeroItem;
+    ok(shared: SharedDataService) {
+        shared.hero.inventory.push(this.item.name);
+    };
+    constructor(item: HeroItem) {
+        this.item = item;
+    }
+}
+
+export class HeroRewardExp {
+    code = 'exp';
+    exp: number;
+    ok(shared: SharedDataService) {
+        shared.exp(this.exp);
+    };
+    constructor(exp: number) {
+        this.exp = exp;
+    }
+}

@@ -15,7 +15,6 @@ export class MenuVillageChiefComponent implements OnInit {
 
   quests: QuestItem[];
   details: string;
-  effects: {[id:string]: () => void};
 
   constructor(
     public shared: SharedDataService,
@@ -31,29 +30,21 @@ export class MenuVillageChiefComponent implements OnInit {
     .map(q => this.questbook.quests[q])
     .filter(q => q.hook = 'village-chief')
     ;
-    this.effects = {
-      'exp5': () => {
-        this.shared.exp(5);
-      },
-    };
   }
 
-  clickQuest(quest: AboutQuest) {
+  clickQuest(quest: QuestItem) {
     this.audio.play('action');
-    if (this.details === quest.quest.name) {
+    if (this.details === quest.name) {
       this.details = null;
     } else {
-      this.details = quest.quest.name;
+      this.details = quest.name;
     }
-    if (quest.done) {
-      quest.active = false;
-      quest.done = false;
-      this.shared.quests.done.splice(this.shared.quests.done.indexOf(quest.quest.name), 1);
-      quest.quest.rewards.forEach(r => this.effects[r]());
-      this.shared.quests.rewarded.push(quest.quest.name);
-      this.shared.save();
-      this.ngOnInit();
-    }
+  }
+  
+  clickDone(quest: QuestItem) {
+    this.audio.play('action');
+    this.questbook.reward(quest);
+    this.ngOnInit();
   }
 
   clickClose() {

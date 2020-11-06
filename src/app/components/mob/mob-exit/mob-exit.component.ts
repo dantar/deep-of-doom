@@ -46,9 +46,9 @@ QuestBookService.registerQuest(
     name: 'exit-wilderness-a',
     title: 'Scheletri sulle colline',
     hook: 'village-chief',
-
     request: [
-      'Le colline fuori del villaggio sono infestate dagli scheletri che provengono dalle caverne sotto le colline. Riesci a trovare una strada che le attraversi?',
+      'Le colline fuori del villaggio sono infestate dagli scheletri che provengono dalle caverne sotto le colline.',
+      'Riesci a trovare una strada che le attraversi?',
     ],
     location: 'wilderness-a',
     trigger: (shared: SharedDataService)=>{
@@ -58,9 +58,12 @@ QuestBookService.registerQuest(
       shared.maze.mobs.mobs[shared.maze.exploration.exit] = {name: 'exit', tags: ['quest']};
     },
     check: (shared: SharedDataService)=>{
-      return true;
+      return !shared.maze.mobs.mobs[shared.maze.exploration.exit];
     },
-    thanks: ['Sei riuscito a trovare la strada attraverso le colline! Grazie!'],
-    rewards: ['exp5'],
+    thanks: [
+      'Sei riuscito a trovare la strada attraverso le colline! Grazie!',
+      'Per favore, accetta questa pietra curativa!',
+    ],
+    rewards: ['exp:5', 'item:healingStone'],
   }
 );

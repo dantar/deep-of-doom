@@ -1,0 +1,9 @@
+<svg:g app-shine></svg:g>
+<svg:g app-zoom-in>
+    <svg:g *ngIf="reward.code == 'item'" transform="translate(20,20) scale(0.6)">
+        <svg:g app-item-placeholder [item]="rewardAsItem().item"></svg:g>
+    </svg:g>
+    <svg:g *ngIf="reward.code == 'exp'" transform="translate(20,20) scale(0.6)">
+        <svg:g app-exp-counter [value]="rewardAsExp().exp"></svg:g>
+    </svg:g>
+</svg:g>

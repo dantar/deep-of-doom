@@ -19,6 +19,7 @@
             </ng-container>
             <ng-container *ngIf="(details === quest.name) && shared.quests.done.includes(quest.name)">
                 <div *ngFor="let text of quest.thanks" class="dialog-message">{{text}}</div>
+                <div class="dialog-button" (click)="clickDone(quest)">Ok!</div>
             </ng-container>
         </ng-container>
     </div>

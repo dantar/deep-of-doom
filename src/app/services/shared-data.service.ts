@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MazeMap, MazeExploration, MazeMobs, MazeRooms, MazeData } from '../models/maze-map.model';
 import { MazeGeneratorService } from './maze-generator.service';
-import { HeroItem, WizardHero } from '../models/hero.model';
+import { HeroItem, HeroReward, WizardHero } from '../models/hero.model';
 import { SavedData } from '../models/saved-data.model';
 import { DungeonMasterService } from './dungeon-master.service';
 import { QuestData } from '../models/quest.model';
@@ -15,7 +15,7 @@ export class SharedDataService {
   maze: MazeData;
   quests: QuestData;
 
-  reward: HeroItem;
+  rewards: HeroReward[];
 
   saved: string;
 
@@ -23,12 +23,16 @@ export class SharedDataService {
 
   constructor(private generator: MazeGeneratorService, private master: DungeonMasterService) {
     this.saved = localStorage.getItem('deep-of-doom-saved');
-    this.reward = null;
+    this.rewards = [];
   }
 
   quitGame() {
     this.hero = null;
     this.maze = null;
+  }
+
+  reward(...rewards: HeroReward[]) {
+    this.rewards.push(...rewards);
   }
 
   tryLoad() {

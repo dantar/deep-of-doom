@@ -58,6 +58,7 @@ import { MenuVillageChiefComponent } from './components/menu/menu-village-chief/
 import { QuestPlaceholderComponent } from './components/quests/quest-placeholder/quest-placeholder.component';
 import { ShineComponent } from './components/inventory/shine/shine.component';
 import { ZoomInComponent } from './components/gui/zoom-in/zoom-in.component';
+import { PopupRewardComponent } from './components/gui/popup-reward/popup-reward.component';
 
 @NgModule({
   declarations: [
@@ -113,7 +114,8 @@ import { ZoomInComponent } from './components/gui/zoom-in/zoom-in.component';
     MenuVillageChiefComponent,
     QuestPlaceholderComponent,
     ShineComponent,
-    ZoomInComponent
+    ZoomInComponent,
+    PopupRewardComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@ import { GamesCommonService } from 'src/app/services/games-common.service';
 import { environment } from 'src/environments/environment';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
-import { ItemSession, SpellSession } from 'src/app/models/hero.model';
+import { HeroRewardExp, ItemSession, SpellSession } from 'src/app/models/hero.model';
 import { GuiCommonsService } from 'src/app/services/gui-commons.service';
 import { QuestBookService } from 'src/app/services/quest-book.service';
 
@@ -105,7 +105,8 @@ export class MazeMapComponent implements OnInit, OnDestroy {
     let detail = parts.length > 0 ? parts[1] : null;
     switch (event) {
       case 'exit':
-        this.shared.exp(mob.exp);
+        this.deleteMob();
+        if (mob.exp != 0) this.shared.reward(new HeroRewardExp(mob.exp));
         this.checkQuests();
         this.shared.moveToWilderness();
         this.shared.progressUp();
@@ -115,7 +116,7 @@ export class MazeMapComponent implements OnInit, OnDestroy {
         this.encounterTile = null;      
         break;
       case 'win':
-        this.shared.exp(mob.exp);
+        if (mob.exp != 0) this.shared.reward(new HeroRewardExp(mob.exp));
         this.deleteMob();
         this.expandDrawable(MazeMap.tile(this.shared.maze.map, this.encounterTile));
         this.encounter = null;

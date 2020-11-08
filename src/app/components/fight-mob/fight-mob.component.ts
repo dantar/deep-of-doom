@@ -61,9 +61,6 @@ export class FightMobComponent implements OnInit {
     fight2: () => {
       this.adjustLife(-2);
     },
-    weak: () => {
-      this.adjustLife(-1);
-    },
     hit: () => {
       this.shared.life(-1);
       this.outcome = (this.shared.hero.life <= 0) ? 'died': this.outcome;

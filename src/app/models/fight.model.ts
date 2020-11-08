@@ -1,3 +1,5 @@
+import { SharedDataService } from '../services/shared-data.service';
+
 export class MobStats {
   name: string;
   actions: string[];
@@ -32,5 +34,6 @@ export class FightBuilder {
 export class FightAction {
   name: string;
   description: string[];
+  // effect: (shared: SharedDataService) => void;
 }
 

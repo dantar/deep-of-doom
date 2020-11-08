@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FightActionsService } from 'src/app/services/fight-actions.service';
 
 @Component({
   selector: '[app-fight-hit-mob]',
@@ -15,3 +16,12 @@ export class FightHitMobComponent implements OnInit {
   }
 
 }
+
+FightActionsService.registerItem({
+  name: 'fight',
+  description: ['Se scatta questa azione, l\'avversario subisce un colpo e perde 1 vita.']
+});
+FightActionsService.registerItem({
+  name: 'fight2',
+  description: ['Se scatta questa azione, l\'avversario subisce un colpo e perde 2 vite.']
+});

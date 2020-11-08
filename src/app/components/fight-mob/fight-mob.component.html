@@ -212,6 +212,19 @@
 <div *ngIf="activeMenu === 'spellbook'" app-menu-spellbook [session]="spellsession" (closeDialog)="activeMenu = null"></div>
 <div *ngIf="activeMenu === 'inventory'" app-menu-inventory [session]="itemsession" (closeDialog)="activeMenu = null"></div>
 
+<div class="fullpage splitview" *ngIf="slotinfo">
+    <div class="splithalf">
+        <svg viewBox="0 0 100 100"><g app-cast-spell></g></svg>
+        <div class="dialog-button" (click)="clickCloseSlot()">Esci</div>
+    </div>
+    <div class="splithalf">
+        <div *ngIf="!fightinfo.actions[slotinfo.action]" class="dialog-message">{{slotinfo.action}}</div>
+        <ng-container *ngIf="fightinfo.actions[slotinfo.action]">
+            <div *ngFor="let text of fightinfo.actions[slotinfo.action].description" class="dialog-message">{{text}}</div>
+        </ng-container>
+    </div>
+</div>
+
 <div class="panel-menu-list bottom-left-menu">
     <svg viewBox="0 0 100 100">
         <g (click)="clickSpellbook()">

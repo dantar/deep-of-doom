@@ -8,8 +8,9 @@ import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { MazeMob } from 'src/app/models/maze-map.model';
 import { HeroItem, HeroRewardItem, ItemSession, MageSpell, SpellSession } from 'src/app/models/hero.model';
 import { GuiCommonsService } from 'src/app/services/gui-commons.service';
-import { FightBuilder, MobStats } from 'src/app/models/fight.model';
+import { FightAction, FightBuilder, MobStats } from 'src/app/models/fight.model';
 import { ItemsLoreService } from 'src/app/services/items-lore.service';
+import { FightActionsService } from 'src/app/services/fight-actions.service';
 
 @Component({
   selector: 'app-fight-mob',
@@ -33,6 +34,7 @@ export class FightMobComponent implements OnInit {
   spellsession: SpellSession;
   itemsession: ItemSession;
   effects: {[id:string]: ()=>void};
+  slotinfo: ActionSlot;
 
   lifebar = {
     'fight': {fill: '#aa2222', stroke: '#880000'},
@@ -100,6 +102,7 @@ export class FightMobComponent implements OnInit {
 
   constructor(
     public gui: GuiCommonsService,
+    public fightinfo: FightActionsService,
     private game: GamesCommonService,
     private shared: SharedDataService,
     private master: DungeonMasterService,
@@ -269,9 +272,14 @@ export class FightMobComponent implements OnInit {
   };
 
   clickSlot(slot: ActionSlot) {
-    console.log(slot);
     this.audio.play('action');
+    this.slotinfo = slot;
+    console.log(slot);
   }
+  clickCloseSlot() {
+    this.audio.play('action');
+    this.slotinfo = null;
+  }  
 
   clickFlee() {
     this.audio.play('action');

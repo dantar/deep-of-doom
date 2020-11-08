@@ -192,6 +192,31 @@
     </g>
   </g>
   <g
+     id="layer41">
+    <g
+       id="layer42" />
+  </g>
+  <g
+     id="layer43">
+    <g
+       id="slotbg">
+      <rect
+         style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.40343356;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+         id="rect1353"
+         width="100"
+         height="100"
+         x="0"
+         y="0"
+         ry="16.623636" />
+      <circle
+         style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.02631569;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+         id="path1351"
+         cx="50"
+         cy="50"
+         r="55" />
+    </g>
+  </g>
+  <g
      style="display:inline"
      id="layer26">
     <g
@@ -2421,9 +2446,10 @@
       </g>
     </g>
     <g
+       style="display:none"
        id="layer40">
       <path
-         d="M 50,0 13.444866,3.602541 43.30127,25 9.8423249,9.8423249 25,43.30127 3.602541,13.444866 0,50 -3.602541,13.444866 -25,43.30127 -9.8423249,9.8423249 -43.30127,25 -13.444866,3.602541 -50,0 -13.444866,-3.602541 -43.30127,-25 -9.8423249,-9.8423249 -25,-43.30127 -3.602541,-13.444866 0,-50 3.602541,-13.444866 25,-43.30127 9.8423249,-9.8423249 43.30127,-25 13.444866,-3.602541 Z"
+         d="M 50,0 13.444866,3.602541 43.30127,25 9.8423249,9.8423249 25,43.30127 3.6025409,13.444866 0,50 -3.602541,13.444866 -25,43.30127 -9.8423249,9.8423249 -43.30127,25 -13.444866,3.6025409 -50,0 -13.444866,-3.602541 -43.30127,-25 -9.8423249,-9.8423249 -25,-43.30127 -3.6025409,-13.444866 0,-50 3.602541,-13.444866 25,-43.30127 9.8423249,-9.8423249 43.30127,-25 13.444866,-3.6025409 Z"
          id="shine"
          style="opacity:1;vector-effect:none;fill:#fff6d5;fill-opacity:1;stroke:none;stroke-width:0.86378622;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
     </g>

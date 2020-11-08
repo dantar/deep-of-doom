@@ -135,7 +135,7 @@
      inkscape:cx="77.902961"
      inkscape:cy="39.141298"
      inkscape:document-units="px"
-     inkscape:current-layer="layer40"
+     inkscape:current-layer="layer43"
      showgrid="false"
      units="px"
      inkscape:window-width="1853"
@@ -152,7 +152,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -246,6 +246,38 @@
            id="tspan1561-6"
            sodipodi:role="line"
            style="fill:#445500;fill-opacity:1;stroke:none;stroke-width:2.67381001">9</tspan></text>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer41"
+     inkscape:label="fight">
+    <g
+       inkscape:groupmode="layer"
+       id="layer42"
+       inkscape:label="hit mob" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer43"
+     inkscape:label="slot bg">
+    <g
+       id="slotbg"
+       inkscape:label="#g1357">
+      <rect
+         ry="16.623636"
+         y="0"
+         x="0"
+         height="100"
+         width="100"
+         id="rect1353"
+         style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.40343356;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+      <circle
+         r="55"
+         cy="50"
+         cx="50"
+         id="path1351"
+         style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.02631569;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
     </g>
   </g>
   <g
@@ -3053,7 +3085,8 @@
     <g
        inkscape:groupmode="layer"
        id="layer40"
-       inkscape:label="shine">
+       inkscape:label="shine"
+       style="display:none">
       <path
          sodipodi:type="star"
          style="opacity:1;vector-effect:none;fill:#fff6d5;fill-opacity:1;stroke:none;stroke-width:0.86378622;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
@@ -3068,7 +3101,7 @@
          inkscape:flatsided="false"
          inkscape:rounded="0"
          inkscape:randomized="0"
-         d="M 50,0 13.444866,3.602541 43.30127,25 9.8423249,9.8423249 25,43.30127 3.602541,13.444866 0,50 -3.602541,13.444866 -25,43.30127 -9.8423249,9.8423249 -43.30127,25 -13.444866,3.602541 -50,0 -13.444866,-3.602541 -43.30127,-25 -9.8423249,-9.8423249 -25,-43.30127 -3.602541,-13.444866 0,-50 3.602541,-13.444866 25,-43.30127 9.8423249,-9.8423249 43.30127,-25 13.444866,-3.602541 Z"
+         d="M 50,0 13.444866,3.602541 43.30127,25 9.8423249,9.8423249 25,43.30127 3.6025409,13.444866 0,50 -3.602541,13.444866 -25,43.30127 -9.8423249,9.8423249 -43.30127,25 -13.444866,3.6025409 -50,0 -13.444866,-3.602541 -43.30127,-25 -9.8423249,-9.8423249 -25,-43.30127 -3.6025409,-13.444866 0,-50 3.602541,-13.444866 25,-43.30127 9.8423249,-9.8423249 43.30127,-25 13.444866,-3.6025409 Z"
          inkscape:label="#path1351" />
     </g>
   </g>

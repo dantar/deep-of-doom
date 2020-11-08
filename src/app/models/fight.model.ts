@@ -29,3 +29,8 @@ export class FightBuilder {
 
 }
 
+export class FightAction {
+  name: string;
+  description: string[];
+}
+

@@ -59,6 +59,7 @@ import { QuestPlaceholderComponent } from './components/quests/quest-placeholder
 import { ShineComponent } from './components/inventory/shine/shine.component';
 import { ZoomInComponent } from './components/gui/zoom-in/zoom-in.component';
 import { PopupRewardComponent } from './components/gui/popup-reward/popup-reward.component';
+import { FightHitMobComponent } from './components/fight/fight-hit-mob/fight-hit-mob.component';
 
 @NgModule({
   declarations: [
@@ -115,7 +116,8 @@ import { PopupRewardComponent } from './components/gui/popup-reward/popup-reward
     QuestPlaceholderComponent,
     ShineComponent,
     ZoomInComponent,
-    PopupRewardComponent
+    PopupRewardComponent,
+    FightHitMobComponent
   ],
   imports: [
     BrowserModule,

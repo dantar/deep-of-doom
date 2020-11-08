@@ -131,11 +131,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6"
-     inkscape:cx="77.902961"
-     inkscape:cy="39.141298"
+     inkscape:zoom="3.959798"
+     inkscape:cx="89.307956"
+     inkscape:cy="32.529608"
      inkscape:document-units="px"
-     inkscape:current-layer="layer43"
+     inkscape:current-layer="hitmob"
      showgrid="false"
      units="px"
      inkscape:window-width="1853"
@@ -152,7 +152,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -254,30 +254,77 @@
      inkscape:label="fight">
     <g
        inkscape:groupmode="layer"
-       id="layer42"
-       inkscape:label="hit mob" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer43"
-     inkscape:label="slot bg">
+       id="layer43"
+       inkscape:label="slot bg"
+       sodipodi:insensitive="true">
+      <g
+         id="slotbg"
+         inkscape:label="#g1357">
+        <rect
+           ry="16.623636"
+           y="0"
+           x="0"
+           height="100"
+           width="100"
+           id="rect1353"
+           style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.40343356;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+        <circle
+           r="55"
+           cy="50"
+           cx="50"
+           id="path1351"
+           style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.02631569;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+      </g>
+    </g>
     <g
-       id="slotbg"
-       inkscape:label="#g1357">
-      <rect
-         ry="16.623636"
-         y="0"
-         x="0"
-         height="100"
-         width="100"
-         id="rect1353"
-         style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.40343356;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
-      <circle
-         r="55"
-         cy="50"
-         cx="50"
-         id="path1351"
-         style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.02631569;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+       inkscape:groupmode="layer"
+       id="layer42"
+       inkscape:label="hit mob">
+      <g
+         id="hitmob"
+         inkscape:label="#g2384">
+        <path
+           d="M 30,84.641016 25.966189,74.033811 15.358984,70 17.169204,58.796985 10,50 17.169204,41.203015 15.358984,30 25.966189,25.966189 30,15.358984 41.203015,17.169204 50,10 58.796985,17.169204 70,15.358984 74.033811,25.966189 84.641016,30 82.830796,41.203015 90,50 82.830796,58.796985 84.641016,70 74.033811,74.033811 70,84.641016 58.796985,82.830796 50,90 41.203015,82.830796 Z"
+           inkscape:randomized="0"
+           inkscape:rounded="0"
+           inkscape:flatsided="false"
+           sodipodi:arg2="2.3561945"
+           sodipodi:arg1="2.0943951"
+           sodipodi:r2="33.988941"
+           sodipodi:r1="40"
+           sodipodi:cy="50"
+           sodipodi:cx="50"
+           sodipodi:sides="12"
+           id="path2378"
+           style="opacity:1;vector-effect:none;fill:#ff6600;fill-opacity:1;stroke:none;stroke-width:0.59315532;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+           sodipodi:type="star" />
+        <path
+           sodipodi:type="star"
+           style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#ff6600;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+           id="path2380"
+           sodipodi:sides="12"
+           sodipodi:cx="50"
+           sodipodi:cy="50"
+           sodipodi:r1="48"
+           sodipodi:r2="40.786732"
+           sodipodi:arg1="2.0943951"
+           sodipodi:arg2="2.3561945"
+           inkscape:flatsided="false"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="M 26,91.569219 21.159425,78.840574 8.4307807,74 10.603042,60.556383 2,50 10.603043,39.443617 8.4307806,26 21.159426,21.159425 26,8.4307807 39.443617,10.603042 50,2 60.556383,10.603043 74,8.4307806 78.840575,21.159426 91.569219,26 89.396958,39.443617 98,50 89.396957,60.556383 91.569219,74 78.840574,78.840575 74,91.569219 60.556383,89.396958 50,98 39.443617,89.396957 Z" />
+        <text
+           id="text937-3"
+           y="55.648464"
+           x="60.138695"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:'AR JULIAN';-inkscape-font-specification:'AR JULIAN, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#800000;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+           xml:space="preserve"
+           transform="rotate(15)"><tspan
+             y="55.648464"
+             x="60.138695"
+             id="tspan935-6"
+             sodipodi:role="line">2</tspan></text>
+      </g>
     </g>
   </g>
   <g
@@ -2730,7 +2777,7 @@
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="counters"
-     style="display:inline">
+     style="display:none">
     <g
        inkscape:groupmode="layer"
        id="layer9"
@@ -2865,7 +2912,7 @@
        inkscape:groupmode="layer"
        id="layer2"
        inkscape:label="life counter"
-       style="display:none">
+       style="display:inline">
       <g
          style="display:inline"
          id="lifecounter"

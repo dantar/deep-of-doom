@@ -194,26 +194,48 @@
   <g
      id="layer41">
     <g
-       id="layer42" />
-  </g>
-  <g
-     id="layer43">
+       id="layer43">
+      <g
+         id="slotbg">
+        <rect
+           style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.40343356;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+           id="rect1353"
+           width="100"
+           height="100"
+           x="0"
+           y="0"
+           ry="16.623636" />
+        <circle
+           style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.02631569;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+           id="path1351"
+           cx="50"
+           cy="50"
+           r="55" />
+      </g>
+    </g>
     <g
-       id="slotbg">
-      <rect
-         style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.40343356;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
-         id="rect1353"
-         width="100"
-         height="100"
-         x="0"
-         y="0"
-         ry="16.623636" />
-      <circle
-         style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.02631569;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
-         id="path1351"
-         cx="50"
-         cy="50"
-         r="55" />
+       id="layer42">
+      <g
+         id="hitmob">
+        <path
+           style="opacity:1;vector-effect:none;fill:#ff6600;fill-opacity:1;stroke:none;stroke-width:0.59315532;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+           id="path2378"
+           d="M 30,84.641016 25.966189,74.033811 15.358984,70 17.169204,58.796985 10,50 17.169204,41.203015 15.358984,30 25.966189,25.966189 30,15.358984 41.203015,17.169204 50,10 58.796985,17.169204 70,15.358984 74.033811,25.966189 84.641016,30 82.830796,41.203015 90,50 82.830796,58.796985 84.641016,70 74.033811,74.033811 70,84.641016 58.796985,82.830796 50,90 41.203015,82.830796 Z" />
+        <path
+           d="M 26,91.569219 21.159425,78.840574 8.4307807,74 10.603042,60.556383 2,50 10.603043,39.443617 8.4307806,26 21.159426,21.159425 26,8.4307807 39.443617,10.603042 50,2 60.556383,10.603043 74,8.4307806 78.840575,21.159426 91.569219,26 89.396958,39.443617 98,50 89.396957,60.556383 91.569219,74 78.840574,78.840575 74,91.569219 60.556383,89.396958 50,98 39.443617,89.396957 Z"
+           id="path2380"
+           style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#ff6600;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+        <text
+           transform="rotate(15)"
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:'AR JULIAN';-inkscape-font-specification:'AR JULIAN, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#800000;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+           x="60.138695"
+           y="55.648464"
+           id="text937-3"><tspan
+             id="tspan935-6"
+             x="60.138695"
+             y="55.648464">2</tspan></text>
+      </g>
     </g>
   </g>
   <g
@@ -2147,7 +2169,7 @@
     </g>
   </g>
   <g
-     style="display:inline"
+     style="display:none"
      id="layer3">
     <g
        style="display:none"
@@ -2256,7 +2278,7 @@
       </g>
     </g>
     <g
-       style="display:none"
+       style="display:inline"
        id="layer2">
       <g
          id="lifecounter"

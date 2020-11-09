@@ -61,6 +61,8 @@ import { ZoomInComponent } from './components/gui/zoom-in/zoom-in.component';
 import { PopupRewardComponent } from './components/gui/popup-reward/popup-reward.component';
 import { FightHitMobComponent } from './components/fight/fight-hit-mob/fight-hit-mob.component';
 import { ActionPlaceholderComponent } from './components/fight/action-placeholder/action-placeholder.component';
+import { FightLifeLoseComponent } from './components/fight/fight-life-lose/fight-life-lose.component';
+import { FightManaLoseComponent } from './components/fight/fight-mana-lose/fight-mana-lose.component';
 
 @NgModule({
   declarations: [
@@ -119,7 +121,9 @@ import { ActionPlaceholderComponent } from './components/fight/action-placeholde
     ZoomInComponent,
     PopupRewardComponent,
     FightHitMobComponent,
-    ActionPlaceholderComponent
+    ActionPlaceholderComponent,
+    FightLifeLoseComponent,
+    FightManaLoseComponent
   ],
   imports: [
     BrowserModule,

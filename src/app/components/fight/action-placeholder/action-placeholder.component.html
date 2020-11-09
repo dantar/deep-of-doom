@@ -1,2 +1,4 @@
 <svg:circle cx="50" cy="50" r="50" style="fill:cyan; opacity: 0;"></svg:circle>
 <svg:g app-fight-hit-mob *ngIf="action.name.startsWith('fight')" [action]="action"></svg:g>
+<svg:g app-fight-life-lose *ngIf="action.name.startsWith('hit')" [action]="action"></svg:g>
+<svg:g app-fight-mana-lose *ngIf="action.name.startsWith('drainmana')" [action]="action"></svg:g>

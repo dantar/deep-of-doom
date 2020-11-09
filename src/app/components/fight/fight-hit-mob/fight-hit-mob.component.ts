@@ -11,13 +11,11 @@ import { SharedDataService } from 'src/app/services/shared-data.service';
 export class FightHitMobComponent implements OnInit {
 
   @Input() action: FightActionFight;
-  @Input() value: number;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    if (this.action) this.value = this.action.value;
   }
 
 }
@@ -28,7 +26,7 @@ class FightActionFight extends FightAction {
 
 FightActionsService.registerItem({
   name: 'fight',
-  description: ['Se scatta questa azione, l\'avversario subisce un colpo e perde 1 vita.'],
+  description: ['Se attivata, l\'avversario subisce un colpo e perde 1 vita.'],
   effect: (shared: SharedDataService) => {
     shared.fight.life = Math.max(0, shared.fight.life - 1);
   },
@@ -37,7 +35,7 @@ FightActionsService.registerItem({
 
 FightActionsService.registerItem({
   name: 'fight2',
-  description: ['Se scatta questa azione, l\'avversario subisce un colpo e perde 2 vite.'],
+  description: ['Se attivata, l\'avversario subisce un colpo e perde 2 vite.'],
   effect: (shared: SharedDataService) => {
     shared.fight.life = Math.max(0, shared.fight.life - 2);
   },

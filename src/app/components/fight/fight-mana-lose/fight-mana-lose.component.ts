@@ -10,17 +10,13 @@ import { SharedDataService } from 'src/app/services/shared-data.service';
 })
 export class FightManaLoseComponent implements OnInit {
 
-  @Input() action: FightActionMana;
+  @Input() action: FightAction;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-}
-
-class FightActionMana extends FightAction {
-  value: number;
 }
 
 FightActionsService.registerItem({
@@ -30,7 +26,7 @@ FightActionsService.registerItem({
     shared.manaOrLife(-1);
   },
   value: -1,
-} as FightActionMana);
+});
 
 FightActionsService.registerItem({
   name: 'drainmana2',
@@ -39,4 +35,4 @@ FightActionsService.registerItem({
     shared.manaOrLife(-2);
   },
   value: -2,
-} as FightActionMana);
+});

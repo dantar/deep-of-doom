@@ -18,7 +18,7 @@ export class MobChestComponent implements OnInit {
 DungeonMasterService.registerMob(
   {
     name: 'chest',
-    actions: ['stuff', 'gold', 'gold', 'trap'],
+    actions: ['stuff', 'gold', 'gold', 'poison'],
     life: 2,
     challenge: 'search',
     exp: 1,
@@ -26,7 +26,7 @@ DungeonMasterService.registerMob(
     component: MobChestComponent,
     tags: {},
     done: 'win',
-    keywords: ['treasure', 'trap'],
+    keywords: ['treasure', 'poison'],
   }
 );
 

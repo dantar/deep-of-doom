@@ -4,16 +4,15 @@ import { FightActionsService } from 'src/app/services/fight-actions.service';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 
 @Component({
-  selector: '[app-fight-hit-mob]',
-  templateUrl: './fight-hit-mob.component.html',
-  styleUrls: ['./fight-hit-mob.component.scss']
+  selector: '[app-fight-poison]',
+  templateUrl: './fight-poison.component.html',
+  styleUrls: ['./fight-poison.component.scss']
 })
-export class FightHitMobComponent implements OnInit {
+export class FightPoisonComponent implements OnInit {
 
   @Input() action: FightAction;
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -21,19 +20,19 @@ export class FightHitMobComponent implements OnInit {
 }
 
 FightActionsService.registerItem({
-  name: 'fight',
-  description: ['Se attivata, l\'avversario subisce un colpo e perde 1 vita.'],
+  name: 'poison',
+  description: ['Se attivata, perdi tanta vita quanto veleno hai, e il veleno cresce di 1'],
   effect: (shared: SharedDataService) => {
-    shared.fight.life = Math.max(0, shared.fight.life - 1);
+    shared.poison(1);
   },
   value: 1,
 });
 
 FightActionsService.registerItem({
-  name: 'fight2',
-  description: ['Se attivata, l\'avversario subisce un colpo e perde 2 vite.'],
+  name: 'poison2',
+  description: ['Se attivata, perdi tanta vita quanto veleno hai, e il veleno cresce di 1'],
   effect: (shared: SharedDataService) => {
-    shared.fight.life = Math.max(0, shared.fight.life - 2);
+    shared.poison(2);
   },
   value: 2,
 });

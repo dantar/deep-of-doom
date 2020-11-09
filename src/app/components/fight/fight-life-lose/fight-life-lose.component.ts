@@ -10,17 +10,13 @@ import { SharedDataService } from 'src/app/services/shared-data.service';
 })
 export class FightLifeLoseComponent implements OnInit {
 
-  @Input() action: FightActionLife;
+  @Input() action: FightAction;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-}
-
-class FightActionLife extends FightAction {
-  value: number;
 }
 
 FightActionsService.registerItem({
@@ -30,7 +26,7 @@ FightActionsService.registerItem({
     shared.life(-1);
   },
   value: -1,
-} as FightActionLife);
+});
 
 FightActionsService.registerItem({
   name: 'hit2',
@@ -39,4 +35,4 @@ FightActionsService.registerItem({
     shared.life(-2);
   },
   value: -2,
-} as FightActionLife);
+});

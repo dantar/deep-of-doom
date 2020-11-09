@@ -2,3 +2,4 @@
 <svg:g app-fight-hit-mob *ngIf="action.name.startsWith('fight')" [action]="action"></svg:g>
 <svg:g app-fight-life-lose *ngIf="action.name.startsWith('hit')" [action]="action"></svg:g>
 <svg:g app-fight-mana-lose *ngIf="action.name.startsWith('drainmana')" [action]="action"></svg:g>
+<svg:g app-fight-poison *ngIf="action.name.startsWith('poison')" [action]="action"></svg:g>

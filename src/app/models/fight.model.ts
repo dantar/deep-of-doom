@@ -36,6 +36,7 @@ export class FightAction {
   name: string;
   description: string[];
   effect: (shared: SharedDataService) => void;
+  value: number;
 }
 
 export class FightData {

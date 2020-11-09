@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
-import { MazeMap, MazeExploration, MazeMobs, MazeRooms, MazeData } from '../models/maze-map.model';
+import { MazeMap, MazeExploration, MazeMobs, MazeRooms, MazeData, MazeTile } from '../models/maze-map.model';
 import { MazeGeneratorService } from './maze-generator.service';
 import { HeroItem, HeroReward, WizardHero } from '../models/hero.model';
 import { SavedData } from '../models/saved-data.model';
 import { DungeonMasterService } from './dungeon-master.service';
 import { QuestData } from '../models/quest.model';
+import { ActionStats, FightData } from '../models/fight.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedDataService {
-  
+
   hero: WizardHero;
   maze: MazeData;
   quests: QuestData;
+  fight: FightData;
 
   rewards: HeroReward[];
 
@@ -152,5 +154,23 @@ export class SharedDataService {
     this.hero.maxmana += 1;
     this.hero.mana += 1;
   }
+
+  startEncounter(tile: MazeTile) {
+    let mobstats = this.maze.mobs.mobs[MazeTile.coords(tile)];
+    let mob = this.master.mobs[mobstats.name];
+    this.fight = {
+      life: mob.life,
+      maxlife: mob.life,
+      actions: mob.actions.map(a=> new ActionStats(a)),
+      location: MazeTile.coords(tile),
+      mob: mobstats,
+      tags: [],
+      outcome: null,
+    }
+  }
+  
+  endEncounter() {
+    this.fight = null;
+  }  
 
 }

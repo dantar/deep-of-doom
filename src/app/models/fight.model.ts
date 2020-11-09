@@ -1,4 +1,5 @@
 import { SharedDataService } from '../services/shared-data.service';
+import { MazeMob } from './maze-map.model';
 
 export class MobStats {
   name: string;
@@ -34,6 +35,26 @@ export class FightBuilder {
 export class FightAction {
   name: string;
   description: string[];
-  // effect: (shared: SharedDataService) => void;
+  effect: (shared: SharedDataService) => void;
 }
 
+export class FightData {
+
+  mob: MazeMob;
+  location: string;
+  actions: ActionStats[];
+  life: number;
+  maxlife: number;
+  tags: string[];
+  outcome: string;
+
+}
+
+export class ActionStats {
+  name: string;
+  available: boolean;
+  constructor(name) {
+    this.name = name;
+    this.available = true;
+  }
+}

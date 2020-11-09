@@ -8,7 +8,7 @@ import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { MazeMob } from 'src/app/models/maze-map.model';
 import { HeroItem, HeroRewardItem, ItemSession, MageSpell, SpellSession } from 'src/app/models/hero.model';
 import { GuiCommonsService } from 'src/app/services/gui-commons.service';
-import { FightAction, FightBuilder, MobStats } from 'src/app/models/fight.model';
+import { ActionStats, FightAction, FightBuilder, MobStats } from 'src/app/models/fight.model';
 import { ItemsLoreService } from 'src/app/services/items-lore.service';
 import { FightActionsService } from 'src/app/services/fight-actions.service';
 
@@ -96,7 +96,7 @@ export class FightMobComponent implements OnInit {
       this.outcome = (this.shared.hero.life <= 0) ? 'died': this.outcome;
     },
     replace: () => {
-      this.outcome = this.action.action;
+      // this.outcome = this.action.action;
     }
   }
 
@@ -213,9 +213,9 @@ export class FightMobComponent implements OnInit {
     }
     this.audio.play('action');
     this.action = this.game.randomPop(this.drawables);
-    this.brains[this.action.action.split(':', 1)[0]]();
+    this.fightinfo[this.action.action.name].effect(this.shared);
     this.action.available = false;
-    if (!this.outcome && this.drawables.length == 0) {
+    if (!this.shared.fight.outcome && this.drawables.length == 0) {
       this.outcome = 'fled';
     }
   }
@@ -311,7 +311,7 @@ class ActionSlotBuilder {
   }
 
   newActionSlot(a: string): ActionSlot {
-    let slot: ActionSlot = {action: a, index: this.sofar.length, available: true, indexof: null, icon: a.split(':', 1)[0]};
+    let slot: ActionSlot = {action: new ActionStats(a), index: this.sofar.length, available: true, indexof: null, icon: a.split(':', 1)[0]};
     this.sofar.push(slot);
     this.sofar.forEach(s => s.indexof = this.sofar.length);
     return slot;
@@ -321,7 +321,7 @@ class ActionSlotBuilder {
 
 class ActionSlot {
 
-  action: string;
+  action: ActionStats;
   index: number;
   indexof: number;
   available: boolean;

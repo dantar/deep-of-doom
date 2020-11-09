@@ -33,7 +33,7 @@ DungeonMasterService.registerMob(
       'armor': ['strongerMob'],
       'weak': ['weakerMob'],
     },
-    done: 'replace:scraps',
+    done: 'win',
     keywords: ['monster', 'undead'],
     supports: (mob: MobStats): string[] => {
       let support: string[] = [];

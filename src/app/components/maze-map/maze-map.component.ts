@@ -24,8 +24,8 @@ export class MazeMapComponent implements OnInit, OnDestroy {
   spellsession: SpellSession;
   itemsession: ItemSession;
 
-  encounterTile: string;
-  encounter: MazeMob;
+  //encounterTile: string;
+  //encounter: MazeMob;
   support: MazeMob[];
 
   activeMenu: string;
@@ -89,47 +89,45 @@ export class MazeMapComponent implements OnInit, OnDestroy {
 
   clickMonster(tile: MazeTile) {
     this.audio.play('action');
-    this.encounterTile = MazeTile.coords(tile);
-    this.encounter = this.shared.maze.mobs.mobs[this.encounterTile];
+    this.shared.startEncounter(tile);
+    //this.encounterTile = MazeTile.coords(tile);
+    //this.encounter = this.shared.maze.mobs.mobs[this.encounterTile];
     this.support = this.shared.maze.exploration.drawn
-    .filter(d => d != this.encounterTile)
+    .filter(d => d != MazeTile.coords(tile))
     .map(d => this.shared.maze.mobs.mobs[d])
     .filter(m => m);
   }
 
   doneMonster(done: string) {
-    let mobStats = this.shared.maze.mobs.mobs[this.encounterTile];
-    let mob = this.master.mobs[mobStats.name];
+    let mazemob = this.shared.fight.mob;
+    let mob = this.master.mobs[mazemob.name];
     let parts = done.split(':', 2);
     let event = parts[0];
     let detail = parts.length > 0 ? parts[1] : null;
     switch (event) {
       case 'exit':
         this.deleteMob();
+        this.shared.endEncounter();
         if (mob.exp != 0) this.shared.reward(new HeroRewardExp(mob.exp));
         this.checkQuests();
         this.shared.moveToWilderness();
         this.shared.progressUp();
         break;
       case 'fled':
-        this.encounter = null;
-        this.encounterTile = null;      
+        this.shared.endEncounter();
         break;
       case 'win':
         if (mob.exp != 0) this.shared.reward(new HeroRewardExp(mob.exp));
         this.deleteMob();
-        this.expandDrawable(MazeMap.tile(this.shared.maze.map, this.encounterTile));
-        this.encounter = null;
-        this.encounterTile = null;      
+        this.shared.endEncounter();
+        this.expandDrawable(MazeMap.tile(this.shared.maze.map, this.shared.fight.location));
         break;
       case 'replace':
         this.shared.exp(mob.exp);
         this.replaceMob(detail);
         if (!this.master.mobs[detail].blocks) {
-          this.expandDrawable(MazeMap.tile(this.shared.maze.map, this.encounterTile));
+          this.expandDrawable(MazeMap.tile(this.shared.maze.map, this.shared.fight.location));
         }
-        this.encounter = null;
-        this.encounterTile = null;      
         break;
       case 'died':
         this.shared.moveToVillage();
@@ -145,11 +143,12 @@ export class MazeMapComponent implements OnInit, OnDestroy {
   }
 
   deleteMob() {
-    delete this.shared.maze.mobs.mobs[this.encounterTile];
+    delete this.shared.maze.mobs.mobs[this.shared.fight.location];
   }
 
   replaceMob(mob: string) {
-    this.shared.maze.mobs.mobs[this.encounterTile] = {name: mob, tags: []};
+    // FIXME: deprecato
+    this.shared.maze.mobs.mobs[this.shared.fight.location] = {name: mob, tags: []};
   }
 
   // html

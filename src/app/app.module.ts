@@ -60,6 +60,7 @@ import { ShineComponent } from './components/inventory/shine/shine.component';
 import { ZoomInComponent } from './components/gui/zoom-in/zoom-in.component';
 import { PopupRewardComponent } from './components/gui/popup-reward/popup-reward.component';
 import { FightHitMobComponent } from './components/fight/fight-hit-mob/fight-hit-mob.component';
+import { ActionPlaceholderComponent } from './components/fight/action-placeholder/action-placeholder.component';
 
 @NgModule({
   declarations: [
@@ -117,7 +118,8 @@ import { FightHitMobComponent } from './components/fight/fight-hit-mob/fight-hit
     ShineComponent,
     ZoomInComponent,
     PopupRewardComponent,
-    FightHitMobComponent
+    FightHitMobComponent,
+    ActionPlaceholderComponent
   ],
   imports: [
     BrowserModule,

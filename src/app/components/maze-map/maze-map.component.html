@@ -96,4 +96,4 @@
     </svg>
 </div>
 
-<app-fight-mob *ngIf="encounter" [mob]="encounter" [support]="support" (done)="doneMonster($event)"></app-fight-mob>
+<app-fight-mob *ngIf="shared.fight" [mob]="shared.fight.mob" [support]="support" (done)="doneMonster($event)"></app-fight-mob>

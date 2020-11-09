@@ -214,13 +214,13 @@
 
 <div class="fullpage splitview" *ngIf="slotinfo">
     <div class="splithalf">
-        <svg viewBox="0 0 100 100"><g app-cast-spell></g></svg>
+        <svg viewBox="0 0 100 100" *ngIf="fightinfo.actions[slotinfo.action.name]"><g app-action-placeholder [action]="fightinfo.actions[slotinfo.action.name]"></g></svg>
         <div class="dialog-button" (click)="clickCloseSlot()">Esci</div>
     </div>
     <div class="splithalf">
-        <div *ngIf="!fightinfo.actions[slotinfo.action]" class="dialog-message">{{slotinfo.action}}</div>
-        <ng-container *ngIf="fightinfo.actions[slotinfo.action]">
-            <div *ngFor="let text of fightinfo.actions[slotinfo.action].description" class="dialog-message">{{text}}</div>
+        <div *ngIf="!fightinfo.actions[slotinfo.action.name]" class="dialog-message">{{slotinfo.action.name}}</div>
+        <ng-container *ngIf="fightinfo.actions[slotinfo.action.name]">
+            <div *ngFor="let text of fightinfo.actions[slotinfo.action.name].description" class="dialog-message">{{text}}</div>
         </ng-container>
     </div>
 </div>

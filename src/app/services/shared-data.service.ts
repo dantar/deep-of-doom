@@ -117,6 +117,14 @@ export class SharedDataService {
   exp(arg0: number) {
     this.hero.exp = Math.max(0, this.hero.exp + arg0);
   }
+  adjustMobLife(arg0: number) {
+    this.fight.life = Math.max(0, this.fight.life + arg0);
+    if (this.fight.life <= 0) {
+      this.fight.outcome = this.master.mobs[this.fight.mob.name].done;
+    }
+  }
+
+
   moveToVillage() {
     this.hero.location = 'village';
     this.save();

@@ -97,7 +97,7 @@
             ry="4" y="160" [attr.x]="tough.x" height="10" [attr.width]="tough.width" style="stroke-width: 4; stroke: {{lifebar[tough.challenge].stroke}}; fill: {{lifebar[tough.challenge].fill}}; fill-opacity: {{tough.full? 1 : 0.3}};" />
     </g>
 
-    <g id="done-win" *ngIf="life === 0" (click)="done.emit('win')">
+    <g id="done-win" *ngIf="shared.fight.life === 0" (click)="done.emit('win')">
         <circle
             style="opacity:0.6;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.6692915;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
             id="path936"

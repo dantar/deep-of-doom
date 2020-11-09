@@ -47,8 +47,6 @@ export class FightMobComponent implements OnInit {
   actions: ActionSlot[];
   action: ActionSlot;
   drawables: ActionSlot[];
-  life: number;
-  maxlife: number;
 
   activeMenu: string;
 
@@ -57,43 +55,11 @@ export class FightMobComponent implements OnInit {
   maxrowsize = 10;
 
   brains: {[id:string]: () => void} = {
-    fight: () => {
-      this.adjustLife(-1);
-    },
-    fight2: () => {
-      this.adjustLife(-2);
-    },
-    hit: () => {
-      this.shared.life(-1);
-      this.outcome = (this.shared.hero.life <= 0) ? 'died': this.outcome;
-    },
-    hit2: () => {
-      this.shared.life(-2);
-      this.outcome = (this.shared.hero.life <= 0) ? 'died': this.outcome;
-    },
-    gold: () => {
-      this.shared.gold(1);
-    },
-    trap: () => {
-      this.shared.poison(1);
-      this.outcome = (this.shared.hero.life <= 0) ? 'died': this.outcome;
-    },
-    poison: () => {
-      this.shared.poison(1);
-      this.outcome = (this.shared.hero.life <= 0) ? 'died': this.outcome;
-    },
-    search: () => {
-      this.adjustLife(-1);
-    },
     flee: () => {
       this.outcome = 'fled';
     },
     stuff: () => {
       this.shared.reward(new HeroRewardItem(this.items.items['healingStone']));
-    },
-    drainmana: () => {
-      this.shared.manaOrLife(-1);
-      this.outcome = (this.shared.hero.life <= 0) ? 'died': this.outcome;
     },
     replace: () => {
       // this.outcome = this.action.action;
@@ -103,8 +69,8 @@ export class FightMobComponent implements OnInit {
   constructor(
     public gui: GuiCommonsService,
     public fightinfo: FightActionsService,
+    public shared: SharedDataService,
     private game: GamesCommonService,
-    private shared: SharedDataService,
     private master: DungeonMasterService,
     private audio: AudioPlayService,
     private items: ItemsLoreService,
@@ -192,17 +158,8 @@ export class FightMobComponent implements OnInit {
       }
     });
     // setup life
-    this.maxlife = this.fight.mobMaxLife;
-    this.life = this.maxlife;
     this.actions = this.builder.sofar;
     this.drawables = this.actions.map(a => a);
-  }
-
-  adjustLife(arg0: number) {
-    this.life = Math.max(0, this.life + arg0);
-    if (this.life <= 0) {
-      this.outcome = this.master.mobs[this.mob.name].done;
-    }
   }
 
   // clicks
@@ -241,12 +198,12 @@ export class FightMobComponent implements OnInit {
 
   mobToughSlots(): ToughSlot[] {
     let result: ToughSlot[] = [];
-    for (let index = 0; index < this.maxlife; index++) {
+    for (let index = 0; index < this.shared.fight.maxlife; index++) {
       result.push({
         index: index,
-        full: index < this.life,
-        x: 40 + index * 120 / this.maxlife,
-        width: 120 / this.maxlife,
+        full: index < this.shared.fight.life,
+        x: 40 + index * 120 / this.shared.fight.maxlife,
+        width: 120 / this.shared.fight.maxlife,
         challenge: this.mobStats.challenge,
       });      
     }

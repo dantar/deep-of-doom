@@ -213,7 +213,7 @@ export class FightMobComponent implements OnInit {
     }
     this.audio.play('action');
     this.action = this.game.randomPop(this.drawables);
-    this.fightinfo[this.action.action.name].effect(this.shared);
+    this.fightinfo.actions[this.action.action.name].effect(this.shared);
     this.action.available = false;
     if (!this.shared.fight.outcome && this.drawables.length == 0) {
       this.outcome = 'fled';

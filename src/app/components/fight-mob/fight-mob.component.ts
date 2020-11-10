@@ -55,9 +55,6 @@ export class FightMobComponent implements OnInit {
   maxrowsize = 10;
 
   brains: {[id:string]: () => void} = {
-    flee: () => {
-      this.outcome = 'fled';
-    },
     replace: () => {
       // this.outcome = this.action.action;
     }

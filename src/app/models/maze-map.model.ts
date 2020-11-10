@@ -5,6 +5,9 @@ export class MazeData {
     mobs: MazeMobs;
     rooms: MazeRooms;
     quests: string[];
+    loot1: string[];
+    loot2: string[];
+    loot3: string[];
 }
 
 export class MazeMap {

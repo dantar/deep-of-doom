@@ -66,6 +66,7 @@ import { FightManaLoseComponent } from './components/fight/fight-mana-lose/fight
 import { FightPoisonComponent } from './components/fight/fight-poison/fight-poison.component';
 import { FightGoldComponent } from './components/fight/fight-gold/fight-gold.component';
 import { FightSearchComponent } from './components/fight/fight-search/fight-search.component';
+import { FightLootComponent } from './components/fight/fight-loot/fight-loot.component';
 
 @NgModule({
   declarations: [
@@ -129,7 +130,8 @@ import { FightSearchComponent } from './components/fight/fight-search/fight-sear
     FightManaLoseComponent,
     FightPoisonComponent,
     FightGoldComponent,
-    FightSearchComponent
+    FightSearchComponent,
+    FightLootComponent
   ],
   imports: [
     BrowserModule,

@@ -58,9 +58,6 @@ export class FightMobComponent implements OnInit {
     flee: () => {
       this.outcome = 'fled';
     },
-    stuff: () => {
-      this.shared.reward(new HeroRewardItem(this.items.items['healingStone']));
-    },
     replace: () => {
       // this.outcome = this.action.action;
     }

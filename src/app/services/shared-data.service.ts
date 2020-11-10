@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { MazeMap, MazeExploration, MazeMobs, MazeRooms, MazeData, MazeTile } from '../models/maze-map.model';
 import { MazeGeneratorService } from './maze-generator.service';
-import { HeroItem, HeroReward, WizardHero } from '../models/hero.model';
+import { HeroItem, HeroReward, HeroRewardItem, WizardHero } from '../models/hero.model';
 import { SavedData } from '../models/saved-data.model';
 import { DungeonMasterService } from './dungeon-master.service';
 import { QuestData } from '../models/quest.model';
 import { ActionStats, FightData } from '../models/fight.model';
+import { GamesCommonService } from './games-common.service';
+import { ItemsLoreService } from './items-lore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +25,11 @@ export class SharedDataService {
 
   BASIC_SIZE = 4;
 
-  constructor(private generator: MazeGeneratorService, private master: DungeonMasterService) {
+  constructor(
+    private master: DungeonMasterService,
+    private games: GamesCommonService,
+    private items: ItemsLoreService,
+    ) {
     this.saved = localStorage.getItem('deep-of-doom-saved');
     this.rewards = [];
   }
@@ -122,6 +128,14 @@ export class SharedDataService {
     if (this.fight.life <= 0) {
       this.fight.outcome = this.master.mobs[this.fight.mob.name].done;
     }
+  }
+  rewardLoot(level: number) {
+    let loot = 'loot' + level;
+    if (this.maze[loot].length === 0) {
+      this.maze[loot] = this.master.generateLoot(this.master.dungeons[this.maze.name][loot]);
+    }
+    let name: string = this.games.randomPop(this.maze[loot]);
+    this.reward(new HeroRewardItem(this.items.items[name]));
   }
 
 

@@ -29,5 +29,8 @@ DungeonMasterService.registerDungeon(
       {name: 'skeleton', tags: ['weapon']},
       {name: 'chest', tags: []},
     ],
+    loot1: ['healingStone'],
+    loot2: ['healingStone'],
+    loot3: ['healingStone'],
   }
 );

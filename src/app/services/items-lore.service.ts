@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HeroItem } from '../models/hero.model';
-import { SharedDataService } from './shared-data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +13,7 @@ export class ItemsLoreService {
 
   items: {[id: string]: HeroItem};
 
-  constructor(private shared: SharedDataService) {
+  constructor() {
     this.items = {};
     ItemsLoreService._items.forEach(m => this.items[m.name] = m);
   }

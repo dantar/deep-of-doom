@@ -3,6 +3,7 @@
 <svg:g app-fight-life-lose *ngIf="action.name.startsWith('hit')" [action]="action"></svg:g>
 <svg:g app-fight-mana-lose *ngIf="action.name.startsWith('drainmana')" [action]="action"></svg:g>
 <svg:g app-fight-life-gain *ngIf="action.name.startsWith('life')" [action]="action"></svg:g>
+<svg:g app-fight-mana-gain *ngIf="action.name.startsWith('mana')" [action]="action"></svg:g>
 <svg:g app-fight-poison *ngIf="action.name.startsWith('poison')" [action]="action"></svg:g>
 <svg:g app-fight-gold *ngIf="action.name.startsWith('gold')" [action]="action"></svg:g>
 <svg:g app-fight-search *ngIf="action.name.startsWith('search')" [action]="action"></svg:g>

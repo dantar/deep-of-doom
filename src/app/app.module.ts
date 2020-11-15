@@ -70,6 +70,7 @@ import { FightLootComponent } from './components/fight/fight-loot/fight-loot.com
 import { FightFleeComponent } from './components/fight/fight-flee/fight-flee.component';
 import { ItemManaStoneComponent } from './components/inventory/item-mana-stone/item-mana-stone.component';
 import { FightLifeGainComponent } from './components/fight/fight-life-gain/fight-life-gain.component';
+import { FightManaGainComponent } from './components/fight/fight-mana-gain/fight-mana-gain.component';
 
 @NgModule({
   declarations: [
@@ -137,7 +138,8 @@ import { FightLifeGainComponent } from './components/fight/fight-life-gain/fight
     FightLootComponent,
     FightFleeComponent,
     ItemManaStoneComponent,
-    FightLifeGainComponent
+    FightLifeGainComponent,
+    FightManaGainComponent
   ],
   imports: [
     BrowserModule,

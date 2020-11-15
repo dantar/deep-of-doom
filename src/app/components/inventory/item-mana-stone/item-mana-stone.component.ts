@@ -22,7 +22,7 @@ ItemsLoreService.registerItem({
   name: 'manaStone',
   title: 'Pietra arcana',
   traits: [],
-  effects: ['healLife1'],
+  effects: ['healMana1'],
 });
 ItemsLoreService.registerItem({
   name: 'manaStoneEmpty',

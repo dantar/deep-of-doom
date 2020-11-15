@@ -54,12 +54,6 @@ export class FightMobComponent implements OnInit {
 
   maxrowsize = 10;
 
-  brains: {[id:string]: () => void} = {
-    replace: () => {
-      // this.outcome = this.action.action;
-    }
-  }
-
   constructor(
     public gui: GuiCommonsService,
     public fightinfo: FightActionsService,
@@ -67,7 +61,6 @@ export class FightMobComponent implements OnInit {
     private game: GamesCommonService,
     private master: DungeonMasterService,
     private audio: AudioPlayService,
-    private items: ItemsLoreService,
     ) { }
 
   ngOnInit(): void {

@@ -101,6 +101,9 @@ export class SharedDataService {
   }
   life(arg0: number) {
     this.hero.life = Math.min(this.hero.maxlife, Math.max(0, this.hero.life + arg0));
+    if (this.fight && this.hero.life <= 0) {
+      this.fight.outcome = 'died';
+    }
   }
   mana(arg0: number) {
     this.hero.mana = Math.min(this.hero.maxmana, Math.max(0, this.hero.mana + arg0));

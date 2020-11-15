@@ -107,19 +107,16 @@ export class MazeMapComponent implements OnInit, OnDestroy {
     switch (event) {
       case 'exit':
         this.deleteMob();
-        this.shared.endEncounter();
         if (mob.exp != 0) this.shared.reward(new HeroRewardExp(mob.exp));
         this.checkQuests();
         this.shared.moveToWilderness();
         this.shared.progressUp();
         break;
       case 'fled':
-        this.shared.endEncounter();
         break;
       case 'win':
         if (mob.exp != 0) this.shared.reward(new HeroRewardExp(mob.exp));
         this.deleteMob();
-        this.shared.endEncounter();
         this.expandDrawable(MazeMap.tile(this.shared.maze.map, this.shared.fight.location));
         break;
       case 'replace':
@@ -135,6 +132,7 @@ export class MazeMapComponent implements OnInit, OnDestroy {
       default:
         break;
     }
+    this.shared.endEncounter();
     this.shared.save();
   }
 

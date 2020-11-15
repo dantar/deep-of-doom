@@ -4,11 +4,11 @@ import { FightActionsService } from 'src/app/services/fight-actions.service';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 
 @Component({
-  selector: '[app-fight-poison]',
-  templateUrl: './fight-poison.component.html',
-  styleUrls: ['./fight-poison.component.scss']
+  selector: '[app-fight-life-gain]',
+  templateUrl: './fight-life-gain.component.html',
+  styleUrls: ['./fight-life-gain.component.scss']
 })
-export class FightPoisonComponent implements OnInit {
+export class FightLifeGainComponent implements OnInit {
 
   @Input() action: FightAction;
 
@@ -20,19 +20,19 @@ export class FightPoisonComponent implements OnInit {
 }
 
 FightActionsService.registerItem({
-  name: 'poison',
-  description: ['Se attivata, perdi tanta vita quanto veleno hai, e il veleno cresce di 1'],
+  name: 'life1',
+  description: ['Se attivata, recuperi 1 vita.'],
   effect: (shared: SharedDataService) => {
-    shared.poison(1);
+    shared.life(1);
   },
   value: 1,
 });
 
 FightActionsService.registerItem({
-  name: 'poison2',
-  description: ['Se attivata, perdi tanta vita quanto veleno hai, e il veleno cresce di 2'],
+  name: 'life2',
+  description: ['Se attivata, recuperi 2 vite.'],
   effect: (shared: SharedDataService) => {
-    shared.poison(2);
+    shared.life(2);
   },
   value: 2,
 });

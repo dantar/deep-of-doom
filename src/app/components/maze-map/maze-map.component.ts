@@ -45,6 +45,9 @@ export class MazeMapComponent implements OnInit, OnDestroy {
       'healLife1': () => {
         this.shared.life(1);
       },
+      'healMana1': () => {
+        this.shared.mana(1);
+      },
     };
     this.spellsession = {
       spellEffects: this.effects,

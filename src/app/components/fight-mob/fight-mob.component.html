@@ -91,9 +91,11 @@
             [attr.transform]="slotTransform(slot)"
             style="opacity:{{slot.available ? 0.5 : 1.0}}" 
             (click)="clickSlot(slot)">
-            <g *ngIf="fightinfo.actions[slot.action.name]" app-action-placeholder [action]="fightinfo.actions[slot.action.name]"></g>
-            <g *ngIf="!fightinfo.actions[slot.action.name]">
-                <use x="0" y="0" width="100%" height="100%" attr.xlink:href="#{{slot.icon}}"/>
+            <g [attr.transform]="slot.available ? 'translate(10,10) scale(0.8)' : 'scale(1)'">
+                <g *ngIf="fightinfo.actions[slot.action.name]" app-action-placeholder [action]="fightinfo.actions[slot.action.name]"></g>
+                <g *ngIf="!fightinfo.actions[slot.action.name]">
+                    <use x="0" y="0" width="100%" height="100%" attr.xlink:href="#{{slot.icon}}"/>
+                </g>
             </g>
         </g>
     </g>

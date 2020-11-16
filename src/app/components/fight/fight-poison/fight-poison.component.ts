@@ -23,7 +23,15 @@ FightActionsService.registerItem({
   name: 'poison',
   description: ['Se attivata, perdi tanta vita quanto veleno hai, e il veleno cresce di 1'],
   effect: (shared: SharedDataService) => {
-    shared.poison(1);
+    const tag: string = shared.popFightTag('preventPoison1', 'preventPoison2');
+    switch (tag) {
+      case 'preventPoison1':
+      case 'preventPoison2':
+        break;
+      default:
+        shared.poison(1);
+        break;
+    }
   },
   value: 1,
 });

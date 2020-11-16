@@ -96,6 +96,20 @@ export class SharedDataService {
     this.save();
   }
 
+  popFightTag(...tags: string[]): string {
+    let match: string = null;
+    this.fight.tags
+    .filter(t => tags.indexOf(t) >= 0)
+    .forEach(t => {
+      if (match === null || tags.indexOf(t) < tags.indexOf(match)) {
+        match = t;
+      }
+    });
+    if (match) {
+      this.fight.tags.splice(this.fight.tags.indexOf(match), 1);
+    }
+    return match;
+  }
   gold(arg0: number) {
     this.hero.gold = Math.max(0, this.hero.gold + arg0);
   }

@@ -81,6 +81,10 @@ export class FightMobComponent implements OnInit {
         this.builder.newActionSlot('mana1');
         this.refreshDrawables();
       },
+      'protectPoison1': () => {
+        this.builder.newActionSlot('protectPoison1');
+        this.refreshDrawables();
+      },
       'strongerMob': () => {
         this.fight.lifeUp()
         this.builder.newActionSlot(this.mobStats.challenge);

@@ -23,10 +23,12 @@ ItemsLoreService.registerItem({
   title: 'Pietra arcana',
   traits: [],
   effects: ['healMana1'],
+  spells: [], 
 });
 ItemsLoreService.registerItem({
   name: 'manaStoneEmpty',
   title: 'Pietra arcana consumata',
   traits: ['empty'],
   effects: [],
+  spells: [],
 });

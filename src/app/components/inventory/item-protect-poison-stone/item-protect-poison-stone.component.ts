@@ -23,10 +23,12 @@ ItemsLoreService.registerItem({
   title: 'Pietra annulla veleno',
   traits: [],
   effects: ['protectPoison1'],
+  spells: ['protectPoisonIm2v1'],
 });
 ItemsLoreService.registerItem({
   name: 'protectPoisonStoneEmpty',
   title: 'Pietra annulla veleno consumata',
   traits: ['empty'],
   effects: [],
+  spells: ['protectPoisonIm2v1'],
 });

@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MageSpell } from 'src/app/models/hero.model';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { GuiCommonsService } from 'src/app/services/gui-commons.service';
+import { ItemsLoreService } from 'src/app/services/items-lore.service';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { SpellMasterService } from 'src/app/services/spell-master.service';
 
@@ -18,7 +19,9 @@ export class MenuBookshelfComponent implements OnInit {
     public gui: GuiCommonsService,
     private shared: SharedDataService,
     private spells: SpellMasterService,
-    private audio: AudioPlayService) { }
+    private audio: AudioPlayService,
+    private items: ItemsLoreService,
+    ) { }
 
   bookshelf: SpellBook[]
 

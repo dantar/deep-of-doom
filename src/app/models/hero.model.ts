@@ -42,6 +42,7 @@ export class HeroItem {
     title: string;
     effects: string[];
     traits: string[];
+    spells: string[];
 }
 
 export class SpellSession {

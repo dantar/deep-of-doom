@@ -73,6 +73,9 @@ import { FightLifeGainComponent } from './components/fight/fight-life-gain/fight
 import { FightManaGainComponent } from './components/fight/fight-mana-gain/fight-mana-gain.component';
 import { ItemProtectPoisonStoneComponent } from './components/inventory/item-protect-poison-stone/item-protect-poison-stone.component';
 import { FightProtectPoisonComponent } from './components/fight/fight-protect-poison/fight-protect-poison.component';
+import { SpellProtectPoisonComponent } from './components/spell/spell-protect-poison/spell-protect-poison.component';
+import { MapStudyItemComponent } from './components/map/map-study-item/map-study-item.component';
+import { WorldMapComponent } from './components/map/world-map/world-map.component';
 
 @NgModule({
   declarations: [
@@ -143,7 +146,10 @@ import { FightProtectPoisonComponent } from './components/fight/fight-protect-po
     FightLifeGainComponent,
     FightManaGainComponent,
     ItemProtectPoisonStoneComponent,
-    FightProtectPoisonComponent
+    FightProtectPoisonComponent,
+    SpellProtectPoisonComponent,
+    MapStudyItemComponent,
+    WorldMapComponent
   ],
   imports: [
     BrowserModule,

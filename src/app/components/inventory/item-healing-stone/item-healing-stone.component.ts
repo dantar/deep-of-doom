@@ -23,10 +23,12 @@ ItemsLoreService.registerItem({
   title: 'Pietra curativa',
   traits: [],
   effects: ['healLife1'],
+  spells: [],
 });
 ItemsLoreService.registerItem({
   name: 'healingStoneEmpty',
   title: 'Pietra curativa consumata',
   traits: ['empty'],
   effects: [],
+  spells: [],
 });

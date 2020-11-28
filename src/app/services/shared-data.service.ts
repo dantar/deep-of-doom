@@ -140,8 +140,12 @@ export class SharedDataService {
   exp(arg0: number) {
     this.hero.exp = Math.max(0, this.hero.exp + arg0);
   }
+  adjustMobMaxLife(arg0: number) {
+    this.fight.maxlife = Math.max(1, this.fight.life + arg0);
+    this.adjustMobLife(1);
+  }
   adjustMobLife(arg0: number) {
-    this.fight.life = Math.max(0, this.fight.life + arg0);
+    this.fight.life = Math.min(Math.max(0, this.fight.life + arg0), this.fight.maxlife);
     if (this.fight.life <= 0) {
       this.fight.outcome = this.master.mobs[this.fight.mob.name].done;
     }

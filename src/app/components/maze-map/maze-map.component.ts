@@ -53,14 +53,14 @@ export class MazeMapComponent implements OnInit, OnDestroy {
       spellEffects: this.effects,
       exaustedSpells: [],
       cast: (spell) => {
-        spell.effects.forEach(e => this.spellsession.spellEffects[e]());
+        spell.effects.forEach(e => this.spellsession.spellEffects[e](this.shared));
       },
       enabled: (spell) => spell.effects.filter(e => !Object.keys(this.spellsession.spellEffects).includes(e)).length === 0,
     };
     this.itemsession = {
       itemEffects: this.effects,
       use: (item) => {
-        item.effects.forEach(e => this.itemsession.itemEffects[e]());
+        item.effects.forEach(e => this.itemsession.itemEffects[e](this.shared));
         this.shared.hero.inventory.splice(this.shared.hero.inventory.indexOf(item.name), 1);
       },
       enabled: (item) => item.effects.filter(e => !Object.keys(this.spellsession.spellEffects).includes(e)).length === 0,

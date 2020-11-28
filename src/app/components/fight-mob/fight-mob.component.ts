@@ -33,7 +33,7 @@ export class FightMobComponent implements OnInit {
   fight: FightBuilder;
   spellsession: SpellSession;
   itemsession: ItemSession;
-  effects: {[id:string]: ()=>void};
+  effects: {[id:string]: (shared: SharedDataService)=>void};
   slotinfo: ActionSlot;
 
   lifebar = {
@@ -65,52 +65,52 @@ export class FightMobComponent implements OnInit {
 
   ngOnInit(): void {
     this.effects = {
-      'strikeMob': () => {
+      'strikeMob': (shared: SharedDataService) => {
         this.builder.newActionSlot('fight');
         this.refreshDrawables();
       },
-      'strikeMob2': () => {
+      'strikeMob2': (shared: SharedDataService) => {
         this.builder.newActionSlot('fight2');
         this.refreshDrawables();
       },
-      'healLife1': () => {
+      'healLife1': (shared: SharedDataService) => {
         this.builder.newActionSlot('life1');
         this.refreshDrawables();
       },
-      'healMana1': () => {
+      'healMana1': (shared: SharedDataService) => {
         this.builder.newActionSlot('mana1');
         this.refreshDrawables();
       },
-      'protectPoison1': () => {
+      'protectPoison1': (shared: SharedDataService) => {
         this.builder.newActionSlot('protectPoison1');
         this.refreshDrawables();
       },
-      'protectPoison2': () => {
+      'protectPoison2': (shared: SharedDataService) => {
         this.builder.newActionSlot('protectPoison2');
         this.refreshDrawables();
       },
-      'strongerMob': () => {
-        this.fight.lifeUp()
+      'strongerMob': (shared: SharedDataService) => {
+        shared.adjustMobMaxLife(1);
         this.builder.newActionSlot(this.mobStats.challenge);
         this.refreshDrawables();
       },
-      'weakerMob': () => {
+      'weakerMob': (shared: SharedDataService) => {
         this.builder.newActionSlot(this.mobStats.challenge);
         this.refreshDrawables();
       },
-      'mobPoison': () => {
+      'mobPoison': (shared: SharedDataService) => {
         this.builder.newActionSlot('poison');
         this.refreshDrawables();
       },
-      'mobHit': () => {
+      'mobHit': (shared: SharedDataService) => {
         this.builder.newActionSlot('hit');
         this.refreshDrawables();
       },
-      'mobHit2': () => {
+      'mobHit2': (shared: SharedDataService) => {
         this.builder.newActionSlot('hit2');
         this.refreshDrawables();
       },
-      'loot1': () => {
+      'loot1': (shared: SharedDataService) => {
         this.builder.newActionSlot('stuff');
         this.refreshDrawables();
       }
@@ -123,7 +123,7 @@ export class FightMobComponent implements OnInit {
       spellEffects: this.effects,
       cast: (spell: MageSpell) => {
         this.spellsession.exaustedSpells.push(spell.name);
-        spell.effects.forEach(e => this.spellsession.spellEffects[e]());
+        spell.effects.forEach(e => this.spellsession.spellEffects[e](this.shared));
       },
       enabled: (spell: MageSpell) => {
         return !this.spellsession.exaustedSpells.includes(spell.name) && spell.effects.filter(e => !Object.keys(this.spellsession.spellEffects).includes(e)).length === 0 ;
@@ -132,7 +132,7 @@ export class FightMobComponent implements OnInit {
     this.itemsession = {
       itemEffects: this.effects,
       use: (item) => {
-        item.effects.forEach(e => this.itemsession.itemEffects[e]());
+        item.effects.forEach(e => this.itemsession.itemEffects[e](this.shared));
         this.shared.hero.inventory.splice(this.shared.hero.inventory.indexOf(item.name), 1);
       },
       enabled: (item) => {
@@ -145,15 +145,15 @@ export class FightMobComponent implements OnInit {
     this.builder = new ActionSlotBuilder(this.fight.mobMaxLife, this.mobStats.challenge);
     this.mobStats.actions.forEach(a => this.builder.newActionSlot(a));
     // mob tags
-    this.mob.tags.forEach(t => this.mobStats.tags[t].forEach(e => this.effects[e]()));
+    this.mob.tags.forEach(t => this.mobStats.tags[t].forEach(e => this.effects[e](this.shared)));
     // supports
     this.support.forEach(m => {
       let supporter = this.master.mobs[m.name];
       if (supporter.supports) {
-        supporter.supports(this.mobStats).forEach(e => this.effects[e]());
+        supporter.supports(this.mobStats).forEach(e => this.effects[e](this.shared));
       }
       if (this.mobStats.supported) {
-        this.mobStats.supported(supporter).forEach(e => this.effects[e]());
+        this.mobStats.supported(supporter).forEach(e => this.effects[e](this.shared));
       }
     });
     // setup life

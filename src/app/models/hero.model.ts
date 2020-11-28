@@ -47,13 +47,13 @@ export class HeroItem {
 
 export class SpellSession {
     exaustedSpells: string[];
-    spellEffects: {[id:string]: ()=>void};
+    spellEffects: {[id:string]: (shared: SharedDataService)=>void};
     cast: (spell: MageSpell) => void;
     enabled: (spell: MageSpell) => boolean;
 }
 
 export class ItemSession {
-    itemEffects: {[id:string]: ()=>void};
+    itemEffects: {[id:string]: (shared: SharedDataService)=>void};
     use: (item: HeroItem) => void;
     enabled: (item: HeroItem) => boolean;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LandMapService } from 'src/app/services/land-map.service';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 
 @Component({
@@ -8,7 +9,10 @@ import { SharedDataService } from 'src/app/services/shared-data.service';
 })
 export class WildernessMapComponent implements OnInit {
 
-  constructor(public shared: SharedDataService) { }
+  constructor(
+    public shared: SharedDataService,
+    public land: LandMapService,
+    ) { }
 
   mazes: AvailableMaze[];
   _mazes: {[id: string]: AvailableMaze};
@@ -26,6 +30,10 @@ export class WildernessMapComponent implements OnInit {
     if (this.shared.hero.life > 0) {
       this.shared.enterMaze(name);
     }
+  }
+
+  clickLocation(name: string) {
+
   }
 
 }

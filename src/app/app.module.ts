@@ -76,6 +76,8 @@ import { FightProtectPoisonComponent } from './components/fight/fight-protect-po
 import { SpellProtectPoisonComponent } from './components/spell/spell-protect-poison/spell-protect-poison.component';
 import { MapStudyItemComponent } from './components/map/map-study-item/map-study-item.component';
 import { WorldMapComponent } from './components/map/world-map/world-map.component';
+import { LandmarkComponent } from './components/map/landmark/landmark.component';
+import { MapAthelasComponent } from './components/map/map-athelas/map-athelas.component';
 
 @NgModule({
   declarations: [
@@ -149,7 +151,9 @@ import { WorldMapComponent } from './components/map/world-map/world-map.componen
     FightProtectPoisonComponent,
     SpellProtectPoisonComponent,
     MapStudyItemComponent,
-    WorldMapComponent
+    WorldMapComponent,
+    LandmarkComponent,
+    MapAthelasComponent
   ],
   imports: [
     BrowserModule,

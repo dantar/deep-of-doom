@@ -181,51 +181,10 @@
         <use *ngIf="!(shared.hero.progress > 3)" x="0" y="0" xlink:href="#icon-locked" />
     </g>
 
-    <!-- <use (click)="clickMaze('maze-1')"
-        height="100%"
-        width="100%"
-        transform="translate(61.215753,29.643385)"
-        id="cave-2"
-        attr.xlink:href="#{{shared.hero.progress > 0 ? 'icon-cave': 'icon-locked'}}"
-        y="0"
-        x="0"
-        style="display:inline" />
-    <use (click)="clickMaze('maze-2')"
-        style="display:inline"
-        x="0"
-        y="0"
-        attr.xlink:href="#{{shared.hero.progress > 1 ? 'icon-cave': 'icon-locked'}}"
-        id="cave-3"
-        transform="translate(31.92133,36.461916)"
-        width="100%"
-        height="100%" />
-    <use (click)="clickMaze('maze-3')"
-        style="display:inline"
-        x="0"
-        y="0"
-        attr.xlink:href="#{{shared.hero.progress > 2 ? 'icon-cave': 'icon-locked'}}"
-        id="cave-4"
-        transform="translate(27.123106,65.756338)"
-        width="100%"
-        height="100%" />
-    <use (click)="clickMaze('maze-4')"
-        height="100%"
-        width="100%"
-        transform="translate(76.368043,58.937809)"
-        id="cave-5"
-        attr.xlink:href="#{{shared.hero.progress > 3 ? 'icon-cave': 'icon-locked'}}"
-        y="0"
-        x="0"
-        style="display:inline" /> -->
-    <use
-        style="display:inline"
-        x="0"
-        y="0"
-        attr.xlink:href="#{{shared.hero.progress > 0 ? 'icon-bridge': 'icon-locked'}}"
-        id="toforest"
-        transform="translate(77.378195,3.126882)"
-        width="100%"
-        height="100%" />
+    <g transform="translate(77.378195,3.126882) scale(0.2)">
+        <g app-landmark name="athelas"></g>
+    </g>
+
     <use
         style="display:inline"
         x="0"

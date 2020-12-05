@@ -1,0 +1,4 @@
+<svg:g app-map-locked *ngIf="!location.unlocked(shared)"></svg:g>
+<svg:g *ngIf="location.unlocked(shared)">
+    <svg:g app-map-athelas *ngIf="location.name === 'athelas'" [location]="location"></svg:g>
+</svg:g>

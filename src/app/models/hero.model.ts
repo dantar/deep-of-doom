@@ -15,6 +15,7 @@ export class WizardHero {
 
     exp: number;
     progress: number;
+    story: string[];
 
     righthand?: string;
     lefthand?: string;

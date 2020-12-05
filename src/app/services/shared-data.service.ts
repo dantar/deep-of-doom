@@ -87,6 +87,7 @@ export class SharedDataService {
       maxmana: 5,
       exp: 0,
       progress: 0,
+      story: [],
       spells: ['dartIm1d1'],
       bookshelf: [],
       inventory: [],

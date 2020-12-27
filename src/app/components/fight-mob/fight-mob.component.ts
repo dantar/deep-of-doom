@@ -11,6 +11,7 @@ import { GuiCommonsService } from 'src/app/services/gui-commons.service';
 import { ActionStats, FightAction, FightBuilder, MobStats } from 'src/app/models/fight.model';
 import { ItemsLoreService } from 'src/app/services/items-lore.service';
 import { FightActionsService } from 'src/app/services/fight-actions.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-fight-mob',
@@ -35,6 +36,7 @@ export class FightMobComponent implements OnInit {
   itemsession: ItemSession;
   effects: {[id:string]: (shared: SharedDataService)=>void};
   slotinfo: ActionSlot;
+  latestslot: ActionSlot;
 
   lifebar = {
     'fight': {fill: '#aa2222', stroke: '#880000'},
@@ -168,12 +170,20 @@ export class FightMobComponent implements OnInit {
       return;
     }
     this.audio.play('action');
-    this.action = this.game.randomPop(this.drawables);
+    this.action = this.pickAction();
     this.fightinfo.actions[this.action.action.name].effect(this.shared);
     this.action.available = false;
     if (!this.shared.fight.outcome && this.drawables.length == 0) {
       this.outcome = 'fled';
     }
+  }
+  
+  pickAction(): ActionSlot {
+    if (environment.cheat && this.latestslot) {
+      this.drawables.splice(this.drawables.indexOf(this.latestslot), 1);
+      return this.latestslot;
+    };
+    return this.game.randomPop(this.drawables);
   }
 
   clickSpellbook() {
@@ -230,6 +240,7 @@ export class FightMobComponent implements OnInit {
   clickSlot(slot: ActionSlot) {
     this.audio.play('action');
     this.slotinfo = slot;
+    this.latestslot = slot;
     console.log(slot);
   }
   clickCloseSlot() {

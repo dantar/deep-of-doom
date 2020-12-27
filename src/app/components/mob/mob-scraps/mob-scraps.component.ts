@@ -19,7 +19,7 @@ DungeonMasterService.registerMob(
   {
     name: 'scraps',
     keywords: ['treasure', 'low'],
-    actions: ['search', 'search', 'loot1', 'gold', 'replace:shadow'],
+    actions: ['search', 'search', 'loot1', 'gold', 'replaceWithShadow'],
     life: 1,
     challenge: 'search',
     exp: 0,

@@ -79,6 +79,7 @@ import { WorldMapComponent } from './components/map/world-map/world-map.componen
 import { LandmarkComponent } from './components/map/landmark/landmark.component';
 import { MapAthelasComponent } from './components/map/map-athelas/map-athelas.component';
 import { HeroDialogComponent } from './components/dialogs/hero-dialog/hero-dialog.component';
+import { FightReplaceWithComponent } from './components/fight/fight-replace-with/fight-replace-with.component';
 
 @NgModule({
   declarations: [
@@ -155,7 +156,8 @@ import { HeroDialogComponent } from './components/dialogs/hero-dialog/hero-dialo
     WorldMapComponent,
     LandmarkComponent,
     MapAthelasComponent,
-    HeroDialogComponent
+    HeroDialogComponent,
+    FightReplaceWithComponent
   ],
   imports: [
     BrowserModule,

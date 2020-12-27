@@ -181,7 +181,9 @@ export class FightMobComponent implements OnInit {
   pickAction(): ActionSlot {
     if (environment.cheat && this.latestslot) {
       this.drawables.splice(this.drawables.indexOf(this.latestslot), 1);
-      return this.latestslot;
+      let result = this.latestslot;
+      this.latestslot = null;
+      return result;
     };
     return this.game.randomPop(this.drawables);
   }
@@ -240,7 +242,7 @@ export class FightMobComponent implements OnInit {
   clickSlot(slot: ActionSlot) {
     this.audio.play('action');
     this.slotinfo = slot;
-    this.latestslot = slot;
+    this.latestslot = slot === this.latestslot ? null: slot;
     console.log(slot);
   }
   clickCloseSlot() {

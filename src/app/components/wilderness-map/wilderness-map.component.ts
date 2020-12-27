@@ -33,7 +33,7 @@ export class WildernessMapComponent implements OnInit {
   }
 
   clickLocation(name: string) {
-
+    this.shared.enterDialog('bookshelf');
   }
 
 }

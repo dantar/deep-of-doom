@@ -2,6 +2,8 @@
 <app-wilderness-map *ngIf="shared.hero.location === 'wilderness'"></app-wilderness-map>
 <app-maze-map *ngIf="shared.hero.location === 'maze'"></app-maze-map>
 
+<app-hero-dialog *ngIf="shared.dialog" [dialog]="shared.dialog"></app-hero-dialog>
+
 <svg *ngIf="shared.rewards.length > 0 && shared.rewards.length % 2 == 0" class="fullsvg modal-svg" viewBox="0 0 100 100" (click)="clickReward(shared.rewards[0])">
     <g app-popup-reward [reward]="shared.rewards[0]"></g>
 </svg>

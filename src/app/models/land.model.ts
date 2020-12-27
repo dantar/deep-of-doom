@@ -5,5 +5,6 @@ export class LandLocation {
     name: string;
 
     unlocked: (shared: SharedDataService) => boolean;
+    trigger: (shared: SharedDataService) => void;
 
 }

@@ -10,10 +10,11 @@ svg {
 }
 
 .bg.village {
-    background-image: url("assets/village.jpg");
+    background-image: none;
+    background-color: #4d5e0c;
 }
 .bg.wilderness {
-    background-image: url("assets/wilderness.jpg");
+    background-image: #88aa00;
 }
 
 .enabled-false {

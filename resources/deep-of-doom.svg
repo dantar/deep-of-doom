@@ -183,11 +183,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6"
-     inkscape:cx="87.412975"
-     inkscape:cy="45.059571"
+     inkscape:zoom="3.959798"
+     inkscape:cx="134.44439"
+     inkscape:cy="37.748942"
      inkscape:document-units="px"
-     inkscape:current-layer="layer59"
+     inkscape:current-layer="layer13"
      showgrid="false"
      units="px"
      inkscape:window-width="1853"
@@ -204,7 +204,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1806,7 +1806,7 @@
        inkscape:groupmode="layer"
        id="layer13"
        inkscape:label="village map"
-       style="display:none">
+       style="display:inline">
       <g
          style="display:inline"
          id="villagebridge"
@@ -1865,7 +1865,7 @@
       </g>
       <g
          id="house1"
-         transform="translate(-2.1428571,-37.857143)"
+         transform="translate(-0.37509015,-86.849541)"
          inkscape:label="#g1790">
         <path
            inkscape:connector-curvature="0"
@@ -1918,7 +1918,7 @@
       </g>
       <g
          id="house2"
-         transform="translate(4.1071428,-40.535714)"
+         transform="translate(2.3393758,-87.507807)"
          inkscape:label="#g1798">
         <path
            sodipodi:nodetypes="ccccc"
@@ -1959,7 +1959,7 @@
       </g>
       <g
          id="house3"
-         transform="translate(1.7857143,-46.964285)"
+         transform="translate(3.3009431,-90.148306)"
          inkscape:label="#g1780">
         <path
            style="fill:#784421;stroke:#806600;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
@@ -2040,86 +2040,185 @@
            inkscape:connector-curvature="0"
            sodipodi:nodetypes="cc" />
       </g>
-      <use
-         x="0"
-         y="0"
-         xlink:href="#house2"
-         id="use1805"
-         transform="translate(-6.4285714,33.214286)"
-         width="100%"
-         height="100%" />
-      <use
-         x="0"
-         y="0"
-         xlink:href="#house1"
-         id="use1803"
-         transform="translate(11.25,32.5)"
-         width="100%"
-         height="100%" />
-      <use
-         height="100%"
-         width="100%"
-         transform="translate(-59.760793,30.364331)"
-         id="use1810"
-         xlink:href="#house2"
-         y="0"
-         x="0" />
-      <use
-         x="0"
-         y="0"
-         xlink:href="#house3"
-         id="use1808"
-         transform="translate(-6.4285714,33.214286)"
-         width="100%"
-         height="100%" />
-      <use
-         height="100%"
-         width="100%"
-         transform="translate(-43.928571,64.464286)"
-         id="use1812"
-         xlink:href="#house2"
-         y="0"
-         x="0" />
-      <use
-         height="100%"
-         width="100%"
-         transform="translate(-24.642857,63.571429)"
-         id="use1814"
-         xlink:href="#house1"
-         y="0"
-         x="0" />
-      <use
-         x="0"
-         y="0"
-         xlink:href="#house1"
-         id="use1816"
-         transform="matrix(-1,0,0,1,110.05362,65.027865)"
-         width="100%"
-         height="100%" />
-      <use
-         height="100%"
-         width="100%"
-         transform="translate(11.428571,65.178572)"
-         id="use1818"
-         xlink:href="#house2"
-         y="0"
-         x="0" />
-      <use
-         height="100%"
-         width="100%"
-         transform="translate(20.357143,63.928572)"
-         id="use1820"
-         xlink:href="#house1"
-         y="0"
-         x="0" />
-      <use
-         height="100%"
-         width="100%"
-         transform="translate(49.382356,68.695894)"
-         id="use1850"
-         xlink:href="#house3"
-         y="0"
-         x="0" />
+      <g
+         id="houses2"
+         inkscape:label="#g1737">
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(-39.258529,34.476976)"
+           id="use1805"
+           xlink:href="#house2"
+           y="0"
+           x="0" />
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(-25.115492,35.782995)"
+           id="use1803"
+           xlink:href="#house1"
+           y="0"
+           x="0" />
+      </g>
+      <g
+         id="houses1"
+         transform="translate(-0.25253814,2.0203051)"
+         inkscape:label="#g1741">
+        <use
+           x="0"
+           y="0"
+           xlink:href="#house2"
+           id="use1810"
+           transform="translate(-73.65039,31.374483)"
+           width="100%"
+           height="100%" />
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(-23.601165,30.436366)"
+           id="use1808"
+           xlink:href="#house3"
+           y="0"
+           x="0" />
+      </g>
+      <g
+         id="houses3"
+         transform="translate(0.75761441,-6.3134534)"
+         inkscape:label="#g1728">
+        <use
+           x="0"
+           y="0"
+           xlink:href="#house2"
+           id="use1812"
+           transform="translate(-12.746482,39.381046)"
+           width="100%"
+           height="100%" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#house1"
+           id="use1814"
+           transform="translate(3.0036981,40.508491)"
+           width="100%"
+           height="100%" />
+        <use
+           height="100%"
+           width="100%"
+           transform="matrix(-1,0,0,1,141.23571,41.964931)"
+           id="use1816"
+           xlink:href="#house1"
+           y="0"
+           x="0" />
+      </g>
+      <g
+         id="houses4"
+         inkscape:label="#g1733">
+        <use
+           x="0"
+           y="0"
+           xlink:href="#house2"
+           id="use1818"
+           transform="translate(32.641775,33.358764)"
+           width="100%"
+           height="100%" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#house1"
+           id="use1820"
+           transform="translate(38.034813,34.129069)"
+           width="100%"
+           height="100%" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#house3"
+           id="use1850"
+           transform="translate(67.312564,33.088018)"
+           width="100%"
+           height="100%" />
+      </g>
+      <g
+         id="villagemap"
+         inkscape:label="#g2714">
+        <path
+           inkscape:connector-curvature="0"
+           id="path1770"
+           d="M 20.10779,20.380631 60.76643,10.784182 85.515167,27.451699 100.91999,64.322267 78.444099,96.647148 12.279107,92.101462 5.7131157,39.320991 Z"
+           style="fill:#decd87;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#houses1"
+           id="use1762"
+           transform="translate(52.527932,50.002552)"
+           width="100%"
+           height="100%" />
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(38.385796,56.821081)"
+           id="use1752"
+           xlink:href="#houses2"
+           y="0"
+           x="0" />
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(18.94036,45.961942)"
+           id="use1754"
+           xlink:href="#houses1"
+           y="0"
+           x="0" />
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(0.75761405,83.337585)"
+           id="use1756"
+           xlink:href="#houses3"
+           y="0"
+           x="0" />
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(-81.822356,101.77287)"
+           id="use1758"
+           xlink:href="#houses4"
+           y="0"
+           x="0" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#houses2"
+           id="use1760"
+           transform="translate(-21.71828,54.043162)"
+           width="100%"
+           height="100%" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#houses3"
+           id="use1764"
+           transform="translate(-23.112841,107.83512)"
+           width="100%"
+           height="100%" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#houses4"
+           id="use1766"
+           transform="translate(-23.991123,98.489869)"
+           width="100%"
+           height="100%" />
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(5.8083768,73.236061)"
+           id="use1768"
+           xlink:href="#houses1"
+           y="0"
+           x="0" />
+      </g>
     </g>
     <g
        inkscape:groupmode="layer"
@@ -2334,7 +2433,8 @@
     <g
        inkscape:groupmode="layer"
        id="layer59"
-       inkscape:label="athelas">
+       inkscape:label="athelas"
+       style="display:none">
       <g
          id="athelas"
          inkscape:label="#g1785">
@@ -2343,9 +2443,9 @@
            inkscape:connector-curvature="0"
            id="path1721"
            d="m 59.821428,89.285714 c -5.175083,-14.490353 -6.388101,-28.540477 1.25,-41.607143"
-           style="fill:none;stroke:#5a2ca0;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" />
+           style="fill:none;stroke:#5a2ca0;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
         <path
-           style="fill:none;stroke:#5a2ca0;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+           style="fill:none;stroke:#5a2ca0;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            d="M 59.821428,89.285714 C 44.282225,71.759647 56.966259,53.780951 40.935301,36.785714"
            id="path1767"
            inkscape:connector-curvature="0"
@@ -2367,7 +2467,7 @@
            inkscape:connector-curvature="0"
            id="path1769"
            d="M 59.821428,89.285714 C 44.282225,71.759647 48.751973,49.316665 36.828158,56.428571"
-           style="fill:none;stroke:#5a2ca0;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" />
+           style="fill:none;stroke:#5a2ca0;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
         <path
            sodipodi:nodetypes="sssss"
            inkscape:connector-curvature="0"

@@ -85,3 +85,7 @@ export class HeroRewardExp {
         this.exp = exp;
     }
 }
+
+export class HeroDialog {
+    name: string;
+}

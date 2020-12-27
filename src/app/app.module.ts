@@ -78,6 +78,7 @@ import { MapStudyItemComponent } from './components/map/map-study-item/map-study
 import { WorldMapComponent } from './components/map/world-map/world-map.component';
 import { LandmarkComponent } from './components/map/landmark/landmark.component';
 import { MapAthelasComponent } from './components/map/map-athelas/map-athelas.component';
+import { HeroDialogComponent } from './components/dialogs/hero-dialog/hero-dialog.component';
 
 @NgModule({
   declarations: [
@@ -153,7 +154,8 @@ import { MapAthelasComponent } from './components/map/map-athelas/map-athelas.co
     MapStudyItemComponent,
     WorldMapComponent,
     LandmarkComponent,
-    MapAthelasComponent
+    MapAthelasComponent,
+    HeroDialogComponent
   ],
   imports: [
     BrowserModule,

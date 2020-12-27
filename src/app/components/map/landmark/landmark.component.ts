@@ -22,4 +22,8 @@ export class LandmarkComponent implements OnInit {
     this.location = this.land.items[this.name];
   }
 
+  clickLocation() {
+    this.location.trigger(this.shared);
+  }
+
 }

@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { MazeMap, MazeExploration, MazeMobs, MazeRooms, MazeData, MazeTile } from '../models/maze-map.model';
 import { MazeGeneratorService } from './maze-generator.service';
-import { HeroItem, HeroReward, HeroRewardItem, WizardHero } from '../models/hero.model';
+import { HeroDialog, HeroItem, HeroReward, HeroRewardItem, WizardHero } from '../models/hero.model';
 import { SavedData } from '../models/saved-data.model';
 import { DungeonMasterService } from './dungeon-master.service';
 import { QuestData } from '../models/quest.model';
 import { ActionStats, FightData } from '../models/fight.model';
 import { GamesCommonService } from './games-common.service';
 import { ItemsLoreService } from './items-lore.service';
+import { HeroDialogService } from './hero-dialog.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,7 @@ export class SharedDataService {
   fight: FightData;
 
   rewards: HeroReward[];
+  dialog: HeroDialog;
 
   saved: string;
 
@@ -29,6 +31,7 @@ export class SharedDataService {
     private master: DungeonMasterService,
     private games: GamesCommonService,
     private items: ItemsLoreService,
+    private dialogs: HeroDialogService,
     ) {
     this.saved = localStorage.getItem('deep-of-doom-saved');
     this.rewards = [];
@@ -68,6 +71,14 @@ export class SharedDataService {
   enterMaze(name: string) {
     this.maze = this.master.buildMaze(name);
     this.moveToMaze();
+  }
+
+  enterDialog(name: string) {
+    this.dialog = this.dialogs.items[name];
+  }
+
+  exitDialog() {
+    this.dialog = null;
   }
 
   _exitMaze() {

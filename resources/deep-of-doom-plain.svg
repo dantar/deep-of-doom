@@ -1365,7 +1365,7 @@
      style="display:inline"
      id="layer11">
     <g
-       style="display:none"
+       style="display:inline"
        id="layer13">
       <g
          transform="translate(46.972093,-12.12183)"
@@ -1413,7 +1413,7 @@
            style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#008000;stroke-width:0.99736637;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
       </g>
       <g
-         transform="translate(-2.1428571,-37.857143)"
+         transform="translate(-0.37509015,-86.849541)"
          id="house1">
         <path
            style="fill:#fff6d5;stroke:#806600;stroke-width:1.00157475;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -1449,7 +1449,7 @@
            id="path1717" />
       </g>
       <g
-         transform="translate(4.1071428,-40.535714)"
+         transform="translate(2.3393758,-87.507807)"
          id="house2">
         <path
            id="path1719"
@@ -1477,7 +1477,7 @@
            id="path1740" />
       </g>
       <g
-         transform="translate(1.7857143,-46.964285)"
+         transform="translate(3.3009431,-90.148306)"
          id="house3">
         <path
            id="path1852"
@@ -1532,86 +1532,179 @@
            d="m 35.006385,37.879464 0.870536,0.04464"
            style="fill:#784421;stroke:#ac9393;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
       </g>
-      <use
-         height="100%"
-         width="100%"
-         transform="translate(-6.4285714,33.214286)"
-         id="use1805"
-         xlink:href="#house2"
-         y="0"
-         x="0" />
-      <use
-         height="100%"
-         width="100%"
-         transform="translate(11.25,32.5)"
-         id="use1803"
-         xlink:href="#house1"
-         y="0"
-         x="0" />
-      <use
-         x="0"
-         y="0"
-         xlink:href="#house2"
-         id="use1810"
-         transform="translate(-59.760793,30.364331)"
-         width="100%"
-         height="100%" />
-      <use
-         height="100%"
-         width="100%"
-         transform="translate(-6.4285714,33.214286)"
-         id="use1808"
-         xlink:href="#house3"
-         y="0"
-         x="0" />
-      <use
-         x="0"
-         y="0"
-         xlink:href="#house2"
-         id="use1812"
-         transform="translate(-43.928571,64.464286)"
-         width="100%"
-         height="100%" />
-      <use
-         x="0"
-         y="0"
-         xlink:href="#house1"
-         id="use1814"
-         transform="translate(-24.642857,63.571429)"
-         width="100%"
-         height="100%" />
-      <use
-         height="100%"
-         width="100%"
-         transform="matrix(-1,0,0,1,110.05362,65.027865)"
-         id="use1816"
-         xlink:href="#house1"
-         y="0"
-         x="0" />
-      <use
-         x="0"
-         y="0"
-         xlink:href="#house2"
-         id="use1818"
-         transform="translate(11.428571,65.178572)"
-         width="100%"
-         height="100%" />
-      <use
-         x="0"
-         y="0"
-         xlink:href="#house1"
-         id="use1820"
-         transform="translate(20.357143,63.928572)"
-         width="100%"
-         height="100%" />
-      <use
-         x="0"
-         y="0"
-         xlink:href="#house3"
-         id="use1850"
-         transform="translate(49.382356,68.695894)"
-         width="100%"
-         height="100%" />
+      <g
+         id="houses2">
+        <use
+           x="0"
+           y="0"
+           xlink:href="#house2"
+           id="use1805"
+           transform="translate(-39.258529,34.476976)"
+           width="100%"
+           height="100%" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#house1"
+           id="use1803"
+           transform="translate(-25.115492,35.782995)"
+           width="100%"
+           height="100%" />
+      </g>
+      <g
+         transform="translate(-0.25253814,2.0203051)"
+         id="houses1">
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(-73.65039,31.374483)"
+           id="use1810"
+           xlink:href="#house2"
+           y="0"
+           x="0" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#house3"
+           id="use1808"
+           transform="translate(-23.601165,30.436366)"
+           width="100%"
+           height="100%" />
+      </g>
+      <g
+         transform="translate(0.75761441,-6.3134534)"
+         id="houses3">
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(-12.746482,39.381046)"
+           id="use1812"
+           xlink:href="#house2"
+           y="0"
+           x="0" />
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(3.0036981,40.508491)"
+           id="use1814"
+           xlink:href="#house1"
+           y="0"
+           x="0" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#house1"
+           id="use1816"
+           transform="matrix(-1,0,0,1,141.23571,41.964931)"
+           width="100%"
+           height="100%" />
+      </g>
+      <g
+         id="houses4">
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(32.641775,33.358764)"
+           id="use1818"
+           xlink:href="#house2"
+           y="0"
+           x="0" />
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(38.034813,34.129069)"
+           id="use1820"
+           xlink:href="#house1"
+           y="0"
+           x="0" />
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(67.312564,33.088018)"
+           id="use1850"
+           xlink:href="#house3"
+           y="0"
+           x="0" />
+      </g>
+      <g
+         id="villagemap">
+        <path
+           style="fill:#decd87;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 20.10779,20.380631 60.76643,10.784182 85.515167,27.451699 100.91999,64.322267 78.444099,96.647148 12.279107,92.101462 5.7131157,39.320991 Z"
+           id="path1770" />
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(52.527932,50.002552)"
+           id="use1762"
+           xlink:href="#houses1"
+           y="0"
+           x="0" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#houses2"
+           id="use1752"
+           transform="translate(38.385796,56.821081)"
+           width="100%"
+           height="100%" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#houses1"
+           id="use1754"
+           transform="translate(18.94036,45.961942)"
+           width="100%"
+           height="100%" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#houses3"
+           id="use1756"
+           transform="translate(0.75761405,83.337585)"
+           width="100%"
+           height="100%" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#houses4"
+           id="use1758"
+           transform="translate(-81.822356,101.77287)"
+           width="100%"
+           height="100%" />
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(-21.71828,54.043162)"
+           id="use1760"
+           xlink:href="#houses2"
+           y="0"
+           x="0" />
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(-23.112841,107.83512)"
+           id="use1764"
+           xlink:href="#houses3"
+           y="0"
+           x="0" />
+        <use
+           height="100%"
+           width="100%"
+           transform="translate(-23.991123,98.489869)"
+           id="use1766"
+           xlink:href="#houses4"
+           y="0"
+           x="0" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#houses1"
+           id="use1768"
+           transform="translate(5.8083768,73.236061)"
+           width="100%"
+           height="100%" />
+      </g>
     </g>
     <g
        style="display:none"
@@ -1782,17 +1875,18 @@
       </g>
     </g>
     <g
+       style="display:none"
        id="layer59">
       <g
          id="athelas">
         <path
-           style="fill:none;stroke:#5a2ca0;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+           style="fill:none;stroke:#5a2ca0;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            d="m 59.821428,89.285714 c -5.175083,-14.490353 -6.388101,-28.540477 1.25,-41.607143"
            id="path1721" />
         <path
            id="path1767"
            d="M 59.821428,89.285714 C 44.282225,71.759647 56.966259,53.780951 40.935301,36.785714"
-           style="fill:none;stroke:#5a2ca0;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" />
+           style="fill:none;stroke:#5a2ca0;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
         <path
            style="opacity:1;vector-effect:none;fill:#7137c8;fill-opacity:1;stroke:#442178;stroke-width:1.00157475;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
            d="m 68.540086,51.312577 c -4.73387,8.199303 -4.414901,0.131611 -8.429143,-2.186013 -4.014241,-2.317623 -10.841583,1.992458 -6.107714,-6.206845 4.733869,-8.199301 19.236329,-25.803077 23.250571,-23.485453 4.014242,2.317623 -3.979845,23.67901 -8.713714,31.878311 z"
@@ -1802,7 +1896,7 @@
            d="m 47.33068,31.4431 c 4.733869,8.199303 -2.093472,3.889222 -6.107715,6.206846 -4.01424,2.317623 -3.695272,10.385315 -8.429142,2.186013 C 28.059955,31.636657 20.065867,10.275271 24.08011,7.9576467 28.094351,5.6400227 42.596811,23.243799 47.33068,31.4431 Z"
            style="opacity:1;vector-effect:none;fill:#7137c8;fill-opacity:1;stroke:#442178;stroke-width:1.00157475;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
         <path
-           style="fill:none;stroke:#5a2ca0;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+           style="fill:none;stroke:#5a2ca0;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            d="M 59.821428,89.285714 C 44.282225,71.759647 48.751973,49.316665 36.828158,56.428571"
            id="path1769" />
         <path

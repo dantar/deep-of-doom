@@ -81,6 +81,7 @@ import { MapAthelasComponent } from './components/map/map-athelas/map-athelas.co
 import { HeroDialogComponent } from './components/dialogs/hero-dialog/hero-dialog.component';
 import { FightReplaceWithComponent } from './components/fight/fight-replace-with/fight-replace-with.component';
 import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
+import { ItemCrystalComponent } from './components/inventory/item-crystal/item-crystal.component';
 
 @NgModule({
   declarations: [
@@ -159,7 +160,8 @@ import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.com
     MapAthelasComponent,
     HeroDialogComponent,
     FightReplaceWithComponent,
-    ThemeToggleComponent
+    ThemeToggleComponent,
+    ItemCrystalComponent
   ],
   imports: [
     BrowserModule,

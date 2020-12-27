@@ -23,10 +23,11 @@ DungeonMasterService.registerDungeon(
       {name: 'skeleton', tags: ['weak']},
       {name: 'skeleton', tags: ['weak']},
       {name: 'skeleton', tags: []},
-      {name: 'skeleton', tags: []},
+      {name: 'shadow', tags: []},
       {name: 'scraps', tags: []},
+      {name: 'crystal', tags: []},
     ],
-    loot1: ['healingStone', 'manaStone', 'protectPoisonStone'],
+    loot1: ['crystal', 'healingStone', 'manaStone', 'protectPoisonStone'],
     loot2: ['healingStone', 'manaStone', 'protectPoisonStone'],
     loot3: ['healingStone', 'manaStone', 'protectPoisonStone'],
   }

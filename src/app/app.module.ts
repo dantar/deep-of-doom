@@ -80,6 +80,7 @@ import { LandmarkComponent } from './components/map/landmark/landmark.component'
 import { MapAthelasComponent } from './components/map/map-athelas/map-athelas.component';
 import { HeroDialogComponent } from './components/dialogs/hero-dialog/hero-dialog.component';
 import { FightReplaceWithComponent } from './components/fight/fight-replace-with/fight-replace-with.component';
+import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
 
 @NgModule({
   declarations: [
@@ -157,7 +158,8 @@ import { FightReplaceWithComponent } from './components/fight/fight-replace-with
     LandmarkComponent,
     MapAthelasComponent,
     HeroDialogComponent,
-    FightReplaceWithComponent
+    FightReplaceWithComponent,
+    ThemeToggleComponent
   ],
   imports: [
     BrowserModule,

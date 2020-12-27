@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MazeMap, MazeTile, MazeInsight, MazeExploration, MazeMob } from 'src/app/models/maze-map.model';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { MazeExplorer } from 'src/app/services/maze-generator.service';
@@ -15,7 +15,7 @@ import { QuestBookService } from 'src/app/services/quest-book.service';
   templateUrl: './maze-map.component.html',
   styleUrls: ['./maze-map.component.scss']
 })
-export class MazeMapComponent implements OnInit, OnDestroy {
+export class MazeMapComponent implements OnInit {
 
   showall: boolean;
 
@@ -66,13 +66,8 @@ export class MazeMapComponent implements OnInit, OnDestroy {
       enabled: (item) => item.effects.filter(e => !Object.keys(this.spellsession.spellEffects).includes(e)).length === 0,
     };
     this.showall = environment.showall;
-    this.audio.theme('dungeon-theme-01');
   }
   
-  ngOnDestroy(): void {
-    this.audio.theme(null);
-  }
-
   // actions
 
   clickTile(t: MazeTile) {

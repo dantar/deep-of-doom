@@ -82,6 +82,7 @@ import { HeroDialogComponent } from './components/dialogs/hero-dialog/hero-dialo
 import { FightReplaceWithComponent } from './components/fight/fight-replace-with/fight-replace-with.component';
 import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
 import { ItemCrystalComponent } from './components/inventory/item-crystal/item-crystal.component';
+import { MobTombComponent } from './components/mob/mob-tomb/mob-tomb.component';
 
 @NgModule({
   declarations: [
@@ -161,7 +162,8 @@ import { ItemCrystalComponent } from './components/inventory/item-crystal/item-c
     HeroDialogComponent,
     FightReplaceWithComponent,
     ThemeToggleComponent,
-    ItemCrystalComponent
+    ItemCrystalComponent,
+    MobTombComponent
   ],
   imports: [
     BrowserModule,

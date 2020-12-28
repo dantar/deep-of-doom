@@ -25,6 +25,7 @@ DungeonMasterService.registerDungeon(
       {name: 'skeleton', tags: []},
       {name: 'shadow', tags: []},
       {name: 'scraps', tags: []},
+      {name: 'tomb', tags: []},
       {name: 'crystal', tags: []},
     ],
     loot1: ['crystal', 'healingStone', 'manaStone', 'protectPoisonStone'],

@@ -18,7 +18,7 @@ export class FightFleeComponent implements OnInit {
 
 FightActionsService.registerItem({
   name: 'flee',
-  description: ['Se attivata, riesci a fuggire', 'L\'avversario non è sconfitto.'],
+  description: ['Se attivata, riesci a fuggire.', 'L\'avversario non è sconfitto.'],
   effect: (shared: SharedDataService) => {
     shared.fight.outcome = 'fled';
   },

@@ -28,10 +28,20 @@ class FightActionReplace extends FightAction {
 
 FightActionsService.registerItem({
   name: 'replaceWithShadow',
-  description: ['Se attivata, evoca uno spettro'],
+  description: ['Se attivata, evoca uno Spettro'],
   effect: (shared: SharedDataService) => {
     shared.fight.outcome = 'replace:shadow';
   },
   value: 1,
   mob: {name: 'shadow', tags: []},
+} as FightActionReplace);
+
+FightActionsService.registerItem({
+  name: 'replaceWithSkeleton',
+  description: ['Se attivata, evoca uno Scheletro'],
+  effect: (shared: SharedDataService) => {
+    shared.fight.outcome = 'replace:skeleton';
+  },
+  value: 1,
+  mob: {name: 'skeleton', tags: []},
 } as FightActionReplace);

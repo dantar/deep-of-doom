@@ -1,9 +1,62 @@
 <svg:svg class="fullsvg" [attr.viewBox]="viewBox()">
+
+<svg:defs>
+   <svg:g
+      id="wall-stone-4">
+      <svg:path
+         id="path3801"
+         d="m 12.916675,-0.029357 -3.735393,-13.74473 -5.090827,-4.23991 -0.201026,4.07675 -3.761622,5.44589 -0.03122,12.56485"
+         style="fill:#b3b3b3;fill-opacity:1;stroke:#4d4d4d;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <svg:path
+         style="fill:#808080;fill-opacity:1;stroke:#4d4d4d;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m -12.105344,0.474343 4.163846,-15.03367 5.605177,-2.82793 6.426776,-0.62674 -0.201026,4.07676 -3.761621,5.44588 -0.03122,12.56485"
+         id="path3803" />
+   </svg:g>
+   <svg:g
+      id="wall-stone-1">
+      <svg:path
+         id="path3787"
+         d="m -12.373227,-0.995221 2.5,-16.07143 8.303572,-3.83928 0.773384,4.71156 -0.95785,7.48469 1.850708,12.783174"
+         style="fill:#808080;stroke:#4d4d4d;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <svg:path
+         style="fill:#b3b3b3;stroke:#4d4d4d;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 12.537488,1.415489 -2.5,-16.69643 -5.120622,-4.76243 -6.486521,-0.86256 0.773384,4.71156 -0.95785,7.48469 1.850708,12.783174"
+         id="path3791" />
+   </svg:g>
+   <svg:g
+      transform="translate(-12.678572,-94.285714)"
+      id="wall-stone-3">
+      <svg:path
+         style="fill:#b3b3b3;stroke:#4d4d4d;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 24.383336,95.477227 -2.5,-10.23857 -8.303572,-2.44587 -0.773384,3.00157 0.95785,4.76825 -2.103246,9.28014"
+         id="path3793" />
+      <svg:path
+         id="path3795"
+         d="m -0.52737876,97.013007 2.49999996,-10.63673 5.1206216,-3.03398 6.4865212,-0.54951 -0.773384,3.00157 0.95785,4.76825 -2.103246,9.28014"
+         style="fill:#808080;stroke:#4d4d4d;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+   </svg:g>
+   <svg:g
+      id="wall-stone-2">
+      <svg:path
+         style="fill:#808080;stroke:#4d4d4d;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m -13.319994,0.849933 3.6462603,-13.76863 5.063249,-4.27281 0.227436,4.07536 3.7968277,5.42141 0.112629,12.564382"
+         id="path3797" />
+      <svg:path
+         id="path3799"
+         d="m 11.704764,1.191513 -4.261165,-15.00638 -5.623382,-2.79155 -6.4307017,-0.58509 0.227437,4.07537 3.7968257,5.4214 0.11263,12.564382"
+         style="fill:#b3b3b3;stroke:#4d4d4d;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+   </svg:g>
+
+   <svg:g id="wall-stone-x">
+      <svg:rect x="-12.5" y="-5.25" height="12.5" width="25" style="opacity:1;vector-effect:none;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.79627752;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"></svg:rect>
+   </svg:g>
+</svg:defs>
+
 <svg:g *ngFor="let row of shared.maze.map.rows">
    <svg:g *ngFor="let cell of row" [style]="position(cell)">
       <svg:g *ngIf="isDrawable(cell) && !isDrawn(cell)" (click)="clickTile(cell)">
          <svg:rect
-            style="opacity:0.7;vector-effect:none;fill:#ffe680;fill-opacity:0.7;stroke:none;stroke-width:1.54330707;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+            style="opacity:0.5;vector-effect:none;fill:#ffe680;fill-opacity:0.7;stroke:none;stroke-width:1.54330707;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.76923084;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
             id="rect1047"
             width="70"
             height="70"
@@ -24,7 +77,8 @@
             id="tspan24-6-5-6">?</svg:tspan></svg:text>
       </svg:g>      
       <svg:g *ngIf="isDrawn(cell) || showall"
-         class="tile north-{{cell.north}} south-{{cell.south}} east-{{cell.east}} west-{{cell.west}}">
+         class="tile north-{{cell.north}} south-{{cell.south}} east-{{cell.east}} west-{{cell.west}}"
+         style="opacity:0.3">
 
          <svg:path *ngIf="shared.maze.rooms.rooms[coords(cell)]"
             id="room-wall"
@@ -71,29 +125,38 @@
             id="room-light" />
 
       </svg:g>
+
       <svg:g id="mobplaceholder" *ngIf="showMob(cell)" (click)="clickMonster(cell)">
         <svg:g app-mob-placeholder [mob]="shared.maze.mobs.mobs[coords(cell)]"></svg:g> 
       </svg:g>
    </svg:g>
 </svg:g>
+
+<svg:g *ngFor="let wall of allwalls" [attr.transform]="wall.transform()">
+   <svg:g *ngFor="let stone of wall.stones()">
+      <svg:circle x="0" y="0" r="5" style="fill:#45a14a" [attr.transform]="stone.transform()"></svg:circle>
+      <svg:use x="0" y="0" width="100%" height="100%" [attr.xlink:href]="stone.xlink()" [attr.transform]="stone.transform()"></svg:use>
+   </svg:g>
+</svg:g>
+
 </svg:svg>
 
 <div *ngIf="activeMenu === 'spellbook'" app-menu-spellbook [session]="spellsession" (closeDialog)="activeMenu = null"></div>
 <div *ngIf="activeMenu === 'inventory'" app-menu-inventory [session]="itemsession" (closeDialog)="activeMenu = null"></div>
 
 <div class="panel-menu-list bottom-left-menu">
-    <svg viewBox="0 0 100 100">
-        <g (click)="clickSpellbook()">
-            <circle cx="50" cy="50" r="48" style="fill: none; stroke: #aaaaff; stroke-width: 4;"/>
-            <g app-cast-spell></g>
-        </g>
-    </svg>
-    <svg viewBox="0 0 100 100">
-         <g (click)="clickInventory()">
-            <circle cx="50" cy="50" r="50" style="opacity: 0;"/>
-            <g app-open-inventory></g>
-        </g>
-    </svg>
+    <svg:svg viewBox="0 0 100 100">
+        <svg:g (click)="clickSpellbook()">
+            <svg:circle cx="50" cy="50" r="48" style="fill: none; stroke: #aaaaff; stroke-width: 4;"/>
+            <svg:g app-cast-spell></svg:g>
+        </svg:g>
+    </svg:svg>
+    <svg:svg viewBox="0 0 100 100">
+         <svg:g (click)="clickInventory()">
+            <svg:circle cx="50" cy="50" r="50" style="opacity: 0;"/>
+            <svg:g app-open-inventory></svg:g>
+        </svg:g>
+    </svg:svg>
 </div>
 
 <app-fight-mob *ngIf="shared.fight" [mob]="shared.fight.mob" [support]="support" (done)="doneMonster($event)"></app-fight-mob>

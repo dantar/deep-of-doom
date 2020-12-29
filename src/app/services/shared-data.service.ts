@@ -146,7 +146,7 @@ export class SharedDataService {
     }
   }
   poison(arg0: number) {
-    this.hero.life = Math.max(0, this.hero.life - this.hero.poison);
+    this.life(-this.hero.poison);
     this.hero.poison += arg0;
   }
   exp(arg0: number) {

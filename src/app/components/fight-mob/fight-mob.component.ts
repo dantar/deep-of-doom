@@ -12,6 +12,7 @@ import { ActionStats, FightAction, FightBuilder, MobStats } from 'src/app/models
 import { ItemsLoreService } from 'src/app/services/items-lore.service';
 import { FightActionsService } from 'src/app/services/fight-actions.service';
 import { environment } from 'src/environments/environment';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-fight-mob',
@@ -236,6 +237,8 @@ export class FightMobComponent implements OnInit {
   slotTransform(slot: ActionSlot): string {
     let maxheight = 40;
     let maxwidth = Math.min(180, slot.indexof * maxheight);
+    let layout = new SlotLayout(slot.indexof, slot.index);
+    //return layout.transform();
     return `translate(${100 - maxwidth / 2},10) scale(${maxwidth / 100 / slot.indexof}) translate(${100 * slot.index},0)`;
   };
 
@@ -295,6 +298,35 @@ class ActionSlot {
   indexof: number;
   available: boolean;
   icon: string;
+
+}
+
+class SlotLayout {
+
+  maxheight = 46;
+  maxwidth = 180;
+  rows: number;
+  elements: number;
+  index: number;
+  constructor(e: number, i: number) {
+    this.elements = e;
+    this.index = i;
+    this.rows = 1;
+    let s = this.size(this.rows);
+    while (this.size(this.rows+1) > s) {
+      this.rows = this.rows+1;
+    }
+  }
+  size(rows: number) {
+    return Math.min(this.maxheight / rows, this.maxwidth / Math.ceil(this.elements / this.rows));
+  }
+  transform(): string {
+    let r = Math.ceil(this.elements / this.rows);
+    let y = Math.floor(this.index / r);
+    let x = this.index % r;
+    let s = this.size(this.rows);
+    return `translate(${100 - r * s / 2},10) scale(${1 / s}) translate(${100 * x},${100 * y})`;
+  }
 
 }
 

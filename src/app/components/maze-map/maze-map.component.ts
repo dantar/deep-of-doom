@@ -27,6 +27,7 @@ export class MazeMapComponent implements OnInit {
   //encounterTile: string;
   //encounter: MazeMob;
   support: MazeMob[];
+  allwalls: MazeWall[];
 
   activeMenu: string;
 
@@ -40,6 +41,13 @@ export class MazeMapComponent implements OnInit {
   ) { }
   
   ngOnInit(): void {
+    this.allwalls = [];
+    for (let y = 0; y <= this.shared.maze.map.sizey; y++) {
+      for (let x = 0; x <= this.shared.maze.map.sizex; x++) {
+        this.allwalls.push(new MazeWall(x, y, this.shared));
+      }
+    }
+    this.shared.maze.map.sizey
     this.activeMenu = null;
     this.effects = {
       'healLife1': () => {
@@ -191,3 +199,82 @@ export class MazeMapComponent implements OnInit {
   
 }
 
+class MazeWall {
+  x: number;
+  y: number;
+  shared: SharedDataService;
+  private _stones: MazeWallStone[];
+  private _northStones: boolean;
+  private _westStones: boolean;
+  constructor(x: number, y: number, shared: SharedDataService) {
+    this.x = x;
+    this.y = y;
+    this.shared = shared;
+    this._stones = [];
+    this._northStones = false;
+    this._westStones = false;
+  };
+  northVisible(): boolean {
+    return this.shared.maze.exploration.drawn.includes(`${this.x}-${this.y}`) || this.shared.maze.exploration.drawn.includes(`${this.x}-${this.y-1}`);
+  };
+  westVisible(): boolean {
+    return this.shared.maze.exploration.drawn.includes(`${this.x}-${this.y}`) || this.shared.maze.exploration.drawn.includes(`${this.x-1}-${this.y}`);
+  };
+  areaVisible(): boolean {
+    return this.shared.maze.exploration.drawn.includes(`${this.x}-${this.y}`);
+  };
+  stones(): MazeWallStone[] {
+    if (this.northVisible() && !this._northStones) {
+      this._northStones = true;
+      for (let n = 1; n < 8; n++) {
+        if (![3,4,5].includes(n) || this.y >= this.shared.maze.map.sizey || this.shared.maze.map.rows[this.x][this.y].north === 'wall')
+          this._stones.push(new MazeWallStone(n, 0, this.shared));
+      }
+      this._stones.sort((a, b) => a.yy() < b.yy() ? -1: a.yy() > b.yy() ? 1 : 0);
+    };
+    if (this.westVisible() && ! this._westStones) {
+      this._westStones = true;
+      for (let n = 1; n < 8; n++) {
+        if (![3,4,5].includes(n) || this.x >= this.shared.maze.map.sizex || this.shared.maze.map.rows[this.x][this.y].west === 'wall')
+          this._stones.push(new MazeWallStone(0, n, this.shared));
+      }
+      this._stones.sort((a, b) => a.yy() < b.yy() ? -1: a.yy() > b.yy() ? 1 : 0);
+    };
+    return this._stones;
+  }
+  transform(): string {
+    return `translate(${this.x*100}, ${this.y*100})`;
+  }
+
+}
+
+class MazeWallStone {
+  x: number;
+  y: number;
+  r: number;
+  dx: number;
+  dy: number;
+  shared: SharedDataService;
+  constructor(x: number, y: number, shared: SharedDataService) {
+    this.x = x;
+    this.y = y;
+    this.shared = shared;
+    this.r = this.randomInt(1, 4);
+    this.dx = this.randomInt(-4, 4);
+    this.dy = this.randomInt(-4, 4);
+  };
+  transform(): string {
+    return `translate(${this.x*12.5 + this.dx}, ${this.yy()})`;
+  }
+  xlink(): string {
+    return `#wall-stone-${this.r}`;
+  }
+  randomInt(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  yy(): number {
+    return this.y*12.5 + this.dy;
+  }
+
+
+}

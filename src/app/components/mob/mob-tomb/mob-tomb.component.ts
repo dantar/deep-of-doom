@@ -18,7 +18,7 @@ export class MobTombComponent implements OnInit {
 DungeonMasterService.registerMob(
   {
     name: 'tomb',
-    actions: ['search', 'loot1', 'loot1', 'loot2', 'replaceWithShadow', 'replaceWithSkeleton'],
+    actions: ['search', 'loot1', 'loot2', 'replaceWithShadow', 'replaceWithSkeleton'],
     life: 2,
     challenge: 'search',
     exp: 1,

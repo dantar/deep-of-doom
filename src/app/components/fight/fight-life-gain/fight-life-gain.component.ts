@@ -23,7 +23,9 @@ FightActionsService.registerItem({
   name: 'life1',
   description: ['Se attivata, recuperi 1 vita.'],
   effect: (shared: SharedDataService) => {
-    shared.life(1);
+    shared.tagsPreventFightEffect((shared)=>{
+      shared.life(1);
+    }, 'freeze');
   },
   value: 1,
 });
@@ -32,7 +34,9 @@ FightActionsService.registerItem({
   name: 'life2',
   description: ['Se attivata, recuperi 2 vite.'],
   effect: (shared: SharedDataService) => {
-    shared.life(2);
+    shared.tagsPreventFightEffect((shared)=>{
+      shared.life(2);
+    }, 'freeze');
   },
   value: 2,
 });

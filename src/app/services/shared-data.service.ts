@@ -122,6 +122,12 @@ export class SharedDataService {
     }
     return match;
   }
+  tagsPreventFightEffect(effect: (shared: SharedDataService) => void, ...tags: string[]): void {
+    let tag = this.popFightTag(...tags);
+    if (!tag) {
+      effect(this);
+    }
+  }
   gold(arg0: number) {
     this.hero.gold = Math.max(0, this.hero.gold + arg0);
   }

@@ -83,6 +83,8 @@ import { FightReplaceWithComponent } from './components/fight/fight-replace-with
 import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
 import { ItemCrystalComponent } from './components/inventory/item-crystal/item-crystal.component';
 import { MobTombComponent } from './components/mob/mob-tomb/mob-tomb.component';
+import { MobGhostComponent } from './components/mob/mob-ghost/mob-ghost.component';
+import { FightFreezeComponent } from './components/fight/fight-freeze/fight-freeze.component';
 
 @NgModule({
   declarations: [
@@ -163,7 +165,9 @@ import { MobTombComponent } from './components/mob/mob-tomb/mob-tomb.component';
     FightReplaceWithComponent,
     ThemeToggleComponent,
     ItemCrystalComponent,
-    MobTombComponent
+    MobTombComponent,
+    MobGhostComponent,
+    FightFreezeComponent
   ],
   imports: [
     BrowserModule,

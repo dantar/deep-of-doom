@@ -23,7 +23,9 @@ FightActionsService.registerItem({
   name: 'mana1',
   description: ['Se attivata, recuperi 1 mana.'],
   effect: (shared: SharedDataService) => {
-    shared.mana(1);
+    shared.tagsPreventFightEffect((shared)=>{
+      shared.mana(1);
+    }, 'freeze');
   },
   value: 1,
 });
@@ -32,7 +34,9 @@ FightActionsService.registerItem({
   name: 'mana2',
   description: ['Se attivata, recuperi 2 mana.'],
   effect: (shared: SharedDataService) => {
-    shared.mana(2);
+    shared.tagsPreventFightEffect((shared)=>{
+      shared.mana(2);
+    }, 'freeze');
   },
   value: 2,
 });

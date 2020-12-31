@@ -53,8 +53,6 @@ export class FightMobComponent implements OnInit {
 
   activeMenu: string;
 
-  outcome: string;
-
   maxrowsize = 10;
 
   constructor(
@@ -116,7 +114,11 @@ export class FightMobComponent implements OnInit {
       'loot1': (shared: SharedDataService) => {
         this.builder.newActionSlot('stuff');
         this.refreshDrawables();
-      }
+      },
+      'addAction:drainmana': (shared: SharedDataService) => {
+        this.builder.newActionSlot('drainmana');
+        this.refreshDrawables();
+      },
     }
     this.activeMenu = null;
     this.fleeEnabled = true;
@@ -174,8 +176,8 @@ export class FightMobComponent implements OnInit {
     this.action = this.pickAction();
     this.fightinfo.actions[this.action.action.name].effect(this.shared);
     this.action.available = false;
-    if (!this.shared.fight.outcome && this.drawables.length == 0) {
-      this.outcome = 'fled';
+    if (!this.shared.fight.outcome && this.drawables.length === 0) {
+      this.shared.fight.outcome = 'fled';
     }
   }
   

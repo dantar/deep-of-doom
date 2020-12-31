@@ -3,11 +3,11 @@ import { MobStats } from 'src/app/models/fight.model';
 import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 
 @Component({
-  selector: '[app-mob-shadow]',
-  templateUrl: './mob-shadow.component.html',
-  styleUrls: ['./mob-shadow.component.scss']
+  selector: '[app-mob-ghost]',
+  templateUrl: './mob-ghost.component.html',
+  styleUrls: ['./mob-ghost.component.scss']
 })
-export class MobShadowComponent implements OnInit {
+export class MobGhostComponent implements OnInit {
 
   constructor() { }
 
@@ -18,13 +18,13 @@ export class MobShadowComponent implements OnInit {
 
 DungeonMasterService.registerMob(
   {
-    name: 'shadow',
-    actions: ['drainmana', 'drainmana'],
-    life: 1,
+    name: 'ghost',
+    actions: ['drainmana', 'hit', 'freeze'],
+    life: 2,
     challenge: 'fight',
-    exp: 1,
+    exp: 3,
     blocks: true,
-    component: MobShadowComponent,
+    component: MobGhostComponent,
     tags: {},
     done: 'win',
     keywords: ['monster', 'undead'],
@@ -37,4 +37,3 @@ DungeonMasterService.registerMob(
     }
   },
 );
-

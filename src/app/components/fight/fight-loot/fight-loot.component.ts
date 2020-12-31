@@ -23,7 +23,9 @@ FightActionsService.registerItem({
   name: 'loot1',
   description: ['Se attivata, ottieni un oggetto COMUNE fra quelli disponibili nel labirinto in cui ti trovi.'],
   effect: (shared: SharedDataService) => {
-    shared.rewardLoot(1);
+    shared.tagsPreventFightEffect((shared)=>{
+      shared.rewardLoot(1);
+    }, 'freeze');
   },
   value: 1,
 });
@@ -32,7 +34,9 @@ FightActionsService.registerItem({
   name: 'loot2',
   description: ['Se attivata, ottieni un oggetto NON COMUNE fra quelli disponibili nel labirinto in cui ti trovi.'],
   effect: (shared: SharedDataService) => {
-    shared.rewardLoot(2);
+    shared.tagsPreventFightEffect((shared)=>{
+      shared.rewardLoot(2);
+    }, 'freeze');
   },
   value: 2,
 });
@@ -41,7 +45,9 @@ FightActionsService.registerItem({
   name: 'loot3',
   description: ['Se attivata, ottieni un oggetto RARO fra quelli disponibili nel labirinto in cui ti trovi.'],
   effect: (shared: SharedDataService) => {
-    shared.rewardLoot(3);
+    shared.tagsPreventFightEffect((shared)=>{
+      shared.rewardLoot(3);
+    }, 'freeze');
   },
   value: 3,
 });

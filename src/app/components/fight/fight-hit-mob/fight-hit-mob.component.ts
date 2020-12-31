@@ -24,7 +24,9 @@ FightActionsService.registerItem({
   name: 'fight',
   description: ['Se attivata, l\'avversario subisce un colpo e perde 1 vita.'],
   effect: (shared: SharedDataService) => {
-    shared.adjustMobLife(-1);
+    shared.tagsPreventFightEffect((shared)=>{
+      shared.adjustMobLife(-1);
+    }, 'freeze');
   },
   value: 1,
 });
@@ -33,7 +35,9 @@ FightActionsService.registerItem({
   name: 'fight2',
   description: ['Se attivata, l\'avversario subisce un colpo e perde 2 vite.'],
   effect: (shared: SharedDataService) => {
-    shared.adjustMobLife(-2);
+    shared.tagsPreventFightEffect((shared)=>{
+      shared.adjustMobLife(-2);
+    }, 'freeze');
   },
   value: 2,
 });

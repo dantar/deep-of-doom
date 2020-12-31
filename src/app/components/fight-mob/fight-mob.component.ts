@@ -122,7 +122,6 @@ export class FightMobComponent implements OnInit {
     }
     this.activeMenu = null;
     this.fleeEnabled = true;
-    this.outcome = null;
     this.spellsession = {
       exaustedSpells: [],
       spellEffects: this.effects,
@@ -169,7 +168,7 @@ export class FightMobComponent implements OnInit {
   // clicks
 
   nextClick() {
-    if (this.outcome) {
+    if (this.shared.fight.outcome) {
       return;
     }
     this.audio.play('action');

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HeroItem } from 'src/app/models/hero.model';
+import { HeroEquipment } from 'src/app/models/hero.model';
 
 @Component({
   selector: '[app-item-placeholder]',
@@ -8,7 +8,7 @@ import { HeroItem } from 'src/app/models/hero.model';
 })
 export class ItemPlaceholderComponent implements OnInit {
 
-  @Input() item: HeroItem;
+  @Input() item: HeroEquipment;
 
   constructor() { }
 

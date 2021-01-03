@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HeroItem } from 'src/app/models/hero.model';
+import { HeroEquipment, HeroItem } from 'src/app/models/hero.model';
 import { ItemsLoreService } from 'src/app/services/items-lore.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { ItemsLoreService } from 'src/app/services/items-lore.service';
 })
 export class ItemProtectPoisonStoneComponent implements OnInit {
   
-  @Input() item: HeroItem;
+  @Input() item: HeroEquipment;
 
   constructor() { }
 
@@ -22,13 +22,7 @@ ItemsLoreService.registerItem({
   name: 'protectPoisonStone',
   title: 'Pietra annulla veleno',
   traits: [],
-  effects: ['protectPoison1'],
-  spells: ['protectPoisonIm2v1'],
-});
-ItemsLoreService.registerItem({
-  name: 'protectPoisonStoneEmpty',
-  title: 'Pietra annulla veleno consumata',
-  traits: ['empty'],
-  effects: [],
-  spells: ['protectPoisonIm2v1'],
+  triggers: {
+    // protect from poison (was protectPoison1)
+  },
 });

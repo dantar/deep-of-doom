@@ -62,6 +62,7 @@ export class FightMobComponent implements OnInit {
     private game: GamesCommonService,
     private master: DungeonMasterService,
     private audio: AudioPlayService,
+    private items: ItemsLoreService,
     ) { }
 
   ngOnInit(): void {
@@ -131,16 +132,6 @@ export class FightMobComponent implements OnInit {
       },
       enabled: (spell: MageSpell) => {
         return !this.spellsession.exaustedSpells.includes(spell.name) && spell.effects.filter(e => !Object.keys(this.spellsession.spellEffects).includes(e)).length === 0 ;
-      },
-    };
-    this.itemsession = {
-      itemEffects: this.effects,
-      use: (item) => {
-        item.effects.forEach(e => this.itemsession.itemEffects[e](this.shared));
-        this.shared.hero.inventory.splice(this.shared.hero.inventory.indexOf(item.name), 1);
-      },
-      enabled: (item) => {
-        return item.effects.filter(e => !Object.keys(this.itemsession.itemEffects).includes(e)).length === 0 ;
       },
     };
     this.mobStats = this.master.mobs[this.mob.name];

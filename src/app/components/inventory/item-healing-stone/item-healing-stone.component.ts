@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HeroItem } from 'src/app/models/hero.model';
+import { HeroEquipment, HeroEquipmentCountable, HeroItem } from 'src/app/models/hero.model';
 import { ItemsLoreService } from 'src/app/services/items-lore.service';
+import { SharedDataService } from 'src/app/services/shared-data.service';
 
 @Component({
   selector: '[app-item-healing-stone]',
@@ -9,11 +10,14 @@ import { ItemsLoreService } from 'src/app/services/items-lore.service';
 })
 export class ItemHealingStoneComponent implements OnInit {
 
-  @Input() item: HeroItem;
+  @Input() item: HeroEquipment;
+  stats: HeroItem;
 
-  constructor() { }
-
+  constructor(private items: ItemsLoreService) { 
+  }
+  
   ngOnInit(): void {
+    this.stats = this.items.items[this.item.name]; 
   }
 
 }
@@ -22,13 +26,13 @@ ItemsLoreService.registerItem({
   name: 'healingStone',
   title: 'Pietra curativa',
   traits: [],
-  effects: ['healLife1'],
-  spells: [],
-});
-ItemsLoreService.registerItem({
-  name: 'healingStoneEmpty',
-  title: 'Pietra curativa consumata',
-  traits: ['empty'],
-  effects: [],
-  spells: [],
+  triggers: {
+    map: {
+      check: (shared: SharedDataService, e: HeroEquipment) => (e as HeroEquipmentCountable).count ? true : false,
+      fire: (shared: SharedDataService, e: HeroEquipment) => {
+        shared.life(1);
+        HeroItem.loseCountable(shared, e as HeroEquipmentCountable, 1);
+      },
+    },
+  }
 });

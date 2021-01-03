@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { HeroItem, ItemSession } from 'src/app/models/hero.model';
+import { HeroEquipment, HeroItem, ItemSession } from 'src/app/models/hero.model';
 import { AudioPlayService } from 'src/app/services/audio-play.service';
 import { GuiCommonsService } from 'src/app/services/gui-commons.service';
 import { ItemsLoreService } from 'src/app/services/items-lore.service';
@@ -12,30 +12,28 @@ import { SharedDataService } from 'src/app/services/shared-data.service';
 })
 export class MenuInventoryComponent implements OnInit {
 
-  @Input() session: ItemSession;
   @Output() closeDialog = new EventEmitter<string>();
+  trigger: string;
 
   constructor(
     public gui: GuiCommonsService,
     private audio: AudioPlayService,
     private shared: SharedDataService,
     private items: ItemsLoreService,
-    ) { }
+  ) { }
 
   inventory: InventoryItem[];
-  itemsByName: {[id:string]: InventoryItem};
-
+  
   ngOnInit(): void {
-    this.inventory = [];
-    this.itemsByName = {};
-    this.shared.hero.inventory
-    .map(i => this.items.items[i])
-    .forEach(item => {if (this.itemsByName[item.name]) {
-      this.itemsByName[item.name].count += 1;
-    } else {
-      this.itemsByName[item.name] = new InventoryItem(item, this.session.enabled(item));
-      this.inventory.push(this.itemsByName[item.name]);
-    }}) ;
+    this.trigger = this.shared.fight ? 'fight': this.shared.hero.location === 'maze' ? 'maze' : 'map';
+    this.initInventory();
+  }
+  private initInventory() {
+    this.inventory = this.shared.hero.inventory
+    .map(i => {
+      let item = this.items.items[i.name];
+      return new InventoryItem(i, item, item.triggers && item.triggers[this.trigger] && item.triggers[this.trigger].check(this.shared, i));
+    });
   }
 
   clickClose() {
@@ -45,21 +43,25 @@ export class MenuInventoryComponent implements OnInit {
 
   clickItem(item: InventoryItem) {
     this.audio.play('action');
-    this.session.use(item.item);
-    this.ngOnInit();
+    let t = item.item.triggers[this.trigger];
+    if (t && t.check(this.shared, item.equipment)) {
+      t.fire(this.shared, item.equipment);
+    }
+    this.initInventory();
   }
 
 }
 
 class InventoryItem {
 
+  equipment: HeroEquipment;
   item: HeroItem;
   enabled: boolean;
-  count: number;
 
-  constructor(item: HeroItem, enabled: boolean) {
+  constructor(equipment: HeroEquipment, item: HeroItem, enabled: boolean) {
+    this.equipment = equipment;
     this.item = item;
     this.enabled = enabled;
-    this.count = 1;
   }
+
 }

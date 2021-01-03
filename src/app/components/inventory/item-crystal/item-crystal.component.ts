@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HeroItem, HeroRewardItem } from 'src/app/models/hero.model';
+import { HeroEquipment, HeroEquipmentCountable, HeroItem, HeroRewardItem } from 'src/app/models/hero.model';
 import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 import { FightActionsService } from 'src/app/services/fight-actions.service';
 import { ItemsLoreService } from 'src/app/services/items-lore.service';
@@ -12,7 +12,7 @@ import { SharedDataService } from 'src/app/services/shared-data.service';
 })
 export class ItemCrystalComponent implements OnInit {
 
-  @Input() item: HeroItem;
+  @Input() item: HeroEquipment;
 
   constructor() { }
 
@@ -25,8 +25,10 @@ let crystalItem: HeroItem = {
   name: 'crystal',
   title: 'Cristallo di Kyr',
   traits: [],
-  effects: [],
-  spells: [],
+  gain: HeroItem.gainCountable,
+  lose: HeroItem.loseCountable,
+  factory: (shared: SharedDataService) => {return {name:'crystal', count: 1}},
+  triggers: {},
 };
 
 ItemsLoreService.registerItem(crystalItem);
@@ -50,7 +52,7 @@ FightActionsService.registerItem({
   name: 'crystal',
   description: ['Se attivata, trovi un cristallo di Kyr'],
   effect: (shared: SharedDataService) => {
-    shared.reward(new HeroRewardItem(crystalItem));
+    shared.reward(new HeroRewardItem({name:'crystal', count: 1} as HeroEquipmentCountable));
   },
   value: 1,
 });

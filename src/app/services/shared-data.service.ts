@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MazeMap, MazeExploration, MazeMobs, MazeRooms, MazeData, MazeTile } from '../models/maze-map.model';
 import { MazeGeneratorService } from './maze-generator.service';
-import { HeroDialog, HeroItem, HeroReward, HeroRewardItem, WizardHero } from '../models/hero.model';
+import { HeroDialog, HeroEquipment, HeroItem, HeroReward, HeroRewardItem, WizardHero } from '../models/hero.model';
 import { SavedData } from '../models/saved-data.model';
 import { DungeonMasterService } from './dungeon-master.service';
 import { QuestData } from '../models/quest.model';
@@ -131,14 +131,28 @@ export class SharedDataService {
   gold(arg0: number) {
     this.hero.gold = Math.max(0, this.hero.gold + arg0);
   }
-  life(arg0: number) {
+  life(arg0: number): SharedDataService {
     this.hero.life = Math.min(this.hero.maxlife, Math.max(0, this.hero.life + arg0));
     if (this.fight && this.hero.life <= 0) {
       this.fight.outcome = 'died';
     }
+    return this;
+  }
+  gainItem(item: HeroEquipment): SharedDataService {
+    let i = this.items.items[item.name];
+    if (i.gain) {
+      i.gain(this, item);
+    } else {
+      this.hero.inventory.push(item);
+    }
+    return this;
   }
   mana(arg0: number) {
     this.hero.mana = Math.min(this.hero.maxmana, Math.max(0, this.hero.mana + arg0));
+  }
+  drop(e: HeroEquipment): SharedDataService {
+    this.hero.inventory.splice(this.hero.inventory.indexOf(e), 1);
+    return this;
   }
   manaOrLife(arg0: number) {
     this.hero.mana = this.hero.mana + arg0;
@@ -174,7 +188,8 @@ export class SharedDataService {
       this.maze[loot] = this.master.generateLoot(this.master.dungeons[this.maze.name][loot]);
     }
     let name: string = this.games.randomPop(this.maze[loot]);
-    this.reward(new HeroRewardItem(this.items.items[name]));
+    let i = this.items.items[name];
+    this.reward(new HeroRewardItem(i.factory ? i.factory(this) : {name: name}));
   }
 
 

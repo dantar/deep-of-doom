@@ -52,6 +52,33 @@ export class MazeGeneratorService {
     let insight = new MazeInsight().study(maze);
     let m: MazeMobs = {mobs: {}, active: []};
     let vaults = insight.exit1.map(t => MazeMap.coords(t)).filter(t => ![e.entry, e.exit].includes(t));
+    this.games.shuffle(vaults);
+    let others = []
+    .concat(insight.exit2)
+    .concat(insight.exit3)
+    .concat(insight.exit4)
+    .map(t => MazeMap.coords(t));
+    this.games.shuffle(others);
+    // mobs
+    let allmobs: MazeMob[] = [];
+    for (let index = 0; index < maze.sizex * maze.sizey; index = index + d.mobs.length) {
+      allmobs = allmobs.concat(d.mobs);
+    }
+    this.games.shuffle(allmobs);
+    vaults.forEach(v => m.mobs[v] = allmobs.pop());
+    console.log(others, Math.ceil(others.length / 1.5));
+    let count = Math.ceil(others.length / 1.5);
+    for (let index = 0; index < count; index++) {
+      m.mobs[this.games.randomPop(others)] = allmobs.pop();
+    }
+    m.mobs[e.exit] = this.createMob('exit');
+    return m;
+  }
+
+  mobsOld(maze: MazeMap, e: MazeExploration, d: DungeonStats): MazeMobs {
+    let insight = new MazeInsight().study(maze);
+    let m: MazeMobs = {mobs: {}, active: []};
+    let vaults = insight.exit1.map(t => MazeMap.coords(t)).filter(t => ![e.entry, e.exit].includes(t));
     vaults.pop();
     this.games.shuffle(vaults);
     let others = []

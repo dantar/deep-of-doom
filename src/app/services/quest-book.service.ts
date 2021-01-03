@@ -19,7 +19,8 @@ export class QuestBookService {
 
   rewardTypes : {[code:string]: (name: string) => HeroReward} = {
     'item': (name) => {
-      return new HeroRewardItem(this.items.items[name.split(':')[1]]);
+      let i = this.items.items[name.split(':')[1]];
+      return new HeroRewardItem(i.factory ? i.factory(this.shared) : {name: name});
     },
     'exp': (name) => {
       return new HeroRewardExp(parseInt(name.split(':')[1]));

@@ -9,6 +9,7 @@ import { DungeonMasterService } from 'src/app/services/dungeon-master.service';
 import { HeroRewardExp, ItemSession, SpellSession } from 'src/app/models/hero.model';
 import { GuiCommonsService } from 'src/app/services/gui-commons.service';
 import { QuestBookService } from 'src/app/services/quest-book.service';
+import { ItemsLoreService } from 'src/app/services/items-lore.service';
 
 @Component({
   selector: 'app-maze-map',
@@ -38,6 +39,7 @@ export class MazeMapComponent implements OnInit {
     public master: DungeonMasterService,
     public gui: GuiCommonsService,
     private quests: QuestBookService,
+    private items: ItemsLoreService,
   ) { }
   
   ngOnInit(): void {
@@ -64,14 +66,6 @@ export class MazeMapComponent implements OnInit {
         spell.effects.forEach(e => this.spellsession.spellEffects[e](this.shared));
       },
       enabled: (spell) => spell.effects.filter(e => !Object.keys(this.spellsession.spellEffects).includes(e)).length === 0,
-    };
-    this.itemsession = {
-      itemEffects: this.effects,
-      use: (item) => {
-        item.effects.forEach(e => this.itemsession.itemEffects[e](this.shared));
-        this.shared.hero.inventory.splice(this.shared.hero.inventory.indexOf(item.name), 1);
-      },
-      enabled: (item) => item.effects.filter(e => !Object.keys(this.spellsession.spellEffects).includes(e)).length === 0,
     };
     this.showall = environment.showall;
   }
@@ -178,7 +172,7 @@ export class MazeMapComponent implements OnInit {
   }
 
   showMob(cell: MazeTile) {
-    return this.showall || (this.isDrawn(cell) && this.shared.maze.mobs.mobs[MazeTile.coords(cell)])
+    return (this.showall || this.isDrawn(cell)) && this.shared.maze.mobs.mobs[MazeTile.coords(cell)];
   }
 
   // menu

@@ -142,7 +142,7 @@
 </svg:svg>
 
 <div *ngIf="activeMenu === 'spellbook'" app-menu-spellbook [session]="spellsession" (closeDialog)="activeMenu = null"></div>
-<div *ngIf="activeMenu === 'inventory'" app-menu-inventory [session]="itemsession" (closeDialog)="activeMenu = null"></div>
+<div *ngIf="activeMenu === 'inventory'" app-menu-inventory (closeDialog)="activeMenu = null"></div>
 
 <div class="panel-menu-list bottom-left-menu">
     <svg:svg viewBox="0 0 100 100">

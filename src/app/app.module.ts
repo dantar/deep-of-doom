@@ -85,6 +85,7 @@ import { ItemCrystalComponent } from './components/inventory/item-crystal/item-c
 import { MobTombComponent } from './components/mob/mob-tomb/mob-tomb.component';
 import { MobGhostComponent } from './components/mob/mob-ghost/mob-ghost.component';
 import { FightFreezeComponent } from './components/fight/fight-freeze/fight-freeze.component';
+import { ItemSpiritImpComponent } from './components/inventory/item-spirit-imp/item-spirit-imp.component';
 
 @NgModule({
   declarations: [
@@ -167,7 +168,8 @@ import { FightFreezeComponent } from './components/fight/fight-freeze/fight-free
     ItemCrystalComponent,
     MobTombComponent,
     MobGhostComponent,
-    FightFreezeComponent
+    FightFreezeComponent,
+    ItemSpiritImpComponent
   ],
   imports: [
     BrowserModule,

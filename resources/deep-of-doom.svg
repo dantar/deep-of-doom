@@ -184,10 +184,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.6"
-     inkscape:cx="67.555338"
-     inkscape:cy="60.119983"
+     inkscape:cx="95.973334"
+     inkscape:cy="69.227831"
      inkscape:document-units="px"
-     inkscape:current-layer="layer66"
+     inkscape:current-layer="spirit-imp"
      showgrid="false"
      units="px"
      inkscape:window-width="1853"
@@ -206,7 +206,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -5967,104 +5967,172 @@
      inkscape:groupmode="layer"
      id="layer66"
      inkscape:label="spirit imp">
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 50.255089,41.411153 55.305851,20.197949 92.428957,7.8235809 52.527932,46.461915 Z"
-       id="path1867"
-       inkscape:connector-curvature="0" />
-    <path
-       inkscape:connector-curvature="0"
-       id="path1869"
-       d="M 40.411169,41.549197 38.323223,20.127988 22.976818,7.6322837 39.471594,46.649484 Z"
-       style="fill:none;stroke:#000000;stroke-width:0.64610046px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-    <path
-       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:#ff2a2a;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
-       d="m 46.467016,34.718891 c 0,4.253925 -2.374369,7.702413 -5.303301,7.702413 -2.928932,0 -5.303301,-3.448488 -5.303301,-7.702413 0,-4.253925 2.374369,-3.661803 5.303301,-3.661803 2.928932,0 5.303301,-0.592122 5.303301,3.661803 z"
-       id="path1871"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="sssss" />
-    <ellipse
-       transform="rotate(-90)"
-       ry="6.7857141"
-       rx="1.7857143"
-       cy="31.508223"
-       cx="-45.315407"
-       id="ellipse1892"
-       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:#ff2a2a;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
-    <path
-       sodipodi:nodetypes="sssss"
-       inkscape:connector-curvature="0"
-       id="path1874"
-       d="m 47.697146,48.481107 c -1.100997,4.108977 -4.286995,6.825428 -7.116126,6.067365 -2.829132,-0.758064 -4.230062,-4.703579 -3.129065,-8.812555 1.100997,-4.108976 3.241209,-2.922498 6.07034,-2.164435 2.829131,0.758063 5.275848,0.800649 4.174851,4.909625 z"
-       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:#ff2a2a;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
-    <path
-       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:#ff2a2a;stroke-width:0.59153444;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
-       d="m 46.104741,59.357608 c 0.385254,-1.437784 -1.595901,-3.217871 -4.425032,-3.975934 -2.829131,-0.758064 -5.434905,-0.207041 -5.820158,1.230744 -0.385253,1.437783 1.961836,1.852184 4.790967,2.610247 2.829131,0.758064 5.068971,1.572727 5.454223,0.134943 z"
-       id="path1876"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="sssss" />
-    <ellipse
-       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:#ff2a2a;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
-       id="path1878"
-       cx="19.263645"
-       cy="70.236183"
-       rx="1.7857143"
-       ry="6.7857141"
-       transform="rotate(-15)" />
-    <ellipse
-       transform="rotate(-15)"
-       ry="6.7857141"
-       rx="1.7857143"
-       cy="84.534454"
-       cx="19.499592"
-       id="ellipse1880"
-       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:#ff2a2a;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
-    <ellipse
-       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:#ff2a2a;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
-       id="ellipse1882"
-       cx="70.147072"
-       cy="-21.690844"
-       rx="1.7857143"
-       ry="6.7857141"
-       transform="rotate(75)" />
-    <ellipse
-       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:#ff2a2a;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
-       id="ellipse1884"
-       cx="15.391315"
-       cy="76.408554"
-       rx="1.7857143"
-       ry="6.7857141"
-       transform="rotate(-15)" />
-    <ellipse
-       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:#ff2a2a;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
-       id="ellipse1888"
-       cx="-4.2931509"
-       cy="85.357895"
-       rx="1.7857143"
-       ry="6.7857141"
-       transform="rotate(-45)" />
-    <ellipse
-       transform="rotate(-15)"
-       ry="6.7857141"
-       rx="1.7857143"
-       cy="63.57201"
-       cx="35.099483"
-       id="ellipse1886"
-       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:#ff2a2a;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
-    <ellipse
-       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:#ff2a2a;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
-       id="ellipse1890"
-       cx="-27.351667"
-       cy="37.447956"
-       rx="1.7857143"
-       ry="6.7857141"
-       transform="rotate(-60)" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 40.892857,57.5 c 0,0 33.479298,16.947512 27.328022,20.284439 -18.878557,10.241186 9.993406,-25.46301 9.993406,-25.46301"
-       id="path1894"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="csc" />
+    <g
+       id="spirit-imp"
+       inkscape:label="#g1911">
+      <g
+         inkscape:label="#g1870"
+         id="spirit-wings">
+        <path
+           style="fill:#cd87de;stroke:#800080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 46.374044,40.245194 56.743087,21.062046 95.803976,18.717491 47.262209,45.71211 Z"
+           id="path1867"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path1869"
+           d="M 42.176909,39.263488 45.704324,18.031789 34.114962,1.9899235 39.949297,43.946807 Z"
+           style="fill:#cd87de;stroke:#800080;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#path1867"
+           id="use2956"
+           transform="rotate(15,44.790002,47.385901)"
+           width="100%"
+           height="100%" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#path1869"
+           id="use2960"
+           transform="rotate(-15,33.610973,41.16592)"
+           width="100%"
+           height="100%" />
+      </g>
+      <g
+         inkscape:label="#g1862"
+         id="spirit-arm-r">
+        <ellipse
+           transform="rotate(-90)"
+           ry="6.7857141"
+           rx="1.7857143"
+           cy="32.579651"
+           cx="-40.493977"
+           id="ellipse1892"
+           style="opacity:1;vector-effect:none;fill:#cd87de;fill-opacity:1;stroke:#800080;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+        <ellipse
+           style="opacity:1;vector-effect:none;fill:#cd87de;fill-opacity:1;stroke:#800080;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+           id="ellipse1890"
+           cx="-22.640474"
+           cy="35.965126"
+           rx="1.7857143"
+           ry="6.7857141"
+           transform="rotate(-60)" />
+      </g>
+      <use
+         x="0"
+         y="0"
+         xlink:href="#spirit-arm-r"
+         id="use2964"
+         transform="rotate(-15,47.34398,43.725144)"
+         width="100%"
+         height="100%" />
+      <g
+         inkscape:label="#g1854"
+         id="spirit-leg-r">
+        <ellipse
+           style="opacity:1;vector-effect:none;fill:#cd87de;fill-opacity:1;stroke:#800080;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+           id="path1878"
+           cx="22.393122"
+           cy="69.96051"
+           rx="2.5058899"
+           ry="9.5223808"
+           transform="rotate(-15)" />
+        <ellipse
+           transform="rotate(-15)"
+           ry="9.5223808"
+           rx="2.5058899"
+           cy="88.725403"
+           cx="22.702774"
+           id="ellipse1880"
+           style="opacity:1;vector-effect:none;fill:#cd87de;fill-opacity:1;stroke:#800080;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+      </g>
+      <g
+         inkscape:label="#g1887"
+         id="spirit-head">
+        <path
+           style="opacity:1;vector-effect:none;fill:#cd87de;fill-opacity:1;stroke:#800080;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+           d="m 47.875717,32.052536 c -1.100997,4.108977 -4.286995,6.825428 -7.116126,6.067365 -2.829132,-0.758064 -4.230062,-4.703579 -3.129065,-8.812555 1.100997,-4.108976 3.241209,-2.922498 6.07034,-2.164435 2.829131,0.758063 5.275848,0.800649 4.174851,4.909625 z"
+           id="path1871"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="sssss" />
+        <path
+           style="fill:#e5ff80;stroke:#aad400;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 44.639382,27.759023 49.18139,18.126012 46.971915,29.299087 Z"
+           id="path1879"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path1882"
+           d="M 42.667987,27.230789 43.550998,16.617353 39.877923,27.398257 Z"
+           style="fill:#e5ff80;stroke:#aad400;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      </g>
+      <g
+         inkscape:label="#g1874"
+         id="spirit-body">
+        <path
+           sodipodi:nodetypes="sssss"
+           inkscape:connector-curvature="0"
+           id="path1874"
+           d="m 48.768574,43.659678 c -1.100997,4.108977 -4.286995,6.825428 -7.116126,6.067365 -2.829132,-0.758064 -4.230062,-4.703579 -3.129065,-8.812555 1.100997,-4.108976 3.241209,-2.922498 6.07034,-2.164435 2.829131,0.758063 5.275848,0.800649 4.174851,4.909625 z"
+           style="opacity:1;vector-effect:none;fill:#cd87de;fill-opacity:1;stroke:#800080;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+        <path
+           style="opacity:1;vector-effect:none;fill:#cd87de;fill-opacity:1;stroke:#800080;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+           d="m 47.176169,54.536179 c 0.385254,-1.437784 -1.595901,-3.217871 -4.425032,-3.975934 -2.829131,-0.758064 -5.434905,-0.207041 -5.820158,1.230744 -0.385253,1.437783 1.961836,1.852184 4.790967,2.610247 2.829131,0.758064 5.068971,1.572727 5.454223,0.134943 z"
+           id="path1876"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="sssss" />
+      </g>
+      <g
+         inkscape:label="#g1858"
+         id="spirit-leg-l">
+        <ellipse
+           style="opacity:1;vector-effect:none;fill:#cd87de;fill-opacity:1;stroke:#800080;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+           id="ellipse1882"
+           cx="65.217896"
+           cy="-21.675226"
+           rx="2.5058899"
+           ry="9.5223808"
+           transform="rotate(75)" />
+        <ellipse
+           style="opacity:1;vector-effect:none;fill:#cd87de;fill-opacity:1;stroke:#800080;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+           id="ellipse1884"
+           cx="12.835109"
+           cy="74.004623"
+           rx="2.5058899"
+           ry="9.5223808"
+           transform="rotate(-15)" />
+      </g>
+      <g
+         inkscape:label="#g1866"
+         id="spirit-arm-l">
+        <ellipse
+           style="opacity:1;vector-effect:none;fill:#cd87de;fill-opacity:1;stroke:#800080;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+           id="ellipse1888"
+           cx="-0.12627175"
+           cy="82.706245"
+           rx="1.7857143"
+           ry="6.7857141"
+           transform="rotate(-45)" />
+        <ellipse
+           transform="rotate(-15)"
+           ry="6.7857141"
+           rx="1.7857143"
+           cy="59.192173"
+           cx="37.382282"
+           id="ellipse1886"
+           style="opacity:1;vector-effect:none;fill:#cd87de;fill-opacity:1;stroke:#800080;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+      </g>
+      <use
+         x="0"
+         y="0"
+         xlink:href="#spirit-arm-l"
+         id="use2962"
+         transform="rotate(15,34.492997,39.57369)"
+         width="100%"
+         height="100%" />
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"

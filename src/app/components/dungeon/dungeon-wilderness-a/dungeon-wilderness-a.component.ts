@@ -28,10 +28,8 @@ DungeonMasterService.registerDungeon(
       {name: 'tomb', tags: []},
       {name: 'crystal', tags: []},
     ],
-    loot1: ['healingStone'],
-    loot2: ['healingStone'],
-    // loot1: ['crystal', 'healingStone', 'manaStone', 'protectPoisonStone'],
-    // loot2: ['healingStone', 'manaStone', 'protectPoisonStone'],
+    loot1: ['crystal', 'healingStone', 'manaStone', 'protectPoisonStone'],
+    loot2: ['healingStone', 'manaStone', 'protectPoisonStone'],
     loot3: ['healingStone', 'manaStone', 'protectPoisonStone'],
   }
 );

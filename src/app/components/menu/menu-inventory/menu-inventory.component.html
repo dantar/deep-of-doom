@@ -11,7 +11,7 @@
     <div class="dialog-message">Inventario del tuo equipaggiamento</div>
     <div class="dialog-button" class="enabled-{{inv.enabled}}" *ngFor="let inv of inventory" (click)="clickItem(inv)">
         <svg viewBox="0 0 100 100">
-            <g app-item-placeholder [item]="inv.item"></g>
+            <g app-item-placeholder [item]="inv.equipment"></g>
             <g app-item-stack *ngIf="inv.equipment.count && inv.equipment.count > 1" [count]="inv.equipment.count"></g>
         </svg>
         {{inv.item.title}}
